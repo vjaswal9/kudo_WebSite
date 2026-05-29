@@ -16,11 +16,11 @@ export const translations = {
     nav_book_full: "Book a Discovery Call",
 
     // ── Hero ─────────────────────────────────────────────
-    hero_label: "AI Advisory for Enterprise Leaders · Dubai & the Middle East",
+    hero_label: "AI Advisory for Enterprise Leaders · UAE, Dubai & the Middle East",
     hero_h1_prefix: "Turn AI intent into",
     hero_h1_em: "forward motion",
     hero_body:
-      "Kudo, is the Japanese word for driving force or propulsion (駆動). We help enterprise leadership teams across Dubai and the Middle East go from AI ambition to governed, measurable progress. Without the buzzwords. Without the vendor lock-in.",
+      "Kudo, is the Japanese word for driving force or propulsion (駆動). We help enterprise leadership teams across the UAE, Dubai, Abu Dhabi and the wider Middle East go from AI ambition to governed, measurable progress. Without the buzzwords. Without the vendor lock-in.",
     hero_cta_primary: "Book a Discovery Call",
     hero_cta_secondary: "Explore AI Advisory Services",
 
@@ -118,7 +118,7 @@ export const translations = {
     contact_label: "Start the Conversation",
     contact_h2: "Book a discovery call",
     contact_body:
-      "If you're shaping AI strategy at board or C-suite level, Vijay welcomes the conversation. A 30-minute call to understand your situation and explore how Kudo Advisory can help.",
+      "If you're shaping AI strategy at board or C-suite level across the UAE, Dubai, Abu Dhabi or the wider Middle East, Vijay welcomes the conversation. A 30-minute call to understand your situation and explore how Kudo Advisory can help.",
     contact_calendly_h3: "Schedule directly",
     contact_calendly_body:
       "Pick a time that works. No forms, no friction.",
@@ -143,7 +143,7 @@ export const translations = {
     footer_privacy: "Privacy Policy",
     footer_terms: "Terms of Service",
     footer_description:
-      "Independent AI advisory for enterprise leaders across Dubai and the Middle East. AI strategy, governance, operating model design and delivery assurance.",
+      "Independent AI advisory for enterprise leaders across the UAE, Dubai, Abu Dhabi, Saudi Arabia and the Middle East. AI strategy, governance, operating model design and delivery assurance.",
 
     // ── About page ───────────────────────────────────────
     about_page_label: "About Kudo Advisory",

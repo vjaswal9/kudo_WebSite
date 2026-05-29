@@ -13,9 +13,20 @@
       gtag('config', 'G-Y1CTGWRYFR');
     </script>
 
-    <!-- Canonical -->
+    <!-- Canonical (set per-page via PageMeta) -->
     <!-- Sitemap reference -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ═══════════════════════════════════════════════
+         HREFLANG — bilingual EN / AR
+         Tells Google this site serves both English and Arabic
+         audiences in the UAE/AE market
+    ═══════════════════════════════════════════════ -->
+    <link rel="alternate" hreflang="en" href="https://www.kudoadvisory.com/" />
+    <link rel="alternate" hreflang="en-ae" href="https://www.kudoadvisory.com/" />
+    <link rel="alternate" hreflang="ar" href="https://www.kudoadvisory.com/" />
+    <link rel="alternate" hreflang="ar-ae" href="https://www.kudoadvisory.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/" />
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,7 +85,7 @@
         "height": 630
       },
       "image": "https://www.kudoadvisory.com/og-image.jpg",
-      "description": "Kudo Advisory is an independent AI advisory and consultancy firm based in Dubai, UAE, founded by Vijay Jaswal. We help enterprise organisations across the Middle East convert AI investments into measurable, scalable business outcomes through AI strategy, AI governance, operating model design, leadership enablement, and delivery assurance. We exist to make AI move.",
+      "description": "Kudo Advisory is an independent AI advisory and consultancy firm based in Dubai, UAE, founded by Vijay Jaswal. We help enterprise organisations across the UAE, Saudi Arabia and the wider Middle East convert AI investments into measurable, scalable business outcomes through AI strategy, AI governance, operating model design, leadership enablement, and delivery assurance. Serving CIOs, CDOs, CTOs and transformation leaders across the United Arab Emirates and GCC. We exist to make AI move.",
       "slogan": "We exist to make AI move",
       "foundingDate": "2026",
       "numberOfEmployees": {
@@ -180,7 +191,7 @@
         "email": "info@kudoadvisory.com",
         "contactType": "General Enquiries",
         "areaServed": ["AE", "SA", "Middle East"],
-        "availableLanguage": "English"
+        "availableLanguage": ["English", "Arabic"]
       },
       "sameAs": [
         "https://www.linkedin.com/company/kudo-advisory/",
@@ -315,7 +326,7 @@
       "url": "https://www.kudoadvisory.com",
       "name": "Kudo Advisory",
       "description": "AI Advisory and AI Consultancy in Dubai and the Middle East. We exist to make AI move.",
-      "inLanguage": "en",
+      "inLanguage": ["en", "ar"],
       "publisher": {
         "@id": "https://www.kudoadvisory.com/#organization"
       }

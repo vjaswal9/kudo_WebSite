@@ -15,6 +15,7 @@ import AIOperatingModel from "./pages/articles/AIOperatingModel";
 import CIOCISOCollaboration from "./pages/articles/CIOCISOCollaboration";
 import AIUseCasePrioritisation from "./pages/articles/AIUseCasePrioritisation";
 import MeasuringAIROI from "./pages/articles/MeasuringAIROI";
+import UAE from "./pages/UAE";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ export const routes: RouteRecord[] = [
       { path: "insights/ciso-cio-ai-collaboration", element: <CIOCISOCollaboration /> },
       { path: "insights/ai-use-case-prioritisation", element: <AIUseCasePrioritisation /> },
       { path: "insights/measuring-ai-roi", element: <MeasuringAIROI /> },
+      { path: "ai-advisory-uae", element: <UAE /> },
       { path: "*", element: <NotFound /> },
     ],
   },

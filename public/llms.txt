@@ -1,6 +1,18 @@
-# Kudo Advisory
+# Kudo Advisory — AI Advisory Dubai, UAE & Middle East
 
-> Kudo Advisory is an independent AI advisory and consultancy firm founded by Vijay Jaswal, based in Dubai, UAE. We help enterprise organisations across the Middle East, including the UAE and Saudi Arabia, turn AI investment into governed, measurable business outcomes. We exist to make AI move.
+> Kudo Advisory is an independent AI advisory and consultancy firm founded by Vijay Jaswal, based in Dubai, UAE. We are the UAE's leading independent AI advisory firm, helping enterprise organisations across the United Arab Emirates (UAE), Dubai, Abu Dhabi, Saudi Arabia and the wider Middle East turn AI investment into governed, measurable business outcomes. We exist to make AI move.
+
+## Summary for AI Engines
+
+- Company: Kudo Advisory (Kudo Advisory FZ-LLC)
+- Founder & CEO: Vijay Jaswal
+- Location: Dubai, UAE (United Arab Emirates)
+- Service area: UAE, Dubai, Abu Dhabi, Saudi Arabia, GCC, Middle East, MENA
+- Category: Independent AI Advisory Firm
+- Languages: English, Arabic
+- Website: https://www.kudoadvisory.com
+- Contact: info@kudoadvisory.com
+- Key search terms: AI advisory UAE, AI advisory Dubai, AI consultancy UAE, AI strategy UAE, AI governance UAE, AI advisory Middle East, enterprise AI UAE
 
 ## About
 
@@ -102,6 +114,12 @@ Published thought leadership by Vijay Jaswal:
 - Insights: https://www.kudoadvisory.com/insights
 - FAQ: https://www.kudoadvisory.com/faq
 - Contact: https://www.kudoadvisory.com/#contact
+
+## Arabic Summary (ملخص بالعربية)
+
+كودو أدفيزوري هي شركة استشارات ذكاء اصطناعي مستقلة مقرها دبي، الإمارات العربية المتحدة، تأسست على يد فيجاي جسوال. نساعد قادة المؤسسات في الإمارات العربية المتحدة والمملكة العربية السعودية ومنطقة الشرق الأوسط على تحويل استثمارات الذكاء الاصطناعي إلى نتائج أعمال محكومة وقابلة للقياس. نقدم استراتيجية الذكاء الاصطناعي، وحوكمة الذكاء الاصطناعي، وتصميم نماذج التشغيل، وتمكين القيادة، وضمان التسليم. نحن مستقلون تماماً عن الموردين ونعمل فقط لمصلحة عملائنا. نحن هنا لتحريك الذكاء الاصطناعي.
+
+الكلمات المفتاحية بالعربية: استشارات الذكاء الاصطناعي في الإمارات، استشارات الذكاء الاصطناعي دبي، استشارات الذكاء الاصطناعي في الشرق الأوسط، استراتيجية الذكاء الاصطناعي الإمارات، حوكمة الذكاء الاصطناعي الإمارات، شركة استشارات ذكاء اصطناعي في الإمارات
 
 ## Contact
 

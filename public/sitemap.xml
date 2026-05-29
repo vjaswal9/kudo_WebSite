@@ -1,63 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── Homepage ── -->
   <url>
     <loc>https://www.kudoadvisory.com/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/" />
+    <xhtml:link rel="alternate" hreflang="en-ae"     href="https://www.kudoadvisory.com/" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/" />
+    <xhtml:link rel="alternate" hreflang="ar-ae"     href="https://www.kudoadvisory.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/" />
   </url>
+
+  <!-- ── About ── -->
   <url>
     <loc>https://www.kudoadvisory.com/about</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/about" />
+    <xhtml:link rel="alternate" hreflang="en-ae"     href="https://www.kudoadvisory.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar-ae"     href="https://www.kudoadvisory.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/about" />
   </url>
+
+  <!-- ── Insights hub ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights" />
+    <xhtml:link rel="alternate" hreflang="en-ae"     href="https://www.kudoadvisory.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar-ae"     href="https://www.kudoadvisory.com/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights" />
   </url>
+
+  <!-- ── FAQ ── -->
   <url>
     <loc>https://www.kudoadvisory.com/faq</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en-ae"     href="https://www.kudoadvisory.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar-ae"     href="https://www.kudoadvisory.com/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/faq" />
   </url>
+
+  <!-- ── Article: Why AI Pilots Fail ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail" />
   </url>
+
+  <!-- ── Article: AI Governance Middle East ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/ai-governance-middle-east</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/ai-governance-middle-east" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/ai-governance-middle-east" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/ai-governance-middle-east" />
   </url>
+
+  <!-- ── Article: AI Operating Model ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/ai-operating-model</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/ai-operating-model" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/ai-operating-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/ai-operating-model" />
   </url>
+
+  <!-- ── Article: CIO CISO Collaboration ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration" />
   </url>
-  <url>
-    <loc>https://www.kudoadvisory.com/insights/measuring-ai-roi</loc>
-    <lastmod>2026-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
+  <!-- ── Article: AI Use Case Prioritisation ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/ai-use-case-prioritisation</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/ai-use-case-prioritisation" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/ai-use-case-prioritisation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/ai-use-case-prioritisation" />
   </url>
+
+  <!-- ── UAE landing page ── -->
+  <url>
+    <loc>https://www.kudoadvisory.com/ai-advisory-uae</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/ai-advisory-uae" />
+    <xhtml:link rel="alternate" hreflang="en-ae"     href="https://www.kudoadvisory.com/ai-advisory-uae" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/ai-advisory-uae" />
+    <xhtml:link rel="alternate" hreflang="ar-ae"     href="https://www.kudoadvisory.com/ai-advisory-uae" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/ai-advisory-uae" />
+  </url>
+
+  <!-- ── Article: Measuring AI ROI ── -->
+  <url>
+    <loc>https://www.kudoadvisory.com/insights/measuring-ai-roi</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/measuring-ai-roi" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/measuring-ai-roi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/measuring-ai-roi" />
+  </url>
+
 </urlset>

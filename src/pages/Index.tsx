@@ -135,8 +135,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
-        title="AI Advisory & AI Consultancy Dubai | Kudo Advisory"
-        description="Kudo Advisory is Dubai's leading AI advisory and AI consultancy firm. Founded by Vijay Jaswal, we help enterprise leaders across the Middle East turn AI investment into governed, measurable business outcomes."
+        title="AI Advisory Dubai & UAE | AI Consultancy Middle East | Kudo Advisory"
+        description="Kudo Advisory is the UAE's leading independent AI advisory firm. Based in Dubai, we help CIOs, CDOs and enterprise leaders across the UAE, Abu Dhabi and Middle East turn AI investment into governed, measurable outcomes. AI strategy, AI governance & delivery assurance."
         canonical="https://www.kudoadvisory.com/"
       />
 

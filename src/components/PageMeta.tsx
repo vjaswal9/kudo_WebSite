@@ -67,6 +67,13 @@ export function PageMeta({
       <meta property="og:type" content={isArticle ? "article" : "website"} />
       <meta property="og:site_name" content="Kudo Advisory" />
       <meta property="og:locale" content="en_AE" />
+      <meta property="og:locale:alternate" content="ar_AE" />
+      {/* Hreflang per-page */}
+      <link rel="alternate" hreflang="en"        href={canonical} />
+      <link rel="alternate" hreflang="en-ae"     href={canonical} />
+      <link rel="alternate" hreflang="ar"        href={canonical} />
+      <link rel="alternate" hreflang="ar-ae"     href={canonical} />
+      <link rel="alternate" hreflang="x-default" href={canonical} />
       {isArticle && articlePublishedTime && (
         <meta property="article:published_time" content={articlePublishedTime} />
       )}
