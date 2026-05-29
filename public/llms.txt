@@ -89,7 +89,7 @@ Kudo Advisory has been featured in:
 
 Published thought leadership by Vijay Jaswal:
 
-- Why Enterprise AI Pilots Fail, And What to Do About It: https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail
+- Why Enterprise AI Pilots Fail: What to Do About It: https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail
 - AI Governance in the Middle East, What Enterprise Leaders Need to Know in 2026: https://www.kudoadvisory.com/insights/ai-governance-middle-east
 - The AI Operating Model, Structuring Your Organisation to Scale AI Responsibly: https://www.kudoadvisory.com/insights/ai-operating-model
 - The CIO and CISO Conversation That Every AI Programme Needs: https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration
