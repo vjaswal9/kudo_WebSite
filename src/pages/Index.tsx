@@ -60,7 +60,7 @@ const Index = () => {
 
   const navItems = [
     { href: "#outcomes", labelKey: "nav_outcomes" as const },
-    { href: "#services", labelKey: "nav_services" as const },
+    { href: "/services", labelKey: "nav_services" as const },
     { href: "#how", labelKey: "nav_how" as const },
     { href: "/about", labelKey: "nav_about" as const },
     { href: "/insights", labelKey: "nav_insights" as const },
@@ -81,10 +81,20 @@ const Index = () => {
     descKey: `outcomes_${i}_desc` as const,
   }));
 
+  const serviceHrefs = [
+    "/services/ai-strategy",
+    "/services/ai-governance",
+    "/services/ai-operating-model",
+    "/services/ai-use-case-prioritisation",
+    "/services/leadership-enablement",
+    "/services/ai-delivery-assurance",
+  ];
+
   const services = [0, 1, 2, 3, 4, 5].map((i) => ({
     icon: serviceIcons[i],
     titleKey: `services_${i}_title` as const,
     descKey: `services_${i}_desc` as const,
+    href: serviceHrefs[i],
   }));
 
   const steps = [0, 1, 2].map((i) => ({
@@ -241,7 +251,7 @@ const Index = () => {
                 <a href="#contact">{t("hero_cta_primary")}</a>
               </Button>
               <Button asChild variant="outline" className="border-border/70 hover:bg-secondary px-8 py-3 text-base rounded-full">
-                <a href="#services">{t("hero_cta_secondary")}</a>
+                <a href="/services">{t("hero_cta_secondary")}</a>
               </Button>
             </div>
           </div>
@@ -338,13 +348,16 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-5 mb-10">
               {services.slice(0, 3).map((s, i) => (
                 <AnimatedSection key={i} delay={i * 90}>
-                  <article className="card-hover card-sweep p-6 rounded-xl bg-card border border-border h-full group">
+                  <a href={s.href} className="card-hover card-sweep p-6 rounded-xl bg-card border border-border h-full group flex flex-col">
                     <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                       <s.icon className="icon-hover w-5 h-5 text-primary" />
                     </div>
                     <h3 className="font-semibold mb-2">{t(s.titleKey)}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{t(s.descKey)}</p>
-                  </article>
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">{t(s.descKey)}</p>
+                    <p className="text-primary text-xs font-medium mt-3 flex items-center gap-1">
+                      {isRTL ? "اعرف المزيد" : "Learn more"} <ChevronRight className={`w-3 h-3 ${isRTL ? "rotate-180" : ""}`} />
+                    </p>
+                  </a>
                 </AnimatedSection>
               ))}
             </div>
@@ -362,13 +375,16 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-5">
               {services.slice(3).map((s, i) => (
                 <AnimatedSection key={i} delay={i * 90}>
-                  <article className="card-hover card-sweep p-6 rounded-xl bg-card border border-border h-full group">
+                  <a href={s.href} className="card-hover card-sweep p-6 rounded-xl bg-card border border-border h-full group flex flex-col">
                     <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                       <s.icon className="icon-hover w-5 h-5 text-primary" />
                     </div>
                     <h3 className="font-semibold mb-2">{t(s.titleKey)}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{t(s.descKey)}</p>
-                  </article>
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">{t(s.descKey)}</p>
+                    <p className="text-primary text-xs font-medium mt-3 flex items-center gap-1">
+                      {isRTL ? "اعرف المزيد" : "Learn more"} <ChevronRight className={`w-3 h-3 ${isRTL ? "rotate-180" : ""}`} />
+                    </p>
+                  </a>
                 </AnimatedSection>
               ))}
             </div>
@@ -528,7 +544,7 @@ const Index = () => {
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium mb-4">{t("footer_services")}</p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {([0,1,2,3,4,5] as const).map((i) => (
-                  <li key={i}><a href="#services" className="hover:text-primary transition-colors">{t(`services_${i}_title` as const)}</a></li>
+                  <li key={i}><a href={serviceHrefs[i]} className="hover:text-primary transition-colors">{t(`services_${i}_title` as const)}</a></li>
                 ))}
               </ul>
             </div>
