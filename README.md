@@ -13,6 +13,7 @@ a React app in the browser.
 
 Requires Node.js and npm.
 
+
 ```sh
 # Install dependencies
 npm install
