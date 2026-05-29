@@ -355,8 +355,7 @@ const Index = () => {
 
             <h1 className="text-4xl sm:text-5xl md:text-[4.5rem] font-semibold leading-[1.05]">
               {["Turn", "AI", "intent", "into"].map((word, i) => (
-                <span key={word} className="hero-word" style={{ animationDelay: `${300 + i * 80}ms` }}>{word}{" "}</span>
-              ))}
+            <span key={word} className="hero-word" style={{ animationDelay: `${300 + i * 80}ms` }}>{word}{"\u00A0"}</span>              ))}
               <em className="not-italic text-gradient-gold hero-word" style={{ animationDelay: "680ms" }}>forward motion</em>
             </h1>
 
