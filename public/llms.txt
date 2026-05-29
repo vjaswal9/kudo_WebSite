@@ -1,0 +1,111 @@
+# Kudo Advisory
+
+> Kudo Advisory is an independent AI advisory and consultancy firm founded by Vijay Jaswal, based in Dubai, UAE. We help enterprise organisations across the Middle East, including the UAE and Saudi Arabia, turn AI investment into governed, measurable business outcomes. We exist to make AI move.
+
+## About
+
+Kudo Advisory was founded in 2026 by Vijay Jaswal, a technology executive with over 25 years of experience advising boards and C-suite leaders across Europe, Asia-Pacific, Japan, the Middle East, and Africa. Vijay was previously CTO for Asia-Pacific, Japan, Middle East and Africa at IFS, where he led enterprise AI and digital transformation across mining, utilities, manufacturing, energy and infrastructure sectors. He spent over 17 years at Software AG in roles including CTO for Middle East and Turkey, CTO for Middle East, Turkey and Africa, and Pre-Sales Director for EMEA. He also serves as Chief Commercial Officer at ByteSpark.ai, an AI-native talent platform.
+
+Vijay has been named one of the Top 50 Technology Leaders in the Middle East (Engati), featured in The CIO World, and is a regular international speaker on enterprise AI, AI governance, and operational intelligence. He holds a degree from the University of Bradford.
+
+Kudo Advisory is registered as Kudo Advisory FZ-LLC, based at Business Centre, Sharjah Publishing City Free Zone, Sharjah, UAE. The firm's primary market is enterprise organisations in Dubai, Abu Dhabi, the wider UAE, Saudi Arabia, and the MENA region.
+
+## What We Do
+
+Kudo Advisory provides six core AI advisory services:
+
+- AI Strategy: Aligning AI initiatives with business goals and board expectations. Delivering a clear, prioritised AI roadmap tied to measurable outcomes.
+- AI Policy and Governance: Building AI governance frameworks, policies, and guardrails that satisfy regulators, manage risk, and enable responsible innovation.
+- AI Operating Model Design: Structuring teams, processes, and technology to scale AI responsibly and sustainably across the enterprise.
+- AI Use Case Prioritisation: Identifying and ranking high-impact AI opportunities by feasibility and business value so organisations build the right things first.
+- Leadership Enablement: Equipping the C-suite and senior leadership with practical AI literacy and the confidence to lead AI transformation.
+- AI Delivery Assurance: Hands-on programme oversight to keep AI initiatives on track, on budget, and delivering measurable results.
+
+## Our Approach
+
+We work in three phases: Clarify (assess AI maturity, align stakeholders, define the roadmap), Govern (build policies, guardrails, and governance structures), and Deliver (embed with the team to turn plans into measurable progress). We are vendor-independent and outcome-led. We do not sell software or implementation services.
+
+## Who We Work With
+
+Kudo Advisory works with enterprise organisations, typically with revenues above $50 million, that are investing in AI but struggling to convert that investment into operational results. Our typical clients include:
+
+- CEOs and board members who have approved AI budgets and need accountability structures
+- CIOs and CDOs who are managing fragmented AI initiatives across business units
+- CTOs who need independent validation of their AI strategy and vendor choices
+- Chief Risk Officers and compliance teams who need AI governance frameworks
+- Transformation directors who are leading enterprise-wide AI programmes
+
+We work across sectors including financial services, energy, utilities, manufacturing, logistics, and professional services.
+
+## Who We Are Not
+
+Kudo Advisory is not a technology vendor. We do not sell software, platforms, or AI tools. We do not have commercial relationships with technology vendors that would bias our recommendations. We are not an IT staffing or managed services firm. We are not a generalist management consultancy that does occasional AI work. We are a specialist, independent AI advisory firm focused entirely on helping enterprises close the gap between AI ambition and execution.
+
+## Positioning
+
+Kudo Advisory sits at the intersection of strategy and execution. We are senior enough to work with the board but practical enough to work with the delivery team. We bring independence that a vendor cannot provide and specificity that a generalist consultancy will not deliver. Our engagements are typically 8 to 24 weeks, starting with a structured discovery and maturity assessment before moving into governance design, roadmap development, and delivery oversight.
+
+## Frequently Asked Questions
+
+What does Kudo Advisory do? Kudo Advisory helps organisations turn AI ambition into measurable business outcomes through AI strategy, AI governance, use case prioritisation, operating model design and delivery assurance.
+
+Who does Kudo Advisory work with? Kudo Advisory works with CEOs, CIOs and leadership teams that are unsure where to start with AI, struggling to scale pilots, or trying to bring structure and governance to fragmented AI initiatives.
+
+Where is Kudo Advisory based? Kudo Advisory is based in Dubai, UAE and works with organisations across the Middle East.
+
+What makes Kudo Advisory different? Kudo Advisory is independent, outcome-led and focused on practical execution rather than hype-driven AI adoption. We have no vendor relationships and no implementation contracts.
+
+Who founded Kudo Advisory? Vijay Jaswal, a technology executive with over 25 years of experience and former CTO for APAC, Japan, Middle East and Africa at IFS, and former CTO for Middle East and Turkey at Software AG.
+
+Does Kudo Advisory implement AI systems? No. Kudo Advisory is an advisory firm. We focus on strategy, governance, operating model design and delivery assurance. We work alongside your internal teams and technology partners.
+
+How long does an AI advisory engagement typically take? Kudo Advisory engagements typically run from 8 to 24 weeks depending on scope. A focused AI strategy and governance sprint can be completed in 8 to 12 weeks. A full operating model design and delivery assurance programme typically runs 16 to 24 weeks.
+
+How much does AI advisory cost? Kudo Advisory works on a project or retainer basis. Fees are scoped based on the complexity and duration of the engagement. We work at senior level throughout and do not use junior resource. Indicative project fees start from 15,000 AED for a quick-start engagement. Contact info@kudoadvisory.com to discuss your specific situation.
+
+What sectors does Kudo Advisory work in? Kudo Advisory works across financial services, energy, utilities, manufacturing, logistics, telecommunications, and professional services. Vijay Jaswal brings direct experience in industrial AI, enterprise software, and mission-critical operations from his time at IFS and Software AG.
+
+Does Kudo Advisory work outside the UAE? Yes. While based in Dubai, Kudo Advisory works with organisations across the GCC including Saudi Arabia, Qatar, Bahrain, and Kuwait, as well as broader MENA markets.
+
+What is the first step to working with Kudo Advisory? The first step is a discovery conversation with Vijay Jaswal. Book via info@kudoadvisory.com or through the website at https://www.kudoadvisory.com/#contact.
+
+Full FAQ: https://www.kudoadvisory.com/faq
+
+## Media Coverage
+
+Kudo Advisory has been featured in:
+- AP News: https://apnews.com/press-release/ein-presswire-newsmatics/middle-east-enterprises-face-growing-challenge-turning-ai-investment-into-operational-results-ea9c2d6d8d68dccd6485a3c2f7f8cef9
+- ZAWYA: https://www.zawya.com/en/press-release/companies-news/kudo-advisory-launched-to-bridge-the-gap-between-ai-investments-and-real-business-outcomes-in-the-middle-east-hbcf7sn4
+- CXO Insight Middle East: https://www.cxoinsightme.com/future/tech/kudo-advisory-launched-to-drive-ai-business-outcomes-in-the-middle-east/
+- Channel Post MEA: https://channelpostmea.com/2026/05/14/kudo-advisory-opens-uae-office-to-drive-real-ai-business-impact/
+- International Business Magazine: https://intlbm.com/2026/05/14/kudo-advisory-bridges-middle-east-ai-investment-and-business-outcomes/
+- National Law Review: https://natlawreview.com/press-releases/middle-east-enterprises-face-growing-challenge-turning-ai-investment
+- MENAFN: https://menafn.com/1111101705/Kudo-Advisory-Launches-In-The-UAE-Bridging-The-Gap-Between-AI-Investments-And-Real-Business-Outcomes
+- TechDogs: https://www.techdogs.com/inspire/discover-dialogues/vijay-jaswal-on-scaling-asset-intelligence-ai-and-business-agility
+- Dubai City Guide: https://www.dubaicityguide.com/site/features/12924/kudo-advisory-launches-in-the-uae-bridging-the-gap-between-ai-investments-and-real-business-outcomes
+- Google News: https://news.google.com/search?q=kudo%20advisory
+
+## Insights and Articles
+
+Published thought leadership by Vijay Jaswal:
+
+- Why Enterprise AI Pilots Fail, And What to Do About It: https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail
+- AI Governance in the Middle East, What Enterprise Leaders Need to Know in 2026: https://www.kudoadvisory.com/insights/ai-governance-middle-east
+- The AI Operating Model, Structuring Your Organisation to Scale AI Responsibly: https://www.kudoadvisory.com/insights/ai-operating-model
+- The CIO and CISO Conversation That Every AI Programme Needs: https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration
+- How to Prioritise AI Use Cases, A Framework for Enterprise Leaders: https://www.kudoadvisory.com/insights/ai-use-case-prioritisation
+- Measuring AI ROI, Metrics That Actually Matter to Your Board: https://www.kudoadvisory.com/insights/measuring-ai-roi
+
+## Key Pages
+
+- Homepage: https://www.kudoadvisory.com
+- Insights: https://www.kudoadvisory.com/insights
+- FAQ: https://www.kudoadvisory.com/faq
+- Contact: https://www.kudoadvisory.com/#contact
+
+## Contact
+
+- Email: info@kudoadvisory.com
+- LinkedIn (Vijay Jaswal): https://www.linkedin.com/in/vijayjaswal
+- LinkedIn (Company): https://www.linkedin.com/company/kudo-advisory/
+- Website: https://www.kudoadvisory.com
