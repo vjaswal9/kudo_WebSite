@@ -309,29 +309,13 @@ const Index = () => {
             </AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <AnimatedSection>
-                <div className="space-y-4">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img src={outcomesBg} alt="Enterprise leadership team in boardroom reviewing AI strategy" className="w-full h-[280px] object-cover" loading="lazy" width="700" height="280" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" aria-hidden="true" />
-                    <div className="absolute bottom-4 left-4 right-4 bg-background/80 backdrop-blur-md rounded-xl px-4 py-3 border border-border/60">
-                      <p className="text-xs text-primary uppercase tracking-wider font-medium mb-0.5">Founded by</p>
-                      <p className="text-sm font-semibold text-foreground">Vijay Jaswal</p>
-                      <p className="text-xs text-muted-foreground">25+ yrs · IFS CTO · Software AG CTO · Top 50 Tech Leaders ME</p>
-                    </div>
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                    <img
-                      src={leaderBg}
-                      alt="Enterprise leader with Dubai skyline and Burj Khalifa — AI advisory UAE"
-                      className="w-full h-[200px] object-cover object-top"
-                      loading="lazy" width="700" height="200"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" aria-hidden="true" />
-                    <div className="absolute bottom-3 left-4 right-4">
-                      <p className="text-xs font-medium text-foreground/90">
-                        {isRTL ? "خدمة قادة المؤسسات في الإمارات والشرق الأوسط" : "Serving enterprise leaders across the UAE & Middle East"}
-                      </p>
-                    </div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img src={outcomesBg} alt="Enterprise leadership team in boardroom reviewing AI strategy" className="w-full h-[420px] object-cover" loading="lazy" width="700" height="420" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" aria-hidden="true" />
+                  <div className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md rounded-xl px-5 py-4 border border-border/60">
+                    <p className="text-xs text-primary uppercase tracking-wider font-medium mb-1">Founded by</p>
+                    <p className="text-sm font-semibold text-foreground">Vijay Jaswal</p>
+                    <p className="text-xs text-muted-foreground">25+ yrs · IFS CTO · Software AG CTO · Top 50 Tech Leaders ME</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -566,6 +550,34 @@ const Index = () => {
                   </figure>
                 </AnimatedSection>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── UAE LEADER VISUAL STRIP ── */}
+        <section aria-label="Enterprise AI advisory across the UAE and Middle East" className="relative h-[420px] overflow-hidden">
+          <img
+            src={leaderBg}
+            alt="Enterprise leader with Dubai skyline and Burj Khalifa — AI advisory across the UAE"
+            className="w-full h-full object-cover object-top"
+            loading="lazy" width="1400" height="420"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/20" aria-hidden="true" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-5xl mx-auto px-6">
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">
+                {isRTL ? "الإمارات والشرق الأوسط" : "UAE & Middle East"}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3 max-w-xl">
+                {isRTL
+                  ? "نخدم قادة المؤسسات عبر الإمارات والشرق الأوسط"
+                  : "Serving enterprise leaders across the UAE and Middle East"}
+              </h2>
+              <p className="text-muted-foreground max-w-md leading-relaxed">
+                {isRTL
+                  ? "دبي · أبوظبي · الشارقة · المملكة العربية السعودية · قطر · البحرين · الكويت · عُمان"
+                  : "Dubai · Abu Dhabi · Sharjah · Saudi Arabia · Qatar · Bahrain · Kuwait · Oman"}
+              </p>
             </div>
           </div>
         </section>
