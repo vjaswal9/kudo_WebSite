@@ -449,6 +449,13 @@ const Index = () => {
                     </figcaption>
                   </figure>
 
+                  <div>
+                    <p className="font-semibold text-foreground">Kudo (駆動)</p>
+                    <p className="text-sm text-muted-foreground">
+                      {isRTL ? "يابانية · القوة الدافعة أو الدفع" : "Japanese · driving force or propulsion"}
+                    </p>
+                  </div>
+
                   <p className="text-muted-foreground leading-relaxed">
                     {t("founder_body")}
                   </p>
