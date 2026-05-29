@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { LangToggle } from "@/components/LangToggle";
 import { PageMeta } from "@/components/PageMeta";
 import kudoLogo from "@/assets/kudo-logo.png";
+import leaderBg from "@/assets/about-leader.jpg";
 import { Mail, Linkedin, ChevronRight, Target, Shield, Rocket, BarChart3, Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -124,7 +125,17 @@ export default function UAE() {
                 </div>
               </AnimatedSection>
               <AnimatedSection delay={100}>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-5">
+                  <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
+                    <img
+                      src={leaderBg}
+                      alt="Enterprise leader overlooking Dubai skyline with Burj Khalifa — AI advisory UAE"
+                      className="w-full h-[340px] object-cover object-top"
+                      loading="lazy" width="600" height="340"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" aria-hidden="true" />
+                  </figure>
+                  <div className="grid grid-cols-2 gap-4">
                   {[
                     { value: "2031", label: isAr ? "استراتيجية الذكاء الاصطناعي الوطنية الإماراتية" : "UAE National AI Strategy target" },
                     { value: "$320B", label: isAr ? "مساهمة الذكاء الاصطناعي المتوقعة في اقتصاد الشرق الأوسط بحلول 2030" : "Projected AI contribution to ME economy by 2030" },
@@ -136,6 +147,7 @@ export default function UAE() {
                       <p className="text-xs text-muted-foreground mt-1 leading-snug">{stat.label}</p>
                     </div>
                   ))}
+                  </div>
                 </div>
               </AnimatedSection>
             </div>
