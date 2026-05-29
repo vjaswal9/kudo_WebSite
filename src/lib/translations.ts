@@ -111,7 +111,7 @@ export const translations = {
     founder_label: "Independent. Outcome-led. Vendor-neutral.",
     founder_h2: "Advisory you can trust because we answer only to your outcomes",
     founder_body:
-      "Kudo Advisory has no vendor relationships, no implementation revenue, and no incentive to recommend technology for its own sake. Every engagement starts with defining what success looks like for your organisation, and we measure ourselves against that definition.",
+      "Vijay Jaswal is the Founder and CEO of Kudo Advisory. With over 25 years advising boards and C-suite leaders across Europe, Asia-Pacific and the Middle East, he brings the depth and pragmatism enterprise AI transformation demands. Previously CTO for APAC, Japan, Middle East and Africa at IFS, and CTO for Middle East and Turkey at Software AG. Named one of the Top 50 Technology Leaders in the Middle East.",
     founder_cta: "About Vijay Jaswal",
 
     // ── Contact ──────────────────────────────────────────
@@ -329,7 +329,7 @@ export const translations = {
     founder_label: "مستقل. يركز على النتائج. محايد تجاه الموردين.",
     founder_h2: "استشارات يمكنك الوثوق بها لأننا لا نُجيب إلا لنتائجك",
     founder_body:
-      "لا تربط كودو أدفيزوري علاقات بأي مورد، ولا تعتمد على عائدات التنفيذ، ولا تملك أي دافع للتوصية بالتقنية لذاتها. تبدأ كل مشاركة بتحديد معنى النجاح لمؤسستك, ونقيس أنفسنا بموجب هذا التعريف.",
+      "فيجاي جسوال هو المؤسس والرئيس التنفيذي لكودو أدفيزوري. بخبرة تمتد لأكثر من 25 عاماً في تقديم المشورة لمجالس الإدارة وكبار المديرين التنفيذيين عبر أوروبا وآسيا والمحيط الهادئ والشرق الأوسط، يجلب العمق والبراغماتية التي يتطلبها تحول الذكاء الاصطناعي المؤسسي. شغل سابقاً منصب الرئيس التنفيذي للتقنية في IFS لمنطقة آسيا والمحيط الهادئ واليابان والشرق الأوسط وأفريقيا، وكذلك الرئيس التنفيذي للتقنية لمنطقة الشرق الأوسط وتركيا في Software AG. صُنِّف أحد أبرز 50 قائداً تقنياً في الشرق الأوسط.",
     founder_cta: "تعرف على فيجاي جسوال",
 
     // ── Contact ──────────────────────────────────────────
