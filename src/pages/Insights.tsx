@@ -44,7 +44,7 @@ const articles = [
   {
     slug: "why-enterprise-ai-pilots-fail",
     category: "AI Strategy",
-    title: "Why Enterprise AI Pilots Fail - And What to Do About It",
+    title: "Why Enterprise AI Pilots Fail: What to Do About It",
     excerpt:
       "Up to 80% of enterprise AI initiatives never make it past the pilot stage. The cause is rarely the technology. It's the absence of strategic clarity, accountable ownership, and governance built for execution. Here's how to break the cycle.",
     date: "2026-05-19",
