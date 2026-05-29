@@ -1,0 +1,270 @@
+// src/pages/About.tsx
+import { useEffect, useState } from "react";
+import { Mail, Linkedin, Menu, X, Award, Mic, BookOpen, Building2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import kudoLogo from "@/assets/kudo-logo.png";
+import founderBg from "@/assets/VJ_Biz_Image_2026.png";
+import { PageMeta } from "@/components/PageMeta";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; }) {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+  return (
+    <div ref={ref} className={`transition-all duration-700 ease-out ${className}`} style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(30px)", transitionDelay: `${delay}ms` }}>
+      {children}
+    </div>
+  );
+}
+
+const recognition = [
+  { icon: Award, title: "Top 50 Technology Leaders in the Middle East", source: "Engati", desc: "Named among the 50 most influential technology leaders across the Middle East region." },
+  { icon: BookOpen, title: "A 30-Year Journey in the Technology Industry", source: "The CIO World", desc: "Featured interview covering Vijay's career, leadership philosophy, and perspective on enterprise AI." },
+  { icon: Mic, title: "International Speaker", source: "Enterprise AI & Governance", desc: "Regular speaker at regional and international events on enterprise AI, AI governance, and operational intelligence." },
+  { icon: Building2, title: "University of Bradford", source: "Education", desc: "Studied at the University of Bradford, UK." },
+];
+
+const press = [
+  { publication: "AP News", headline: "Middle East Enterprises Face Growing Challenge Turning AI Investment Into Operational Results", url: "https://apnews.com/press-release/ein-presswire-newsmatics/middle-east-enterprises-face-growing-challenge-turning-ai-investment-into-operational-results-ea9c2d6d8d68dccd6485a3c2f7f8cef9" },
+  { publication: "CXO Insight Middle East", headline: "Kudo Advisory Launched to Drive AI Business Outcomes in the Middle East", url: "https://www.cxoinsightme.com/future/tech/kudo-advisory-launched-to-drive-ai-business-outcomes-in-the-middle-east/" },
+  { publication: "ZAWYA", headline: "Kudo Advisory Launched to Bridge the Gap Between AI Investments and Real Business Outcomes", url: "https://www.zawya.com/en/press-release/companies-news/kudo-advisory-launched-to-bridge-the-gap-between-ai-investments-and-real-business-outcomes-in-the-middle-east-hbcf7sn4" },
+  { publication: "International Business Magazine", headline: "Kudo Advisory Bridges Middle East AI Investment and Business Outcomes", url: "https://intlbm.com/2026/05/14/kudo-advisory-bridges-middle-east-ai-investment-and-business-outcomes/" },
+  { publication: "TechDogs", headline: "Vijay Jaswal on Scaling Asset Intelligence, AI and Business Agility", url: "https://www.techdogs.com/inspire/discover-dialogues/vijay-jaswal-on-scaling-asset-intelligence-ai-and-business-agility" },
+  { publication: "Channel Post MEA", headline: "Kudo Advisory Opens UAE Office to Drive Real AI Business Impact", url: "https://channelpostmea.com/2026/05/14/kudo-advisory-opens-uae-office-to-drive-real-ai-business-impact/" },
+];
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/#outcomes", label: "Outcomes" },
+  { href: "/#services", label: "Services" },
+  { href: "/#how", label: "How We Work" },
+  { href: "/about", label: "About" },
+  { href: "/insights", label: "Insights" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/#contact", label: "Contact" },
+];
+
+export default function About() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") setMobileMenuOpen(false); };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    return () => { document.removeEventListener("keydown", onKeyDown); document.body.style.overflow = prev; };
+  }, [mobileMenuOpen]);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <PageMeta
+        title="About Kudo Advisory | AI Advisory Firm Dubai | Vijay Jaswal"
+        description="Kudo Advisory is an independent AI advisory firm founded in Dubai by Vijay Jaswal. We help enterprise leaders across the Middle East turn AI investment into governed, measurable business outcomes. Learn about our mission, approach and the team behind the firm."
+        canonical="https://www.kudoadvisory.com/about"
+      />
+
+      <header className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4" aria-label="Main navigation">
+          <Link to="/" aria-label="Kudo Advisory home">
+            <img src={kudoLogo} alt="Kudo Advisory" className="h-12 sm:h-16 w-auto" />
+          </Link>
+          <ul className="hidden md:flex items-center gap-6 text-sm text-muted-foreground list-none">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <Link to={item.href} className={`hover:text-foreground transition-colors ${item.href === "/about" ? "text-foreground font-medium" : ""}`}>{item.label}</Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">Book a Call</Link>
+            </li>
+          </ul>
+          <button className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen}>
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </nav>
+        {mobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 top-[73px] bg-background z-40 px-6 py-8">
+            <ul className="flex flex-col gap-6 list-none">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.href} className="text-lg hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{item.label}</Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors" onClick={() => setMobileMenuOpen(false)}>Book a Call</Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </header>
+
+      <main>
+
+        <section className="pt-40 pb-16 px-6 bg-secondary/20">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">About Kudo Advisory</p>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">We exist to make AI move.</h1>
+              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">Kudo Advisory is an independent AI advisory firm based in Dubai. We help enterprise leaders across the Middle East turn AI investment into governed, measurable business outcomes.</p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <section aria-labelledby="firm-heading" className="py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-start">
+              <AnimatedSection>
+                <h2 id="firm-heading" className="text-2xl font-bold mb-6">Our mission</h2>
+                <div className="space-y-5 text-muted-foreground leading-relaxed">
+                  <p>Kudo Advisory was founded in 2026 with a single, clear purpose: to close the gap between AI ambition and enterprise execution. Across the Middle East, organisations are investing heavily in AI - but many are struggling to convert that investment into operational results.</p>
+                  <p>We work with CIOs, CDOs, CEOs and transformation leaders who need more than a technology vendor. They need a trusted, independent advisor who understands both the strategic language of the boardroom and the practical realities of delivery.</p>
+                  <p>Our approach is outcome-led and vendor-independent. We do not sell software or implementation services. We have no commercial relationships that would bias our recommendations. We are accountable only to the business outcomes our clients define.</p>
+                  <p>The name Kudo comes from the Japanese word 駆動, meaning drive or propulsion. It reflects exactly what we do: turn AI intent into forward motion.</p>
+                </div>
+              </AnimatedSection>
+              <AnimatedSection delay={100}>
+                <div className="space-y-5">
+                  <div className="grid grid-cols-2 gap-4">
+                    {[{ value: "2026", label: "Founded" }, { value: "Dubai", label: "Headquartered" }, { value: "UAE + GCC", label: "Primary markets" }, { value: "Independent", label: "Vendor status" }].map((stat) => (
+                      <div key={stat.label} className="p-5 rounded-xl border border-border bg-card">
+                        <p className="text-xl font-bold text-primary">{stat.value}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="p-6 rounded-2xl border border-border bg-card">
+                    <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-primary">What we do</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {["AI Strategy and Roadmap", "AI Governance and Policy", "AI Operating Model Design", "Use Case Prioritisation", "Leadership Enablement", "Delivery Assurance"].map((service) => (
+                        <li key={service} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        <section className="pt-20 pb-0 px-6 bg-secondary/20">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">The founder</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-0">Vijay Jaswal</h2>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <section aria-labelledby="bio-heading" className="py-20 px-6 bg-secondary/20">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-start">
+              <AnimatedSection>
+                <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img src={founderBg} alt="Vijay Jaswal - Founder of Kudo Advisory" className="w-full h-[480px] object-cover object-[50%_20%]" width="600" height="480" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" aria-hidden="true" />
+                  <figcaption className="absolute bottom-4 left-4 text-sm text-foreground/80">Vijay Jaswal - Founder of Kudo Advisory</figcaption>
+                </figure>
+                <div className="grid grid-cols-3 gap-4 mt-6">
+                  {[{ value: "25+", label: "Years experience" }, { value: "17+", label: "Years at Software AG" }, { value: "5", label: "Regions served" }].map((stat) => (
+                    <div key={stat.label} className="text-center p-4 rounded-xl border border-border bg-card">
+                      <p className="text-2xl font-bold text-primary">{stat.value}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
+              <AnimatedSection delay={100}>
+                <div className="space-y-5 text-muted-foreground leading-relaxed">
+                  <p>Vijay Jaswal is the Founder and CEO of Kudo Advisory, an independent AI advisory firm based in Dubai. He founded Kudo Advisory in 2026 to bridge the gap between AI ambition and enterprise execution - helping organisations across the Middle East convert AI investment into governed, measurable business outcomes.</p>
+                  <p>Before founding Kudo Advisory, Vijay served as CTO for Asia-Pacific, Japan, Middle East and Africa at IFS, where he led enterprise AI and digital transformation across mining, utilities, manufacturing, energy and infrastructure sectors. He spent over 17 years at Software AG, holding senior roles including CTO for Middle East, Turkey and Africa, and Pre-Sales Director for EMEA.</p>
+                  <p>In parallel with Kudo Advisory, Vijay serves as Chief Commercial Officer in an advisory capacity at ByteSpark.ai, an AI-native platform that redefines how talent is identified and matched responsibly at scale.</p>
+                  <p>Vijay is a regular international speaker on enterprise AI, AI governance and operational intelligence, advising organisations on how to adopt AI responsibly while protecting data, IP and competitive advantage. He has been named one of the Top 50 Technology Leaders in the Middle East and has 13,000+ followers on LinkedIn.</p>
+                  <p>Studied at the University of Bradford and is based in Dubai, UAE.</p>
+                </div>
+                <div className="flex gap-4 mt-8">
+                  <a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"><Linkedin className="w-4 h-4" /> LinkedIn</a>
+                  <a href="mailto:info@kudoadvisory.com" className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"><Mail className="w-4 h-4" /> info@kudoadvisory.com</a>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="recognition-heading" className="py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">Recognition</p>
+              <h2 id="recognition-heading" className="text-3xl md:text-4xl font-bold mb-12">Awards, media &amp; speaking</h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 gap-5">
+              {recognition.map((item, i) => (
+                <AnimatedSection key={i} delay={i * 80}>
+                  <div className="flex gap-5 p-6 rounded-2xl border border-border bg-card">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
+                      <p className="text-xs text-primary mb-2">{item.source}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="press-heading" className="py-20 px-6 bg-secondary/20">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">Press</p>
+              <h2 id="press-heading" className="text-3xl md:text-4xl font-bold mb-12">Media coverage</h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 gap-5">
+              {press.map((item, i) => (
+                <AnimatedSection key={i} delay={i * 60}>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="block p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:bg-secondary/20 transition-all duration-200 group">
+                    <p className="text-xs text-primary font-medium uppercase tracking-wide mb-2">{item.publication}</p>
+                    <p className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors">{item.headline}</p>
+                  </a>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 px-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">Work with Vijay</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to talk about your AI ambitions?</h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">If you are shaping AI strategy at board or executive level, Vijay welcomes the conversation.</p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Link to="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">Book a Discovery Call</Link>
+                <a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 justify-center rounded-full border border-border px-8 py-3 text-sm font-medium hover:border-primary/40 transition-colors"><Linkedin className="w-4 h-4" /> Connect on LinkedIn</a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+      </main>
+
+      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground" aria-label="Site footer">
+        <p>
+          © {new Date().getFullYear()}{" "}
+          <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>
+          {" "}- AI Advisory &amp; AI Consultancy, Dubai, UAE. We exist to make AI move. All rights reserved.
+        </p>
+        <p className="mt-2">
+          <a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a>
+        </p>
+      </footer>
+    </div>
+  );
+}
