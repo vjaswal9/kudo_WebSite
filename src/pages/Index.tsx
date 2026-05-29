@@ -63,6 +63,7 @@ const Index = () => {
     { href: "#outcomes", labelKey: "nav_outcomes" as const },
     { href: "/services", labelKey: "nav_services" as const },
     { href: "#how", labelKey: "nav_how" as const },
+    { href: "/ai-advisory-uae", labelKey: "nav_home" as const, fixedLabel: "UAE" },
     { href: "/about", labelKey: "nav_about" as const },
     { href: "/insights", labelKey: "nav_insights" as const },
     { href: "/faq", labelKey: "nav_faq" as const },
@@ -164,7 +165,7 @@ const Index = () => {
           <div className="hidden md:flex items-center gap-7 text-sm" role="list">
             {navItems.map((item) => (
               <a key={item.href} href={item.href} className="nav-link text-muted-foreground hover:text-foreground transition-colors duration-200" role="listitem">
-                {t(item.labelKey)}
+                {'fixedLabel' in item ? (item as any).fixedLabel : t(item.labelKey)}
               </a>
             ))}
             <LangToggle />
@@ -573,11 +574,14 @@ const Index = () => {
                   ? "نخدم قادة المؤسسات عبر الإمارات والشرق الأوسط"
                   : "Serving enterprise leaders across the UAE and Middle East"}
               </h2>
-              <p className="text-muted-foreground max-w-md leading-relaxed">
+              <p className="text-muted-foreground max-w-md leading-relaxed mb-6">
                 {isRTL
                   ? "دبي · أبوظبي · الشارقة · المملكة العربية السعودية · قطر · البحرين · الكويت · عُمان"
                   : "Dubai · Abu Dhabi · Sharjah · Saudi Arabia · Qatar · Bahrain · Kuwait · Oman"}
               </p>
+              <a href="/ai-advisory-uae" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
+                {isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE"} <ChevronRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} />
+              </a>
             </div>
           </div>
         </section>
@@ -679,12 +683,13 @@ const Index = () => {
               <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium mb-4">{t("footer_company")}</p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[
-                  { labelKey: "nav_about" as const, href: "/about" },
-                  { labelKey: "nav_insights" as const, href: "/insights" },
-                  { labelKey: "nav_faq" as const, href: "/faq" },
-                  { labelKey: "nav_contact" as const, href: "#contact" },
+                  { href: "/about", label: t("nav_about") },
+                  { href: "/insights", label: t("nav_insights") },
+                  { href: "/faq", label: t("nav_faq") },
+                  { href: "#contact", label: t("nav_contact") },
+                  { href: "/ai-advisory-uae", label: isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE" },
                 ].map((l) => (
-                  <li key={l.href}><a href={l.href} className="hover:text-primary transition-colors">{t(l.labelKey)}</a></li>
+                  <li key={l.href}><a href={l.href} className="hover:text-primary transition-colors">{l.label}</a></li>
                 ))}
               </ul>
             </div>
