@@ -451,8 +451,13 @@ const Index = () => {
 
                   <div>
                     <p className="font-semibold text-foreground">Kudo (駆動)</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground mb-1">
                       {isRTL ? "يابانية · القوة الدافعة أو الدفع" : "Japanese · driving force or propulsion"}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {isRTL
+                        ? "كودو أدفيزوري هي شركة استشارات ذكاء اصطناعي مستقلة مقرها دبي، تحوّل طموحات الذكاء الاصطناعي إلى نتائج أعمال قابلة للقياس."
+                        : "Kudo Advisory is an independent AI advisory firm based in Dubai, turning AI ambition into measurable business outcomes."}
                     </p>
                   </div>
 
