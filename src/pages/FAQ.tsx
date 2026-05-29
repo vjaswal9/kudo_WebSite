@@ -9,19 +9,12 @@ import { Mail, Linkedin, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageMeta } from "@/components/PageMeta";
 import kudoLogo from "@/assets/kudo-logo.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LangToggle } from "@/components/LangToggle";
+import { faqData } from "@/lib/faqData";
 
-const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/#outcomes", label: "Outcomes" },
-  { href: "/#services", label: "Services" },
-  { href: "/#how", label: "How We Work" },
-  { href: "/#about", label: "About" },
-  { href: "/insights", label: "Insights" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/#contact", label: "Contact" },
-];
-
-const FAQS = [
+// Legacy constant kept for JSON-LD schema (English only)
+const FAQS_EN = [
   {
     category: "About Kudo Advisory",
     questions: [
@@ -125,8 +118,20 @@ const FAQS = [
 ];
 
 export default function FAQ() {
+  const { t, isRTL, lang } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+  const FAQS = faqData[lang];
+  const NAV = [
+    { href: "/", labelKey: "nav_home" as const },
+    { href: "/#outcomes", labelKey: "nav_outcomes" as const },
+    { href: "/#services", labelKey: "nav_services" as const },
+    { href: "/#how", labelKey: "nav_how" as const },
+    { href: "/about", labelKey: "nav_about" as const },
+    { href: "/insights", labelKey: "nav_insights" as const },
+    { href: "/faq", labelKey: "nav_faq" as const },
+    { href: "/#contact", labelKey: "nav_contact" as const },
+  ];
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
@@ -145,7 +150,7 @@ export default function FAQ() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": FAQS.flatMap(cat =>
+    "mainEntity": FAQS_EN.flatMap(cat =>
       cat.questions.map(faq => ({
         "@type": "Question",
         "name": faq.q,
@@ -158,7 +163,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="Frequently Asked Questions | Kudo Advisory"
         description="Common questions about Kudo Advisory, our AI advisory services, how we work, and the AI landscape in Dubai and the Middle East. Find answers to questions about AI strategy, AI governance, and enterprise AI."
@@ -196,13 +201,15 @@ export default function FAQ() {
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             {NAV.map((item) => (
-              <a key={item.href} href={item.href}
-                className={`hover:text-foreground transition-colors ${item.href === "/faq" ? "text-foreground font-medium" : ""}`}
-                aria-current={item.href === "/faq" ? "page" : undefined}
-              >{item.label}</a>
+              <a key={item.href} href={item.href} className={`hover:text-foreground transition-colors ${item.href === "/faq" ? "text-foreground font-medium" : ""}`} aria-current={item.href === "/faq" ? "page" : undefined}>
+                {t(item.labelKey)}
+              </a>
             ))}
+            <LangToggle />
+            <a href="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">{t("nav_book")}</a>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <LangToggle />
             <Button variant="ghost" size="icon" className="rounded-full" aria-label="Open menu" onClick={() => setMobileMenuOpen(true)}>
               <Menu className="h-5 w-5" aria-hidden="true" />
             </Button>
@@ -224,14 +231,14 @@ export default function FAQ() {
               </div>
               <div className="max-w-md">
                 <div className="mt-6 kudo-item" style={{ animationDelay: mobileMenuOpen ? "90ms" : "0ms" }}>
-                  <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-primary px-5 text-base font-medium text-primary-foreground hover:bg-primary/90">Book a Discovery Call</a>
+                  <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-primary px-5 text-base font-medium text-primary-foreground hover:bg-primary/90">{t("nav_book_full")}</a>
                 </div>
                 <nav aria-label="Mobile nav" className="mt-7 space-y-2">
                   {NAV.map((item, idx) => (
                     <a key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}
                       className="kudo-item flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-4 text-base hover:bg-secondary transition-colors"
                       style={{ animationDelay: mobileMenuOpen ? `${160 + idx * 60}ms` : "0ms" }}>
-                      <span className="font-medium">{item.label}</span>
+                      <span className="font-medium">{t(item.labelKey)}</span>
                       <span aria-hidden="true" className="text-muted-foreground">→</span>
                     </a>
                   ))}
@@ -255,13 +262,9 @@ export default function FAQ() {
 
         {/* ── HEADER ── */}
         <header className="pt-32 pb-14 px-6 max-w-4xl mx-auto" aria-labelledby="faq-heading">
-          <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">FAQ</p>
-          <h1 id="faq-heading" className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Common questions about Kudo Advisory
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
-            Answers to the questions we hear most often from enterprise leaders across Dubai and the Middle East considering AI advisory support.
-          </p>
+          <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("faq_label")}</p>
+          <h1 id="faq-heading" className="text-4xl md:text-6xl font-bold mb-6 leading-tight">{t("faq_h1")}</h1>
+          <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">{t("faq_body")}</p>
         </header>
 
         {/* ── FAQ SECTIONS ── */}
@@ -316,19 +319,15 @@ export default function FAQ() {
         {/* ── CTA ── */}
         <section aria-labelledby="faq-cta-heading" className="bg-secondary/20 border-t border-border py-20 px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">Get in Touch</p>
-            <h2 id="faq-cta-heading" className="text-3xl md:text-4xl font-bold mb-4">
-              Still have questions?
-            </h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed max-w-xl mx-auto">
-              Book a 30-minute discovery call. No obligation, no sales pitch. Just an honest conversation about where you are with AI and whether we can help.
-            </p>
+            <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("contact_label")}</p>
+            <h2 id="faq-cta-heading" className="text-3xl md:text-4xl font-bold mb-4">{t("faq_cta_h2")}</h2>
+            <p className="text-muted-foreground mb-8 leading-relaxed max-w-xl mx-auto">{t("faq_cta_body")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base">
-                <a href="/#contact">Book a Discovery Call</a>
+                <a href="/#contact">{t("faq_cta_book")}</a>
               </Button>
               <Button asChild variant="outline" className="border-border hover:bg-secondary px-8 py-3 text-base">
-                <a href="mailto:info@kudoadvisory.com">Email Us Directly</a>
+                <a href="mailto:info@kudoadvisory.com">{t("faq_cta_email")}</a>
               </Button>
             </div>
           </div>

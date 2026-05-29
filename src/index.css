@@ -322,3 +322,29 @@
   }
   html { scroll-behavior: auto; }
 }
+
+/* ── Arabic / RTL support ───────────────────────────── */
+:root[dir="rtl"] {
+  font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+}
+:root[dir="rtl"] body {
+  font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: 0;
+}
+/* Flip chevron arrows in RTL */
+:root[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+/* Article body RTL adjustments */
+:root[dir="rtl"] .article-body h2,
+:root[dir="rtl"] .article-body h3,
+:root[dir="rtl"] .article-body p,
+:root[dir="rtl"] .article-body li {
+  text-align: right;
+}
+:root[dir="rtl"] .article-body blockquote {
+  border-left: none;
+  border-right: 4px solid hsl(var(--primary));
+  padding-left: 0;
+  padding-right: 1.5rem;
+}

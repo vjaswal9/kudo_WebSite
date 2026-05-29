@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LangToggle } from "@/components/LangToggle";
 
 /* ─── Scroll-animated wrapper (same pattern as Index) ─── */
 function AnimatedSection({
@@ -121,18 +123,19 @@ function formatDate(dateStr: string) {
 }
 
 const Insights = () => {
+  const { t, isRTL } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/#outcomes", label: "Outcomes" },
-    { href: "/#services", label: "Services" },
-    { href: "/#how", label: "How We Work" },
-    { href: "/#about", label: "About" },
-    { href: "/insights", label: "Insights" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/#contact", label: "Contact" },
+    { href: "/", labelKey: "nav_home" as const },
+    { href: "/#outcomes", labelKey: "nav_outcomes" as const },
+    { href: "/#services", labelKey: "nav_services" as const },
+    { href: "/#how", labelKey: "nav_how" as const },
+    { href: "/about", labelKey: "nav_about" as const },
+    { href: "/insights", labelKey: "nav_insights" as const },
+    { href: "/faq", labelKey: "nav_faq" as const },
+    { href: "/#contact", labelKey: "nav_contact" as const },
   ];
 
   useEffect(() => {
@@ -157,7 +160,7 @@ const Insights = () => {
       : articles.filter((a) => a.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Insights & Articles | Kudo Advisory"
         description="Practical perspectives on AI strategy, governance, and delivery from Vijay Jaswal and the Kudo Advisory team. Written for CIOs, CDOs, and transformation leads in the Middle East."
@@ -218,18 +221,16 @@ const Insights = () => {
 
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`hover:text-foreground transition-colors ${item.href === "/insights" ? "text-foreground font-medium" : ""}`}
-                aria-current={item.href === "/insights" ? "page" : undefined}
-              >
-                {item.label}
+              <a key={item.href} href={item.href} className={`hover:text-foreground transition-colors ${item.href === "/insights" ? "text-foreground font-medium" : ""}`} aria-current={item.href === "/insights" ? "page" : undefined}>
+                {t(item.labelKey)}
               </a>
             ))}
+            <LangToggle />
+            <a href="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">{t("nav_book")}</a>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <LangToggle />
             <Button
               variant="ghost"
               size="icon"
@@ -265,7 +266,7 @@ const Insights = () => {
               <div className="max-w-md">
                 <div className="mt-6 kudo-item" style={{ animationDelay: mobileMenuOpen ? "90ms" : "0ms" }}>
                   <a href="/#contact" onClick={closeMobileMenu} className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-primary px-5 text-base font-medium text-primary-foreground hover:bg-primary/90">
-                    Book a Discovery Call
+                    {t("nav_book_full")}
                   </a>
                 </div>
                 <nav aria-label="Mobile navigation links" className="mt-7 space-y-2">
@@ -277,7 +278,7 @@ const Insights = () => {
                       className="kudo-item flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-4 text-base hover:bg-secondary transition-colors"
                       style={{ animationDelay: mobileMenuOpen ? `${160 + idx * 60}ms` : "0ms" }}
                     >
-                      <span className="font-medium">{item.label}</span>
+                      <span className="font-medium">{t(item.labelKey)}</span>
                       <span aria-hidden="true" className="text-muted-foreground">→</span>
                     </a>
                   ))}
@@ -302,13 +303,9 @@ const Insights = () => {
         {/* ── PAGE HERO ── */}
         <header className="pt-32 pb-16 px-6 max-w-7xl mx-auto" aria-label="Insights page header">
           <AnimatedSection>
-            <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">Insights</p>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-3xl leading-tight">
-              AI thinking for enterprise leaders
-            </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
-              Practical perspectives on AI strategy, governance, and delivery from Vijay Jaswal and the Kudo Advisory team. Written for CIOs, CDOs, and transformation leads navigating enterprise AI in the Middle East.
-            </p>
+            <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("insights_label")}</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-3xl leading-tight">{t("insights_h1")}</h1>
+            <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">{t("insights_body")}</p>
           </AnimatedSection>
         </header>
 
@@ -376,7 +373,7 @@ const Insights = () => {
                       </span>
                     </div>
                     <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                      Read article <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                      {t("insights_read")} <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </span>
                   </div>
                 </div>
@@ -404,7 +401,7 @@ const Insights = () => {
                       </span>
                       {article.coming && (
                         <span className="px-2 py-1 rounded-full text-xs font-medium bg-secondary text-muted-foreground border border-border">
-                          Coming soon
+                          {t("insights_coming")}
                         </span>
                       )}
                     </div>
@@ -431,7 +428,7 @@ const Insights = () => {
                       </div>
                       {!article.coming && (
                         <span className="inline-flex items-center gap-1 text-xs font-medium text-primary group-hover:gap-2 transition-all">
-                          Read <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                          {t("insights_read")} <ArrowRight className="w-3 h-3" aria-hidden="true" />
                         </span>
                       )}
                     </div>
@@ -449,19 +446,15 @@ const Insights = () => {
         >
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedSection>
-              <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">Work With Us</p>
-              <h2 id="insights-cta-heading" className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to turn AI ambition into forward motion?
-              </h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                Kudo Advisory provides AI strategy, governance, and delivery assurance to enterprise organisations across Dubai, the UAE, and the Middle East.
-              </p>
+              <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("article_cta_label")}</p>
+              <h2 id="insights-cta-heading" className="text-3xl md:text-4xl font-bold mb-4">{t("about_cta_h2")}</h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">{t("footer_description")}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base">
-                  <a href="/#contact">Book a Discovery Call</a>
+                  <a href="/#contact">{t("nav_book_full")}</a>
                 </Button>
                 <Button asChild variant="outline" className="border-border hover:bg-secondary px-8 py-3 text-base">
-                  <a href="/#services">View AI Services</a>
+                  <a href="/#services">{t("nav_services")}</a>
                 </Button>
               </div>
             </AnimatedSection>
