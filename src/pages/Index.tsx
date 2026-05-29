@@ -429,6 +429,104 @@ const Index = () => {
           </div>
         </section>
 
+        {/* ── ABOUT / FOUNDER STRIP ── */}
+        <section id="about" aria-labelledby="about-heading" className="py-24 md:py-32 bg-secondary/20">
+          <div className="max-w-5xl mx-auto px-6">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("founder_label")}</p>
+              <h2 id="about-heading" className="text-3xl md:text-5xl mb-8">{t("founder_h2")}</h2>
+            </AnimatedSection>
+            <AnimatedSection delay={100}>
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div className="space-y-6">
+                  <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
+                    <img
+                      src={founderBg}
+                      alt="Vijay Jaswal, Founder and CEO of Kudo Advisory, presenting AI strategy at a conference"
+                      className="w-full h-[360px] object-cover object-[50%_20%]"
+                      loading="lazy" width="560" height="360"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" aria-hidden="true" />
+                    <figcaption className="text-sm text-muted-foreground mt-3 px-1">
+                      Vijay Jaswal, Founder &amp; CEO, Kudo Advisory
+                    </figcaption>
+                  </figure>
+
+                  <div className="flex items-start gap-4">
+                    <p className="text-4xl leading-none" aria-label="Kudo in Japanese - driving force">駆動</p>
+                    <div>
+                      <p className="font-semibold text-foreground">Kudo (駆動)</p>
+                      <p className="text-sm text-muted-foreground">
+                        {isRTL ? "يابانية · القوة الدافعة أو الدفع" : "Japanese · driving force or propulsion"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground leading-relaxed">
+                    {t("founder_body")}
+                  </p>
+
+                  <div className="pt-2">
+                    <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-medium mb-4">
+                      {isRTL ? "سبق أن عمل في" : "Previously at"}
+                    </p>
+                    <div className="flex flex-wrap items-start gap-6">
+                      {[
+                        { name: "IFS", sub: "CTO, APJMEA" },
+                        { name: "Software AG", sub: "CTO, Middle East" },
+                        { name: "ByteSpark.ai", sub: "Chief Commercial Officer" },
+                      ].map((emp) => (
+                        <div key={emp.name} className="flex flex-col">
+                          <span className="font-semibold text-sm text-foreground">{emp.name}</span>
+                          <span className="text-xs text-muted-foreground">{emp.sub}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a href="/about" className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors font-medium">
+                    {t("founder_cta")} <ChevronRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} aria-hidden="true" />
+                  </a>
+                </div>
+
+                <div className="grid gap-4">
+                  {[
+                    {
+                      en_title: "Outcome-led",
+                      ar_title: "يركز على النتائج",
+                      en_desc: "Every AI advisory engagement ties to a measurable business result. We define success before we start.",
+                      ar_desc: "كل مشاركة استشارية في الذكاء الاصطناعي مرتبطة بنتيجة أعمال قابلة للقياس. نحدد معنى النجاح قبل أن نبدأ.",
+                    },
+                    {
+                      en_title: "Governed",
+                      ar_title: "محكوم",
+                      en_desc: "Responsible AI governance is built into our approach from day one, not added at the end.",
+                      ar_desc: "حوكمة الذكاء الاصطناعي المسؤولة مدمجة في نهجنا من اليوم الأول، لا تُضاف في النهاية.",
+                    },
+                    {
+                      en_title: "Delivery-first",
+                      ar_title: "التسليم أولاً",
+                      en_desc: "We ship outcomes, not slide decks. Our advisory is designed to drive execution, not perpetuate dependency.",
+                      ar_desc: "نُسلّم نتائج لا عروضاً تقديمية. استشاراتنا مصممة لدفع التنفيذ، لا لإدامة الاعتماد.",
+                    },
+                    {
+                      en_title: "Vendor-independent",
+                      ar_title: "مستقل عن الموردين",
+                      en_desc: "No software to sell. No implementation partnerships. Just unbiased advice accountable to your outcomes.",
+                      ar_desc: "لا برمجيات لبيعها. لا شراكات تنفيذ. فقط نصيحة محايدة مسؤولة أمام نتائجك.",
+                    },
+                  ].map((item) => (
+                    <div key={item.en_title} className="p-5 rounded-xl bg-card border border-border">
+                      <h3 className="font-semibold mb-1 text-foreground">{isRTL ? item.ar_title : item.en_title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{isRTL ? item.ar_desc : item.en_desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* ── TESTIMONIALS ── */}
         <section aria-labelledby="testimonials-heading" className="py-24 md:py-32">
           <div className="max-w-5xl mx-auto px-6">
