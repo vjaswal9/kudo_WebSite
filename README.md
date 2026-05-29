@@ -6,6 +6,7 @@ consultancy firm in Dubai and the Middle East.
 Built with Vite, TypeScript, React, React Router, Tailwind CSS and
 shadcn/ui. Pages are prerendered to static HTML at build time with
 vite-react-ssg, so every route (including the homepage and each article)
+
 is fully crawlable by search engines and AI crawlers, then hydrates into
 a React app in the browser.
 
