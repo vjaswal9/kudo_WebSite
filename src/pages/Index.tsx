@@ -449,16 +449,6 @@ const Index = () => {
                     </figcaption>
                   </figure>
 
-                  <div className="flex items-start gap-4">
-                    <p className="text-4xl leading-none" aria-label="Kudo in Japanese - driving force">駆動</p>
-                    <div>
-                      <p className="font-semibold text-foreground">Kudo (駆動)</p>
-                      <p className="text-sm text-muted-foreground">
-                        {isRTL ? "يابانية · القوة الدافعة أو الدفع" : "Japanese · driving force or propulsion"}
-                      </p>
-                    </div>
-                  </div>
-
                   <p className="text-muted-foreground leading-relaxed">
                     {t("founder_body")}
                   </p>
