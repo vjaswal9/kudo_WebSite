@@ -312,12 +312,7 @@ const Index = () => {
               <AnimatedSection>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img src={outcomesBg} alt="Enterprise leadership team in boardroom reviewing AI strategy" className="w-full h-[420px] object-cover" loading="lazy" width="700" height="420" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" aria-hidden="true" />
-                  <div className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md rounded-xl px-5 py-4 border border-border/60">
-                    <p className="text-xs text-primary uppercase tracking-wider font-medium mb-1">Founded by</p>
-                    <p className="text-sm font-semibold text-foreground">Vijay Jaswal</p>
-                    <p className="text-xs text-muted-foreground">25+ yrs · IFS CTO · Software AG CTO · Top 50 Tech Leaders ME</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" aria-hidden="true" />
                 </div>
               </AnimatedSection>
               <div className="grid gap-4">
