@@ -37,8 +37,8 @@ const SERVICES = [
     href: "/services/ai-governance",
     en_title: "AI Policy & Governance",
     ar_title: "سياسة وحوكمة الذكاء الاصطناعي",
-    en_desc: "AI governance frameworks built for the UAE regulatory landscape — TDRA, ADGM and DIFC-aligned. Enables innovation, not obstructs it.",
-    ar_desc: "أطر حوكمة ذكاء اصطناعي مبنية للبيئة التنظيمية الإماراتية — متوافقة مع هيئة تنظيم الاتصالات وADGM وDIFC.",
+    en_desc: "AI governance frameworks built for the UAE regulatory landscape, TDRA, ADGM and DIFC-aligned. Enables innovation, not obstructs it.",
+    ar_desc: "أطر حوكمة ذكاء اصطناعي مبنية للبيئة التنظيمية الإماراتية, متوافقة مع هيئة تنظيم الاتصالات وADGM وDIFC.",
     en_for: "CIOs, CDOs, CROs, Legal, Compliance, Boards",
     ar_for: "مديرو المعلومات، مديرو المخاطر، الشؤون القانونية، الامتثال، مجالس الإدارة",
     en_time: "8–12 weeks",
@@ -49,8 +49,8 @@ const SERVICES = [
     href: "/services/ai-operating-model",
     en_title: "AI Operating Model Design",
     ar_title: "تصميم نموذج تشغيل الذكاء الاصطناعي",
-    en_desc: "Structure your teams, processes and technology to scale AI across the enterprise — not just in one team.",
-    ar_desc: "هيكلة فرقك وعملياتك وتقنيتك لتوسيع الذكاء الاصطناعي عبر المؤسسة — لا في فريق واحد فقط.",
+    en_desc: "Structure your teams, processes and technology to scale AI across the enterprise, not just in one team.",
+    ar_desc: "هيكلة فرقك وعملياتك وتقنيتك لتوسيع الذكاء الاصطناعي عبر المؤسسة, لا في فريق واحد فقط.",
     en_for: "CIOs, CDOs, COOs, Transformation leaders",
     ar_for: "مديرو المعلومات، مديرو البيانات، المديرون التشغيليون، قادة التحول",
     en_time: "8–16 weeks",
@@ -73,7 +73,7 @@ const SERVICES = [
     href: "/services/leadership-enablement",
     en_title: "Leadership Enablement",
     ar_title: "تمكين القيادة",
-    en_desc: "Build the AI literacy and strategic confidence your C-suite needs to lead AI transformation — not just sponsor it.",
+    en_desc: "Build the AI literacy and strategic confidence your C-suite needs to lead AI transformation, not just sponsor it.",
     ar_desc: "بناء محو الأمية في الذكاء الاصطناعي والثقة الاستراتيجية التي تحتاجها إدارتك العليا لقيادة تحول الذكاء الاصطناعي.",
     en_for: "CEOs, Boards, C-suite, Business unit leaders",
     ar_for: "الرؤساء التنفيذيون، مجالس الإدارة، الإدارة العليا، قادة وحدات الأعمال",
@@ -102,7 +102,7 @@ export default function ServicesIndex() {
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Advisory Services UAE & Dubai | Kudo Advisory"
-        description="Six independent AI advisory services for enterprise leaders across the UAE, Dubai, Abu Dhabi and Middle East — AI strategy, AI governance, operating model design, use case prioritisation, leadership enablement and delivery assurance."
+        description="Six independent AI advisory services for enterprise leaders across the UAE, Dubai, Abu Dhabi and Middle East, AI strategy, AI governance, operating model design, use case prioritisation, leadership enablement and delivery assurance."
         canonical="https://www.kudoadvisory.com/services"
       />
 
@@ -146,8 +146,8 @@ export default function ServicesIndex() {
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
                 {isAr
-                  ? "كودو أدفيزوري تقدم ست خدمات استشارية مستقلة تغطي دورة الذكاء الاصطناعي الكاملة — من الاستراتيجية والحوكمة إلى ضمان التسليم. نخدم قادة المؤسسات في الإمارات ودبي وأبوظبي والمملكة العربية السعودية والشرق الأوسط."
-                  : "Kudo Advisory provides six independent AI advisory services covering the full AI lifecycle — from strategy and governance through to delivery assurance. Serving enterprise leaders across the UAE, Dubai, Abu Dhabi, Saudi Arabia and the Middle East."}
+                  ? "كودو أدفيزوري تقدم ست خدمات استشارية مستقلة تغطي دورة الذكاء الاصطناعي الكاملة, من الاستراتيجية والحوكمة إلى ضمان التسليم. نخدم قادة المؤسسات في الإمارات ودبي وأبوظبي والمملكة العربية السعودية والشرق الأوسط."
+                  : "Kudo Advisory provides six independent AI advisory services covering the full AI lifecycle, from strategy and governance through to delivery assurance. Serving enterprise leaders across the UAE, Dubai, Abu Dhabi, Saudi Arabia and the Middle East."}
               </p>
             </AnimatedSection>
           </div>
@@ -203,7 +203,7 @@ export default function ServicesIndex() {
               <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 {isAr
                   ? "كودو أدفيزوري ليس لديها علاقات تجارية مع موردي التقنية وليس لها عائدات من التنفيذ وليس لها حافز للتوصية بالتقنية لذاتها. كل توصية مدفوعة بسياق أعمالك وحده."
-                  : "Kudo Advisory has no commercial relationships with technology vendors, no implementation revenue, and no incentive to recommend technology for its own sake. Every recommendation is driven entirely by your business context — not by our commercial interests."}
+                  : "Kudo Advisory has no commercial relationships with technology vendors, no implementation revenue, and no incentive to recommend technology for its own sake. Every recommendation is driven entirely by your business context, not by our commercial interests."}
               </p>
             </AnimatedSection>
           </div>
@@ -222,7 +222,7 @@ export default function ServicesIndex() {
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 {isAr
                   ? "احجز مكالمة استكشافية مدتها 30 دقيقة. سنناقش وضعك ونقترح النهج الأكثر منطقية."
-                  : "Book a 30-minute discovery call. We'll discuss your situation and recommend the engagement approach that makes most sense — whether that's one service or a combination."}
+                  : "Book a 30-minute discovery call. We'll discuss your situation and recommend the engagement approach that makes most sense, whether that's one service or a combination."}
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base">
@@ -238,7 +238,7 @@ export default function ServicesIndex() {
       </main>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link> — {isAr ? "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط." : "AI Advisory UAE, Dubai & Middle East."} {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}</p>
+        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, {isAr ? "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط." : "AI Advisory UAE, Dubai & Middle East."} {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}</p>
       </footer>
     </div>
   );

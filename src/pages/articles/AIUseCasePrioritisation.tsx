@@ -29,8 +29,8 @@ function EnglishBody() {
         <div className="stat-card"><span className="stat-number">Top 3</span><span className="stat-label">use cases deliver 70%+ of AI value in most successful programmes</span></div>
       </div>
       <p>Almost every enterprise AI programme I encounter starts the same way. A workshop. A list. Fifty use cases, or a hundred, ranging from genuinely transformative to slightly better than a spreadsheet formula. The list gets presented to leadership. Leadership gets excited. Someone asks the obvious question: where do we start?</p>
-      <p>This is where most AI programmes make their first and most consequential mistake. They choose where to start based on enthusiasm, organisational politics, or what the vendor is best at delivering — rather than on a structured assessment of value, feasibility, and strategic fit.</p>
-      <p>The result is predictable. Resources are spread thin. Early wins are elusive. The programme loses credibility with leadership before it's had a chance to prove itself. And the genuinely high-value use cases — the ones that could have transformed how the organisation operates — get buried under the noise.</p>
+      <p>This is where most AI programmes make their first and most consequential mistake. They choose where to start based on enthusiasm, organisational politics, or what the vendor is best at delivering, rather than on a structured assessment of value, feasibility, and strategic fit.</p>
+      <p>The result is predictable. Resources are spread thin. Early wins are elusive. The programme loses credibility with leadership before it's had a chance to prove itself. And the genuinely high-value use cases, the ones that could have transformed how the organisation operates, get buried under the noise.</p>
       <hr />
       <h2>Why most organisations prioritise AI use cases badly</h2>
       <h3>Prioritising by enthusiasm rather than evidence</h3>
@@ -41,7 +41,7 @@ function EnglishBody() {
       <p>Many use case assessments overestimate what's feasible given the organisation's actual data maturity, technical infrastructure, and change management capacity. This produces prioritisation lists that look compelling on paper but stall in execution when the team discovers that the data doesn't exist, the systems can't integrate, or the organisation isn't ready to change how it operates.</p>
       <h3>Ignoring portfolio balance</h3>
       <p>A use case prioritisation is also a portfolio decision. An AI programme that bets everything on one or two high-value, high-complexity, long-horizon use cases is fragile. If those use cases stall, the programme loses momentum and organisational support. A balanced portfolio includes quick wins to build credibility, medium-term initiatives to deliver sustained value, and longer-horizon investments in transformative capability.</p>
-      <blockquote><p>The goal of use case prioritisation is not to find the most impressive AI idea. It is to find the highest-value, most feasible, best-governed set of AI initiatives that your organisation can realistically execute — and to execute them in the right order.</p></blockquote>
+      <blockquote><p>The goal of use case prioritisation is not to find the most impressive AI idea. It is to find the highest-value, most feasible, best-governed set of AI initiatives that your organisation can realistically execute, and to execute them in the right order.</p></blockquote>
       <hr />
       <h2>The five-dimension prioritisation framework</h2>
       <p>After working through use case prioritisation with enterprises across multiple sectors and geographies, I have found that a five-dimension framework consistently produces prioritisation decisions that hold up under leadership scrutiny and survive contact with delivery reality. The five dimensions are:</p>
@@ -58,7 +58,7 @@ function EnglishBody() {
       <h3>Time horizon balance</h3>
       <p>A healthy AI portfolio includes: quick wins (3–6 months to value, building credibility and learning), medium-term initiatives (6–18 months, driving sustained business value), and longer-horizon investments (18 months+, building transformative capability). Most AI programmes fail by focusing too heavily on one horizon at the expense of the others.</p>
       <h3>Business function coverage</h3>
-      <p>An AI programme confined to one business unit is a programme that hasn't yet demonstrated enterprise-wide relevance. A portfolio that spans at least three business functions — even if the initial use cases in some functions are modest — builds broader organisational ownership of the AI agenda.</p>
+      <p>An AI programme confined to one business unit is a programme that hasn't yet demonstrated enterprise-wide relevance. A portfolio that spans at least three business functions, even if the initial use cases in some functions are modest, builds broader organisational ownership of the AI agenda.</p>
       <hr />
       <h2>Prioritisation as an ongoing discipline</h2>
       <p>Use case prioritisation is not a one-time event. As your AI programme evolves, as your data maturity improves, as the regulatory environment changes, and as business priorities shift, the relative attractiveness of different use cases will change. The most effective organisations treat prioritisation as a quarterly discipline: reviewing the portfolio, retiring use cases that have delivered their value or been superseded, and considering new opportunities against the framework.</p>
@@ -78,7 +78,7 @@ function ArabicBody() {
         <div className="stat-card"><span className="stat-number">أعلى 3</span><span className="stat-label">حالات استخدام تحقق أكثر من 70% من قيمة الذكاء الاصطناعي في معظم البرامج الناجحة</span></div>
       </div>
       <p>تقريباً كل برنامج ذكاء اصطناعي مؤسسي أصادفه يبدأ بنفس الطريقة. ورشة عمل. قائمة. خمسون حالة استخدام أو مئة، تتراوح بين تحويلية حقاً وأفضل قليلاً من معادلة جداول البيانات. تُقدَّم القائمة إلى القيادة. القيادة تتحمس. شخص يطرح السؤال الواضح: من أين نبدأ؟</p>
-      <p>هنا تقع معظم برامج الذكاء الاصطناعي في خطئها الأول والأكثر أثراً. تختار من أين تبدأ بناءً على الحماس أو السياسة التنظيمية أو ما يتقن المورد تسليمه — بدلاً من تقييم منظم للقيمة والجدوى والملاءمة الاستراتيجية.</p>
+      <p>هنا تقع معظم برامج الذكاء الاصطناعي في خطئها الأول والأكثر أثراً. تختار من أين تبدأ بناءً على الحماس أو السياسة التنظيمية أو ما يتقن المورد تسليمه, بدلاً من تقييم منظم للقيمة والجدوى والملاءمة الاستراتيجية.</p>
       <hr />
       <h2>لماذا تُحدّد معظم المنظمات أولويات حالات استخدام الذكاء الاصطناعي بشكل سيئ</h2>
       <h3>تحديد الأولويات بالحماس لا بالأدلة</h3>
@@ -89,7 +89,7 @@ function ArabicBody() {
       <p>كثير من تقييمات حالات الاستخدام تُبالغ في تقدير ما هو ممكن نظراً لنضج البيانات الفعلي للمنظمة وبنيتها التقنية وقدرتها على إدارة التغيير.</p>
       <h3>تجاهل توازن المحفظة</h3>
       <p>تحديد أولويات حالات الاستخدام هو أيضاً قرار محفظة. برنامج ذكاء اصطناعي يراهن بكل شيء على حالة استخدام واحدة أو اثنتين عالية القيمة وعالية التعقيد هشّ.</p>
-      <blockquote><p>هدف تحديد أولويات حالات الاستخدام ليس إيجاد الفكرة الأكثر إثارة في الذكاء الاصطناعي. بل إيجاد مجموعة المبادرات الأعلى قيمة والأكثر جدوى والأفضل حوكمة التي يمكن لمؤسستك تنفيذها بشكل واقعي — وتنفيذها بالترتيب الصحيح.</p></blockquote>
+      <blockquote><p>هدف تحديد أولويات حالات الاستخدام ليس إيجاد الفكرة الأكثر إثارة في الذكاء الاصطناعي. بل إيجاد مجموعة المبادرات الأعلى قيمة والأكثر جدوى والأفضل حوكمة التي يمكن لمؤسستك تنفيذها بشكل واقعي, وتنفيذها بالترتيب الصحيح.</p></blockquote>
       <hr />
       <h2>الإطار ذو الخمسة أبعاد لتحديد الأولويات</h2>
       <p>بعد العمل على تحديد أولويات حالات الاستخدام مع مؤسسات عبر قطاعات وجغرافيا متعددة، وجدت أن إطاراً ذا خمسة أبعاد ينتج باستمرار قرارات أولويات تصمد أمام تدقيق القيادة وتنجو من الاتصال بواقع التسليم:</p>

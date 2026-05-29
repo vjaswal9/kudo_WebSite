@@ -111,7 +111,7 @@ export const translations = {
     founder_label: "Independent. Outcome-led. Vendor-neutral.",
     founder_h2: "Advisory you can trust because we answer only to your outcomes",
     founder_body:
-      "Kudo Advisory has no vendor relationships, no implementation revenue, and no incentive to recommend technology for its own sake. Every engagement starts with defining what success looks like for your organisation — and we measure ourselves against that definition.",
+      "Kudo Advisory has no vendor relationships, no implementation revenue, and no incentive to recommend technology for its own sake. Every engagement starts with defining what success looks like for your organisation, and we measure ourselves against that definition.",
     founder_cta: "About Vijay Jaswal",
 
     // ── Contact ──────────────────────────────────────────
@@ -329,7 +329,7 @@ export const translations = {
     founder_label: "مستقل. يركز على النتائج. محايد تجاه الموردين.",
     founder_h2: "استشارات يمكنك الوثوق بها لأننا لا نُجيب إلا لنتائجك",
     founder_body:
-      "لا تربط كودو أدفيزوري علاقات بأي مورد، ولا تعتمد على عائدات التنفيذ، ولا تملك أي دافع للتوصية بالتقنية لذاتها. تبدأ كل مشاركة بتحديد معنى النجاح لمؤسستك — ونقيس أنفسنا بموجب هذا التعريف.",
+      "لا تربط كودو أدفيزوري علاقات بأي مورد، ولا تعتمد على عائدات التنفيذ، ولا تملك أي دافع للتوصية بالتقنية لذاتها. تبدأ كل مشاركة بتحديد معنى النجاح لمؤسستك, ونقيس أنفسنا بموجب هذا التعريف.",
     founder_cta: "تعرف على فيجاي جسوال",
 
     // ── Contact ──────────────────────────────────────────

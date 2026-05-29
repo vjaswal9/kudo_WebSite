@@ -5,8 +5,8 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 const META = {
   title: "The AI Operating Model: Structuring Your Organisation to Scale AI Responsibly",
   titleAr: "نموذج تشغيل الذكاء الاصطناعي: هيكلة مؤسستك لتوسيع الذكاء الاصطناعي بمسؤولية",
-  description: "Most enterprises have pockets of AI. Few have the operating model to scale it. An AI operating model defines how teams, processes, governance, and technology work together — and it's the difference between AI experiments and AI at enterprise scale.",
-  descriptionAr: "معظم المؤسسات لديها جيوب من الذكاء الاصطناعي. لكن القليل لديه نموذج التشغيل لتوسيعه. نموذج تشغيل الذكاء الاصطناعي يحدد كيف تعمل الفرق والعمليات والحوكمة والتقنية معاً — وهو الفرق بين تجارب الذكاء الاصطناعي والذكاء الاصطناعي على النطاق المؤسسي.",
+  description: "Most enterprises have pockets of AI. Few have the operating model to scale it. An AI operating model defines how teams, processes, governance, and technology work together, and it's the difference between AI experiments and AI at enterprise scale.",
+  descriptionAr: "معظم المؤسسات لديها جيوب من الذكاء الاصطناعي. لكن القليل لديه نموذج التشغيل لتوسيعه. نموذج تشغيل الذكاء الاصطناعي يحدد كيف تعمل الفرق والعمليات والحوكمة والتقنية معاً, وهو الفرق بين تجارب الذكاء الاصطناعي والذكاء الاصطناعي على النطاق المؤسسي.",
   author: "Vijay Jaswal",
   authorTitle: "Founder & CEO, Kudo Advisory",
   authorTitleAr: "المؤسس والرئيس التنفيذي، كودو أدفيزوري",
@@ -41,7 +41,7 @@ function EnglishBody() {
       <ul>
         <li><strong>Structure and governance:</strong> How AI capability is organised and how accountability for AI outcomes is distributed across the enterprise.</li>
         <li><strong>Talent and capability:</strong> The skills, roles, and learning infrastructure required to build and sustain AI at scale.</li>
-        <li><strong>Process integration:</strong> How AI systems are embedded into operational processes and decision workflows — not just deployed alongside them.</li>
+        <li><strong>Process integration:</strong> How AI systems are embedded into operational processes and decision workflows, not just deployed alongside them.</li>
         <li><strong>AI governance and policy:</strong> The policies, controls, and accountability structures that ensure AI is deployed responsibly and in compliance with regulatory requirements.</li>
         <li><strong>Technology and data infrastructure:</strong> The platforms, tools, and data architecture that enable AI teams to build, test, deploy, and monitor AI systems efficiently.</li>
       </ul>

@@ -1,5 +1,5 @@
 // src/lib/faqData.ts
-// Bilingual FAQ content — English and Arabic
+// Bilingual FAQ content, English and Arabic
 
 export interface FaqItem { q: string; a: string; }
 export interface FaqCategory { category: string; questions: FaqItem[]; }

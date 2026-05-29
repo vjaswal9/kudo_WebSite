@@ -5,8 +5,8 @@ import { ArticleLayout } from "@/components/ArticleLayout";
 const META = {
   title: "Measuring AI ROI: Metrics That Actually Matter to Your Board",
   titleAr: "قياس عائد استثمار الذكاء الاصطناعي: المقاييس التي تهم مجلس الإدارة فعلاً",
-  description: "Most AI programmes are measured on the wrong things. Here's how enterprise leaders should think about AI ROI — and how to build the measurement framework that gives your board what it actually needs.",
-  descriptionAr: "معظم برامج الذكاء الاصطناعي تُقاس على الأشياء الخاطئة. إليك كيف يجب على قادة المؤسسات التفكير في عائد استثمار الذكاء الاصطناعي — وكيفية بناء إطار القياس الذي يمنح مجلس الإدارة ما يحتاجه فعلاً.",
+  description: "Most AI programmes are measured on the wrong things. Here's how enterprise leaders should think about AI ROI, and how to build the measurement framework that gives your board what it actually needs.",
+  descriptionAr: "معظم برامج الذكاء الاصطناعي تُقاس على الأشياء الخاطئة. إليك كيف يجب على قادة المؤسسات التفكير في عائد استثمار الذكاء الاصطناعي, وكيفية بناء إطار القياس الذي يمنح مجلس الإدارة ما يحتاجه فعلاً.",
   author: "Vijay Jaswal",
   authorTitle: "Founder & CEO, Kudo Advisory",
   authorTitleAr: "المؤسس والرئيس التنفيذي، كودو أدفيزوري",
@@ -28,29 +28,29 @@ function EnglishBody() {
         <div className="stat-card"><span className="stat-number">4×</span><span className="stat-label">more likely to secure continued AI investment when ROI is clearly measured</span></div>
         <div className="stat-card"><span className="stat-number">Tier 1</span><span className="stat-label">AI programmes track business outcomes, not model accuracy</span></div>
       </div>
-      <p>The conversation I dread most when advising enterprise leaders on AI is the one that goes like this: the programme has been running for 12 months, significant budget has been spent, and when I ask what the business has achieved, the answer involves model accuracy, inference speed, or the number of use cases in the portfolio. These are not business outcomes. They are technical outputs. And boards — rightly — do not fund technical outputs.</p>
-      <p>The measurement problem in enterprise AI is both widespread and avoidable. Most programmes are measured on the wrong things — either because nobody defined the right metrics upfront, or because measuring the right things requires work that the programme skipped in the interest of moving quickly. Either way, the result is an AI programme that cannot make its own case to the board when investment renewal time comes.</p>
+      <p>The conversation I dread most when advising enterprise leaders on AI is the one that goes like this: the programme has been running for 12 months, significant budget has been spent, and when I ask what the business has achieved, the answer involves model accuracy, inference speed, or the number of use cases in the portfolio. These are not business outcomes. They are technical outputs. And boards, rightly, do not fund technical outputs.</p>
+      <p>The measurement problem in enterprise AI is both widespread and avoidable. Most programmes are measured on the wrong things, either because nobody defined the right metrics upfront, or because measuring the right things requires work that the programme skipped in the interest of moving quickly. Either way, the result is an AI programme that cannot make its own case to the board when investment renewal time comes.</p>
       <hr />
       <h2>The measurement gap: why it exists and why it matters</h2>
-      <p>The measurement gap — the distance between what an AI programme actually measures and what it should measure — has a consistent origin story. The programme was designed by people who understand AI. Business outcomes were assumed rather than specified. Metrics defaulted to what's easiest to measure: model performance, technical health, and development velocity. By the time the programme is running, the measurement framework is set, and retrofitting business outcome metrics is difficult.</p>
+      <p>The measurement gap, the distance between what an AI programme actually measures and what it should measure, has a consistent origin story. The programme was designed by people who understand AI. Business outcomes were assumed rather than specified. Metrics defaulted to what's easiest to measure: model performance, technical health, and development velocity. By the time the programme is running, the measurement framework is set, and retrofitting business outcome metrics is difficult.</p>
       <blockquote><p>You cannot measure AI ROI after the fact. The measurement framework needs to be designed before the first use case is built. This is not a reporting decision. It is a programme design decision.</p></blockquote>
       <hr />
       <h2>A three-tier measurement framework</h2>
       <p>The most effective AI measurement frameworks I have seen operate at three tiers, each serving a different audience and a different purpose:</p>
       <ul>
-        <li><strong>Tier 1 — Business outcomes (for the board and CEO):</strong> Revenue impact, cost reduction, risk reduction, customer experience improvement, strategic capability built. These are the metrics that answer the question: is AI making the business better?</li>
-        <li><strong>Tier 2 — Programme metrics (for the executive team):</strong> Use cases in production, time from pilot to production, adoption rates, cost per use case, delivery against milestones. These answer: is the programme delivering effectively?</li>
-        <li><strong>Tier 3 — Technical metrics (for the AI team):</strong> Model performance, data quality, system reliability, inference latency, retraining frequency. These answer: is the AI performing as designed?</li>
+        <li><strong>Tier 1, Business outcomes (for the board and CEO):</strong> Revenue impact, cost reduction, risk reduction, customer experience improvement, strategic capability built. These are the metrics that answer the question: is AI making the business better?</li>
+        <li><strong>Tier 2, Programme metrics (for the executive team):</strong> Use cases in production, time from pilot to production, adoption rates, cost per use case, delivery against milestones. These answer: is the programme delivering effectively?</li>
+        <li><strong>Tier 3, Technical metrics (for the AI team):</strong> Model performance, data quality, system reliability, inference latency, retraining frequency. These answer: is the AI performing as designed?</li>
       </ul>
       <p>The mistake most programmes make is to report Tier 3 metrics to the board. The board does not care about F1 scores. They care about whether the AI investment is creating business value.</p>
       <hr />
       <h2>Board-level metrics by business outcome category</h2>
       <ul>
-        <li><strong>Revenue impact:</strong> AI-influenced revenue — revenue from transactions where AI directly influenced the outcome.</li>
-        <li><strong>Cost reduction:</strong> Cost per unit avoided — reduction in cost per transaction or operation as a result of AI automation.</li>
-        <li><strong>Risk reduction:</strong> Risk exposure avoided — quantified reduction in credit losses, fraud, compliance breaches attributable to AI.</li>
-        <li><strong>Productivity:</strong> Hours redirected to value work — employee time freed from routine tasks, measured and translated to economic value.</li>
-        <li><strong>Customer experience:</strong> AI-influenced NPS/CSAT delta — improvement in satisfaction in interactions where AI is deployed.</li>
+        <li><strong>Revenue impact:</strong> AI-influenced revenue, revenue from transactions where AI directly influenced the outcome.</li>
+        <li><strong>Cost reduction:</strong> Cost per unit avoided, reduction in cost per transaction or operation as a result of AI automation.</li>
+        <li><strong>Risk reduction:</strong> Risk exposure avoided, quantified reduction in credit losses, fraud, compliance breaches attributable to AI.</li>
+        <li><strong>Productivity:</strong> Hours redirected to value work, employee time freed from routine tasks, measured and translated to economic value.</li>
+        <li><strong>Customer experience:</strong> AI-influenced NPS/CSAT delta, improvement in satisfaction in interactions where AI is deployed.</li>
         <li><strong>Strategic capability:</strong> Leading indicators for AI investments with primarily strategic rather than near-term financial returns.</li>
       </ul>
       <hr />
@@ -84,19 +84,19 @@ function ArabicBody() {
         <div className="stat-card"><span className="stat-number">4×</span><span className="stat-label">أكثر احتمالاً لتأمين استثمار مستمر في الذكاء الاصطناعي حين يُقاس عائد الاستثمار بوضوح</span></div>
         <div className="stat-card"><span className="stat-number">المستوى 1</span><span className="stat-label">برامج الذكاء الاصطناعي تتتبع نتائج الأعمال لا دقة النموذج</span></div>
       </div>
-      <p>المحادثة التي أخشاها أكثر حين أقدم المشورة لقادة المؤسسات في الذكاء الاصطناعي هي تلك التي تسير هكذا: البرنامج يعمل منذ 12 شهراً، أُنفقت ميزانية كبيرة، وحين أسأل ما الذي حققه العمل، تكون الإجابة حول دقة النموذج أو سرعة الاستنتاج أو عدد حالات الاستخدام في المحفظة. هذه ليست نتائج أعمال. هي مخرجات تقنية. ومجالس الإدارة — بحق — لا تُموّل المخرجات التقنية.</p>
-      <p>مشكلة القياس في الذكاء الاصطناعي المؤسسي واسعة الانتشار ويمكن تجنبها. معظم البرامج تُقاس على الأشياء الخاطئة — إما لأن أحداً لم يحدد المقاييس الصحيحة مسبقاً، أو لأن قياس الأشياء الصحيحة يتطلب عملاً تخطّاه البرنامج سعياً للسرعة.</p>
+      <p>المحادثة التي أخشاها أكثر حين أقدم المشورة لقادة المؤسسات في الذكاء الاصطناعي هي تلك التي تسير هكذا: البرنامج يعمل منذ 12 شهراً، أُنفقت ميزانية كبيرة، وحين أسأل ما الذي حققه العمل، تكون الإجابة حول دقة النموذج أو سرعة الاستنتاج أو عدد حالات الاستخدام في المحفظة. هذه ليست نتائج أعمال. هي مخرجات تقنية. ومجالس الإدارة, بحق, لا تُموّل المخرجات التقنية.</p>
+      <p>مشكلة القياس في الذكاء الاصطناعي المؤسسي واسعة الانتشار ويمكن تجنبها. معظم البرامج تُقاس على الأشياء الخاطئة, إما لأن أحداً لم يحدد المقاييس الصحيحة مسبقاً، أو لأن قياس الأشياء الصحيحة يتطلب عملاً تخطّاه البرنامج سعياً للسرعة.</p>
       <hr />
       <h2>فجوة القياس: لماذا توجد ولماذا تهم</h2>
-      <p>فجوة القياس — المسافة بين ما يقيسه برنامج الذكاء الاصطناعي فعلاً وما ينبغي له قياسه — لها قصة أصل متسقة. البرنامج صُمِّم من قبل أشخاص يفهمون الذكاء الاصطناعي. نتائج الأعمال افتُرضت لا حُدِّدت. المقاييس تعثّرت عند الأسهل قياساً: أداء النموذج والصحة التقنية وسرعة التطوير.</p>
+      <p>فجوة القياس, المسافة بين ما يقيسه برنامج الذكاء الاصطناعي فعلاً وما ينبغي له قياسه, لها قصة أصل متسقة. البرنامج صُمِّم من قبل أشخاص يفهمون الذكاء الاصطناعي. نتائج الأعمال افتُرضت لا حُدِّدت. المقاييس تعثّرت عند الأسهل قياساً: أداء النموذج والصحة التقنية وسرعة التطوير.</p>
       <blockquote><p>لا يمكنك قياس عائد استثمار الذكاء الاصطناعي بعد الفعل. إطار القياس يحتاج التصميم قبل بناء حالة الاستخدام الأولى. هذا ليس قراراً في التقارير. هو قرار في تصميم البرنامج.</p></blockquote>
       <hr />
       <h2>إطار قياس ذو ثلاثة مستويات</h2>
       <p>أكثر أطر قياس الذكاء الاصطناعي فاعلية رأيتها تعمل على ثلاثة مستويات، كل منها يخدم جمهوراً وغرضاً مختلفاً:</p>
       <ul>
-        <li><strong>المستوى 1 — نتائج الأعمال (لمجلس الإدارة والرئيس التنفيذي):</strong> الأثر على الإيرادات وخفض التكاليف وخفض المخاطر وتحسين تجربة العملاء والقدرة الاستراتيجية المبنية.</li>
-        <li><strong>المستوى 2 — مقاييس البرنامج (للفريق التنفيذي):</strong> حالات الاستخدام في الإنتاج والوقت من التجربة إلى الإنتاج ومعدلات التبني والتكلفة لكل حالة استخدام.</li>
-        <li><strong>المستوى 3 — المقاييس التقنية (لفريق الذكاء الاصطناعي):</strong> أداء النموذج وجودة البيانات وموثوقية النظام وزمن الاستجابة.</li>
+        <li><strong>المستوى 1, نتائج الأعمال (لمجلس الإدارة والرئيس التنفيذي):</strong> الأثر على الإيرادات وخفض التكاليف وخفض المخاطر وتحسين تجربة العملاء والقدرة الاستراتيجية المبنية.</li>
+        <li><strong>المستوى 2, مقاييس البرنامج (للفريق التنفيذي):</strong> حالات الاستخدام في الإنتاج والوقت من التجربة إلى الإنتاج ومعدلات التبني والتكلفة لكل حالة استخدام.</li>
+        <li><strong>المستوى 3, المقاييس التقنية (لفريق الذكاء الاصطناعي):</strong> أداء النموذج وجودة البيانات وموثوقية النظام وزمن الاستجابة.</li>
       </ul>
       <p>الخطأ الذي ترتكبه معظم البرامج هو تقديم مقاييس المستوى 3 لمجلس الإدارة. لا يهتم مجلس الإدارة بدرجات F1. يهتم بما إذا كان استثمار الذكاء الاصطناعي يخلق قيمة تجارية.</p>
       <hr />
@@ -104,8 +104,8 @@ function ArabicBody() {
       <ul>
         <li><strong>أثر الإيرادات:</strong> الإيرادات المتأثرة بالذكاء الاصطناعي.</li>
         <li><strong>خفض التكاليف:</strong> التكلفة لكل وحدة يتم تجنبها نتيجة أتمتة الذكاء الاصطناعي.</li>
-        <li><strong>خفض المخاطر:</strong> التعرض للمخاطر المتجنب — خسائر الائتمان والاحتيال وخروقات الامتثال المنسوبة إلى الذكاء الاصطناعي.</li>
-        <li><strong>الإنتاجية:</strong> ساعات موجَّهة إلى عمل ذي قيمة — وقت الموظفين المحرَّر من المهام الروتينية.</li>
+        <li><strong>خفض المخاطر:</strong> التعرض للمخاطر المتجنب, خسائر الائتمان والاحتيال وخروقات الامتثال المنسوبة إلى الذكاء الاصطناعي.</li>
+        <li><strong>الإنتاجية:</strong> ساعات موجَّهة إلى عمل ذي قيمة, وقت الموظفين المحرَّر من المهام الروتينية.</li>
         <li><strong>تجربة العملاء:</strong> تغير NPS/CSAT المتأثر بالذكاء الاصطناعي.</li>
         <li><strong>القدرة الاستراتيجية:</strong> مؤشرات قيادية للاستثمارات ذات العوائد الاستراتيجية.</li>
       </ul>
@@ -146,7 +146,7 @@ export default function MeasuringAIROI() {
         childrenAr={<ArabicBody />}
         ctaHeading="Struggling to measure AI ROI for your board?"
         ctaHeadingAr="تجد صعوبة في قياس عائد استثمار الذكاء الاصطناعي لمجلس الإدارة؟"
-        ctaBody="Kudo Advisory helps enterprise leaders build measurement frameworks that demonstrate AI value at the board level — and sustain investment in AI programmes that deliver."
+        ctaBody="Kudo Advisory helps enterprise leaders build measurement frameworks that demonstrate AI value at the board level, and sustain investment in AI programmes that deliver."
         ctaBodyAr="تساعد كودو أدفيزوري قادة المؤسسات على بناء أطر قياس تُثبت قيمة الذكاء الاصطناعي على مستوى مجلس الإدارة وتحافظ على الاستثمار في برامج الذكاء الاصطناعي."
       >
         <EnglishBody />

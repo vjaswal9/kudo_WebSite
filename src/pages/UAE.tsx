@@ -1,5 +1,5 @@
 // src/pages/UAE.tsx
-// Dedicated UAE landing page — targets "AI advisory UAE", "AI consultancy UAE"
+// Dedicated UAE landing page, targets "AI advisory UAE", "AI consultancy UAE"
 // and "AI advisory United Arab Emirates" search queries.
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,9 +22,9 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 
 const services = [
   { icon: Brain, en: "AI Strategy", ar: "استراتيجية الذكاء الاصطناعي", desc_en: "A clear, prioritised AI roadmap aligned to UAE business goals and board expectations.", desc_ar: "خارطة طريق واضحة للذكاء الاصطناعي مواءمة لأهداف الأعمال الإماراتية وتوقعات مجلس الإدارة." },
-  { icon: FileCheck, en: "AI Policy & Governance", ar: "سياسة وحوكمة الذكاء الاصطناعي", desc_en: "AI governance frameworks built for the UAE regulatory landscape — TDRA, ADGM, DIFC compliant.", desc_ar: "أطر حوكمة مُبنية للبيئة التنظيمية الإماراتية — متوافقة مع هيئة تنظيم الاتصالات وADGM وDIFC." },
+  { icon: FileCheck, en: "AI Policy & Governance", ar: "سياسة وحوكمة الذكاء الاصطناعي", desc_en: "AI governance frameworks built for the UAE regulatory landscape, TDRA, ADGM, DIFC compliant.", desc_ar: "أطر حوكمة مُبنية للبيئة التنظيمية الإماراتية, متوافقة مع هيئة تنظيم الاتصالات وADGM وDIFC." },
   { icon: Settings, en: "AI Operating Model Design", ar: "تصميم نموذج التشغيل", desc_en: "Structure UAE enterprise teams, processes and technology to scale AI responsibly.", desc_ar: "هيكلة فرق ومؤسسات الإمارات لتوسيع الذكاء الاصطناعي بمسؤولية." },
-  { icon: ListChecks, en: "AI Use Case Prioritisation", ar: "تحديد أولويات حالات الاستخدام", desc_en: "Rank UAE AI opportunities by business value and feasibility — build the right things first.", desc_ar: "ترتيب فرص الذكاء الاصطناعي في الإمارات حسب القيمة والجدوى." },
+  { icon: ListChecks, en: "AI Use Case Prioritisation", ar: "تحديد أولويات حالات الاستخدام", desc_en: "Rank UAE AI opportunities by business value and feasibility, build the right things first.", desc_ar: "ترتيب فرص الذكاء الاصطناعي في الإمارات حسب القيمة والجدوى." },
   { icon: Users, en: "Leadership Enablement", ar: "تمكين القيادة", desc_en: "Equip UAE C-suite and board with practical AI literacy to lead transformation.", desc_ar: "تجهيز القيادة التنفيذية الإماراتية بمعرفة عملية بالذكاء الاصطناعي." },
   { icon: ClipboardCheck, en: "AI Delivery Assurance", ar: "ضمان التسليم", desc_en: "Hands-on oversight to keep UAE AI programmes on track and delivering board-level results.", desc_ar: "إشراف ميداني لإبقاء برامج الذكاء الاصطناعي في مسارها وتحقيق النتائج." },
 ];
@@ -74,7 +74,7 @@ export default function UAE() {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.35em] text-primary font-medium mb-4">
-                {isAr ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory — United Arab Emirates"}
+                {isAr ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory, United Arab Emirates"}
               </p>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
                 {isAr
@@ -106,7 +106,7 @@ export default function UAE() {
                 {isAr ? "لماذا الإمارات" : "The UAE AI Landscape"}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                {isAr ? "الذكاء الاصطناعي في الإمارات: الفرصة والتحدي" : "The UAE AI opportunity — and the execution gap"}
+                {isAr ? "الذكاء الاصطناعي في الإمارات: الفرصة والتحدي" : "The UAE AI opportunity, and the execution gap"}
               </h2>
             </AnimatedSection>
             <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -117,10 +117,10 @@ export default function UAE() {
                     : "The UAE has made AI central to its national vision. The UAE National AI Strategy 2031 is ambitious, the country appointed the world's first Minister of AI, and investment is flowing heavily across Dubai, Abu Dhabi and the wider UAE."}</p>
                   <p>{isAr
                     ? "لكن كثيراً من المؤسسات الإماراتية تكافح لتحويل الاستثمار في الذكاء الاصطناعي إلى نتائج تشغيلية. المشاريع التجريبية تتوقف. الحوكمة تتأخر. الهياكل التنظيمية لا تواكب الطموح."
-                    : "But many UAE enterprises are struggling to convert AI investment into operational results. Pilots stall. Governance lags. Organisational structures don't keep pace with ambition. The UAE's AI regulatory environment — TDRA, ADGM, DIFC — is developing rapidly, and governance-first organisations are moving faster, not slower."}</p>
+                    : "But many UAE enterprises are struggling to convert AI investment into operational results. Pilots stall. Governance lags. Organisational structures don't keep pace with ambition. The UAE's AI regulatory environment, TDRA, ADGM, DIFC, is developing rapidly, and governance-first organisations are moving faster, not slower."}</p>
                   <p>{isAr
                     ? "كودو أدفيزوري تأسست في الإمارات خصيصاً لسد هذه الفجوة."
-                    : "Kudo Advisory was founded in the UAE precisely to close this gap — bringing the strategic clarity, governance frameworks, and execution discipline that UAE enterprises need to make AI actually deliver."}</p>
+                    : "Kudo Advisory was founded in the UAE precisely to close this gap, bringing the strategic clarity, governance frameworks, and execution discipline that UAE enterprises need to make AI actually deliver."}</p>
                 </div>
               </AnimatedSection>
               <AnimatedSection delay={100}>
@@ -222,7 +222,7 @@ export default function UAE() {
       </main>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link> — AI Advisory UAE, Dubai & Middle East. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, AI Advisory UAE, Dubai & Middle East. All rights reserved.</p>
         <p className="mt-2"><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
       </footer>
     </div>

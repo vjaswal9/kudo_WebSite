@@ -548,7 +548,7 @@ const Index = () => {
           </div>
           <hr className="section-rule mb-8" />
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-            <p>© {new Date().getFullYear()} <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a> — {t("footer_tagline")} {t("footer_rights")}</p>
+            <p>© {new Date().getFullYear()} <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a>, {t("footer_tagline")} {t("footer_rights")}</p>
             <p><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
           </div>
         </div>
