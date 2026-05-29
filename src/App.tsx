@@ -16,6 +16,13 @@ import CIOCISOCollaboration from "./pages/articles/CIOCISOCollaboration";
 import AIUseCasePrioritisation from "./pages/articles/AIUseCasePrioritisation";
 import MeasuringAIROI from "./pages/articles/MeasuringAIROI";
 import UAE from "./pages/UAE";
+import ServicesIndex from "./pages/services/ServicesIndex";
+import AIStrategyPage from "./pages/services/AIStrategy";
+import AIGovernancePage from "./pages/services/AIGovernance";
+import AIOperatingModelPage from "./pages/services/AIOperatingModel";
+import AIUseCasePrioritisationPage from "./pages/services/AIUseCasePrioritisation";
+import LeadershipEnablementPage from "./pages/services/LeadershipEnablement";
+import AIDeliveryAssurancePage from "./pages/services/AIDeliveryAssurance";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -56,6 +63,13 @@ export const routes: RouteRecord[] = [
       { path: "insights/ai-use-case-prioritisation", element: <AIUseCasePrioritisation /> },
       { path: "insights/measuring-ai-roi", element: <MeasuringAIROI /> },
       { path: "ai-advisory-uae", element: <UAE /> },
+      { path: "services", element: <ServicesIndex /> },
+      { path: "services/ai-strategy", element: <AIStrategyPage /> },
+      { path: "services/ai-governance", element: <AIGovernancePage /> },
+      { path: "services/ai-operating-model", element: <AIOperatingModelPage /> },
+      { path: "services/ai-use-case-prioritisation", element: <AIUseCasePrioritisationPage /> },
+      { path: "services/leadership-enablement", element: <LeadershipEnablementPage /> },
+      { path: "services/ai-delivery-assurance", element: <AIDeliveryAssurancePage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
