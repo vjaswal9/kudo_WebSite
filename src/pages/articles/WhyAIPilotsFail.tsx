@@ -1,7 +1,7 @@
 // src/pages/articles/WhyAIPilotsFail.tsx
 // ════════════════════════════════════════════════════
 // Kudo Advisory, Article Page
-// "Why Enterprise AI Pilots Fail, And What to Do About It"
+// "Why Enterprise AI Pilots Fail: What to Do About It"
 // Author: Vijay Jaswal | SEO & AI-EO Optimised
 // ════════════════════════════════════════════════════
 import { useEffect, useState } from "react";
@@ -11,9 +11,9 @@ import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
 
 const ARTICLE = {
-  title: "Why Enterprise AI Pilots Fail. And What to Do About It",
+  title: "Why Enterprise AI Pilots Fail: What to Do About It",
   description:
-    "Up to 80% of enterprise AI initiatives never scale beyond the pilot stage. The cause is rarely the technology. It's the absence of strategic clarity, accountable ownership, and governance built for execution. Vijay Jaswal explains why: and how to break the cycle.",
+    "Up to 80% of enterprise AI initiatives never scale beyond the pilot stage. The cause is rarely the technology. It's the absence of strategic clarity, accountable ownership, and governance built for execution. Vijay Jaswal explains why, and how to break the cycle.",
   author: "Vijay Jaswal",
   authorTitle: "Founder & CEO, Kudo Advisory",
   date: "2026-05-19",
@@ -73,8 +73,8 @@ export default function WhyAIPilotsFail() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <PageMeta
-        title="Why Enterprise AI Pilots Fail. And What to Do About It | Kudo Advisory"
-        description="Up to 80% of enterprise AI initiatives never scale beyond pilot stage. Vijay Jaswal explains the five root causes of AI pilot failure: and what successful organisations do differently."
+        title="Why Enterprise AI Pilots Fail: What to Do About It | Kudo Advisory"
+        description="Up to 80% of enterprise AI initiatives never scale beyond pilot stage. Vijay Jaswal explains the five root causes of AI pilot failure, and what successful organisations do differently."
         canonical="https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail"
         articlePublishedTime="2026-05-19T00:00:00+04:00"
         articleModifiedTime="2026-05-19T00:00:00+04:00"
