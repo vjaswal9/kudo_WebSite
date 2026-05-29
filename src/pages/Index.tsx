@@ -360,8 +360,8 @@ const Index = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
-              <strong className="text-foreground/90">Kudo</strong>, Japanese for{" "}
-              <em>driving force</em> (駆動). We help enterprise leadership teams across
+              <strong className="text-foreground/90">Kudo</strong>, is the Japanese word for{" "}
+              <em>driving force or propulsion</em> (駆動). We help enterprise leadership teams across
               Dubai and the Middle East go from AI ambition to governed, measurable
               progress. Without the buzzwords. Without the vendor lock-in.
             </p>
