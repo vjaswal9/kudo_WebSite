@@ -552,26 +552,29 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ── UAE LEADER VISUAL STRIP ── */}
-        <section aria-label="Enterprise AI advisory across the UAE and Middle East" className="relative h-[420px] overflow-hidden">
-          <img
-            src={leaderBg}
-            alt="Enterprise leader with Dubai skyline and Burj Khalifa — AI advisory across the UAE"
-            className="w-full h-full object-cover object-top"
-            loading="lazy" width="1400" height="420"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/20" aria-hidden="true" />
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-5xl mx-auto px-6">
+        {/* ── UAE LEADER VISUAL SECTION ── */}
+        <section aria-label="Enterprise AI advisory across the UAE and Middle East" className="py-20 md:py-28 px-6 bg-secondary/10">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <AnimatedSection>
+              <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={leaderBg}
+                  alt="Enterprise leader with Dubai skyline and Burj Khalifa — AI advisory across the UAE"
+                  className="w-full h-auto object-cover"
+                  loading="lazy" width="800" height="800"
+                />
+              </figure>
+            </AnimatedSection>
+            <AnimatedSection delay={100}>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">
                 {isRTL ? "الإمارات والشرق الأوسط" : "UAE & Middle East"}
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3 max-w-xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 {isRTL
                   ? "نخدم قادة المؤسسات عبر الإمارات والشرق الأوسط"
                   : "Serving enterprise leaders across the UAE and Middle East"}
               </h2>
-              <p className="text-muted-foreground max-w-md leading-relaxed mb-6">
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 {isRTL
                   ? "دبي · أبوظبي · الشارقة · المملكة العربية السعودية · قطر · البحرين · الكويت · عُمان"
                   : "Dubai · Abu Dhabi · Sharjah · Saudi Arabia · Qatar · Bahrain · Kuwait · Oman"}
@@ -579,7 +582,7 @@ const Index = () => {
               <a href="/ai-advisory-uae" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
                 {isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE"} <ChevronRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} />
               </a>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
