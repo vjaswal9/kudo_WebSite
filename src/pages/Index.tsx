@@ -277,7 +277,7 @@ const Index = () => {
               <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-10">
                 {t("featured_label")}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8" role="list" aria-label="Publications featuring Kudo Advisory">
+              <div dir="ltr" className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8" role="list" aria-label="Publications featuring Kudo Advisory">
                 <a href="https://apnews.com/press-release/ein-presswire-newsmatics/middle-east-enterprises-face-growing-challenge-turning-ai-investment-into-operational-results-ea9c2d6d8d68dccd6485a3c2f7f8cef9" target="_blank" rel="noopener noreferrer" role="listitem" className="opacity-45 hover:opacity-90 transition-opacity duration-200">
                   <svg width="80" height="36" viewBox="0 0 80 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><text x="0" y="28" fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fontSize="30" fill="currentColor" letterSpacing="-1">AP</text><text x="46" y="28" fontFamily="Arial, Helvetica, sans-serif" fontWeight="400" fontSize="13" fill="currentColor" letterSpacing="0.5">News</text></svg>
                 </a>
