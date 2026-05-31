@@ -256,11 +256,21 @@ const Index = () => {
                 <a href="/services">{t("hero_cta_secondary")}</a>
               </Button>
             </div>
-            <a href="/ai-readiness-assessment" className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
-              <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
-              {isRTL ? "أو خذ تقييم جاهزية الذكاء الاصطناعي المجاني (3 دقائق)" : "Or take the free 3-minute AI Readiness Assessment"}
-              <ChevronRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} aria-hidden="true" />
-            </a>
+            <div className="flex justify-center pt-6">
+              <a
+                href="/ai-readiness-assessment"
+                className="group inline-flex items-center gap-3 rounded-full border border-primary/40 bg-primary/10 hover:bg-primary/20 hover:border-primary/60 px-6 py-3.5 transition-all duration-200 shadow-sm hover:shadow-md"
+              >
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary-foreground animate-pulse" aria-hidden="true" />
+                  {isRTL ? "مجاني" : "Free"}
+                </span>
+                <span className="text-sm sm:text-base font-semibold text-foreground">
+                  {isRTL ? "خذ تقييم جاهزية الذكاء الاصطناعي (3 دقائق)" : "Take the 3-minute AI Readiness Assessment"}
+                </span>
+                <ChevronRight className={`w-5 h-5 text-primary group-hover:translate-x-1 transition-transform ${isRTL ? "rotate-180 group-hover:-translate-x-1" : ""}`} aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
           <div className="relative z-10 w-full max-w-5xl mx-auto mt-16 mb-8 px-4">

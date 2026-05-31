@@ -1,5 +1,5 @@
 // src/pages/GuideDownload.tsx
-// Gated lead-magnet download — captures email via Formspree, then serves the PDF guide.
+// Gated lead-magnet download, captures email via Formspree, then serves the PDF guide.
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -59,7 +59,7 @@ export default function GuideDownload() {
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="Free Guide: The 5 Reasons Enterprise AI Pilots Fail | Kudo Advisory"
-        description="Download Kudo Advisory's free guide: The 5 Reasons Enterprise AI Pilots Fail — and what the organisations that succeed do differently. Written by Vijay Jaswal for enterprise leaders across the UAE and Middle East."
+        description="Download Kudo Advisory's free guide: The 5 Reasons Enterprise AI Pilots Fail, and what the organisations that succeed do differently. Written by Vijay Jaswal for enterprise leaders across the UAE and Middle East."
         canonical="https://www.kudoadvisory.com/guides/ai-pilots-fail"
       />
 
@@ -79,7 +79,7 @@ export default function GuideDownload() {
 
       <main className="pt-28 pb-20 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Left — pitch */}
+          {/* Left, pitch */}
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-primary font-medium mb-4">
               {t("Free Guide · PDF", "دليل مجاني · PDF")}
@@ -89,7 +89,7 @@ export default function GuideDownload() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-7">
               {t(
-                "Up to 80% of enterprise AI initiatives never scale beyond pilot. The cause is rarely the technology. This concise guide sets out the five root causes — and the practical fix for each.",
+                "Up to 80% of enterprise AI initiatives never scale beyond pilot. The cause is rarely the technology. This concise guide sets out the five root causes, and the practical fix for each.",
                 "ما يصل إلى 80% من مبادرات الذكاء الاصطناعي المؤسسية لا تتجاوز المرحلة التجريبية. السبب نادراً ما يكون التقنية. يحدد هذا الدليل الموجز الأسباب الجذرية الخمسة، والحل العملي لكل منها."
               )}
             </p>
@@ -103,7 +103,7 @@ export default function GuideDownload() {
             </ul>
           </div>
 
-          {/* Right — form / success */}
+          {/* Right, form / success */}
           <div className="p-8 rounded-2xl border border-border bg-card shadow-xl">
             {!done ? (
               <>
@@ -159,7 +159,7 @@ export default function GuideDownload() {
                 <h2 className="text-2xl font-bold mb-3">{t("Your guide is downloading", "جارٍ تنزيل دليلك")}</h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {t(
-                    "If it didn't start automatically, use the button below. Thank you — we hope it's useful.",
+                    "If it didn't start automatically, use the button below. Thank you, we hope it's useful.",
                     "إذا لم يبدأ تلقائياً، استخدم الزر أدناه. شكراً لك، نأمل أن يكون مفيداً."
                   )}
                 </p>
@@ -181,7 +181,7 @@ export default function GuideDownload() {
       </main>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link> — {t("AI Advisory UAE, Dubai & Middle East.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط.")}</p>
+        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, {t("AI Advisory UAE, Dubai & Middle East.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط.")}</p>
       </footer>
     </div>
   );

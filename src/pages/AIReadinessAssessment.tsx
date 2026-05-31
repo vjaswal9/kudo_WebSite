@@ -1,5 +1,5 @@
 // src/pages/AIReadinessAssessment.tsx
-// Interactive AI Readiness Assessment — lead-capture scorecard.
+// Interactive AI Readiness Assessment, lead-capture scorecard.
 // 10 questions → email gate → instant score + tailored recommendations.
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -21,10 +21,10 @@ const QUESTIONS: Question[] = [
     en_q: "Does your organisation have a documented, board-approved AI strategy?",
     ar_q: "هل لدى مؤسستك استراتيجية ذكاء اصطناعي موثقة ومعتمدة من مجلس الإدارة؟",
     options: [
-      { en: "No strategy — we're exploring AI ad hoc", ar: "لا توجد استراتيجية، نستكشف الذكاء الاصطناعي عشوائياً", score: 0 },
+      { en: "No strategy, we're exploring AI ad hoc", ar: "لا توجد استراتيجية، نستكشف الذكاء الاصطناعي عشوائياً", score: 0 },
       { en: "Some initiatives, but no overarching strategy", ar: "بعض المبادرات، لكن دون استراتيجية شاملة", score: 1 },
       { en: "A strategy exists but isn't board-aligned", ar: "توجد استراتيجية لكنها غير متوائمة مع مجلس الإدارة", score: 2 },
-      { en: "Yes — documented, board-approved, and reviewed regularly", ar: "نعم، موثقة ومعتمدة وتُراجع بانتظام", score: 3 },
+      { en: "Yes, documented, board-approved, and reviewed regularly", ar: "نعم، موثقة ومعتمدة وتُراجع بانتظام", score: 3 },
     ],
   },
   {
@@ -54,7 +54,7 @@ const QUESTIONS: Question[] = [
     en_q: "How is AI capability structured across your organisation?",
     ar_q: "كيف تُهيكل قدرة الذكاء الاصطناعي عبر مؤسستك؟",
     options: [
-      { en: "It isn't — AI sits with whoever experiments", ar: "غير مهيكلة، الذكاء الاصطناعي مع من يجرّب", score: 0 },
+      { en: "It isn't, AI sits with whoever experiments", ar: "غير مهيكلة، الذكاء الاصطناعي مع من يجرّب", score: 0 },
       { en: "Siloed in one team (usually IT or data)", ar: "محصورة في فريق واحد (عادةً تقنية المعلومات أو البيانات)", score: 1 },
       { en: "Coordinated but not formally structured", ar: "منسّقة لكن غير مهيكلة رسمياً", score: 2 },
       { en: "A defined operating model spanning the enterprise", ar: "نموذج تشغيل محدد يشمل المؤسسة بأكملها", score: 3 },
@@ -84,7 +84,7 @@ const QUESTIONS: Question[] = [
   },
   {
     id: "leadership",
-    en_q: "Is your leadership equipped to drive AI — not just sponsor it?",
+    en_q: "Is your leadership equipped to drive AI, not just sponsor it?",
     ar_q: "هل قيادتك مجهّزة لقيادة الذكاء الاصطناعي، لا مجرد رعايته؟",
     options: [
       { en: "Leadership is largely unfamiliar with AI", ar: "القيادة غير ملمّة إلى حد كبير بالذكاء الاصطناعي", score: 0 },
@@ -109,8 +109,8 @@ const QUESTIONS: Question[] = [
     en_q: "Have your AI pilots scaled into production?",
     ar_q: "هل توسّعت مشاريعك التجريبية للذكاء الاصطناعي إلى الإنتاج؟",
     options: [
-      { en: "No — pilots stall or get abandoned", ar: "لا، المشاريع التجريبية تتعثر أو تُهجر", score: 0 },
-      { en: "Rarely — most don't make it past pilot", ar: "نادراً، معظمها لا يتجاوز التجربة", score: 1 },
+      { en: "No, pilots stall or get abandoned", ar: "لا، المشاريع التجريبية تتعثر أو تُهجر", score: 0 },
+      { en: "Rarely, most don't make it past pilot", ar: "نادراً، معظمها لا يتجاوز التجربة", score: 1 },
       { en: "Some have scaled successfully", ar: "بعضها توسّع بنجاح", score: 2 },
       { en: "We reliably move AI from pilot to production", ar: "ننقل الذكاء الاصطناعي من التجربة إلى الإنتاج بموثوقية", score: 3 },
     ],
@@ -159,7 +159,7 @@ export default function AIReadinessAssessment() {
       ar: "مؤسستك في المراحل المبكرة من رحلة الذكاء الاصطناعي. أكبر خطر الآن هو الاستثمار في الذكاء الاصطناعي دون الوضوح الاستراتيجي والحوكمة لتحويله إلى نتائج قابلة للقياس. الخبر الجيد: إرساء الأسس الصحيحة الآن سيوفر تكلفة واحتكاكاً كبيرين لاحقاً.",
     },
     developing: {
-      en: "Your organisation has real AI momentum but faces the classic scaling challenge: turning isolated initiatives into enterprise-wide capability. The priority now is governance, operating model and execution discipline — so your pilots become production value, not stalled experiments.",
+      en: "Your organisation has real AI momentum but faces the classic scaling challenge: turning isolated initiatives into enterprise-wide capability. The priority now is governance, operating model and execution discipline, so your pilots become production value, not stalled experiments.",
       ar: "لدى مؤسستك زخم حقيقي في الذكاء الاصطناعي لكنها تواجه تحدي التوسع الكلاسيكي: تحويل المبادرات المعزولة إلى قدرة على مستوى المؤسسة. الأولوية الآن هي الحوكمة ونموذج التشغيل وانضباط التنفيذ، حتى تصبح مشاريعك التجريبية قيمة إنتاجية لا تجارب متعثرة.",
     },
     advanced: {
@@ -239,7 +239,7 @@ export default function AIReadinessAssessment() {
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 {t(
-                  "Answer 10 questions and get an instant readiness score plus a tailored report — covering strategy, governance, operating model, data, talent and delivery. Built for CIOs, CDOs and enterprise leaders across the UAE and Middle East.",
+                  "Answer 10 questions and get an instant readiness score plus a tailored report, covering strategy, governance, operating model, data, talent and delivery. Built for CIOs, CDOs and enterprise leaders across the UAE and Middle East.",
                   "أجب عن 10 أسئلة واحصل على درجة جاهزية فورية مع تقرير مخصص، يغطي الاستراتيجية والحوكمة ونموذج التشغيل والبيانات والمواهب والتسليم. مُصمم لمديري المعلومات والبيانات وقادة المؤسسات في الإمارات والشرق الأوسط."
                 )}
               </p>
@@ -411,7 +411,7 @@ export default function AIReadinessAssessment() {
       </main>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link> — {t("AI Advisory UAE, Dubai & Middle East.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط.")}</p>
+        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, {t("AI Advisory UAE, Dubai & Middle East.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط.")}</p>
         <p className="mt-2"><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
       </footer>
     </div>
@@ -423,7 +423,7 @@ function recommendationsFor(tierKey: string): { en: string[]; ar: string[] } {
     return {
       en: [
         "Start with an AI Strategy engagement to define where AI creates real value for your organisation.",
-        "Establish a basic AI governance framework before you deploy — it's far cheaper than retrofitting it.",
+        "Establish a basic AI governance framework before you deploy, it's far cheaper than retrofitting it.",
         "Run a use case prioritisation workshop to focus resources on the highest-value, most feasible opportunities.",
         "Invest in leadership enablement so your executives can drive AI, not just sponsor it.",
       ],
@@ -439,7 +439,7 @@ function recommendationsFor(tierKey: string): { en: string[]; ar: string[] } {
     return {
       en: [
         "Design an AI operating model so capability scales beyond a single team into the enterprise.",
-        "Mature your governance ahead of UAE regulation — TDRA, ADGM and DIFC expectations are tightening.",
+        "Mature your governance ahead of UAE regulation, TDRA, ADGM and DIFC expectations are tightening.",
         "Introduce delivery assurance to convert stalled pilots into production value.",
         "Build a board-level ROI measurement framework so you can demonstrate AI's business impact.",
       ],
@@ -456,7 +456,7 @@ function recommendationsFor(tierKey: string): { en: string[]; ar: string[] } {
       "Deepen your AI governance to stay ahead of evolving UAE and GCC regulation.",
       "Strengthen delivery assurance to keep scaling programmes on track and on budget.",
       "Refine board-level ROI reporting to sustain investment and demonstrate competitive advantage.",
-      "Consider an independent review — even mature programmes benefit from outside challenge.",
+      "Consider an independent review, even mature programmes benefit from outside challenge.",
     ],
     ar: [
       "عمّق حوكمة الذكاء الاصطناعي للبقاء في طليعة التنظيم المتطور في الإمارات ودول الخليج.",
