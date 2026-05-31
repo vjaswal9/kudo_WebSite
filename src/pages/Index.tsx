@@ -694,6 +694,7 @@ const Index = () => {
                   { href: "#contact", label: t("nav_contact") },
                   { href: "/ai-advisory-uae", label: isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE" },
                   { href: "/ai-readiness-assessment", label: isRTL ? "تقييم جاهزية الذكاء الاصطناعي" : "AI Readiness Assessment" },
+                  { href: "/guides/ai-pilots-fail", label: isRTL ? "دليل مجاني: لماذا تفشل المشاريع التجريبية" : "Free Guide: Why AI Pilots Fail" },
                 ].map((l) => (
                   <li key={l.href}><a href={l.href} className="hover:text-primary transition-colors">{l.label}</a></li>
                 ))}
