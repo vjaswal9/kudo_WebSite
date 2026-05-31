@@ -16,6 +16,7 @@ import CIOCISOCollaboration from "./pages/articles/CIOCISOCollaboration";
 import AIUseCasePrioritisation from "./pages/articles/AIUseCasePrioritisation";
 import MeasuringAIROI from "./pages/articles/MeasuringAIROI";
 import UAE from "./pages/UAE";
+import AIReadinessAssessment from "./pages/AIReadinessAssessment";
 import ServicesIndex from "./pages/services/ServicesIndex";
 import AIStrategyPage from "./pages/services/AIStrategy";
 import AIGovernancePage from "./pages/services/AIGovernance";
@@ -63,6 +64,7 @@ export const routes: RouteRecord[] = [
       { path: "insights/ai-use-case-prioritisation", element: <AIUseCasePrioritisation /> },
       { path: "insights/measuring-ai-roi", element: <MeasuringAIROI /> },
       { path: "ai-advisory-uae", element: <UAE /> },
+      { path: "ai-readiness-assessment", element: <AIReadinessAssessment /> },
       { path: "services", element: <ServicesIndex /> },
       { path: "services/ai-strategy", element: <AIStrategyPage /> },
       { path: "services/ai-governance", element: <AIGovernancePage /> },

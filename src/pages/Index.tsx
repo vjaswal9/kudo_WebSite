@@ -256,6 +256,11 @@ const Index = () => {
                 <a href="/services">{t("hero_cta_secondary")}</a>
               </Button>
             </div>
+            <a href="/ai-readiness-assessment" className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
+              {isRTL ? "أو خذ تقييم جاهزية الذكاء الاصطناعي المجاني (3 دقائق)" : "Or take the free 3-minute AI Readiness Assessment"}
+              <ChevronRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} aria-hidden="true" />
+            </a>
           </div>
 
           <div className="relative z-10 w-full max-w-5xl mx-auto mt-16 mb-8 px-4">
@@ -688,6 +693,7 @@ const Index = () => {
                   { href: "/faq", label: t("nav_faq") },
                   { href: "#contact", label: t("nav_contact") },
                   { href: "/ai-advisory-uae", label: isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE" },
+                  { href: "/ai-readiness-assessment", label: isRTL ? "تقييم جاهزية الذكاء الاصطناعي" : "AI Readiness Assessment" },
                 ].map((l) => (
                   <li key={l.href}><a href={l.href} className="hover:text-primary transition-colors">{l.label}</a></li>
                 ))}
