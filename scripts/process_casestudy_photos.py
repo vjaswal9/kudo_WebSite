@@ -16,7 +16,7 @@ NAVY = (13, 16, 22)
 GOLD = (228, 171, 37)
 
 # crop focus: vertical position 0=top,0.5=center,1=bottom for the cropped window
-FOCUS = {"telecom": 0.45, "utilities": 0.5, "healthcare": 0.5, "property": 0.45}
+FOCUS = {"telecom": 0.5, "utilities": 0.5, "healthcare": 0.5, "property": 0.45}
 
 
 def cover_crop(img, focus_y):
