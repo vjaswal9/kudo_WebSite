@@ -237,6 +237,19 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/measuring-ai-roi" />
   </url>
 
+  <!-- ── Case studies ── -->
+  <url>
+    <loc>https://www.kudoadvisory.com/case-studies</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="en-ae"     href="https://www.kudoadvisory.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="ar-ae"     href="https://www.kudoadvisory.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/case-studies" />
+  </url>
+
   <!-- ── Legal ── -->
   <url>
     <loc>https://www.kudoadvisory.com/privacy</loc>

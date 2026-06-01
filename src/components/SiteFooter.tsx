@@ -16,6 +16,7 @@ const SERVICES = [
 const COMPANY = [
   { href: "/about", en: "About", ar: "من نحن" },
   { href: "/ai-advisory-uae", en: "AI Advisory UAE", ar: "استشارات الذكاء الاصطناعي في الإمارات" },
+  { href: "/case-studies", en: "Case Studies", ar: "قصص العملاء" },
   { href: "/insights", en: "Insights", ar: "المقالات" },
   { href: "/faq", en: "FAQ", ar: "الأسئلة الشائعة" },
   { href: "/#contact", en: "Contact", ar: "تواصل معنا" },

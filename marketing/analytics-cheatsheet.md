@@ -1,4 +1,4 @@
-# Kudo Advisory — Google Analytics (GA4) cheat sheet
+# Kudo Advisory , Google Analytics (GA4) cheat sheet
 
 Your GA4 ID: **G-Y1CTGWRYFR**
 Log in at **analytics.google.com** with the Google account you set it up with,
@@ -26,9 +26,9 @@ volume and the source; MailerLite tells you who to follow up with.
 Every time someone converts, the site sends GA4 a `generate_lead` event tagged
 with where it came from:
 
-- **contact_form** — someone submitted the contact form on the homepage
-- **assessment** — someone completed the AI Readiness Assessment (also sends the score % and tier)
-- **guide_download** — someone downloaded the free guide
+- **contact_form** , someone submitted the contact form on the homepage
+- **assessment** , someone completed the AI Readiness Assessment (also sends the score % and tier)
+- **guide_download** , someone downloaded the free guide
 
 So in GA4 you can answer: "This week the assessment drove 6 leads, the contact
 form 2, and most came from LinkedIn."
@@ -64,9 +64,9 @@ and intended (privacy compliance). To test, accept the banner.
 ## A simple weekly routine
 
 Once a week, 5 minutes:
-1. Reports > Acquisition > Traffic acquisition — did LinkedIn send a spike? (matches your posting)
-2. Events > `generate_lead` — how many leads, and from which source?
-3. Realtime after you publish a LinkedIn post — see the live traffic land
+1. Reports > Acquisition > Traffic acquisition , did LinkedIn send a spike? (matches your posting)
+2. Events > `generate_lead` , how many leads, and from which source?
+3. Realtime after you publish a LinkedIn post , see the live traffic land
 
 That is enough to learn which posts and channels actually produce leads, so you
 double down on what works.

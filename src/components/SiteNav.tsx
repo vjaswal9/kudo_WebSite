@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { href: "/services", en: "Services", ar: "الخدمات" },
   { href: "/ai-advisory-uae", en: "UAE", ar: "الإمارات" },
   { href: "/about", en: "About", ar: "من نحن" },
+  { href: "/case-studies", en: "Case Studies", ar: "قصص العملاء" },
   { href: "/insights", en: "Insights", ar: "المقالات" },
   { href: "/faq", en: "FAQ", ar: "الأسئلة الشائعة" },
 ];
