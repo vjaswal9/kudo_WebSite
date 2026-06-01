@@ -7,7 +7,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Radio, Zap, HeartPulse, Building2, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import React from "react";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -21,7 +21,7 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 }
 
 interface Story {
-  icon: React.ElementType;
+  banner: string;
   en_industry: string;
   ar_industry: string;
   en_title: string;
@@ -38,7 +38,7 @@ interface Story {
 
 const STORIES: Story[] = [
   {
-    icon: Radio,
+    banner: "telecom",
     en_industry: "Telecommunications",
     ar_industry: "الاتصالات",
     en_title: "A brilliant model nobody could fund",
@@ -59,7 +59,7 @@ const STORIES: Story[] = [
     ar_link: { label: "ذات صلة: تحديد أولويات حالات الاستخدام", href: "/services/ai-use-case-prioritisation" },
   },
   {
-    icon: Zap,
+    banner: "utilities",
     en_industry: "Utilities",
     ar_industry: "المرافق",
     en_title: "Governance that sped them up, not down",
@@ -80,7 +80,7 @@ const STORIES: Story[] = [
     ar_link: { label: "ذات صلة: سياسة وحوكمة الذكاء الاصطناعي", href: "/services/ai-governance" },
   },
   {
-    icon: HeartPulse,
+    banner: "healthcare",
     en_industry: "Healthcare",
     ar_industry: "الرعاية الصحية",
     en_title: "From scattered pilots to one clear sequence",
@@ -101,7 +101,7 @@ const STORIES: Story[] = [
     ar_link: { label: "ذات صلة: تحديد أولويات حالات الاستخدام", href: "/services/ai-use-case-prioritisation" },
   },
   {
-    icon: Building2,
+    banner: "property",
     en_industry: "Property Development",
     ar_industry: "التطوير العقاري",
     en_title: "Leaders who could lead AI, not just fund it",
@@ -163,15 +163,19 @@ export default function CaseStudies() {
           <div className="max-w-4xl mx-auto space-y-10">
             {STORIES.map((s, i) => (
               <AnimatedSection key={s.en_title} delay={i * 60}>
-                <article className="p-8 md:p-10 rounded-2xl bg-card border border-border">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <s.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <span className="text-xs uppercase tracking-[0.2em] text-primary font-medium">
-                      {isAr ? s.ar_industry : s.en_industry}
-                    </span>
-                  </div>
+                <article className="rounded-2xl bg-card border border-border overflow-hidden">
+                  <img
+                    src={`/case-studies/${s.banner}.jpg`}
+                    alt={`${isAr ? s.ar_industry : s.en_industry} ${isAr ? "قصة عميل" : "case study"}`}
+                    width={1200}
+                    height={300}
+                    loading="lazy"
+                    className="w-full h-auto block border-b border-border"
+                  />
+                  <div className="p-8 md:p-10">
+                  <span className="block text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
+                    {isAr ? s.ar_industry : s.en_industry}
+                  </span>
 
                   <h2 className="text-2xl md:text-3xl font-bold mb-6">{isAr ? s.ar_title : s.en_title}</h2>
 
@@ -201,6 +205,7 @@ export default function CaseStudies() {
                       {(isAr ? s.ar_link! : s.en_link!).label}
                     </Link>
                   )}
+                  </div>
                 </article>
               </AnimatedSection>
             ))}
