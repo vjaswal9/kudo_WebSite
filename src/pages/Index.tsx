@@ -69,6 +69,7 @@ const Index = () => {
     { href: "#how", labelKey: "nav_how" as const },
     { href: "/ai-advisory-uae", labelKey: "nav_home" as const, fixedLabel: "UAE" },
     { href: "/about", labelKey: "nav_about" as const },
+    { href: "/case-studies", labelKey: "nav_case_studies" as const, fixedLabel: isRTL ? "قصص العملاء" : "Case Studies" },
     { href: "/insights", labelKey: "nav_insights" as const },
     { href: "/faq", labelKey: "nav_faq" as const },
     { href: "#contact", labelKey: "nav_contact" as const },
@@ -216,7 +217,7 @@ const Index = () => {
                     <a key={item.href} href={item.href} onClick={closeMobileMenu}
                       className="kudo-item flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-4 text-base hover:bg-secondary transition-colors"
                       style={{ animationDelay: mobileMenuOpen ? `${160 + idx * 60}ms` : "0ms" }}>
-                      <span className="font-medium">{t(item.labelKey)}</span>
+                      <span className="font-medium">{'fixedLabel' in item ? (item as any).fixedLabel : t(item.labelKey)}</span>
                       <span aria-hidden="true" className={`text-muted-foreground ${isRTL ? "rotate-180" : ""}`}>→</span>
                     </a>
                   ))}
