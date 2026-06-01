@@ -8,6 +8,7 @@ import { PageMeta } from "@/components/PageMeta";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { Check, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { pushToMailerLite } from "@/lib/leads";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgwarpw";
 const PDF_PATH = "/guides/5-reasons-enterprise-ai-pilots-fail.pdf";
@@ -33,6 +34,7 @@ export default function GuideDownload() {
         body: JSON.stringify({ ...form, source: "Guide: 5 Reasons Enterprise AI Pilots Fail" }),
       });
       if (!res.ok) throw new Error("failed");
+      pushToMailerLite({ name: form.name, email: form.email, company: form.company });
       setDone(true);
       // trigger download
       const a = document.createElement("a");

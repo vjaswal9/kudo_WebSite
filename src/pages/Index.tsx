@@ -15,6 +15,7 @@ import leaderBg from "@/assets/about-leader.jpg";
 import { useEffect, useState } from "react";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
+import { pushToMailerLite } from "@/lib/leads";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LangToggle } from "@/components/LangToggle";
 
@@ -135,6 +136,7 @@ const Index = () => {
         body: JSON.stringify({ ...formData, source: "kudoadvisory.com" }),
       });
       if (!res.ok) throw new Error("Formspree request failed");
+      pushToMailerLite({ name: formData.name, email: formData.email });
       setFormStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch {
