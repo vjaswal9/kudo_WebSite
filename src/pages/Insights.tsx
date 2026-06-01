@@ -11,6 +11,7 @@ import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LangToggle } from "@/components/LangToggle";
+import { GuidePromo } from "@/components/GuidePromo";
 
 /* ─── Scroll-animated wrapper (same pattern as Index) ─── */
 function AnimatedSection({
@@ -328,6 +329,13 @@ const Insights = () => {
                 </button>
               ))}
             </nav>
+          </AnimatedSection>
+        </div>
+
+        {/* ── FREE GUIDE PROMO ── */}
+        <div className="max-w-7xl mx-auto px-6 mb-12">
+          <AnimatedSection>
+            <GuidePromo variant="banner" />
           </AnimatedSection>
         </div>
 

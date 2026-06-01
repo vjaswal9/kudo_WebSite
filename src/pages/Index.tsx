@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
 import { pushToMailerLite } from "@/lib/leads";
+import { GuidePromo } from "@/components/GuidePromo";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LangToggle } from "@/components/LangToggle";
 
@@ -599,6 +600,15 @@ const Index = () => {
               <a href="/ai-advisory-uae" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
                 {isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE"} <ChevronRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} />
               </a>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* ── FREE GUIDE BAND ── */}
+        <section aria-label="Free guide download" className="py-16 px-6">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <GuidePromo variant="banner" />
             </AnimatedSection>
           </div>
         </section>

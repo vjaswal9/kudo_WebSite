@@ -1,6 +1,7 @@
 // src/pages/articles/WhyAIPilotsFail.tsx
 import { PageMeta } from "@/components/PageMeta";
 import { ArticleLayout } from "@/components/ArticleLayout";
+import { GuidePromo } from "@/components/GuidePromo";
 
 const META = {
   title: "Why Enterprise AI Pilots Fail: What to Do About It",
@@ -151,6 +152,7 @@ export default function WhyAIPilotsFail() {
       <ArticleLayout
         meta={META}
         childrenAr={<ArabicBody />}
+        promo={<GuidePromo variant="banner" />}
         ctaHeading="Dealing with stalled AI initiatives?"
         ctaHeadingAr="هل تواجه مبادرات ذكاء اصطناعي متوقفة؟"
         ctaBody="Kudo Advisory helps enterprise leaders across Dubai and the Middle East fix the foundations, strategy, governance, operating model, so AI actually delivers."

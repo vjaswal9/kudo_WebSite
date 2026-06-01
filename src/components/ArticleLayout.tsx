@@ -31,6 +31,7 @@ interface ArticleLayoutProps {
   meta: ArticleMeta;
   children: React.ReactNode;         // English body
   childrenAr?: React.ReactNode;      // Arabic body (optional)
+  promo?: React.ReactNode;           // optional promo block shown after the body
   ctaHeading?: string;
   ctaHeadingAr?: string;
   ctaBody?: string;
@@ -55,6 +56,7 @@ export function ArticleLayout({
   ctaHeadingAr,
   ctaBody,
   ctaBodyAr,
+  promo,
 }: ArticleLayoutProps) {
   const { lang, isRTL } = useLanguage();
   const isAr = lang === "ar";
@@ -246,9 +248,16 @@ export function ArticleLayout({
         </header>
 
         {/* ── ARTICLE BODY ── */}
-        <article className="max-w-3xl mx-auto px-6 pb-20 article-body">
+        <article className="max-w-3xl mx-auto px-6 pb-12 article-body">
           {isAr && childrenAr ? childrenAr : children}
         </article>
+
+        {/* ── OPTIONAL PROMO (e.g. guide download) ── */}
+        {promo && (
+          <div className="max-w-3xl mx-auto px-6 pb-12">
+            {promo}
+          </div>
+        )}
 
         {/* ── CTA ── */}
         <section aria-labelledby="article-cta-heading" className="bg-secondary/20 border-t border-border py-20 px-6">
