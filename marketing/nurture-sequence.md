@@ -124,7 +124,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 
 ---
 
-## Email 1 (ASSESSMENT version) — Immediate (0 minutes)
+## Email 1 (ASSESSMENT version) - Immediate (0 minutes)
 
 > Use this as the first email in the **separate "Assessment Leads" automation**. Emails 2, 3 and 5 are identical to the main sequence above, so copy those across unchanged. You can **drop Email 4** (which pitches the assessment), since they've already taken it.
 
@@ -156,7 +156,7 @@ Founder & CEO, Kudo Advisory
 ## Notes for setup
 
 - **Cadence:** Days 0, 2, 5, 9, 14. Don't compress tighter, executives need breathing room.
-- **Send time:** ~8:00–9:00 GST (start of the UAE working day, Sun–Thu).
+- **Send time:** ~8:00-9:00 GST (start of the UAE working day, Sun-Thu).
 - **Stop rule:** If someone books a call (or replies), remove them from the automation so they don't keep getting nurture emails.
 - **One list, two entry points:** Both the guide download and the assessment can feed the same automation. Optionally branch the wording for assessment-completers (they've already seen the readiness angle, so lead Email 4 differently).
 - **Arabic:** The full Arabic version of all five emails is below.
