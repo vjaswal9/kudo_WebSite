@@ -168,7 +168,7 @@ export default function CaseStudies() {
                     src={`/case-studies/${s.banner}.jpg`}
                     alt={`${isAr ? s.ar_industry : s.en_industry} ${isAr ? "قصة عميل" : "case study"}`}
                     width={1200}
-                    height={300}
+                    height={400}
                     loading="lazy"
                     className="w-full h-auto block border-b border-border"
                   />
