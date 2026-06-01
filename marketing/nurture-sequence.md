@@ -7,7 +7,7 @@
 **From email:** vijay@kudoadvisory.com (or info@)
 
 > Setup in MailerLite/Brevo: create an Automation triggered by the relevant group/form.
-> Personalise `{name}` and `{company}` where your form captures them.
+> Personalise `{$name|default:"there"}` and `{$company}` where your form captures them.
 
 ---
 
@@ -15,7 +15,7 @@
 **Subject:** Your guide is attached — plus the one question that matters most
 **Preview text:** The 5 reasons AI pilots fail, and where most organisations get stuck.
 
-Hi {name},
+Hi {$name|default:"there"},
 
 Thanks for downloading *The 5 Reasons Enterprise AI Pilots Fail*. You'll find it attached / at the link below.
 
@@ -41,7 +41,7 @@ Founder & CEO, Kudo Advisory
 **Subject:** The accountability gap that quietly kills AI programmes
 **Preview text:** Everyone has a stake. Almost no one has accountability.
 
-Hi {name},
+Hi {$name|default:"there"},
 
 A pattern I see again and again across the UAE and the wider region:
 
@@ -62,7 +62,7 @@ Vijay
 **Subject:** Why governance-first organisations move *faster*, not slower
 **Preview text:** Counterintuitive, but it's the pattern that holds.
 
-Hi {name},
+Hi {$name|default:"there"},
 
 There's a belief I'd like to challenge: that AI governance slows you down.
 
@@ -84,7 +84,7 @@ Vijay
 **Subject:** Where is your AI programme actually stalling?
 **Preview text:** A 3-minute way to find out.
 
-Hi {name},
+Hi {$name|default:"there"},
 
 Over the last week I've shared the most common reasons enterprise AI stalls — unclear outcomes, diffuse accountability, late governance, an operating model that wasn't ready, and leadership that sponsored the vision but wasn't equipped to drive it.
 
@@ -104,7 +104,7 @@ Vijay
 **Subject:** An honest 30 minutes on your AI programme
 **Preview text:** No pitch. Just a useful conversation.
 
-Hi {name},
+Hi {$name|default:"there"},
 
 I'll keep this short.
 
@@ -143,7 +143,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 **النبرة:** صوت فيجاي — رفيع المستوى، مباشر، بلا مبالغة، بلا مصطلحات. موجز. يحترم وقت المدير التنفيذي.
 **اسم المُرسِل:** فيجاي جسوال — كودو أدفيزوري
 
-> ملاحظة الإعداد في MailerLite/Brevo: أنشئ سلسلة آلية منفصلة باللغة العربية، وخصّص `{name}` و`{company}` حيثما يلتقط نموذجك هذه البيانات. اضبط اتجاه النص إلى RTL في قالب البريد.
+> ملاحظة الإعداد في MailerLite/Brevo: أنشئ سلسلة آلية منفصلة باللغة العربية، وخصّص `{$name|default:"there"}` و`{$company}` حيثما يلتقط نموذجك هذه البيانات. اضبط اتجاه النص إلى RTL في قالب البريد.
 
 ---
 
@@ -151,7 +151,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 **الموضوع:** دليلك مرفق، إضافةً إلى السؤال الأهم
 **نص المعاينة:** الأسباب الخمسة لفشل مشاريع الذكاء الاصطناعي، وأين تتعثر معظم المؤسسات.
 
-مرحباً {name}،
+مرحباً {$name|default:"there"}،
 
 شكراً لتنزيلك *الأسباب الخمسة لفشل مشاريع الذكاء الاصطناعي التجريبية*. ستجده مرفقاً أو عبر الرابط أدناه.
 
@@ -177,7 +177,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 **الموضوع:** فجوة المساءلة التي تقتل برامج الذكاء الاصطناعي بصمت
 **نص المعاينة:** الجميع لديه مصلحة. وتقريباً لا أحد لديه مساءلة.
 
-مرحباً {name}،
+مرحباً {$name|default:"there"}،
 
 نمط أراه مراراً عبر الإمارات والمنطقة الأوسع:
 
@@ -198,7 +198,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 **الموضوع:** لماذا تتحرك المؤسسات التي تقدّم الحوكمة *أسرع*، لا أبطأ
 **نص المعاينة:** قد يبدو غير بديهي، لكنه النمط الذي يصمد.
 
-مرحباً {name}،
+مرحباً {$name|default:"there"}،
 
 هناك اعتقاد أودّ تحديه: أن حوكمة الذكاء الاصطناعي تُبطئك.
 
@@ -220,7 +220,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 **الموضوع:** أين يتعثر برنامج الذكاء الاصطناعي لديك فعلاً؟
 **نص المعاينة:** طريقة من 3 دقائق لمعرفة ذلك.
 
-مرحباً {name}،
+مرحباً {$name|default:"there"}،
 
 خلال الأسبوع الماضي شاركت أكثر الأسباب شيوعاً لتعثر الذكاء الاصطناعي المؤسسي — نتائج غير واضحة، ومساءلة مشتتة، وحوكمة متأخرة، ونموذج تشغيل لم يكن جاهزاً، وقيادة رعت الرؤية لكنها لم تُجهَّز لقيادتها.
 
@@ -240,7 +240,7 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 **الموضوع:** 30 دقيقة صادقة حول برنامج الذكاء الاصطناعي لديك
 **نص المعاينة:** بلا عرض ترويجي. مجرد محادثة مفيدة.
 
-مرحباً {name}،
+مرحباً {$name|default:"there"}،
 
 سأوجزها.
 
