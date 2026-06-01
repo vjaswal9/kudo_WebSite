@@ -87,7 +87,11 @@ export function SiteFooter() {
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a>, {t("AI Advisory UAE, Dubai & Middle East. We exist to make AI move.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط. نحن هنا لتحريك الذكاء الاصطناعي.")} {t("All rights reserved.", "جميع الحقوق محفوظة.")}</p>
-          <p><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy" className="hover:text-foreground transition-colors">{t("Privacy", "الخصوصية")}</a>
+            <a href="/terms" className="hover:text-foreground transition-colors">{t("Terms", "الشروط")}</a>
+            <a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a>
+          </div>
         </div>
       </div>
     </footer>

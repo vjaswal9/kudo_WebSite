@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
 import { pushToMailerLite } from "@/lib/leads";
+import { trackEvent } from "@/lib/analytics";
 import { GuidePromo } from "@/components/GuidePromo";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -139,6 +140,7 @@ const Index = () => {
       });
       if (!res.ok) throw new Error("Formspree request failed");
       pushToMailerLite({ name: formData.name, email: formData.email });
+      trackEvent("generate_lead", { lead_source: "contact_form" });
       setFormStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch {

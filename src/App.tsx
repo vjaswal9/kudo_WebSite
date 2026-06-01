@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { CookieConsent } from "@/components/CookieConsent";
 import type { RouteRecord } from "vite-react-ssg";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -26,6 +27,8 @@ import AIOperatingModelPage from "./pages/services/AIOperatingModel";
 import AIUseCasePrioritisationPage from "./pages/services/AIUseCasePrioritisation";
 import LeadershipEnablementPage from "./pages/services/LeadershipEnablement";
 import AIDeliveryAssurancePage from "./pages/services/AIDeliveryAssurance";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +45,7 @@ function Layout() {
           <Toaster />
           <Sonner />
           <Outlet />
+          <CookieConsent />
         </TooltipProvider>
       </QueryClientProvider>
     </LanguageProvider>
@@ -76,6 +80,8 @@ export const routes: RouteRecord[] = [
       { path: "services/ai-use-case-prioritisation", element: <AIUseCasePrioritisationPage /> },
       { path: "services/leadership-enablement", element: <LeadershipEnablementPage /> },
       { path: "services/ai-delivery-assurance", element: <AIDeliveryAssurancePage /> },
+      { path: "privacy", element: <Privacy /> },
+      { path: "terms", element: <Terms /> },
       { path: "*", element: <NotFound /> },
     ],
   },

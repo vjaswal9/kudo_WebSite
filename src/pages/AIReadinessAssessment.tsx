@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { ChevronRight, ChevronLeft, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { pushToMailerLite } from "@/lib/leads";
+import { trackEvent } from "@/lib/analytics";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgwarpw";
 
@@ -196,6 +197,7 @@ export default function AIReadinessAssessment() {
       });
       if (!res.ok) throw new Error("failed");
       pushToMailerLite({ name: form.name, email: form.email, company: form.company, source: "assessment" });
+      trackEvent("generate_lead", { lead_source: "assessment", score_pct: pct, tier: tier.en });
       setStage("results");
     } catch {
       setSubmitError(true);
