@@ -124,6 +124,35 @@ info@kudoadvisory.com · [kudoadvisory.com](https://www.kudoadvisory.com)
 
 ---
 
+## Email 1 (ASSESSMENT version) — Immediate (0 minutes)
+
+> Use this as the first email in the **separate "Assessment Leads" automation**. Emails 2, 3 and 5 are identical to the main sequence above, so copy those across unchanged. You can **drop Email 4** (which pitches the assessment), since they've already taken it.
+
+**Subject:** Thanks for completing the assessment, here's what matters next
+**Preview text:** Your AI readiness, and the one thing that moves the needle most.
+
+Hi {$name|default:"there"},
+
+Thanks for completing the AI Readiness Assessment. However your organisation scored, the most useful thing you can do now is focus on the one or two areas holding you back, rather than trying to fix everything at once.
+
+In my experience across the UAE and the wider region, the biggest gap is rarely the technology. It's usually one of these: an unclear link between AI and a measurable business outcome, no single accountable owner, or governance that arrived too late.
+
+So here's a question worth asking your team this week:
+
+> *"For our most important AI initiative, what specific business metric are we trying to change, and by how much?"*
+
+If the answer isn't a single clear sentence, that's usually where to start.
+
+I'll send a few more short notes over the coming days, each a practical idea you can use. No fluff.
+
+Vijay
+
+Vijay Jaswal
+Founder & CEO, Kudo Advisory
+[Re-take or share the assessment →](https://www.kudoadvisory.com/ai-readiness-assessment)
+
+---
+
 ## Notes for setup
 
 - **Cadence:** Days 0, 2, 5, 9, 14. Don't compress tighter, executives need breathing room.

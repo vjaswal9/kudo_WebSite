@@ -195,7 +195,7 @@ export default function AIReadinessAssessment() {
         }),
       });
       if (!res.ok) throw new Error("failed");
-      pushToMailerLite({ name: form.name, email: form.email, company: form.company });
+      pushToMailerLite({ name: form.name, email: form.email, company: form.company, source: "assessment" });
       setStage("results");
     } catch {
       setSubmitError(true);

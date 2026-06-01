@@ -4,7 +4,7 @@
 // Formspree remains the primary capture (for email notifications); this adds
 // the lead to the MailerLite automation in parallel.
 
-export function pushToMailerLite(payload: { name?: string; email: string; company?: string }) {
+export function pushToMailerLite(payload: { name?: string; email: string; company?: string; source?: string }) {
   try {
     void fetch("/api/subscribe", {
       method: "POST",
