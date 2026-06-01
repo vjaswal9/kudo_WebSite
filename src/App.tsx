@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import type { RouteRecord } from "vite-react-ssg";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -37,6 +38,7 @@ function Layout() {
     <LanguageProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <ScrollToTop />
           <Toaster />
           <Sonner />
           <Outlet />

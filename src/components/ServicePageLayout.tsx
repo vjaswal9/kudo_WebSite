@@ -1,5 +1,5 @@
 // src/components/ServicePageLayout.tsx
-// Shared layout for all 6 service pages — bilingual, SEO-optimised, UAE-focused.
+// Shared layout for all 6 service pages, bilingual, SEO-optimised, UAE-focused.
 
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -30,7 +30,7 @@ export interface ServicePageProps {
   canonical: string;
   schemaServiceName: string;
   schemaServiceDescription: string;
-  // Content — English
+  // Content, English
   categoryLabel: string;
   heading: string;
   subheading: string;
@@ -42,7 +42,7 @@ export interface ServicePageProps {
   faqs: ServiceFaq[];
   ctaHeading: string;
   ctaBody: string;
-  // Content — Arabic
+  // Content, Arabic
   categoryLabel_ar: string;
   heading_ar: string;
   subheading_ar: string;

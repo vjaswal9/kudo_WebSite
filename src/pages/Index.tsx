@@ -578,7 +578,7 @@ const Index = () => {
               <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={leaderBg}
-                  alt="Enterprise leader with Dubai skyline and Burj Khalifa — AI advisory across the UAE"
+                  alt="Enterprise leader with Dubai skyline and Burj Khalifa, AI advisory across the UAE"
                   className="w-full h-auto object-cover"
                   loading="lazy" width="800" height="800"
                 />

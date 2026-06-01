@@ -25,7 +25,7 @@ function EnglishBody() {
     <>
       <div className="grid grid-cols-3 gap-2 sm:gap-4 my-10">
         <div className="stat-card"><span className="stat-number">83%</span><span className="stat-label">of enterprise AI use case lists are never fully executed</span></div>
-        <div className="stat-card"><span className="stat-number">6–12mo</span><span className="stat-label">wasted on deprioritised AI use cases that should never have started</span></div>
+        <div className="stat-card"><span className="stat-number">6-12mo</span><span className="stat-label">wasted on deprioritised AI use cases that should never have started</span></div>
         <div className="stat-card"><span className="stat-number">Top 3</span><span className="stat-label">use cases deliver 70%+ of AI value in most successful programmes</span></div>
       </div>
       <p>Almost every enterprise AI programme I encounter starts the same way. A workshop. A list. Fifty use cases, or a hundred, ranging from genuinely transformative to slightly better than a spreadsheet formula. The list gets presented to leadership. Leadership gets excited. Someone asks the obvious question: where do we start?</p>
@@ -56,7 +56,7 @@ function EnglishBody() {
       <h2>Building a balanced portfolio</h2>
       <p>Once you have scored your use cases across the five dimensions, the goal is not simply to pick the highest-scoring items. The goal is to build a portfolio that delivers value across different time horizons, manages risk sensibly, and maintains the organisational momentum you need to sustain an AI programme over the medium term.</p>
       <h3>Time horizon balance</h3>
-      <p>A healthy AI portfolio includes: quick wins (3–6 months to value, building credibility and learning), medium-term initiatives (6–18 months, driving sustained business value), and longer-horizon investments (18 months+, building transformative capability). Most AI programmes fail by focusing too heavily on one horizon at the expense of the others.</p>
+      <p>A healthy AI portfolio includes: quick wins (3-6 months to value, building credibility and learning), medium-term initiatives (6-18 months, driving sustained business value), and longer-horizon investments (18 months+, building transformative capability). Most AI programmes fail by focusing too heavily on one horizon at the expense of the others.</p>
       <h3>Business function coverage</h3>
       <p>An AI programme confined to one business unit is a programme that hasn't yet demonstrated enterprise-wide relevance. A portfolio that spans at least three business functions, even if the initial use cases in some functions are modest, builds broader organisational ownership of the AI agenda.</p>
       <hr />

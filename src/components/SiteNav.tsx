@@ -1,5 +1,5 @@
 // src/components/SiteNav.tsx
-// Single shared navigation used across every page — consistent menu,
+// Single shared navigation used across every page, consistent menu,
 // language toggle, and a working mobile hamburger menu.
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";

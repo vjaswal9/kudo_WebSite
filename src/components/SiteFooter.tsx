@@ -1,5 +1,5 @@
 // src/components/SiteFooter.tsx
-// Single shared footer used across every page — consistent links + branding.
+// Single shared footer used across every page, consistent links + branding.
 import { useLanguage } from "@/contexts/LanguageContext";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { Mail, Linkedin } from "lucide-react";
@@ -86,7 +86,7 @@ export function SiteFooter() {
         <hr className="section-rule mb-8 border-border/60" />
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a> — {t("AI Advisory UAE, Dubai & Middle East. We exist to make AI move.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط. نحن هنا لتحريك الذكاء الاصطناعي.")} {t("All rights reserved.", "جميع الحقوق محفوظة.")}</p>
+          <p>© {new Date().getFullYear()} <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a>, {t("AI Advisory UAE, Dubai & Middle East. We exist to make AI move.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط. نحن هنا لتحريك الذكاء الاصطناعي.")} {t("All rights reserved.", "جميع الحقوق محفوظة.")}</p>
           <p><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
         </div>
       </div>

@@ -107,7 +107,7 @@ export default function UAE() {
                   <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
                       src={leaderBg}
-                      alt="Enterprise leader overlooking Dubai skyline with Burj Khalifa — AI advisory UAE"
+                      alt="Enterprise leader overlooking Dubai skyline with Burj Khalifa, AI advisory UAE"
                       className="w-full h-[340px] object-cover object-top"
                       loading="lazy" width="600" height="340"
                     />

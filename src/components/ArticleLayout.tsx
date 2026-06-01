@@ -1,5 +1,5 @@
 // src/components/ArticleLayout.tsx
-// Shared layout wrapper for all article pages — handles nav, mobile menu,
+// Shared layout wrapper for all article pages, handles nav, mobile menu,
 // reading progress, header, CTA, footer, and RTL switching.
 
 import { useEffect, useState } from "react";
@@ -88,16 +88,6 @@ export function ArticleLayout({
       </div>
 
       <style>{`
-        .kudo-overlay { transition: opacity 220ms ease; }
-        .kudo-backdrop { transition: opacity 260ms ease; opacity: 0; }
-        .kudo-overlay.is-open .kudo-backdrop { opacity: 1; }
-        .kudo-panel { will-change: transform, opacity; transform: translateY(-10px) scale(.985); opacity: 0; transition: transform 220ms ease, opacity 160ms ease; }
-        .kudo-overlay.is-open .kudo-panel { animation: kudoSpringIn 520ms cubic-bezier(.16,1,.3,1) both; }
-        .kudo-item { will-change: transform, opacity; transform: translateY(12px); opacity: 0; transition: transform 220ms ease, opacity 160ms ease; }
-        .kudo-overlay.is-open .kudo-item { animation: kudoItemSpring 520ms cubic-bezier(.16,1,.3,1) both; }
-        @keyframes kudoSpringIn { 0%{transform:translateY(-12px) scale(.985);opacity:0} 62%{transform:translateY(10px) scale(1.015);opacity:1} 82%{transform:translateY(-3px) scale(.998)} 100%{transform:translateY(0) scale(1);opacity:1} }
-        @keyframes kudoItemSpring { 0%{transform:translateY(14px);opacity:0} 70%{transform:translateY(-3px);opacity:1} 100%{transform:translateY(0);opacity:1} }
-        @media(prefers-reduced-motion:reduce){.kudo-overlay,.kudo-panel,.kudo-item,.kudo-backdrop{transition:none!important;animation:none!important;transform:none!important}}
         .article-body h2 { font-size:1.6rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3;color:hsl(var(--foreground)); }
         .article-body h3 { font-size:1.2rem;font-weight:600;margin-top:2rem;margin-bottom:0.75rem;color:hsl(var(--foreground)); }
         .article-body p { margin-bottom:1.4rem;line-height:1.85;color:hsl(var(--muted-foreground));font-size:1.05rem; }
