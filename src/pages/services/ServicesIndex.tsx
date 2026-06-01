@@ -1,9 +1,9 @@
 // src/pages/services/ServicesIndex.tsx
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LangToggle } from "@/components/LangToggle";
 import { PageMeta } from "@/components/PageMeta";
-import kudoLogo from "@/assets/kudo-logo.png";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck, ChevronRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -107,31 +107,7 @@ export default function ServicesIndex() {
       />
 
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/" aria-label="Kudo Advisory home">
-            <img src={kudoLogo} alt="Kudo Advisory" className="h-12 sm:h-14 w-auto" width="160" height="56" />
-          </Link>
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            {[
-              { href: "/", en: "Home", ar: "الرئيسية" },
-              { href: "/services", en: "Services", ar: "الخدمات" },
-              { href: "/about", en: "About", ar: "من نحن" },
-              { href: "/insights", en: "Insights", ar: "المقالات" },
-              { href: "/faq", en: "FAQ", ar: "الأسئلة الشائعة" },
-            ].map((item) => (
-              <Link key={item.href} to={item.href} className={`transition-colors ${item.href === "/services" ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"}`}>
-                {isAr ? item.ar : item.en}
-              </Link>
-            ))}
-            <LangToggle />
-            <Link to="/#contact" className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-              {isAr ? "احجز مكالمة" : "Book a Call"} <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? "rotate-180" : ""}`} />
-            </Link>
-          </div>
-          <div className="md:hidden"><LangToggle /></div>
-        </div>
-      </nav>
+      <SiteNav active="/services" />
 
       <main>
         {/* Hero */}
@@ -237,9 +213,7 @@ export default function ServicesIndex() {
         </section>
       </main>
 
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, {isAr ? "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط." : "AI Advisory UAE, Dubai & Middle East."} {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}</p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

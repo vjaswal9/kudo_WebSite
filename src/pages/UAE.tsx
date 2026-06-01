@@ -3,11 +3,11 @@
 // and "AI advisory United Arab Emirates" search queries.
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LangToggle } from "@/components/LangToggle";
 import { PageMeta } from "@/components/PageMeta";
-import kudoLogo from "@/assets/kudo-logo.png";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
 import leaderBg from "@/assets/about-leader.jpg";
-import { Mail, Linkedin, ChevronRight, Target, Shield, Rocket, BarChart3, Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck } from "lucide-react";
+import { Mail, ChevronRight, Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import React from "react";
@@ -45,29 +45,7 @@ export default function UAE() {
       />
 
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/" aria-label="Kudo Advisory home">
-            <img src={kudoLogo} alt="Kudo Advisory" className="h-12 sm:h-14 w-auto" width="160" height="56" />
-          </Link>
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            {[
-              { href: "/", label: isAr ? "الرئيسية" : "Home" },
-              { href: "/#services", label: isAr ? "الخدمات" : "Services" },
-              { href: "/about", label: isAr ? "من نحن" : "About" },
-              { href: "/insights", label: isAr ? "المقالات" : "Insights" },
-              { href: "/faq", label: isAr ? "الأسئلة الشائعة" : "FAQ" },
-            ].map((item) => (
-              <Link key={item.href} to={item.href} className="text-muted-foreground hover:text-foreground transition-colors">{item.label}</Link>
-            ))}
-            <LangToggle />
-            <Link to="/#contact" className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-              {isAr ? "احجز مكالمة" : "Book a Call"} <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? "rotate-180" : ""}`} />
-            </Link>
-          </div>
-          <div className="md:hidden"><LangToggle /></div>
-        </div>
-      </nav>
+      <SiteNav active="/ai-advisory-uae" />
 
       <main>
         {/* Hero */}
@@ -233,10 +211,7 @@ export default function UAE() {
         </section>
       </main>
 
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, AI Advisory UAE, Dubai & Middle East. All rights reserved.</p>
-        <p className="mt-2"><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -17,6 +17,7 @@ import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";
 import { pushToMailerLite } from "@/lib/leads";
 import { GuidePromo } from "@/components/GuidePromo";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LangToggle } from "@/components/LangToggle";
 
@@ -686,50 +687,7 @@ const Index = () => {
         </section>
       </main>
 
-      {/* ══ FOOTER ══ */}
-      <footer className="border-t border-border/60 bg-card/30" aria-label="Site footer">
-        <div className="max-w-7xl mx-auto px-6 py-14">
-          <div className="grid md:grid-cols-4 gap-10 mb-12">
-            <div className="md:col-span-2">
-              <img src={kudoLogo} alt="Kudo Advisory" className="h-12 w-auto mb-4" width="120" height="48" />
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">{t("footer_description")}</p>
-              <div className="flex gap-4 mt-5">
-                <a href="mailto:info@kudoadvisory.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email Kudo Advisory"><Mail className="w-5 h-5" /></a>
-                <a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn"><Linkedin className="w-5 h-5" /></a>
-              </div>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium mb-4">{t("footer_services")}</p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                {([0,1,2,3,4,5] as const).map((i) => (
-                  <li key={i}><a href={serviceHrefs[i]} className="hover:text-primary transition-colors">{t(`services_${i}_title` as const)}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium mb-4">{t("footer_company")}</p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                {[
-                  { href: "/about", label: t("nav_about") },
-                  { href: "/insights", label: t("nav_insights") },
-                  { href: "/faq", label: t("nav_faq") },
-                  { href: "#contact", label: t("nav_contact") },
-                  { href: "/ai-advisory-uae", label: isRTL ? "استشارات الذكاء الاصطناعي في الإمارات" : "AI Advisory UAE" },
-                  { href: "/ai-readiness-assessment", label: isRTL ? "تقييم جاهزية الذكاء الاصطناعي" : "AI Readiness Assessment" },
-                  { href: "/guides/ai-pilots-fail", label: isRTL ? "دليل مجاني: لماذا تفشل المشاريع التجريبية" : "Free Guide: Why AI Pilots Fail" },
-                ].map((l) => (
-                  <li key={l.href}><a href={l.href} className="hover:text-primary transition-colors">{l.label}</a></li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <hr className="section-rule mb-8" />
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-            <p>© {new Date().getFullYear()} <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a>, {t("footer_tagline")} {t("footer_rights")}</p>
-            <p><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };

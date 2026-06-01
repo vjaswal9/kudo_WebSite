@@ -1,10 +1,10 @@
 // src/pages/About.tsx
-import { useEffect, useState } from "react";
-import { Mail, Linkedin, Menu, X, Award, Mic, BookOpen, Building2 } from "lucide-react";
+import { useEffect } from "react";
+import { Mail, Linkedin, Award, Mic, BookOpen, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import kudoLogo from "@/assets/kudo-logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LangToggle } from "@/components/LangToggle";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
 import founderBg from "@/assets/VJ_Biz_Image_2026.png";
 import { PageMeta } from "@/components/PageMeta";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -44,30 +44,9 @@ const press = [
 
 export default function About() {
   const { t, isRTL, lang } = useLanguage();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const recognition = recognitionData[lang];
 
-  const navItems = [
-    { href: "/", labelKey: "nav_home" as const },
-    { href: "/#outcomes", labelKey: "nav_outcomes" as const },
-    { href: "/#services", labelKey: "nav_services" as const },
-    { href: "/#how", labelKey: "nav_how" as const },
-    { href: "/about", labelKey: "nav_about" as const },
-    { href: "/insights", labelKey: "nav_insights" as const },
-    { href: "/faq", labelKey: "nav_faq" as const },
-    { href: "/#contact", labelKey: "nav_contact" as const },
-  ];
-
   useEffect(() => { window.scrollTo(0, 0); }, []);
-
-  useEffect(() => {
-    if (!mobileMenuOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") setMobileMenuOpen(false); };
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", onKeyDown);
-    return () => { document.removeEventListener("keydown", onKeyDown); document.body.style.overflow = prev; };
-  }, [mobileMenuOpen]);
 
   return (
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
@@ -77,42 +56,7 @@ export default function About() {
         canonical="https://www.kudoadvisory.com/about"
       />
 
-      <header className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4" aria-label="Main navigation">
-          <Link to="/" aria-label="Kudo Advisory home">
-            <img src={kudoLogo} alt="Kudo Advisory" className="h-12 sm:h-16 w-auto" />
-          </Link>
-          <ul className="hidden md:flex items-center gap-6 text-sm text-muted-foreground list-none">
-            {navItems.map((item) => (
-              <li key={item.labelKey}>
-                <Link to={item.href} className={`hover:text-foreground transition-colors ${item.href === "/about" ? "text-foreground font-medium" : ""}`}>{t(item.labelKey)}</Link>
-              </li>
-            ))}
-            <li><LangToggle /></li>
-            <li>
-              <Link to="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">{t("nav_book")}</Link>
-            </li>
-          </ul>
-          <button className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen}>
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </nav>
-        {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-[73px] bg-background z-40 px-6 py-8">
-            <ul className="flex flex-col gap-6 list-none">
-              {navItems.map((item) => (
-                <li key={item.labelKey}>
-                  <Link to={item.href} className="text-lg hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{t(item.labelKey)}</Link>
-                </li>
-              ))}
-              <li><LangToggle /></li>
-              <li>
-                <Link to="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors" onClick={() => setMobileMenuOpen(false)}>{t("nav_book")}</Link>
-              </li>
-            </ul>
-          </div>
-        )}
-      </header>
+      <SiteNav active="/about" />
 
       <main>
 
@@ -278,16 +222,7 @@ export default function About() {
 
       </main>
 
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground" aria-label="Site footer">
-        <p>
-          © {new Date().getFullYear()}{" "}
-          <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>
-          {" "}- AI Advisory &amp; AI Consultancy, Dubai, UAE. We exist to make AI move. All rights reserved.
-        </p>
-        <p className="mt-2">
-          <a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a>
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

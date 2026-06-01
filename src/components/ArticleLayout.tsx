@@ -3,11 +3,11 @@
 // reading progress, header, CTA, footer, and RTL switching.
 
 import { useEffect, useState } from "react";
-import { Mail, Linkedin, Menu, X, ArrowLeft, Clock, Share2, Check } from "lucide-react";
+import { ArrowLeft, Clock, Share2, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import kudoLogo from "@/assets/kudo-logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LangToggle } from "@/components/LangToggle";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
 
 interface ArticleMeta {
   title: string;
@@ -38,16 +38,6 @@ interface ArticleLayoutProps {
   ctaBodyAr?: string;
 }
 
-const NAV_ITEMS = [
-  { href: "/", en: "Home", ar: "الرئيسية" },
-  { href: "/#outcomes", en: "Outcomes", ar: "النتائج" },
-  { href: "/#services", en: "Services", ar: "الخدمات" },
-  { href: "/#how", en: "How We Work", ar: "آلية عملنا" },
-  { href: "/about", en: "About", ar: "من نحن" },
-  { href: "/insights", en: "Insights", ar: "المقالات" },
-  { href: "/#contact", en: "Contact", ar: "تواصل معنا" },
-];
-
 export function ArticleLayout({
   meta,
   children,
@@ -61,7 +51,6 @@ export function ArticleLayout({
   const { lang, isRTL } = useLanguage();
   const isAr = lang === "ar";
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
 
@@ -75,15 +64,6 @@ export function ArticleLayout({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    if (!mobileMenuOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") setMobileMenuOpen(false); };
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", onKeyDown);
-    return () => { document.removeEventListener("keydown", onKeyDown); document.body.style.overflow = prev; };
-  }, [mobileMenuOpen]);
 
   const handleShare = async () => {
     try {
@@ -138,72 +118,7 @@ export function ArticleLayout({
       `}</style>
 
       {/* ══ NAV ══ */}
-      <nav aria-label="Main navigation" className="fixed top-[3px] inset-x-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <a href="/" aria-label="Kudo Advisory home page">
-            <img src={kudoLogo} alt="Kudo Advisory" className="h-12 sm:h-16 w-auto" width="160" height="64" />
-          </a>
-          <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            {NAV_ITEMS.map((item) => (
-              <a key={item.href} href={item.href} className={`hover:text-foreground transition-colors ${item.href === "/insights" ? "text-foreground font-medium" : ""}`} aria-current={item.href === "/insights" ? "page" : undefined}>
-                {isAr ? item.ar : item.en}
-              </a>
-            ))}
-            <LangToggle />
-            <a href="/#contact" className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-              {isAr ? "احجز مكالمة" : "Book a Call"}
-            </a>
-          </div>
-          <div className="md:hidden flex items-center gap-2">
-            <LangToggle />
-            <Button variant="ghost" size="icon" className="rounded-full" aria-label="Open menu" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(true)}>
-              <Menu className="h-5 w-5" aria-hidden="true" />
-            </Button>
-          </div>
-        </div>
-      </nav>
-
-      {/* ══ MOBILE MENU ══ */}
-      <div className={`kudo-overlay fixed inset-0 z-[60] md:hidden ${mobileMenuOpen ? "is-open opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`} aria-hidden={!mobileMenuOpen}>
-        <button type="button" aria-label="Close menu" onClick={() => setMobileMenuOpen(false)} className="kudo-backdrop absolute inset-0 bg-background/70 backdrop-blur-xl" />
-        <div role="dialog" aria-modal="true" aria-label="Mobile navigation" className="relative h-full w-full">
-          <div className="kudo-panel h-full">
-            <div className="max-w-7xl mx-auto h-full px-6 pb-10 flex flex-col pt-[env(safe-area-inset-top)]">
-              <div className="flex items-center justify-between py-4">
-                <img src={kudoLogo} alt="Kudo Advisory" className="h-12 w-auto" width="120" height="48" />
-                <Button variant="ghost" size="icon" className="rounded-full" aria-label="Close menu" onClick={() => setMobileMenuOpen(false)}>
-                  <X className="h-5 w-5" aria-hidden="true" />
-                </Button>
-              </div>
-              <div className="max-w-md">
-                <div className="mt-6 kudo-item" style={{ animationDelay: mobileMenuOpen ? "90ms" : "0ms" }}>
-                  <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-primary px-5 text-base font-medium text-primary-foreground hover:bg-primary/90">
-                    {isAr ? "احجز مكالمة استكشافية" : "Book a Discovery Call"}
-                  </a>
-                </div>
-                <nav aria-label="Mobile nav links" className="mt-7 space-y-2">
-                  {NAV_ITEMS.map((item, idx) => (
-                    <a key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}
-                      className="kudo-item flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-4 text-base hover:bg-secondary transition-colors"
-                      style={{ animationDelay: mobileMenuOpen ? `${160 + idx * 60}ms` : "0ms" }}>
-                      <span className="font-medium">{isAr ? item.ar : item.en}</span>
-                      <span aria-hidden="true" className={`text-muted-foreground ${isRTL ? "rotate-180" : ""}`}>→</span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
-              <div className="mt-auto pt-10 max-w-md space-y-3">
-                <a href="mailto:info@kudoadvisory.com" className="kudo-item flex items-center justify-center gap-2 rounded-2xl border border-border bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-secondary transition-colors" style={{ animationDelay: mobileMenuOpen ? "520ms" : "0ms" }}>
-                  <Mail className="w-4 h-4" aria-hidden="true" /> info@kudoadvisory.com
-                </a>
-                <a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="kudo-item flex items-center justify-center gap-2 rounded-2xl border border-border bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-secondary transition-colors" style={{ animationDelay: mobileMenuOpen ? "580ms" : "0ms" }}>
-                  <Linkedin className="w-4 h-4" aria-hidden="true" /> LinkedIn, Vijay Jaswal
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SiteNav active="/insights" />
 
       {/* ══ MAIN ══ */}
       <main id="main-content">
@@ -286,18 +201,7 @@ export function ArticleLayout({
 
       </main>
 
-      {/* ══ FOOTER ══ */}
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground" aria-label="Site footer">
-        <p>
-          © {new Date().getFullYear()}{" "}
-          <a href="/" className="hover:text-foreground transition-colors">Kudo Advisory</a>
-          {" "}— {isAr ? "نحن هنا لتحريك الذكاء الاصطناعي." : "We exist to make AI move."}{" "}
-          {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}
-        </p>
-        <p className="mt-2">
-          <a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a>
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -4,10 +4,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LangToggle } from "@/components/LangToggle";
 import { PageMeta } from "@/components/PageMeta";
-import kudoLogo from "@/assets/kudo-logo.png";
-import { ChevronRight, ChevronLeft, Check, Mail } from "lucide-react";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
+import { ChevronRight, ChevronLeft, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { pushToMailerLite } from "@/lib/leads";
 
@@ -213,19 +213,7 @@ export default function AIReadinessAssessment() {
       />
 
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/" aria-label="Kudo Advisory home">
-            <img src={kudoLogo} alt="Kudo Advisory" className="h-12 sm:h-14 w-auto" width="160" height="56" />
-          </Link>
-          <div className="flex items-center gap-4">
-            <LangToggle />
-            <Link to="/services" className="hidden sm:inline text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {t("Services", "الخدمات")}
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       <main className="pt-28 pb-20 px-6">
         <div className="max-w-2xl mx-auto">
@@ -412,10 +400,7 @@ export default function AIReadinessAssessment() {
         </div>
       </main>
 
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} <Link to="/" className="hover:text-foreground transition-colors">Kudo Advisory</Link>, {t("AI Advisory UAE, Dubai & Middle East.", "استشارات الذكاء الاصطناعي في الإمارات ودبي والشرق الأوسط.")}</p>
-        <p className="mt-2"><a href="mailto:info@kudoadvisory.com" className="hover:text-foreground transition-colors">info@kudoadvisory.com</a></p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
