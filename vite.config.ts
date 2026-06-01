@@ -16,6 +16,22 @@ export default defineConfig(() => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // Split rarely-changing vendor libraries into their own chunks so
+        // browsers cache them once and reuse them across pages and future
+        // deploys (only the small app code changes day to day).
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("react-router") || id.includes("/react-dom/") || /\/react\//.test(id) || id.includes("/scheduler/")) return "react-vendor";
+          if (id.includes("lucide-react")) return "icons";
+          if (id.includes("@radix-ui")) return "radix";
+          return "vendor";
+        },
+      },
+    },
+  },
   // Prerendering options for vite-react-ssg.
   // dirStyle 'flat' emits /about.html (served by GitHub Pages at /about),
   // which matches the existing trailing-slash-free canonical URLs.

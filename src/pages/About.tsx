@@ -54,6 +54,7 @@ export default function About() {
         title="About Kudo Advisory | AI Advisory Firm Dubai, UAE | Vijay Jaswal"
         description="Kudo Advisory is an independent AI advisory firm founded in Dubai, UAE by Vijay Jaswal. We help CIOs, CDOs and enterprise leaders across the UAE, Saudi Arabia and Middle East turn AI investment into governed, measurable business outcomes. Learn about our mission, founder and approach."
         canonical="https://www.kudoadvisory.com/about"
+        ogImage="https://www.kudoadvisory.com/og/about.jpg"
       />
 
       <SiteNav active="/about" />

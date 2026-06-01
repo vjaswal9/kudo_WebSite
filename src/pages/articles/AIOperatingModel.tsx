@@ -133,6 +133,7 @@ export default function AIOperatingModel() {
         title="The AI Operating Model: Structuring Your Organisation to Scale AI Responsibly | Kudo Advisory"
         description="Most enterprises have pockets of AI. Few have the operating model to scale it. Vijay Jaswal explains what an AI operating model is, why it matters, and how to build one."
         canonical="https://www.kudoadvisory.com/insights/ai-operating-model"
+        ogImage="https://www.kudoadvisory.com/og/ai-operating-model.jpg"
         articlePublishedTime="2026-05-05T00:00:00+04:00"
         articleModifiedTime="2026-05-05T00:00:00+04:00"
         articleAuthor="Vijay Jaswal"

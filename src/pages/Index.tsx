@@ -156,6 +156,7 @@ const Index = () => {
         title="AI Advisory Dubai & UAE | AI Consultancy Middle East | Kudo Advisory"
         description="Kudo Advisory is the UAE's leading independent AI advisory firm. Based in Dubai, we help CIOs, CDOs and enterprise leaders across the UAE, Abu Dhabi and Middle East turn AI investment into governed, measurable outcomes. AI strategy, AI governance & delivery assurance."
         canonical="https://www.kudoadvisory.com/"
+        ogImage="https://www.kudoadvisory.com/og/home.jpg"
       />
 
       {/* ══ NAVIGATION ══ */}

@@ -134,6 +134,7 @@ export default function MeasuringAIROI() {
         title="Measuring AI ROI: Metrics That Actually Matter to Your Board | Kudo Advisory"
         description="Most AI programmes are measured on technical outputs, not business outcomes. Vijay Jaswal explains the three-tier measurement framework that enterprise boards actually need."
         canonical="https://www.kudoadvisory.com/insights/measuring-ai-roi"
+        ogImage="https://www.kudoadvisory.com/og/measuring-ai-roi.jpg"
         articlePublishedTime="2026-03-31T00:00:00+04:00"
         articleModifiedTime="2026-03-31T00:00:00+04:00"
         articleAuthor="Vijay Jaswal"

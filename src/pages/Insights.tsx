@@ -138,6 +138,7 @@ const Insights = () => {
         title="AI Insights & Thought Leadership | Kudo Advisory UAE"
         description="Practical perspectives on AI strategy, governance, and delivery for enterprise leaders across the UAE, Dubai and Middle East. Written by Vijay Jaswal, founder of Kudo Advisory, for CIOs, CDOs and transformation leads."
         canonical="https://www.kudoadvisory.com/insights"
+        ogImage="https://www.kudoadvisory.com/og/insights.jpg"
       />
 
       {/* ══ NAV ══ */}

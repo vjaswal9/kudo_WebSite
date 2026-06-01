@@ -133,6 +133,7 @@ export default function CaseStudies() {
         title="AI Advisory Case Studies UAE | Client Stories | Kudo Advisory"
         description="Anonymised client stories from Kudo Advisory's AI advisory work across telecoms, utilities, healthcare and property development in the UAE and Middle East. How enterprises turned stalled AI into governed, measurable outcomes."
         canonical="https://www.kudoadvisory.com/case-studies"
+        ogImage="https://www.kudoadvisory.com/og/case-studies.jpg"
       />
 
       <SiteNav active="/case-studies" />

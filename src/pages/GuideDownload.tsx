@@ -64,6 +64,7 @@ export default function GuideDownload() {
         title="Free Guide: The 5 Reasons Enterprise AI Pilots Fail | Kudo Advisory"
         description="Download Kudo Advisory's free guide: The 5 Reasons Enterprise AI Pilots Fail, and what the organisations that succeed do differently. Written by Vijay Jaswal for enterprise leaders across the UAE and Middle East."
         canonical="https://www.kudoadvisory.com/guides/ai-pilots-fail"
+        ogImage="https://www.kudoadvisory.com/og/guide.jpg"
       />
 
       <SiteNav />

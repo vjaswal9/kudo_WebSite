@@ -142,6 +142,7 @@ export default function WhyAIPilotsFail() {
         title="Why Enterprise AI Pilots Fail: What to Do About It | Kudo Advisory"
         description="Up to 80% of enterprise AI initiatives never scale beyond pilot stage. Vijay Jaswal explains the five root causes of AI pilot failure, and what successful organisations do differently."
         canonical="https://www.kudoadvisory.com/insights/why-enterprise-ai-pilots-fail"
+        ogImage="https://www.kudoadvisory.com/og/why-enterprise-ai-pilots-fail.jpg"
         articlePublishedTime="2026-05-19T00:00:00+04:00"
         articleModifiedTime="2026-05-19T00:00:00+04:00"
         articleAuthor="Vijay Jaswal"
