@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite-react-ssg dev",
+    "check:dashes": "bash scripts/check-no-dashes.sh",
+    "prebuild": "bash scripts/check-no-dashes.sh",
     "build": "vite-react-ssg build",
     "build:dev": "vite-react-ssg build --mode development",
     "lint": "eslint .",
