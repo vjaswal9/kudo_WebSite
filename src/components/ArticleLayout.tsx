@@ -10,6 +10,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedInsights } from "@/components/RelatedInsights";
+import { articleImage } from "@/lib/articleImages";
 
 interface ArticleMeta {
   title: string;
@@ -163,6 +164,21 @@ export function ArticleLayout({
             </div>
           </div>
         </header>
+
+        {/* ── HERO IMAGE (only if one exists for this article) ── */}
+        {articleImage(meta.url.split("/").filter(Boolean).pop() || "") && (
+          <div className="max-w-4xl mx-auto px-6 mb-12">
+            <img
+              src={articleImage(meta.url.split("/").filter(Boolean).pop() || "")}
+              alt=""
+              width={1280}
+              height={720}
+              loading="eager"
+              fetchPriority="high"
+              className="w-full aspect-video object-cover rounded-2xl border border-border"
+            />
+          </div>
+        )}
 
         {/* ── ARTICLE BODY ── */}
         <article className="max-w-3xl mx-auto px-6 pb-12 article-body">
