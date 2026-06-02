@@ -199,7 +199,6 @@ const Insights = () => {
                 className="group relative rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden cursor-pointer"
                 onClick={() => { window.location.href = `/insights/${filtered[0].slug}`; }}
               >
-                <img src={`/insights/${filtered[0].slug}.jpg`} alt="" width={1200} height={630} loading="lazy" className="w-full h-56 md:h-72 object-cover border-b border-border" />
                 <div className="p-8 md:p-12">
                   <div className="flex flex-wrap items-center gap-3 mb-5">
                     <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
@@ -250,9 +249,6 @@ const Insights = () => {
                   }`}
                   onClick={() => { if (!article.coming) window.location.href = `/insights/${article.slug}`; }}
                 >
-                  {!article.coming && (
-                    <img src={`/insights/${article.slug}.jpg`} alt="" width={1200} height={630} loading="lazy" className="w-full aspect-[1200/630] object-cover border-b border-border" />
-                  )}
                   <div className="p-6 flex flex-col h-full">
                     <div className="flex flex-wrap items-center gap-2 mb-4">
                       <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
