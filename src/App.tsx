@@ -60,6 +60,7 @@ export const routes: RouteRecord[] = [
       { path: "services/leadership-enablement", lazy: async () => ({ Component: (await import("./pages/services/LeadershipEnablement")).default }) },
       { path: "services/ai-delivery-assurance", lazy: async () => ({ Component: (await import("./pages/services/AIDeliveryAssurance")).default }) },
       { path: "case-studies", lazy: async () => ({ Component: (await import("./pages/CaseStudies")).default }) },
+      { path: "ai-quick-start", lazy: async () => ({ Component: (await import("./pages/AIQuickStart")).default }) },
       { path: "privacy", lazy: async () => ({ Component: (await import("./pages/Privacy")).default }) },
       { path: "terms", lazy: async () => ({ Component: (await import("./pages/Terms")).default }) },
       { path: "*", lazy: async () => ({ Component: (await import("./pages/NotFound")).default }) },

@@ -130,9 +130,33 @@ export default function ServicesIndex() {
           </div>
         </section>
 
+        {/* Entry-point: Quick-Start */}
+        <section className="pt-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection>
+              <Link to="/ai-quick-start" className="group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl border border-primary/30 bg-primary/5 hover:border-primary/50 transition-colors">
+                <div className="flex-1">
+                  <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">{isAr ? "ابدأ من هنا" : "Start here"}</p>
+                  <h2 className="text-2xl font-bold mb-2">{isAr ? "تقييم الانطلاق السريع للذكاء الاصطناعي" : "AI Quick-Start Assessment"}</h2>
+                  <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                    {isAr
+                      ? "خطوة أولى منخفضة الالتزام وسريعة: تحليل الوضع الحالي، ومراجعة الأدوات والإنفاق، وفجوات الأمن والامتثال، وخارطة طريق مرحلية، خلال أسبوع إلى أسبوعين."
+                      : "A fast, lower-commitment first step: current-state analysis, tool and spend audit, security and compliance gaps, and a phased roadmap, in one to two weeks."}
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary shrink-0">
+                  {isAr ? "اعرف المزيد" : "Learn more"}
+                  <ChevronRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isRTL ? "rotate-180" : ""}`} />
+                </span>
+              </Link>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* Services grid */}
         <section className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
+            <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-6 max-w-7xl">{isAr ? "خدماتنا الاستشارية الست" : "Our six advisory services"}</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {SERVICES.map((s, i) => (
                 <AnimatedSection key={s.href} delay={i * 80}>

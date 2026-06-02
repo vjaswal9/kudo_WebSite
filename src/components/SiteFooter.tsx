@@ -5,6 +5,7 @@ import kudoLogo from "@/assets/kudo-logo.png";
 import { Mail, Linkedin } from "lucide-react";
 
 const SERVICES = [
+  { href: "/ai-quick-start", en: "AI Quick-Start Assessment", ar: "تقييم الانطلاق السريع" },
   { href: "/services/ai-strategy", en: "AI Strategy", ar: "استراتيجية الذكاء الاصطناعي" },
   { href: "/services/ai-governance", en: "AI Governance", ar: "حوكمة الذكاء الاصطناعي" },
   { href: "/services/ai-operating-model", en: "Operating Model", ar: "نموذج التشغيل" },
