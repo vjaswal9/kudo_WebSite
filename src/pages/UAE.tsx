@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PageMeta } from "@/components/PageMeta";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import leaderBg from "@/assets/about-leader.jpg";
+import leaderBg from "@/assets/about-leader.webp";
 import { Mail, ChevronRight, Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";

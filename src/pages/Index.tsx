@@ -6,12 +6,12 @@ import React, {
 } from "lucide-react";
 import { useScrollAnimation, useScrolled, useClassAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
-import outcomesBg from "@/assets/outcomes-boardroom.jpg";
-import servicesBg from "@/assets/services-collaboration.jpg";
-import heroBg from "@/assets/hero-abstract.jpg";
-import howWeWorkBg from "@/assets/how-we-work.jpg";
-import founderBg from "@/assets/vijay-presenting.jpg";
-import leaderBg from "@/assets/about-leader.jpg";
+import outcomesBg from "@/assets/outcomes-boardroom.webp";
+import servicesBg from "@/assets/services-collaboration.webp";
+import heroBg from "@/assets/hero-abstract.webp";
+import howWeWorkBg from "@/assets/how-we-work.webp";
+import founderBg from "@/assets/vijay-presenting.webp";
+import leaderBg from "@/assets/about-leader.webp";
 import { useEffect, useState } from "react";
 import kudoLogo from "@/assets/kudo-logo.png";
 import { PageMeta } from "@/components/PageMeta";

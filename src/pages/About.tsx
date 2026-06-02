@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import founderBg from "@/assets/VJ_Biz_Image_2026.png";
+import founderBg from "@/assets/VJ_Biz_Image_2026.webp";
 import { PageMeta } from "@/components/PageMeta";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 

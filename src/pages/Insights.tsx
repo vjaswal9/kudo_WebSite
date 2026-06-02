@@ -12,6 +12,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { GuidePromo } from "@/components/GuidePromo";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 /* ─── Scroll-animated wrapper (same pattern as Index) ─── */
 function AnimatedSection({
@@ -292,6 +293,9 @@ const Insights = () => {
             ))}
           </div>
         </section>
+
+        {/* ── Newsletter signup ── */}
+        <NewsletterSignup />
 
         {/* ── CTA ── */}
         <section
