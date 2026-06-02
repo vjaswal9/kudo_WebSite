@@ -5,6 +5,7 @@
 // images are supplied one at a time.
 export const ARTICLE_IMAGES: Record<string, string> = {
   "why-enterprise-ai-pilots-fail": "/insights/why-enterprise-ai-pilots-fail.webp",
+  "ai-governance-middle-east": "/insights/ai-governance-middle-east.webp",
 };
 
 export function articleImage(slug: string): string | undefined {
