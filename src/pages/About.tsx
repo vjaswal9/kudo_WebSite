@@ -242,7 +242,7 @@ export default function About() {
                 <AnimatedSection key={i} delay={i * 80}>
                   <a href={v.url} target="_blank" rel="noopener noreferrer" className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all">
                     <div className="relative">
-                      <img src={v.thumb} alt={v.title} width={480} height={360} loading="lazy" className="w-full h-48 object-cover" />
+                      <img src={v.thumb} alt={v.title} width={1280} height={720} loading="lazy" className="w-full aspect-video object-cover" />
                       <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
                         <span className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                           <svg viewBox="0 0 24 24" className="w-6 h-6 text-primary-foreground ml-0.5" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
