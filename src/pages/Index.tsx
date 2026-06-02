@@ -67,7 +67,7 @@ const Index = () => {
     { href: "#outcomes", labelKey: "nav_outcomes" as const },
     { href: "/services", labelKey: "nav_services" as const },
     { href: "#how", labelKey: "nav_how" as const },
-    { href: "/ai-advisory-uae", labelKey: "nav_home" as const, fixedLabel: "UAE" },
+    { href: "/ai-advisory-uae", labelKey: "nav_home" as const, fixedLabel: isRTL ? "الإمارات" : "UAE" },
     { href: "/about", labelKey: "nav_about" as const },
     { href: "/case-studies", labelKey: "nav_case_studies" as const, fixedLabel: isRTL ? "قصص العملاء" : "Case Studies" },
     { href: "/insights", labelKey: "nav_insights" as const },
