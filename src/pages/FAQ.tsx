@@ -130,6 +130,10 @@ export default function FAQ() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".faq-question", ".faq-answer"],
+    },
     "mainEntity": FAQS_EN.flatMap(cat =>
       cat.questions.map(faq => ({
         "@type": "Question",
@@ -199,7 +203,7 @@ export default function FAQ() {
                         aria-controls={`faq-answer-${key}`}
                         className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left hover:bg-secondary/40 transition-colors"
                       >
-                        <h3 className="text-base font-medium text-foreground leading-snug">
+                        <h3 className="faq-question text-base font-medium text-foreground leading-snug">
                           {faq.q}
                         </h3>
                         <ChevronDown

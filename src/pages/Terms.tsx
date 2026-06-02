@@ -17,7 +17,7 @@ export default function Terms() {
         canonical="https://www.kudoadvisory.com/terms"
       />
       <SiteNav />
-      <main className="pt-28 pb-20 px-6">
+      <main id="main-content" className="pt-28 pb-20 px-6">
         <div className="max-w-3xl mx-auto legal-body">
           {isAr ? <ArabicTerms /> : <EnglishTerms />}
           <p className="text-sm text-muted-foreground mt-10">{updated}</p>

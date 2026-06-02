@@ -59,7 +59,7 @@ export default function About() {
 
       <SiteNav active="/about" />
 
-      <main>
+      <main id="main-content">
 
         <section className="pt-40 pb-16 px-6 bg-secondary/20">
           <div className="max-w-5xl mx-auto">

@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PageMeta } from "@/components/PageMeta";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Mail, ChevronRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -99,10 +100,19 @@ export function ServicePageLayout(props: ServicePageProps) {
       {/* Nav */}
       <SiteNav active="/services" />
 
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="pt-36 pb-16 px-6 bg-secondary/10">
           <div className="max-w-5xl mx-auto">
+            <div className="mb-6">
+              <Breadcrumbs
+                items={[
+                  { label: t("Home", "الرئيسية"), href: "/" },
+                  { label: t("Services", "الخدمات"), href: "/services" },
+                  { label: t(props.heading, props.heading_ar) },
+                ]}
+              />
+            </div>
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.35em] text-primary font-medium mb-4">
                 {t(props.categoryLabel, props.categoryLabel_ar)}

@@ -48,7 +48,7 @@ export default function UAE() {
       {/* Nav */}
       <SiteNav active="/ai-advisory-uae" />
 
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="pt-36 pb-20 px-6 bg-secondary/10">
           <div className="max-w-4xl mx-auto">

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedInsights } from "@/components/RelatedInsights";
 
 interface ArticleMeta {
   title: string;
@@ -120,6 +122,16 @@ export function ArticleLayout({
             {isAr ? "العودة إلى المقالات" : "Back to Insights"}
           </a>
 
+          <div className="mb-6">
+            <Breadcrumbs
+              items={[
+                { label: isAr ? "الرئيسية" : "Home", href: "/" },
+                { label: isAr ? "المقالات" : "Insights", href: "/insights" },
+                { label: displayTitle },
+              ]}
+            />
+          </div>
+
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
               {displayCategory}
@@ -163,6 +175,9 @@ export function ArticleLayout({
             {promo}
           </div>
         )}
+
+        {/* ── RELATED INSIGHTS ── */}
+        <RelatedInsights currentSlug={meta.url.split("/").filter(Boolean).pop() || ""} />
 
         {/* ── CTA ── */}
         <section aria-labelledby="article-cta-heading" className="bg-secondary/20 border-t border-border py-20 px-6">

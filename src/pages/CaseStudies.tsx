@@ -138,7 +138,7 @@ export default function CaseStudies() {
 
       <SiteNav active="/case-studies" />
 
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="pt-36 pb-16 px-6 bg-secondary/10">
           <div className="max-w-5xl mx-auto">

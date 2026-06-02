@@ -218,7 +218,7 @@ export default function AIReadinessAssessment() {
       {/* Nav */}
       <SiteNav />
 
-      <main className="pt-28 pb-20 px-6">
+      <main id="main-content" className="pt-28 pb-20 px-6">
         <div className="max-w-2xl mx-auto">
 
           {/* ── INTRO ── */}

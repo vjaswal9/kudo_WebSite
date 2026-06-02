@@ -69,7 +69,7 @@ export default function GuideDownload() {
 
       <SiteNav />
 
-      <main className="pt-28 pb-20 px-6">
+      <main id="main-content" className="pt-28 pb-20 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left, pitch */}
           <div>

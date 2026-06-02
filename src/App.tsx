@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { CookieConsent } from "@/components/CookieConsent";
+import { SkipLink } from "@/components/SkipLink";
 import type { RouteRecord } from "vite-react-ssg";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function Layout() {
     <LanguageProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <SkipLink />
           <ScrollToTop />
           <Toaster />
           <Sonner />

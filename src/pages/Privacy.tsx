@@ -17,7 +17,7 @@ export default function Privacy() {
         canonical="https://www.kudoadvisory.com/privacy"
       />
       <SiteNav />
-      <main className="pt-28 pb-20 px-6">
+      <main id="main-content" className="pt-28 pb-20 px-6">
         <div className="max-w-3xl mx-auto legal-body">
           {isAr ? <ArabicPrivacy /> : <EnglishPrivacy />}
           <p className="text-sm text-muted-foreground mt-10">{updated}</p>

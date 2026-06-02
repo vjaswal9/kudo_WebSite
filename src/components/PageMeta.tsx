@@ -106,6 +106,10 @@ export function PageMeta({
           "headline": title.split(" | ")[0],
           "description": description,
           "url": canonical,
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".article-body p"]
+          },
           "datePublished": articlePublishedTime,
           "dateModified": modifiedTime,
           ...(articleWordCount ? { "wordCount": articleWordCount } : {}),
