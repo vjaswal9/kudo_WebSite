@@ -40,6 +40,9 @@ const press = [
   { publication: "International Business Magazine", headline: "Kudo Advisory Bridges Middle East AI Investment and Business Outcomes", url: "https://intlbm.com/2026/05/14/kudo-advisory-bridges-middle-east-ai-investment-and-business-outcomes/" },
   { publication: "TechDogs", headline: "Vijay Jaswal on Scaling Asset Intelligence, AI and Business Agility", url: "https://www.techdogs.com/inspire/discover-dialogues/vijay-jaswal-on-scaling-asset-intelligence-ai-and-business-agility" },
   { publication: "Channel Post MEA", headline: "Kudo Advisory Opens UAE Office to Drive Real AI Business Impact", url: "https://channelpostmea.com/2026/05/14/kudo-advisory-opens-uae-office-to-drive-real-ai-business-impact/" },
+  { publication: "Business News This Week", headline: "Kudo Advisory Launches to Drive AI-Led Business Growth in Middle East", url: "https://businessnewsthisweek.com/business/kudo-advisory-launches-to-drive-ai-led-business-growth-in-middle-east/" },
+  { publication: "TradingView (ZAWYA)", headline: "Kudo Advisory Launched to Bridge the Gap Between AI Investments and Real Business Outcomes", url: "https://www.tradingview.com/news/reuters.com,2026-05-14:newsml_Zaw8VhzLy:0-zawya-kudo-advisory-launched-to-bridge-the-gap-between-ai-investments-and-real-business-outcomes-in-the-middle-east/" },
+  { publication: "Dubai City Guide", headline: "Kudo Advisory Launches in the UAE, Bridging AI Investments and Real Business Outcomes", url: "https://www.dubaicityguide.com/site/features/12924/kudo-advisory-launches-in-the-uae-bridging-the-gap-between-ai-investments-and-real-business-outcomes" },
 ];
 
 export default function About() {
@@ -204,6 +207,59 @@ export default function About() {
                 </AnimatedSection>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Watch & Listen ── */}
+        <section aria-labelledby="watch-heading" className="py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">{isRTL ? "شاهد واستمع" : "Watch & Listen"}</p>
+              <h2 id="watch-heading" className="text-3xl md:text-4xl font-bold mb-12">{isRTL ? "فيجاي في وسائل الإعلام" : "Vijay in the media"}</h2>
+            </AnimatedSection>
+
+            {/* Fast Company pull-quote */}
+            <AnimatedSection>
+              <figure className="mb-12 p-8 md:p-10 rounded-2xl border border-border bg-card">
+                <blockquote className="text-xl md:text-2xl font-medium leading-relaxed text-foreground">
+                  {isRTL
+                    ? "«يساعد الذكاء الاصطناعي المُصمَّم خصيصاً على تعظيم أداء الأصول والمواءمة مع الأهداف الاستراتيجية الوطنية.»"
+                    : "“Tailored AI helps maximize asset performance and align with national strategic goals.”"}
+                </blockquote>
+                <figcaption className="mt-5 text-sm text-muted-foreground">
+                  {isRTL ? "فيجاي جسوال، كما نُقل في " : "Vijay Jaswal, as quoted in "}
+                  <a href="https://fastcompanyme.com/technology/the-middle-east-is-all-set-to-adopt-industrial-ai-but-its-fraught-with-challenges/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Fast Company Middle East</a>
+                </figcaption>
+              </figure>
+            </AnimatedSection>
+
+            {/* Video thumbnails (open YouTube in a new tab) */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              {[
+                { thumb: "/media/techdogs.jpg", title: isRTL ? "توسيع ذكاء الأصول والذكاء الاصطناعي ورشاقة الأعمال" : "Scaling Asset Intelligence, AI & Business Agility", source: "TechDogs · Discover Dialogues", url: "https://www.youtube.com/shorts/SfhDywUmd4g" },
+                { thumb: "/media/leap22.jpg", title: isRTL ? "مقابلة LEAP حول الذكاء الاصطناعي المؤسسي" : "Exhibitor interview on enterprise AI", source: "LEAP · Riyadh", url: "https://www.youtube.com/watch?v=98s-ZgwezHs" },
+              ].map((v, i) => (
+                <AnimatedSection key={i} delay={i * 80}>
+                  <a href={v.url} target="_blank" rel="noopener noreferrer" className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all">
+                    <div className="relative">
+                      <img src={v.thumb} alt={v.title} width={480} height={360} loading="lazy" className="w-full h-48 object-cover" />
+                      <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                        <span className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                          <svg viewBox="0 0 24 24" className="w-6 h-6 text-primary-foreground ml-0.5" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <p className="text-xs text-primary font-medium uppercase tracking-wide mb-2">{v.source}</p>
+                      <p className="text-sm font-medium leading-snug group-hover:text-primary transition-colors">{v.title}</p>
+                    </div>
+                  </a>
+                </AnimatedSection>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mt-5">
+              {isRTL ? "تُفتح مقاطع الفيديو على يوتيوب في نافذة جديدة." : "Videos open on YouTube in a new tab."}
+            </p>
           </div>
         </section>
 
