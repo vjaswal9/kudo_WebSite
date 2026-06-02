@@ -8,6 +8,7 @@ export const ARTICLE_IMAGES: Record<string, string> = {
   "ai-governance-middle-east": "/insights/ai-governance-middle-east.webp",
   "ai-operating-model": "/insights/ai-operating-model.webp",
   "ciso-cio-ai-collaboration": "/insights/ciso-cio-ai-collaboration.webp",
+  "ai-use-case-prioritisation": "/insights/ai-use-case-prioritisation.webp",
 };
 
 export function articleImage(slug: string): string | undefined {
