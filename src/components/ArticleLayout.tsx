@@ -164,6 +164,19 @@ export function ArticleLayout({
           </div>
         </header>
 
+        {/* ── HERO IMAGE ── */}
+        <div className="max-w-4xl mx-auto px-6 mb-12">
+          <img
+            src={`/insights/${meta.url.split("/").filter(Boolean).pop() || ""}.jpg`}
+            alt=""
+            width={1200}
+            height={630}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full aspect-[1200/630] object-cover rounded-2xl border border-border"
+          />
+        </div>
+
         {/* ── ARTICLE BODY ── */}
         <article className="max-w-3xl mx-auto px-6 pb-12 article-body">
           {isAr && childrenAr ? childrenAr : children}
