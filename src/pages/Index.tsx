@@ -241,7 +241,7 @@ const Index = () => {
 
         {/* ── HERO ── */}
         <header className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-20" aria-label="Kudo Advisory - AI Advisory and Consultancy in Dubai">
-          <img src={heroBg} alt="Abstract AI data visualisation" className="absolute inset-0 w-full h-full object-cover opacity-35" loading="eager" fetchPriority="high" width="1920" height="1080" />
+          <img src={heroBg} alt="Abstract AI data visualisation" className="hero-bg-anim absolute inset-0 w-full h-full object-cover opacity-35" loading="eager" fetchPriority="high" width="1920" height="1080" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/55 to-background" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" aria-hidden="true" />
 

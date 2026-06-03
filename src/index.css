@@ -311,6 +311,19 @@
   animation: goldPulse 3s ease-in-out infinite;
 }
 
+/* Subtle slow drift for the homepage hero background (auto-disabled under
+   prefers-reduced-motion via the universal rule below). */
+@keyframes heroDrift {
+  0%   { transform: scale(1.06) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.12) translate3d(-1.5%, -1.2%, 0); }
+  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+}
+.hero-bg-anim {
+  transform: scale(1.06);
+  animation: heroDrift 32s ease-in-out infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, .kudo-overlay, .kudo-panel, .kudo-item, .kudo-backdrop,
   .hero-word, .stat-item, .step-num-visible, .label-slide,

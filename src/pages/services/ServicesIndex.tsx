@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck, ChevronRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import heroBg from "@/assets/hero-abstract.webp";
 import React from "react";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -112,8 +113,9 @@ export default function ServicesIndex() {
 
       <main id="main-content">
         {/* Hero */}
-        <section className="pt-36 pb-16 px-6 bg-secondary/10">
-          <div className="max-w-5xl mx-auto">
+        <section className="relative overflow-hidden pt-36 pb-16 px-6 bg-secondary/10">
+          <img src={heroBg} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-[0.06] pointer-events-none" />
+          <div className="relative z-10 max-w-5xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.35em] text-primary font-medium mb-4">
                 {isAr ? "خدمات استشارات الذكاء الاصطناعي · الإمارات والشرق الأوسط" : "AI Advisory Services · UAE & Middle East"}
