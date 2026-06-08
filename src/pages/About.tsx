@@ -43,6 +43,7 @@ const press = [
   { publication: "Business News This Week", headline: "Kudo Advisory Launches to Drive AI-Led Business Growth in Middle East", url: "https://businessnewsthisweek.com/business/kudo-advisory-launches-to-drive-ai-led-business-growth-in-middle-east/" },
   { publication: "TradingView (ZAWYA)", headline: "Kudo Advisory Launched to Bridge the Gap Between AI Investments and Real Business Outcomes", url: "https://www.tradingview.com/news/reuters.com,2026-05-14:newsml_Zaw8VhzLy:0-zawya-kudo-advisory-launched-to-bridge-the-gap-between-ai-investments-and-real-business-outcomes-in-the-middle-east/" },
   { publication: "Dubai City Guide", headline: "Kudo Advisory Launches in the UAE, Bridging AI Investments and Real Business Outcomes", url: "https://www.dubaicityguide.com/site/features/12924/kudo-advisory-launches-in-the-uae-bridging-the-gap-between-ai-investments-and-real-business-outcomes" },
+  { publication: "The Source Code", headline: "Kudo Advisory: Why Most Enterprise AI Pilots Fail to Scale", url: "https://www.the-sourcecode.com/business-tech/kudo-advisory-enterprise-ai-pilots-fail-scale" },
 ];
 
 export default function About() {
