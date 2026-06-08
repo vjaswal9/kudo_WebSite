@@ -234,6 +234,21 @@ export default function About() {
               </figure>
             </AnimatedSection>
 
+            {/* The Source Code pull-quote */}
+            <AnimatedSection delay={80}>
+              <figure className="mb-12 p-8 md:p-10 rounded-2xl border border-border bg-card">
+                <blockquote className="text-xl md:text-2xl font-medium leading-relaxed text-foreground">
+                  {isRTL
+                    ? "«إعطاء مؤسسة الذكاء الاصطناعي دون البنية الصحيحة أشبه بتسليم شخص لم يقُد من قبل سيارة عالية الأداء، بلا تدريب ولا قواعد للطريق.»"
+                    : "“It is like handing someone who has never driven before a high-performance car, without proper training or rules of the road.”"}
+                </blockquote>
+                <figcaption className="mt-5 text-sm text-muted-foreground">
+                  {isRTL ? "فيجاي جسوال، كما نُقل في " : "Vijay Jaswal, as quoted in "}
+                  <a href="https://www.the-sourcecode.com/business-tech/kudo-advisory-enterprise-ai-pilots-fail-scale" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">The Source Code</a>
+                </figcaption>
+              </figure>
+            </AnimatedSection>
+
             {/* Video thumbnails (open YouTube in a new tab) */}
             <div className="grid sm:grid-cols-2 gap-6">
               {[
