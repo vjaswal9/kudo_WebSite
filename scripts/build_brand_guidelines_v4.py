@@ -15,7 +15,7 @@ OUT = os.path.join(ROOT, "Kudo_Advisory_Mini_Guidelines_v4.pdf")
 LOGO = os.path.join(ROOT, "src", "assets", "kudo-logo.png")
 
 NAVY = HexColor("#10222E")
-CREAM = HexColor("#FFFFDC")
+CREAM = HexColor("#F5F0D8")     # on-screen working cream (warmed from #FFFFDC)
 GOLD = HexColor("#C7A35A")
 TEAL = HexColor("#4E9D94")
 MUTE = HexColor("#9AA8AC")
@@ -84,7 +84,8 @@ c.drawString(22 * mm, H - 30 * mm, "Colours")
 
 rows = [
     ("Navy", "#10222E", "RGB 16, 34, 46", "Primary background. The brand canvas.", NAVY, CREAM),
-    ("Cream", "#FFFFDC", "RGB 255, 255, 220", "Logo, headings and primary text on navy.", CREAM, NAVY),
+    ("Cream (logo)", "#FFFFDC", "RGB 255, 255, 220", "The logo mark and wordmark.", HexColor("#FFFFDC"), NAVY),
+    ("Warm Cream (UI)", "#F5F0D8", "RGB 245, 240, 216", "On-screen headings and primary text on navy.", CREAM, NAVY),
     ("Champagne Gold", "#C7A35A", "RGB 199, 163, 90", "Accent and primary actions (CTAs, highlights). From the mark gradient.", GOLD, NAVY),
     ("Muted Teal", "#4E9D94", "RGB 78, 157, 148", "Supporting accent only: tags, links, data, states. Use sparingly.", TEAL, NAVY),
 ]
