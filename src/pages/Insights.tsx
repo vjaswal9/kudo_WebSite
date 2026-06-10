@@ -205,7 +205,7 @@ const Insights = () => {
                 )}
                 <div className="p-8 md:p-12">
                   <div className="flex flex-wrap items-center gap-3 mb-5">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-brand-teal/10 text-brand-teal border border-brand-teal/25">
                       {filtered[0].category}
                     </span>
                     <span className="text-xs text-muted-foreground">Featured</span>
@@ -258,7 +258,7 @@ const Insights = () => {
                   )}
                   <div className="p-6 flex flex-col h-full">
                     <div className="flex flex-wrap items-center gap-2 mb-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-brand-teal/10 text-brand-teal border border-brand-teal/25">
                         {article.category}
                       </span>
                       {article.coming && (

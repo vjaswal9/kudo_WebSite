@@ -32,3 +32,6 @@ pnpm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# Brand guideline source PDFs (kept private, not for public repo)
+/Kudo_Advisory_Mini_Guidelines_*.pdf

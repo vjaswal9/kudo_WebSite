@@ -134,7 +134,7 @@ export function ArticleLayout({
           </div>
 
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+            <span className="px-3 py-1 rounded-full text-xs font-medium bg-brand-teal/10 text-brand-teal border border-brand-teal/25">
               {displayCategory}
             </span>
           </div>

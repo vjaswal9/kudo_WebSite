@@ -5,35 +5,40 @@
 
 @layer base {
   :root {
-    /* Deep navy-charcoal background (less blue-green, more authoritative) */
-    --background: 220 25% 7%;
-    --foreground: 210 15% 93%;
+    /* Brand palette (per Kudo Mini Guidelines):
+       Navy #10222E, Cream #FFFFDC, Champagne gold (mark gradient), Muted teal. */
+    --background: 204 48% 12%;      /* Navy #10222E */
+    --foreground: 60 30% 96%;       /* warm cream-white */
 
-    --card: 220 20% 11%;
-    --card-foreground: 210 15% 93%;
+    --card: 204 38% 15%;
+    --card-foreground: 60 30% 96%;
 
-    --popover: 220 20% 11%;
-    --popover-foreground: 210 15% 93%;
+    --popover: 204 38% 15%;
+    --popover-foreground: 60 30% 96%;
 
-    /* Warm gold - slightly more refined */
-    --primary: 42 78% 52%;
-    --primary-foreground: 220 25% 7%;
+    /* Champagne / old-gold (refined from the logo mark gradient) #C7A35A */
+    --primary: 40 49% 57%;
+    --primary-foreground: 204 48% 12%;
 
-    --secondary: 220 16% 17%;
-    --secondary-foreground: 210 15% 93%;
+    --secondary: 204 32% 19%;
+    --secondary-foreground: 60 30% 96%;
 
-    --muted: 220 12% 15%;
-    --muted-foreground: 215 12% 55%;
+    --muted: 204 26% 18%;
+    --muted-foreground: 200 12% 64%;
 
-    --accent: 168 35% 22%;
-    --accent-foreground: 210 15% 93%;
+    --accent: 204 32% 20%;
+    --accent-foreground: 60 30% 96%;
+
+    /* Muted teal supporting accent #4E9D94 (tags, links, data, states) */
+    --brand-teal: 173 34% 46%;
+    --brand-cream: 60 100% 93%;     /* Cream #FFFFDC */
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 15% 93%;
+    --destructive-foreground: 60 30% 96%;
 
-    --border: 220 14% 19%;
-    --input: 220 14% 19%;
-    --ring: 42 78% 52%;
+    --border: 204 24% 22%;
+    --input: 204 24% 22%;
+    --ring: 40 49% 57%;
 
     --radius: 0.75rem;
 
