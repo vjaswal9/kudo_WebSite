@@ -648,7 +648,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm">{t("contact_calendly_body")}</p>
                 </div>
                 <iframe
-                  src="https://calendly.com/vijayjaswal-kudoadvisory/30min?background_color=1a2332&text_color=e2e8f0&primary_color=d4a853"
+                  src="https://calendly.com/vijayjaswal-kudoadvisory/30min?background_color=10222e&text_color=f5f0d8&primary_color=c7a35a"
                   width="100%" height="400" frameBorder="0"
                   title="Book a discovery call with Vijay Jaswal, Kudo Advisory"
                   loading="lazy" className="w-full"
