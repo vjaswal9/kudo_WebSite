@@ -8,13 +8,13 @@
     /* Brand palette (per Kudo Mini Guidelines):
        Navy #10222E, Cream #FFFFDC, Champagne gold (mark gradient), Muted teal. */
     --background: 204 48% 12%;      /* Navy #10222E */
-    --foreground: 60 30% 96%;       /* warm cream-white */
+    --foreground: 58 72% 93%;       /* Cream-white toward #FFFFDC */
 
     --card: 204 38% 15%;
-    --card-foreground: 60 30% 96%;
+    --card-foreground: 58 72% 93%;
 
     --popover: 204 38% 15%;
-    --popover-foreground: 60 30% 96%;
+    --popover-foreground: 58 72% 93%;
 
     /* Champagne / old-gold (refined from the logo mark gradient) #C7A35A */
     --primary: 40 49% 57%;
@@ -64,6 +64,7 @@
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
+    color: hsl(var(--brand-cream));   /* true brand Cream #FFFFDC on headings */
   }
 
   h4, h5, h6 {
