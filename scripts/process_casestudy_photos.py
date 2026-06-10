@@ -12,8 +12,8 @@ RAW = "/tmp/cs_raw"
 OUT = os.path.join(ROOT, "public", "case-studies")
 
 W, H = 1200, 400
-NAVY = (13, 16, 22)
-GOLD = (228, 171, 37)
+NAVY = (16, 34, 46)
+GOLD = (199, 163, 90)
 
 # crop focus: vertical position 0=top,0.5=center,1=bottom for the cropped window
 FOCUS = {"telecom": 0.5, "utilities": 0.5, "healthcare": 0.5, "property": 0.45}

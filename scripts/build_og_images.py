@@ -12,10 +12,10 @@ OUT_DIR = os.path.join(ROOT, "public", "og")
 LOGO_PATH = os.path.join(ROOT, "src", "assets", "kudo-logo.png")
 
 W, H = 1200, 630
-BG = (13, 16, 22)        # --background  220 25% 7%
-GOLD = (228, 171, 37)    # --primary     42 78% 52%
-WHITE = (245, 246, 248)
-MUTED = (150, 158, 170)
+BG = (16, 34, 46)        # Brand Navy #10222E
+GOLD = (199, 163, 90)    # Champagne gold #C7A35A
+WHITE = (255, 255, 220)  # Brand Cream #FFFFDC
+MUTED = (150, 165, 168)
 
 FONT_BLACK = "/System/Library/Fonts/Supplemental/Arial Black.ttf"
 FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
@@ -68,7 +68,7 @@ def make(slug, kicker, title):
     # subtle gold glow top-left
     glow = Image.new("RGB", (W, H), BG)
     gd = ImageDraw.Draw(glow)
-    gd.ellipse([-300, -400, 500, 300], fill=(28, 26, 20))
+    gd.ellipse([-300, -400, 500, 300], fill=(26, 44, 56))
     img = Image.blend(img, glow, 0.5)
     d = ImageDraw.Draw(img)
 
