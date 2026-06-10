@@ -2,7 +2,7 @@
 // Single shared footer used across every page, consistent links + branding.
 import { useLanguage } from "@/contexts/LanguageContext";
 import kudoLogo from "@/assets/kudo-logo.png";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Phone } from "lucide-react";
 
 const SERVICES = [
   { href: "/ai-quick-start", en: "AI Quick-Start Assessment", ar: "تقييم الانطلاق السريع" },
@@ -50,6 +50,7 @@ export function SiteFooter() {
             </p>
             <div className="flex gap-4 mt-5">
               <a href="mailto:info@kudoadvisory.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email Kudo Advisory"><Mail className="w-5 h-5" /></a>
+              <a href="tel:+971506002933" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Call Kudo Advisory"><Phone className="w-5 h-5" /></a>
               <a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn"><Linkedin className="w-5 h-5" /></a>
             </div>
           </div>

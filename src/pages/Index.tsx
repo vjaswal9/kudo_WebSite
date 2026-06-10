@@ -1,7 +1,7 @@
 // src/pages/Index.tsx
 import React, {
   Target, Shield, Rocket, BarChart3, Brain, FileCheck,
-  Settings, ListChecks, Users, ClipboardCheck, Mail, Linkedin,
+  Settings, ListChecks, Users, ClipboardCheck, Mail, Linkedin, Phone,
   ArrowDown, Menu, X, ChevronRight,
 } from "lucide-react";
 import { useScrollAnimation, useScrolled, useClassAnimation } from "@/hooks/useScrollAnimation";
@@ -631,6 +631,9 @@ const Index = () => {
               <address className="flex gap-6 mb-10 flex-wrap not-italic">
                 <a href="mailto:info@kudoadvisory.com" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm">
                   <Mail className="w-4 h-4" aria-hidden="true" /> info@kudoadvisory.com
+                </a>
+                <a href="tel:+971506002933" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm">
+                  <Phone className="w-4 h-4" aria-hidden="true" /> +971 50 600 2933
                 </a>
                 <a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm">
                   <Linkedin className="w-4 h-4" aria-hidden="true" /> LinkedIn - Vijay Jaswal
