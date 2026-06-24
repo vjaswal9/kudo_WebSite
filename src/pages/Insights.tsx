@@ -47,6 +47,17 @@ function AnimatedSection({
 ──────────────────────────────────────────────────────── */
 const articles = [
   {
+    slug: "ai-governance-framework-uae",
+    category: "AI Governance",
+    title: "Building an AI Governance Framework for UAE Enterprises: A Practical Guide",
+    excerpt:
+      "AI governance is talked about constantly and defined rarely. This is the practical version: the UAE regulatory anchors (TDRA, ADGM, DIFC, PDPL, National AI Strategy 2031), the six components every workable framework needs, and the order to build them.",
+    date: "2026-06-10",
+    readTime: "9 min read",
+    author: "Vijay Jaswal",
+    coming: false,
+  },
+  {
     slug: "why-enterprise-ai-pilots-fail",
     category: "AI Strategy",
     title: "Why Enterprise AI Pilots Fail: What to Do About It",

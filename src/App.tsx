@@ -45,6 +45,7 @@ export const routes: RouteRecord[] = [
       { path: "faq", lazy: async () => ({ Component: (await import("./pages/FAQ")).default }) },
       { path: "insights/why-enterprise-ai-pilots-fail", lazy: async () => ({ Component: (await import("./pages/articles/WhyAIPilotsFail")).default }) },
       { path: "insights/ai-governance-middle-east", lazy: async () => ({ Component: (await import("./pages/articles/AIGovernanceMiddleEast")).default }) },
+      { path: "insights/ai-governance-framework-uae", lazy: async () => ({ Component: (await import("./pages/articles/AIGovernanceFrameworkUAE")).default }) },
       { path: "insights/ai-operating-model", lazy: async () => ({ Component: (await import("./pages/articles/AIOperatingModel")).default }) },
       { path: "insights/ciso-cio-ai-collaboration", lazy: async () => ({ Component: (await import("./pages/articles/CIOCISOCollaboration")).default }) },
       { path: "insights/ai-use-case-prioritisation", lazy: async () => ({ Component: (await import("./pages/articles/AIUseCasePrioritisation")).default }) },

@@ -13,6 +13,15 @@ export interface ArticleEntry {
 
 export const ARTICLES: ArticleEntry[] = [
   {
+    slug: "ai-governance-framework-uae",
+    title: "Building an AI Governance Framework for UAE Enterprises: A Practical Guide",
+    titleAr: "بناء إطار لحوكمة الذكاء الاصطناعي لمؤسسات الإمارات: دليل عملي",
+    category: "AI Governance",
+    categoryAr: "حوكمة الذكاء الاصطناعي",
+    readTime: "9 min read",
+    readTimeAr: "9 دقائق قراءة",
+  },
+  {
     slug: "why-enterprise-ai-pilots-fail",
     title: "Why Enterprise AI Pilots Fail: What to Do About It",
     titleAr: "لماذا تفشل مشاريع الذكاء الاصطناعي التجريبية في المؤسسات: وماذا تفعل حيال ذلك",
