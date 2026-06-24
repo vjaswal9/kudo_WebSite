@@ -36,7 +36,7 @@ export default function AIQuickStart() {
   ];
 
   const facts = [
-    { icon: Wallet, label: t("Investment", "الاستثمار"), value: t("Request a quote", "اطلب عرض سعر") },
+    { icon: Wallet, label: t("Investment", "الاستثمار"), value: t("Tailored to scope", "حسب نطاق العمل") },
     { icon: Clock, label: t("Timeline", "المدة"), value: t("1 to 2 weeks", "أسبوع إلى أسبوعين") },
     { icon: Target, label: t("Best for", "الأنسب لـ"), value: t("Organisations wanting to understand their starting point before committing to a full transformation", "المؤسسات التي تريد فهم نقطة انطلاقها قبل الالتزام بتحول كامل") },
   ];
