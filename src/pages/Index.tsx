@@ -326,6 +326,23 @@ const Index = () => {
           </div>
         </section>
 
+        {/* ── PROOF PULL-QUOTE ── */}
+        <section aria-label="Client testimonial" className="py-16 md:py-20">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <AnimatedSection>
+              <figure>
+                <span className="block text-5xl leading-none text-primary/70 mb-2" aria-hidden="true">&ldquo;</span>
+                <blockquote className="text-xl md:text-2xl font-medium text-foreground leading-relaxed">
+                  {t("testimonial_0_quote")}
+                </blockquote>
+                <figcaption className="mt-6 text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">{t("testimonial_0_name")}</span>, {t("testimonial_0_org")}
+                </figcaption>
+              </figure>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* ── OUTCOMES ── */}
         <section id="outcomes" aria-labelledby="outcomes-heading" className="relative py-24 md:py-32">
           <div className="max-w-7xl mx-auto px-6">
