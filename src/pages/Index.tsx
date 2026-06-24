@@ -2,7 +2,7 @@
 import React, {
   Target, Shield, Rocket, BarChart3, Brain, FileCheck,
   Settings, ListChecks, Users, ClipboardCheck, Mail, Linkedin, Phone,
-  ArrowDown, Menu, X, ChevronRight,
+  ArrowDown, Menu, X, ChevronRight, ChevronDown,
 } from "lucide-react";
 import { useScrollAnimation, useScrolled, useClassAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
@@ -172,8 +172,9 @@ const Index = () => {
 
           <div className="hidden md:flex items-center gap-7 text-sm" role="list">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="nav-link text-muted-foreground hover:text-foreground transition-colors duration-200" role="listitem">
+              <a key={item.href} href={item.href} className="nav-link inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200" role="listitem">
                 {'fixedLabel' in item ? (item as any).fixedLabel : t(item.labelKey)}
+                {item.href.startsWith("#") && <ChevronDown className="w-3 h-3 opacity-50" aria-hidden="true" />}
               </a>
             ))}
             <LangToggle />
@@ -218,7 +219,7 @@ const Index = () => {
                       className="kudo-item flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-4 text-base hover:bg-secondary transition-colors"
                       style={{ animationDelay: mobileMenuOpen ? `${160 + idx * 60}ms` : "0ms" }}>
                       <span className="font-medium">{'fixedLabel' in item ? (item as any).fixedLabel : t(item.labelKey)}</span>
-                      <span aria-hidden="true" className={`text-muted-foreground ${isRTL ? "rotate-180" : ""}`}>→</span>
+                      <span aria-hidden="true" className={`text-muted-foreground ${item.href.startsWith("#") ? "" : isRTL ? "rotate-180" : ""}`}>{item.href.startsWith("#") ? "↓" : "→"}</span>
                     </a>
                   ))}
                 </nav>
@@ -273,6 +274,7 @@ const Index = () => {
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary-foreground animate-pulse" aria-hidden="true" />
                   {isRTL ? "مجاني" : "Free"}
                 </span>
+                <span className="sr-only">: </span>
                 <span className="text-sm sm:text-base font-semibold text-foreground">
                   {isRTL ? "خذ تقييم جاهزية الذكاء الاصطناعي (3 دقائق)" : "Take the 3-minute AI Readiness Assessment"}
                 </span>
