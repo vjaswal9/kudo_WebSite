@@ -2,7 +2,7 @@
 import React, {
   Target, Shield, Rocket, BarChart3, Brain, FileCheck,
   Settings, ListChecks, Users, ClipboardCheck, Mail, Linkedin, Phone,
-  ArrowDown, Menu, X, ChevronRight, ChevronDown,
+  ArrowDown, Menu, X, ChevronRight,
 } from "lucide-react";
 import { useScrollAnimation, useScrolled, useClassAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
@@ -67,9 +67,9 @@ const Index = () => {
     { href: "#outcomes", labelKey: "nav_outcomes" as const },
     { href: "/services", labelKey: "nav_services" as const },
     { href: "#how", labelKey: "nav_how" as const },
-    { href: "/ai-advisory-uae", labelKey: "nav_home" as const, fixedLabel: isRTL ? "الإمارات" : "UAE" },
+    { href: "/ai-advisory-uae", labelKey: "nav_home" as const, fixedLabel: isRTL ? "الإمارات" : "UAE", desktopHidden: true },
     { href: "/about", labelKey: "nav_about" as const },
-    { href: "/case-studies", labelKey: "nav_case_studies" as const, fixedLabel: isRTL ? "قصص العملاء" : "Case Studies" },
+    { href: "/case-studies", labelKey: "nav_case_studies" as const, fixedLabel: isRTL ? "قصص العملاء" : "Case Studies", desktopHidden: true },
     { href: "/insights", labelKey: "nav_insights" as const },
     { href: "/faq", labelKey: "nav_faq" as const },
     { href: "#contact", labelKey: "nav_contact" as const },
@@ -171,15 +171,15 @@ const Index = () => {
           </a>
 
           <div className="hidden md:flex items-center gap-7 text-sm" role="list">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="nav-link inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors duration-200" role="listitem">
+            {navItems.filter((item) => !('desktopHidden' in item && (item as any).desktopHidden)).map((item) => (
+              <a key={item.href} href={item.href} className="nav-link inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors duration-200" role="listitem">
+                {item.href.startsWith("#") && <span className="w-1 h-1 rounded-full bg-primary/60" aria-hidden="true" />}
                 {'fixedLabel' in item ? (item as any).fixedLabel : t(item.labelKey)}
-                {item.href.startsWith("#") && <ChevronDown className="w-3 h-3 opacity-50" aria-hidden="true" />}
               </a>
             ))}
             <LangToggle />
-            <a href="#contact" className="btn-pulse btn-shimmer ml-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
-              {t("nav_book")} <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? "rtl-flip" : ""}`} aria-hidden="true" />
+            <a href="#contact" className="btn-pulse btn-shimmer ml-2 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
+              {t("nav_book_full")} <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? "rtl-flip" : ""}`} aria-hidden="true" />
             </a>
           </div>
 

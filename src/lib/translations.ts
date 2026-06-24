@@ -20,7 +20,7 @@ export const translations = {
     hero_h1_prefix: "Turn AI intent into",
     hero_h1_em: "forward motion",
     hero_body:
-      "Kudo, is the Japanese word for driving force or propulsion (駆動). We help enterprise leadership teams across the UAE, Dubai, Abu Dhabi and the wider Middle East go from AI ambition to governed, measurable progress. Without the buzzwords. Without the vendor lock-in.",
+      "Kudo is the Japanese word for driving force or propulsion (駆動). We help enterprise leadership teams across the UAE, Dubai, Abu Dhabi and the wider Middle East go from AI ambition to governed, measurable progress. Without the buzzwords. Without the vendor lock-in.",
     hero_cta_primary: "Book a Discovery Call",
     hero_cta_secondary: "Explore AI Advisory Services",
 
