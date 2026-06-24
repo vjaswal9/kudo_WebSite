@@ -22,6 +22,14 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
   );
 }
 
+const QUOTE_MAILTO =
+  "mailto:info@kudoadvisory.com?subject=" +
+  encodeURIComponent("AI Quick-Start Assessment: quote request") +
+  "&body=" +
+  encodeURIComponent(
+    "Hello Kudo Advisory,\n\nI would like to request a quote for the AI Quick-Start Assessment.\n\nOrganisation:\nObjectives / context:\nPreferred timeline:\n\nThank you."
+  );
+
 export default function AIQuickStart() {
   const { isRTL, lang } = useLanguage();
   const isAr = lang === "ar";
@@ -80,7 +88,7 @@ export default function AIQuickStart() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base">
-                  <Link to="/#contact">{t("Request a quote", "اطلب عرض سعر")}</Link>
+                  <a href={QUOTE_MAILTO}>{t("Request a quote", "اطلب عرض سعر")}</a>
                 </Button>
                 <Button asChild variant="outline" className="rounded-full border-border px-8 py-3 text-base">
                   <Link to="/ai-readiness-assessment">{t("Try the free 3-minute assessment", "جرّب التقييم المجاني خلال 3 دقائق")}</Link>
@@ -185,7 +193,7 @@ export default function AIQuickStart() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base">
-                  <Link to="/#contact">{t("Request a quote", "اطلب عرض سعر")}</Link>
+                  <a href={QUOTE_MAILTO}>{t("Request a quote", "اطلب عرض سعر")}</a>
                 </Button>
                 <a href="mailto:info@kudoadvisory.com" className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-3 text-sm font-medium hover:border-primary/40 transition-colors">
                   <Mail className="w-4 h-4" /> info@kudoadvisory.com
