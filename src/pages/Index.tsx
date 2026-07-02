@@ -60,7 +60,7 @@ const Index = () => {
   const { t, isRTL } = useLanguage();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSending, setIsSending] = useState(false);
-  const [formStatus, setFormStatus] = useState<null | "success" | "error">(null);
+  const [formStatus, setFormStatus] = useState<null | "success" | "error" | "invalid">(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -131,6 +131,13 @@ const Index = () => {
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Validate the email before attempting to send.
+    const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim());
+    if (!emailIsValid) {
+      setFormStatus("invalid");
+      document.getElementById("contact-email")?.focus();
+      return;
+    }
     setIsSending(true);
     setFormStatus(null);
     try {
@@ -688,7 +695,12 @@ const Index = () => {
                   <label htmlFor="contact-email" className="block text-sm font-medium mb-2">{t("contact_email")}</label>
                   <input id="contact-email" type="email" name="email" required autoComplete="email"
                     value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm" />
+                    aria-invalid={formStatus === "invalid"}
+                    aria-describedby={formStatus === "invalid" ? "contact-email-error" : undefined}
+                    className={`w-full px-4 py-3 rounded-lg bg-card border outline-none transition-colors text-sm focus:ring-1 ${formStatus === "invalid" ? "border-destructive focus:border-destructive focus:ring-destructive" : "border-border focus:border-primary focus:ring-primary"}`} />
+                  {formStatus === "invalid" && (
+                    <p id="contact-email-error" role="alert" className="text-sm text-destructive mt-2">{t("contact_invalid_email")}</p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="contact-message" className="block text-sm font-medium mb-2">{t("contact_message")}</label>

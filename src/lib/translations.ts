@@ -131,6 +131,7 @@ export const translations = {
     contact_sending: "Sending…",
     contact_success: "Message received. We'll be in touch shortly.",
     contact_error: "Something went wrong. Please email us directly.",
+    contact_invalid_email: "Please enter a valid email address.",
     contact_linkedin: "Connect on LinkedIn",
     contact_email_label: "Email us",
 
@@ -348,6 +349,7 @@ export const translations = {
     contact_sending: "جارٍ الإرسال…",
     contact_success: "تم استلام رسالتك. سنتواصل معك قريباً.",
     contact_error: "حدث خطأ ما. يرجى مراسلتنا مباشرة عبر البريد الإلكتروني.",
+    contact_invalid_email: "يرجى إدخال عنوان بريد إلكتروني صحيح.",
     contact_linkedin: "تواصل عبر لينكدإن",
     contact_email_label: "راسلنا عبر البريد الإلكتروني",
 
