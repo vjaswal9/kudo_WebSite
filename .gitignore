@@ -35,3 +35,7 @@ pnpm-debug.log*
 
 # Brand guideline source PDFs (kept private, not for public repo)
 /Kudo_Advisory_Mini_Guidelines_*.pdf
+
+# Client-specific call-prep (keep out of public repo)
+/Kudo_Dove_*.pdf
+scripts/build_dove_brief.py
