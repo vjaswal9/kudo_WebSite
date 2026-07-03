@@ -10,6 +10,7 @@ import leaderBg from "@/assets/about-leader.webp";
 import heroBg from "@/assets/hero-abstract.webp";
 import { Mail, ChevronRight, Brain, FileCheck, Settings, ListChecks, Users, ClipboardCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CountUp } from "@/components/CountUp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import React from "react";
 
@@ -124,7 +125,7 @@ export default function UAE() {
                     { value: "7", label: isAr ? "إمارات نخدمها" : "Emirates served" },
                   ].map((stat) => (
                     <div key={stat.label} className="p-5 rounded-xl border border-border bg-card">
-                      <p className="text-2xl font-bold text-primary">{stat.value}</p>
+                      <p className="text-2xl font-bold text-primary"><CountUp value={stat.value} /></p>
                       <p className="text-xs text-muted-foreground mt-1 leading-snug">{stat.label}</p>
                     </div>
                   ))}

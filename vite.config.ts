@@ -24,6 +24,11 @@ export default defineConfig(() => ({
         // deploys (only the small app code changes day to day).
         manualChunks(id) {
           if (!id.includes("node_modules")) return undefined;
+          // Isolate GSAP (used only by the homepage) so it is not pulled into
+          // the shared vendor chunks that every route loads. Must come before
+          // the react-vendor rule, whose "/react/" test would otherwise catch
+          // the "@gsap/react" path.
+          if (id.includes("/gsap/") || id.includes("@gsap")) return "gsap";
           if (id.includes("react-router") || id.includes("/react-dom/") || /\/react\//.test(id) || id.includes("/scheduler/")) return "react-vendor";
           if (id.includes("lucide-react")) return "icons";
           if (id.includes("@radix-ui")) return "radix";

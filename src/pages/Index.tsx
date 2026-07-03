@@ -2,14 +2,13 @@
 import React, {
   Target, Shield, Rocket, BarChart3, Brain, FileCheck,
   Settings, ListChecks, Users, ClipboardCheck, Mail, Linkedin, Phone,
-  ArrowDown, Menu, X, ChevronRight,
+  Menu, X, ChevronRight,
 } from "lucide-react";
-import { useScrollAnimation, useScrolled, useClassAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation, useScrolled } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import outcomesBg from "@/assets/outcomes-boardroom.webp";
 import servicesBg from "@/assets/services-collaboration.webp";
 import heroBg from "@/assets/hero-abstract.webp";
-import howWeWorkBg from "@/assets/how-we-work.webp";
 import founderBg from "@/assets/vijay-presenting.webp";
 import leaderBg from "@/assets/about-leader.webp";
 import { useEffect, useState } from "react";
@@ -21,6 +20,9 @@ import { GuidePromo } from "@/components/GuidePromo";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LangToggle } from "@/components/LangToggle";
+import { BrandMark } from "@/components/BrandMark";
+import { CountUp } from "@/components/CountUp";
+import { HowWeWorkTimeline } from "@/components/HowWeWorkTimeline";
 
 /* ─── Scroll-animated wrapper ─── */
 function AnimatedSection({
@@ -41,15 +43,6 @@ function AnimatedSection({
     >
       {children}
     </div>
-  );
-}
-
-function StepNumber({ num }: { num: string }) {
-  const ref = useClassAnimation("step-num-visible", 0.3) as React.RefObject<HTMLSpanElement>;
-  return (
-    <span ref={ref} className="step-num text-4xl font-bold text-primary" aria-label={`Phase ${num}`}>
-      {num}
-    </span>
   );
 }
 
@@ -102,12 +95,6 @@ const Index = () => {
     titleKey: `services_${i}_title` as const,
     descKey: `services_${i}_desc` as const,
     href: serviceHrefs[i],
-  }));
-
-  const steps = [0, 1, 2].map((i) => ({
-    numKey: `how_${i}_num` as const,
-    titleKey: `how_${i}_title` as const,
-    descKey: `how_${i}_desc` as const,
   }));
 
   const testimonials = [0, 1, 2].map((i) => ({
@@ -254,6 +241,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" aria-hidden="true" />
 
           <div className="relative z-10 max-w-4xl text-center space-y-7">
+            <BrandMark className="mx-auto h-14 w-auto" />
             <p className="text-xs uppercase tracking-[0.35em] text-primary font-medium label-accent">
               {t("hero_label")}
             </p>
@@ -294,7 +282,7 @@ const Index = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden border border-border/40">
               {stats.map((s, si) => (
                 <div key={si} className="stat-item bg-card/70 backdrop-blur-sm px-6 py-5 text-center" style={{ animationDelay: `${800 + si * 120}ms` }}>
-                  <p className="text-xl font-bold text-primary">{t(s.valueKey)}</p>
+                  <p className="text-xl font-bold text-primary"><CountUp value={t(s.valueKey)} /></p>
                   <p className="text-xs text-muted-foreground mt-1 leading-snug">{t(s.labelKey)}</p>
                 </div>
               ))}
@@ -438,42 +426,7 @@ const Index = () => {
         </section>
 
         {/* ── HOW WE WORK ── */}
-        <section id="how" aria-labelledby="how-heading" className="relative py-24 md:py-32">
-          <div className="max-w-7xl mx-auto px-6">
-            <AnimatedSection>
-              <div className="relative rounded-2xl overflow-hidden mb-16 shadow-xl">
-                <img src={howWeWorkBg} alt="AI advisory team planning strategy and governance" className="w-full h-52 md:h-64 object-cover" loading="lazy" width="1200" height="256" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/80" aria-hidden="true" />
-              </div>
-            </AnimatedSection>
-          </div>
-          <div className="max-w-4xl mx-auto px-6">
-            <AnimatedSection>
-              <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("how_label")}</p>
-              <h2 id="how-heading" className="text-3xl md:text-5xl mb-4">{t("how_h2")}</h2>
-            </AnimatedSection>
-            <ol className="space-y-0 mt-16" aria-label="AI advisory engagement phases">
-              {steps.map((s, i) => (
-                <AnimatedSection key={i} delay={i * 140}>
-                  <li className="flex gap-8 items-start group">
-                    <div className="flex flex-col items-center">
-                      <StepNumber num={t(s.numKey)} />
-                      {i < steps.length - 1 && (
-                        <div className="w-px h-20 bg-border/60 mt-3" aria-hidden="true">
-                          <ArrowDown className="w-4 h-4 text-muted-foreground/50 -ml-[7px] mt-16" />
-                        </div>
-                      )}
-                    </div>
-                    <div className="pb-12">
-                      <h3 className="text-xl font-semibold mb-2">{t(s.titleKey)}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{t(s.descKey)}</p>
-                    </div>
-                  </li>
-                </AnimatedSection>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <HowWeWorkTimeline />
 
         {/* ── ABOUT / FOUNDER STRIP ── */}
         <section id="about" aria-labelledby="about-heading" className="py-24 md:py-32 bg-secondary/20">
