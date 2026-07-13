@@ -86,6 +86,7 @@
     --accent: 48 34% 87%;
     --accent-foreground: 204 48% 14%;
     --primary: 36 52% 35%;           /* antique gold, AA (4.8:1) as text on cream */
+    --primary-foreground: 50 59% 92%; /* cream text on the darker warm-band gold (4.9:1) */
     --border: 44 24% 80%;
     --input: 44 24% 80%;
     background-color: hsl(var(--background));
