@@ -133,7 +133,7 @@ export default function ServicesIndex() {
         </section>
 
         {/* Entry-point: Quick-Start */}
-        <section className="pt-16 px-6">
+        <section className="section-warm pt-16 px-6">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <Link to="/ai-quick-start" className="group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl border border-primary/30 bg-primary/5 hover:border-primary/50 transition-colors">
@@ -156,7 +156,7 @@ export default function ServicesIndex() {
         </section>
 
         {/* Services grid */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-6 max-w-7xl">{isAr ? "خدماتنا الاستشارية الست" : "Our six advisory services"}</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -194,7 +194,7 @@ export default function ServicesIndex() {
         </section>
 
         {/* Independence statement */}
-        <section className="py-16 px-6 bg-secondary/10">
+        <section className="section-warm py-16 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">

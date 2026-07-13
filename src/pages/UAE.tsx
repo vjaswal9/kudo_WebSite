@@ -82,7 +82,7 @@ export default function UAE() {
         </section>
 
         {/* Why UAE section */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">
@@ -115,7 +115,6 @@ export default function UAE() {
                       className="w-full h-[340px] object-cover object-top"
                       loading="lazy" width="600" height="340"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" aria-hidden="true" />
                   </figure>
                   <div className="grid grid-cols-2 gap-4">
                   {[
@@ -137,7 +136,7 @@ export default function UAE() {
         </section>
 
         {/* Services */}
-        <section className="py-20 px-6 bg-secondary/10">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">
@@ -164,7 +163,7 @@ export default function UAE() {
         </section>
 
         {/* Emirates coverage */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">

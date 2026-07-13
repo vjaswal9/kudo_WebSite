@@ -91,7 +91,7 @@ export default function AIQuickStart() {
         </section>
 
         {/* What's included */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("What's included", "ما الذي يشمله")}</p>
@@ -117,7 +117,7 @@ export default function AIQuickStart() {
         </section>
 
         {/* Facts: investment / timeline / best for */}
-        <section className="pb-8 px-6">
+        <section className="section-warm pb-8 px-6">
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
             {facts.map((f, i) => (
               <AnimatedSection key={i} delay={i * 80}>
@@ -134,7 +134,7 @@ export default function AIQuickStart() {
         </section>
 
         {/* Outcome banner */}
-        <section className="py-16 px-6">
+        <section className="section-warm py-16 px-6">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
               <div className="rounded-2xl border border-primary/30 bg-primary/5 p-8 md:p-10 flex items-start gap-5">
@@ -151,7 +151,7 @@ export default function AIQuickStart() {
         </section>
 
         {/* How it relates to the free assessment */}
-        <section className="pb-20 px-6">
+        <section className="section-warm pb-20 px-6">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
               <div className="rounded-2xl border border-border bg-card p-8">

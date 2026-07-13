@@ -139,7 +139,7 @@ export function ServicePageLayout(props: ServicePageProps) {
         </section>
 
         {/* Deliverables */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16">
               <AnimatedSection>
@@ -169,7 +169,7 @@ export function ServicePageLayout(props: ServicePageProps) {
         </section>
 
         {/* Process */}
-        <section className="py-20 px-6 bg-secondary/10">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
               <h2 className="text-2xl font-bold mb-12">{t("How we work", "كيف نعمل")}</h2>
@@ -191,7 +191,7 @@ export function ServicePageLayout(props: ServicePageProps) {
         </section>
 
         {/* UAE Context */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">
@@ -209,7 +209,7 @@ export function ServicePageLayout(props: ServicePageProps) {
 
         {/* FAQs */}
         {props.faqs.length > 0 && (
-          <section className="py-20 px-6 bg-secondary/10">
+          <section className="section-warm py-20 px-6">
             <div className="max-w-4xl mx-auto">
               <AnimatedSection>
                 <h2 className="text-2xl font-bold mb-10">{t("Frequently asked questions", "الأسئلة الشائعة")}</h2>

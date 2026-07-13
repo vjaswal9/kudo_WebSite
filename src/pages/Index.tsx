@@ -339,7 +339,7 @@ const Index = () => {
         </section>
 
         {/* ── OUTCOMES ── */}
-        <section id="outcomes" aria-labelledby="outcomes-heading" className="relative py-24 md:py-32">
+        <section id="outcomes" aria-labelledby="outcomes-heading" className="section-warm relative py-24 md:py-32">
           <div className="max-w-7xl mx-auto px-6">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("outcomes_label")}</p>
@@ -349,7 +349,6 @@ const Index = () => {
               <AnimatedSection>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img src={outcomesBg} alt="Enterprise leadership team in boardroom reviewing AI strategy" className="w-full h-[420px] object-cover" loading="lazy" width="700" height="420" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" aria-hidden="true" />
                 </div>
               </AnimatedSection>
               <div className="grid gap-4">
@@ -372,7 +371,7 @@ const Index = () => {
         </section>
 
         {/* ── SERVICES ── */}
-        <section id="services" aria-labelledby="services-heading" className="relative py-24 md:py-32">
+        <section id="services" aria-labelledby="services-heading" className="section-warm relative py-24 md:py-32">
           <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" aria-hidden="true" />
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <AnimatedSection>
@@ -398,9 +397,9 @@ const Index = () => {
             <AnimatedSection>
               <div className="relative rounded-2xl overflow-hidden mb-10 shadow-xl">
                 <img src={servicesBg} alt="Enterprise team collaborating on AI strategy" className="w-full h-52 md:h-64 object-cover" loading="lazy" width="1200" height="256" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-background/70" aria-hidden="true" />
+                <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-2xl md:text-3xl font-semibold text-foreground/90 text-center px-6">
+                  <p className="text-2xl md:text-3xl font-semibold text-brand-cream text-center px-6">
                     "{t("footer_tagline")}"
                   </p>
                 </div>
@@ -429,7 +428,7 @@ const Index = () => {
         <HowWeWorkTimeline />
 
         {/* ── ABOUT / FOUNDER STRIP ── */}
-        <section id="about" aria-labelledby="about-heading" className="py-24 md:py-32 bg-secondary/20">
+        <section id="about" aria-labelledby="about-heading" className="section-warm py-24 md:py-32">
           <div className="max-w-5xl mx-auto px-6">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-3">{t("founder_label")}</p>
@@ -445,7 +444,6 @@ const Index = () => {
                       className="w-full h-[360px] object-cover object-[50%_20%]"
                       loading="lazy" width="560" height="360"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" aria-hidden="true" />
                     <figcaption className="text-sm text-muted-foreground mt-3 px-1">
                       Vijay Jaswal, Founder &amp; CEO, Kudo Advisory
                     </figcaption>
@@ -555,7 +553,7 @@ const Index = () => {
         </section>
 
         {/* ── UAE LEADER VISUAL SECTION ── */}
-        <section aria-label="Enterprise AI advisory across the UAE and Middle East" className="py-20 md:py-28 px-6 bg-secondary/10">
+        <section aria-label="Enterprise AI advisory across the UAE and Middle East" className="section-warm py-20 md:py-28 px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <figure className="relative rounded-2xl overflow-hidden shadow-2xl">

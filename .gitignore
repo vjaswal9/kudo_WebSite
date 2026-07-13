@@ -39,3 +39,6 @@ pnpm-debug.log*
 # Client-specific call-prep (keep out of public repo)
 /Kudo_Dove_*.pdf
 scripts/build_dove_brief.py
+
+# Personal interview / questionnaire docs (keep out of public repo)
+*.docx

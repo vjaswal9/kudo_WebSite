@@ -75,7 +75,7 @@ export default function About() {
           </div>
         </section>
 
-        <section aria-labelledby="firm-heading" className="py-20 px-6">
+        <section aria-labelledby="firm-heading" className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-start">
               <AnimatedSection>
@@ -119,7 +119,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="pt-20 pb-0 px-6 bg-secondary/20">
+        <section className="section-warm pt-20 pb-0 px-6">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">{t("about_founder_label")}</p>
@@ -128,14 +128,14 @@ export default function About() {
           </div>
         </section>
 
-        <section aria-labelledby="bio-heading" className="py-20 px-6 bg-secondary/20">
+        <section aria-labelledby="bio-heading" className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-start">
               <AnimatedSection>
                 <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img src={founderBg} alt="Vijay Jaswal - Founder of Kudo Advisory" className="w-full h-[480px] object-cover object-[50%_20%]" width="600" height="480" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" aria-hidden="true" />
-                  <figcaption className="absolute bottom-4 left-4 text-sm text-foreground/80">Vijay Jaswal - Founder of Kudo Advisory</figcaption>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
+                  <figcaption className="absolute bottom-4 left-4 text-sm text-brand-cream/90">Vijay Jaswal - Founder of Kudo Advisory</figcaption>
                 </figure>
                 <div className="grid grid-cols-3 gap-4 mt-6">
                   {[
@@ -167,7 +167,7 @@ export default function About() {
           </div>
         </section>
 
-        <section aria-labelledby="recognition-heading" className="py-20 px-6">
+        <section aria-labelledby="recognition-heading" className="section-warm py-20 px-6">
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-2">{t("about_recognition_label")}</p>

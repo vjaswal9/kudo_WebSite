@@ -64,7 +64,32 @@
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: hsl(var(--brand-cream));   /* true brand Cream #FFFFDC on headings */
+    color: hsl(var(--foreground));   /* adapts: cream on dark, navy on warm sections */
+  }
+
+  /* ── Warm section theme ──────────────────────────────
+     Scoped light override. Wrap a section in `.section-warm`
+     to re-theme just that band to warm cream + navy ink +
+     antique gold; everything reads from these tokens, so the
+     whole subtree flips automatically. Dark stays the default. */
+  .section-warm {
+    --background: 50 45% 92%;        /* warm cream */
+    --foreground: 204 48% 14%;       /* navy ink */
+    --card: 48 46% 97%;              /* off-white panel */
+    --card-foreground: 204 48% 14%;
+    --popover: 48 46% 97%;
+    --popover-foreground: 204 48% 14%;
+    --secondary: 48 34% 87%;
+    --secondary-foreground: 204 48% 14%;
+    --muted: 48 34% 89%;
+    --muted-foreground: 30 9% 37%;   /* warm grey, AA on cream */
+    --accent: 48 34% 87%;
+    --accent-foreground: 204 48% 14%;
+    --primary: 36 52% 35%;           /* antique gold, AA (4.8:1) as text on cream */
+    --border: 44 24% 80%;
+    --input: 44 24% 80%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
   h4, h5, h6 {

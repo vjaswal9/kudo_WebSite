@@ -159,7 +159,7 @@ export default function CaseStudies() {
         </section>
 
         {/* Stories */}
-        <section className="py-20 px-6">
+        <section className="section-warm py-20 px-6">
           <div className="max-w-4xl mx-auto space-y-10">
             {STORIES.map((s, i) => (
               <AnimatedSection key={s.en_title} delay={i * 60}>
@@ -213,7 +213,7 @@ export default function CaseStudies() {
         </section>
 
         {/* Confidentiality note */}
-        <section className="pb-8 px-6">
+        <section className="section-warm pb-8 px-6">
           <div className="max-w-4xl mx-auto">
             <p className="text-sm text-muted-foreground text-center italic">
               {isAr

@@ -114,7 +114,7 @@ export function ArticleLayout({
       <SiteNav active="/insights" />
 
       {/* ══ MAIN ══ */}
-      <main id="main-content">
+      <main id="main-content" className="section-warm">
 
         {/* ── ARTICLE HEADER ── */}
         <header className="pt-32 pb-12 px-6 max-w-3xl mx-auto">

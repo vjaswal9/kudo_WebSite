@@ -64,7 +64,7 @@ export function HowWeWorkTimeline() {
   );
 
   return (
-    <section id="how" aria-labelledby="how-heading" className="relative py-24 md:py-32">
+    <section id="how" aria-labelledby="how-heading" className="section-warm relative py-24 md:py-32">
       <div ref={root}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="relative rounded-2xl overflow-hidden mb-16 shadow-xl">
@@ -75,10 +75,6 @@ export function HowWeWorkTimeline() {
               loading="lazy"
               width="1200"
               height="256"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/80"
-              aria-hidden="true"
             />
           </div>
         </div>
