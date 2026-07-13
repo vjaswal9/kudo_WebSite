@@ -180,7 +180,8 @@ export default function FAQ() {
           <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">{t("faq_body")}</p>
         </header>
 
-        {/* ── FAQ SECTIONS ── */}
+        {/* ── FAQ SECTIONS (warm band) ── */}
+        <div className="section-warm pt-12">
         <section aria-label="Frequently asked questions" className="max-w-4xl mx-auto px-6 pb-24">
           {FAQS.map((cat, catIdx) => (
             <div key={cat.category} className={catIdx > 0 ? "mt-14" : ""}>
@@ -228,6 +229,7 @@ export default function FAQ() {
             </div>
           ))}
         </section>
+        </div>
 
         {/* ── CTA ── */}
         <section aria-labelledby="faq-cta-heading" className="bg-secondary/20 border-t border-border py-20 px-6">

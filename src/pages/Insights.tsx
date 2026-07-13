@@ -169,6 +169,8 @@ const Insights = () => {
           </AnimatedSection>
         </header>
 
+        {/* ── WARM CONTENT BAND: filter + promo + articles ── */}
+        <div className="section-warm pt-12">
         {/* ── CATEGORY FILTER ── */}
         <div className="max-w-7xl mx-auto px-6 mb-12">
           <AnimatedSection>
@@ -311,6 +313,7 @@ const Insights = () => {
             ))}
           </div>
         </section>
+        </div>
 
         {/* ── Newsletter signup ── */}
         <NewsletterSignup />
