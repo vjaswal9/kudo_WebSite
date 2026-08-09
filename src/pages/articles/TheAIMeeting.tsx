@@ -30,10 +30,11 @@ function EnglishBody() {
         <div className="stat-card"><span className="stat-number">3</span><span className="stat-label">questions that separate a real AI strategy from a good meeting</span></div>
       </div>
 
-      <p>You know this meeting. You have probably sat in a version of it this year.</p>
-      <p>Someone on the leadership team, often the CFO, sometimes a board member, asks: "So what's our AI strategy?" There is a brief pause. Someone mentions the ChatGPT Enterprise licences that finance signed off on. Someone else mentions the pilot marketing ran with a chatbot. The CIO says something about "exploring use cases." Everyone nods. The meeting moves on to the next agenda item.</p>
-      <p>Nobody lied. Nobody in that room was incompetent. And yet the honest answer, the one nobody said out loud, was closer to: "We don't really have one. We have activity."</p>
-      <p>I have watched this exact scene play out in enterprises across four regions, in industries as different as banking and mining. It is not a failure of intelligence or effort. It is what happens when a genuinely hard question gets asked in a room where admitting "I don't know" feels more dangerous than nodding along.</p>
+      <p>Two conversations, a few weeks apart, told me almost the same story.</p>
+      <p>The first was with the General Manager of a Dubai-based property development company. The second was with the founder of a small BPO firm, also in Dubai. Different industries, different company sizes, no connection to each other. When I asked each of them, separately, what their AI strategy looked like, I got back nearly the identical scene.</p>
+      <p>Both described the same meeting. The CFO, sometimes a board member, asks: "So what's our AI strategy?" There is a brief pause. Someone mentions the ChatGPT Enterprise licences that finance signed off on. Someone else mentions the pilot marketing ran with a chatbot. Whoever is wearing the CIO hat that week says something about "exploring use cases." Everyone nods. The meeting moves on to the next agenda item.</p>
+      <p>Neither of them was uninformed. Neither was short on effort. And yet the honest answer, the one nobody said out loud in either room, was closer to: "We don't really have a strategy. We have activity."</p>
+      <p>I have now heard a version of this exact scene enough times, across industries as different as property development, business process outsourcing, banking, and mining, that I no longer think of it as an anecdote. It is a pattern. It is not a failure of intelligence or effort. It is what happens when a genuinely hard question gets asked in a room where admitting "I don't know" feels more dangerous than nodding along.</p>
       <hr />
       <h2>Why the nodding happens</h2>
       <p>Nobody wants to be the one who says "we don't have a strategy" in front of the board. So the room does what rooms do: it reaches for evidence of activity and presents it as evidence of direction. Licences purchased. A pilot running somewhere. A slide with the word "AI" on it from last quarter's town hall.</p>
@@ -69,10 +70,11 @@ function ArabicBody() {
         <div className="stat-card"><span className="stat-number">3</span><span className="stat-label">أسئلة تفصل بين استراتيجية حقيقية للذكاء الاصطناعي واجتماع جيد فقط</span></div>
       </div>
 
-      <p>أنت تعرف هذا الاجتماع. على الأرجح مررت بنسخة منه هذا العام.</p>
-      <p>يسأل أحد أعضاء الفريق القيادي, غالباً المدير المالي, وأحياناً عضو من مجلس الإدارة: "إذن ما هي استراتيجيتنا في الذكاء الاصطناعي؟" هناك صمت قصير. يذكر أحدهم تراخيص ChatGPT Enterprise التي وافقت عليها الإدارة المالية. يذكر آخر تجربة أطلقها فريق التسويق مع روبوت محادثة. يقول مدير المعلومات شيئاً عن "استكشاف حالات الاستخدام". يومئ الجميع بالموافقة. ينتقل الاجتماع إلى البند التالي في جدول الأعمال.</p>
-      <p>لم يكذب أحد. لم يكن أحد في تلك الغرفة غير كفؤ. ومع ذلك, كانت الإجابة الصادقة, التي لم يقلها أحد بصوت عالٍ, أقرب إلى: "ليس لدينا استراتيجية حقيقية. لدينا نشاط."</p>
-      <p>شاهدت هذا المشهد بالضبط يتكرر في مؤسسات عبر أربع مناطق, في قطاعات مختلفة تماماً كالمصرفية والتعدين. هذا ليس فشلاً في الذكاء أو الجهد. إنه ما يحدث عندما يُطرح سؤال صعب حقاً في غرفة يشعر فيها الاعتراف بـ"لا أعرف" بأنه أخطر من الإيماء بالموافقة.</p>
+      <p>محادثتان، على بعد أسابيع قليلة من بعضهما، أخبرتاني بالقصة نفسها تقريباً.</p>
+      <p>الأولى كانت مع المدير العام لشركة تطوير عقاري مقرها دبي. الثانية كانت مع مؤسس شركة صغيرة لتعهيد العمليات (BPO)، أيضاً في دبي. قطاعان مختلفان، وحجما شركتين مختلفان، ولا صلة بينهما. وعندما سألت كلاً منهما، على حدة، عن شكل استراتيجيتهما في الذكاء الاصطناعي، حصلت على المشهد نفسه تقريباً.</p>
+      <p>وصف كلاهما الاجتماع نفسه. يسأل المدير المالي، وأحياناً عضو من مجلس الإدارة: "إذن ما هي استراتيجيتنا في الذكاء الاصطناعي؟" هناك صمت قصير. يذكر أحدهم تراخيص ChatGPT Enterprise التي وافقت عليها الإدارة المالية. يذكر آخر تجربة أطلقها فريق التسويق مع روبوت محادثة. يقول من يتولى دور مدير المعلومات في تلك الفترة شيئاً عن "استكشاف حالات الاستخدام". يومئ الجميع بالموافقة. ينتقل الاجتماع إلى البند التالي في جدول الأعمال.</p>
+      <p>لم يكن أي منهما غير مطّلع. ولم يكن أي منهما يفتقر إلى الجهد. ومع ذلك, كانت الإجابة الصادقة, التي لم يقلها أحد بصوت عالٍ في أي من الغرفتين, أقرب إلى: "ليس لدينا استراتيجية حقيقية. لدينا نشاط."</p>
+      <p>سمعت الآن نسخة من هذا المشهد بالضبط مرات كافية, في قطاعات مختلفة تماماً كالتطوير العقاري وتعهيد العمليات والمصرفية والتعدين, لدرجة أنني لم أعد أعتبره حادثة عابرة. إنه نمط متكرر. هذا ليس فشلاً في الذكاء أو الجهد. إنه ما يحدث عندما يُطرح سؤال صعب حقاً في غرفة يشعر فيها الاعتراف بـ"لا أعرف" بأنه أخطر من الإيماء بالموافقة.</p>
       <hr />
       <h2>لماذا يحدث الإيماء بالموافقة</h2>
       <p>لا أحد يريد أن يكون الشخص الذي يقول "ليس لدينا استراتيجية" أمام مجلس الإدارة. فتفعل الغرفة ما تفعله الغرف عادة: تبحث عن دليل على النشاط وتقدمه كدليل على الاتجاه. تراخيص تم شراؤها. تجربة تعمل في مكان ما. شريحة عرض تحمل كلمة "ذكاء اصطناعي" من اجتماع الربع الماضي.</p>
