@@ -4,10 +4,10 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function AIGovernance() {
   return (
     <ServicePageLayout
-      metaTitle="AI Governance Framework UAE & Dubai | Kudo Advisory"
-      metaDescription="Kudo Advisory builds AI governance frameworks for enterprise organisations across the UAE and Middle East. TDRA, ADGM and DIFC-aligned. Independent AI policy, risk and compliance advisory for CIOs, CDOs and boards across Dubai, Abu Dhabi and the UAE."
+      metaTitle="AI Governance Advisory UAE & Dubai | Kudo Advisory"
+      metaDescription="Kudo Advisory is an independent AI governance advisory firm for enterprise organisations across the UAE and Middle East. TDRA, ADGM and DIFC-aligned frameworks. Independent AI policy, risk and compliance advisory for CIOs, CDOs and boards across Dubai, Abu Dhabi and the UAE."
       canonical="https://www.kudoadvisory.com/services/ai-governance"
-      schemaServiceName="AI Governance Framework UAE"
+      schemaServiceName="AI Governance Advisory UAE"
       schemaServiceDescription="AI governance framework design and AI policy advisory for enterprise organisations across the UAE, helping boards, regulators and risk teams deploy AI responsibly."
 
       categoryLabel="AI Advisory Service · UAE & Middle East"

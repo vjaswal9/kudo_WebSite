@@ -73,6 +73,12 @@ function EnglishBody() {
         <li><strong>Build the governance process into development.</strong> Introduce a lightweight AI impact assessment as a standard step before deployment.</li>
         <li><strong>Establish the governance function and its authority.</strong> Name the committee, define its mandate, and give it genuine decision rights.</li>
       </ol>
+      <p className="rounded-xl border border-primary/30 bg-card px-6 py-5 my-8">
+        Need this designed for your organisation?{" "}
+        <a href="/services/ai-governance" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+          See our AI Governance Advisory service
+        </a>.
+      </p>
       <hr />
       <p className="text-sm text-muted-foreground"><strong>Vijay Jaswal</strong> is Founder and CEO of Kudo Advisory. He can be reached at{" "}<a href="mailto:info@kudoadvisory.com" className="text-primary hover:text-primary/80 transition-colors">info@kudoadvisory.com</a>{" "}or on{" "}<a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">LinkedIn</a>.</p>
     </>
@@ -130,6 +136,12 @@ function ArabicBody() {
         <li><strong>ادمج عملية الحوكمة في التطوير.</strong> أدخل تقييم أثر ذكاء اصطناعي خفيف كخطوة قياسية قبل النشر.</li>
         <li><strong>أسّس وظيفة الحوكمة وصلاحياتها.</strong> سمّ اللجنة وحدّد تفويضها وأعطها حقوق قرار حقيقية.</li>
       </ol>
+      <p className="rounded-xl border border-primary/30 bg-card px-6 py-5 my-8">
+        هل تحتاج إلى تصميم هذا لمؤسستك؟{" "}
+        <a href="/services/ai-governance" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+          تعرّف على خدمة استشارات حوكمة الذكاء الاصطناعي لدينا
+        </a>.
+      </p>
       <hr />
       <p className="text-sm text-muted-foreground"><strong>فيجاي جسوال</strong> هو مؤسس ورئيس تنفيذي لكودو أدفيزوري. يمكن التواصل معه على{" "}<a href="mailto:info@kudoadvisory.com" className="text-primary hover:text-primary/80 transition-colors">info@kudoadvisory.com</a>{" "}أو عبر{" "}<a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">لينكدإن</a>.</p>
     </>
