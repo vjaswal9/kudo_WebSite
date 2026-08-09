@@ -47,6 +47,17 @@ function AnimatedSection({
 ──────────────────────────────────────────────────────── */
 const articles = [
   {
+    slug: "the-ai-meeting-nobody-admits-to",
+    category: "AI Strategy",
+    title: "The AI Meeting Every Leadership Team Has Had (And Nobody Admits To)",
+    excerpt:
+      "Someone asks what the AI strategy is. Everyone nods. Someone mentions the ChatGPT licences. The meeting moves on. If that scene is familiar, you are not alone, and it is more fixable than it feels.",
+    date: "2026-08-09",
+    readTime: "7 min read",
+    author: "Vijay Jaswal",
+    coming: false,
+  },
+  {
     slug: "ai-governance-framework-uae",
     category: "AI Governance",
     title: "Building an AI Governance Framework for UAE Enterprises: A Practical Guide",

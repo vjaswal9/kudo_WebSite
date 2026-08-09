@@ -13,6 +13,15 @@ export interface ArticleEntry {
 
 export const ARTICLES: ArticleEntry[] = [
   {
+    slug: "the-ai-meeting-nobody-admits-to",
+    title: "The AI Meeting Every Leadership Team Has Had (And Nobody Admits To)",
+    titleAr: "اجتماع الذكاء الاصطناعي الذي مرّ به كل فريق قيادي (ولا أحد يعترف به)",
+    category: "AI Strategy",
+    categoryAr: "استراتيجية الذكاء الاصطناعي",
+    readTime: "7 min read",
+    readTimeAr: "7 دقائق قراءة",
+  },
+  {
     slug: "ai-governance-framework-uae",
     title: "Building an AI Governance Framework for UAE Enterprises: A Practical Guide",
     titleAr: "بناء إطار لحوكمة الذكاء الاصطناعي لمؤسسات الإمارات: دليل عملي",
