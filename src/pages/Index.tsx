@@ -148,8 +148,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
-        title="AI Advisory Dubai & UAE | AI Consultancy Middle East | Kudo Advisory"
-        description="Kudo Advisory is the UAE's leading independent AI advisory firm. Based in Dubai, we help CIOs, CDOs and enterprise leaders across the UAE, Abu Dhabi and Middle East turn AI investment into governed, measurable outcomes. AI strategy, AI governance & delivery assurance."
+        title="AI Advisory Dubai & UAE | AI Consultancy | Kudo Advisory"
+        description="Kudo Advisory helps CIOs and CDOs across the UAE turn AI investment into governed, measurable outcomes. Independent. Vendor-neutral. Outcome-led."
         canonical="https://www.kudoadvisory.com/"
         ogImage="https://www.kudoadvisory.com/og/home.jpg"
       />
