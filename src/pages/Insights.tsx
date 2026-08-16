@@ -47,6 +47,28 @@ function AnimatedSection({
 ──────────────────────────────────────────────────────── */
 const articles = [
   {
+    slug: "ai-governance-checklist-uae",
+    category: "AI Governance",
+    title: "The AI Governance Checklist for Evaluating Use Cases in the UAE",
+    excerpt:
+      "A practical, six-pillar checklist to run before any AI use case moves from idea to build, covering UAE regulatory fit, data governance, risk tier, accountability, and vendor terms.",
+    date: "2026-08-14",
+    readTime: "8 min read",
+    author: "Vijay Jaswal",
+    coming: false,
+  },
+  {
+    slug: "ai-use-case-scorecard",
+    category: "AI Strategy",
+    title: "An AI Use Case Scorecard: A Worked Example",
+    excerpt:
+      "A concrete, filled-in scorecard matrix applying the five-dimension prioritisation framework to six illustrative AI use cases, so you can see exactly how the scoring and ranking works.",
+    date: "2026-08-14",
+    readTime: "7 min read",
+    author: "Vijay Jaswal",
+    coming: false,
+  },
+  {
     slug: "the-ai-meeting-nobody-admits-to",
     category: "AI Strategy",
     title: "The AI Meeting Every Leadership Team Has Had (And Nobody Admits To)",

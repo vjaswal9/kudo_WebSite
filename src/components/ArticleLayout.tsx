@@ -105,6 +105,14 @@ export function ArticleLayout({
         [dir="rtl"] .article-body blockquote { border-left:none;border-right:3px solid hsl(var(--primary));border-radius:0.5rem 0 0 0.5rem; }
         .article-body blockquote p { font-size:1.15rem;font-style:italic;color:hsl(var(--foreground));margin-bottom:0; }
         .article-body hr { border:none;border-top:1px solid hsl(var(--border));margin:2.5rem 0; }
+        .article-body .table-scroll { overflow-x:auto;margin:1.5rem 0 2rem;border:1px solid hsl(var(--border));border-radius:0.75rem; }
+        .article-body table { width:100%;border-collapse:collapse;font-size:0.92rem;min-width:560px; }
+        .article-body th { background:hsl(var(--secondary)/0.5);color:hsl(var(--foreground));font-weight:700;text-align:left;padding:0.7rem 0.9rem;border-bottom:1px solid hsl(var(--border));white-space:nowrap; }
+        [dir="rtl"] .article-body th { text-align:right; }
+        .article-body td { padding:0.7rem 0.9rem;border-bottom:1px solid hsl(var(--border));color:hsl(var(--muted-foreground));vertical-align:top; }
+        .article-body tr:last-child td { border-bottom:none; }
+        .article-body td strong,.article-body th strong { color:hsl(var(--foreground)); }
+        .article-body td.num,.article-body th.num { text-align:center;font-variant-numeric:tabular-nums; }
         .stat-card { background:hsl(var(--card));border:1px solid hsl(var(--border));border-radius:0.75rem;padding:1rem 0.75rem;text-align:center; }
         .stat-card .stat-number { font-size:clamp(1.5rem,4.5vw,2.5rem);font-weight:800;color:hsl(var(--primary));display:block;line-height:1;margin-bottom:0.35rem; }
         .stat-card .stat-label { font-size:clamp(0.6rem,1.8vw,0.78rem);color:hsl(var(--muted-foreground));line-height:1.3; }

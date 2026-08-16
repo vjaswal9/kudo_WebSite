@@ -13,6 +13,24 @@ export interface ArticleEntry {
 
 export const ARTICLES: ArticleEntry[] = [
   {
+    slug: "ai-governance-checklist-uae",
+    title: "The AI Governance Checklist for Evaluating Use Cases in the UAE",
+    titleAr: "قائمة تحقق لحوكمة الذكاء الاصطناعي لتقييم حالات الاستخدام في الإمارات",
+    category: "AI Governance",
+    categoryAr: "حوكمة الذكاء الاصطناعي",
+    readTime: "8 min read",
+    readTimeAr: "8 دقائق قراءة",
+  },
+  {
+    slug: "ai-use-case-scorecard",
+    title: "An AI Use Case Scorecard: A Worked Example",
+    titleAr: "بطاقة تقييم حالات استخدام الذكاء الاصطناعي: مثال تطبيقي",
+    category: "AI Strategy",
+    categoryAr: "استراتيجية الذكاء الاصطناعي",
+    readTime: "7 min read",
+    readTimeAr: "7 دقائق قراءة",
+  },
+  {
     slug: "the-ai-meeting-nobody-admits-to",
     title: "The AI Meeting Every Leadership Team Has Had (And Nobody Admits To)",
     titleAr: "اجتماع الذكاء الاصطناعي الذي مرّ به كل فريق قيادي (ولا أحد يعترف به)",

@@ -63,6 +63,12 @@ function EnglishBody() {
       <h2>Prioritisation as an ongoing discipline</h2>
       <p>Use case prioritisation is not a one-time event. As your AI programme evolves, as your data maturity improves, as the regulatory environment changes, and as business priorities shift, the relative attractiveness of different use cases will change. The most effective organisations treat prioritisation as a quarterly discipline: reviewing the portfolio, retiring use cases that have delivered their value or been superseded, and considering new opportunities against the framework.</p>
       <blockquote><p>The AI use case list is not a backlog. It is a portfolio. Manage it like one.</p></blockquote>
+      <p className="rounded-xl border border-primary/30 bg-card px-6 py-5 my-8">
+        Want to see this framework applied to real numbers?{" "}
+        <a href="/insights/ai-use-case-scorecard" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+          See a worked-example scorecard
+        </a>.
+      </p>
       <hr />
       <p className="text-sm text-muted-foreground"><strong>Vijay Jaswal</strong> is Founder and CEO of Kudo Advisory. Reach him at{" "}<a href="mailto:info@kudoadvisory.com" className="text-primary hover:text-primary/80 transition-colors">info@kudoadvisory.com</a>{" "}or on{" "}<a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">LinkedIn</a>.</p>
     </>
@@ -109,6 +115,12 @@ function ArabicBody() {
       <h2>تحديد الأولويات كانضباط مستمر</h2>
       <p>تحديد أولويات حالات الاستخدام ليس حدثاً لمرة واحدة. المنظمات الأكثر فاعلية تعامله كانضباط ربع سنوي: مراجعة المحفظة وإيقاف الاستثمار في الحالات التي حققت قيمتها واستكشاف فرص جديدة وفق الإطار.</p>
       <blockquote><p>قائمة حالات استخدام الذكاء الاصطناعي ليست متراكماً للمهام. هي محفظة. أدرها كذلك.</p></blockquote>
+      <p className="rounded-xl border border-primary/30 bg-card px-6 py-5 my-8">
+        هل تريد رؤية هذا الإطار مُطبّقاً على أرقام فعلية؟{" "}
+        <a href="/insights/ai-use-case-scorecard" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+          اطّلع على مثال تطبيقي لبطاقة التقييم
+        </a>.
+      </p>
       <hr />
       <p className="text-sm text-muted-foreground"><strong>فيجاي جسوال</strong> هو مؤسس ورئيس تنفيذي لكودو أدفيزوري. تواصل معه على{" "}<a href="mailto:info@kudoadvisory.com" className="text-primary hover:text-primary/80 transition-colors">info@kudoadvisory.com</a>{" "}أو عبر{" "}<a href="https://www.linkedin.com/in/vijayjaswal" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">لينكدإن</a>.</p>
     </>

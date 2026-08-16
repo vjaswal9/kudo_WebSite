@@ -55,6 +55,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/faq" />
   </url>
 
+  <!-- ── Article: AI Governance Checklist UAE ── -->
+  <url>
+    <loc>https://www.kudoadvisory.com/insights/ai-governance-checklist-uae</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/ai-governance-checklist-uae" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/ai-governance-checklist-uae" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/ai-governance-checklist-uae" />
+  </url>
+
+  <!-- ── Article: AI Use Case Scorecard ── -->
+  <url>
+    <loc>https://www.kudoadvisory.com/insights/ai-use-case-scorecard</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/ai-use-case-scorecard" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/ai-use-case-scorecard" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/ai-use-case-scorecard" />
+  </url>
+
   <!-- ── Article: The AI Meeting Nobody Admits To ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/the-ai-meeting-nobody-admits-to</loc>
