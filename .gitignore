@@ -42,3 +42,6 @@ scripts/build_dove_brief.py
 
 # Personal interview / questionnaire docs (keep out of public repo)
 *.docx
+
+# Leftover local source-image staging folder
+Documents/
