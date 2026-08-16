@@ -33,6 +33,8 @@ PAGES = [
     ("insights", "Insights · Kudo Advisory", "Practical AI thinking for enterprise leaders"),
     # Articles (most shared on LinkedIn)
     ("the-ai-meeting-nobody-admits-to", "Insights", "The AI meeting every leadership team has had"),
+    ("ai-governance-checklist-uae", "Insights", "The AI governance checklist for UAE use cases"),
+    ("ai-use-case-scorecard", "Insights", "An AI use case scorecard, a worked example"),
     ("why-enterprise-ai-pilots-fail", "Insights", "Why enterprise AI pilots fail"),
     ("ai-governance-middle-east", "Insights", "AI governance in the Middle East"),
     ("ai-operating-model", "Insights", "Designing an AI operating model"),

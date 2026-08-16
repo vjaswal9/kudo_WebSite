@@ -4,6 +4,8 @@
 // text-only (no hero, no thumbnail). Keeps the Insights section flexible as
 // images are supplied one at a time.
 export const ARTICLE_IMAGES: Record<string, string> = {
+  "ai-governance-checklist-uae": "/insights/ai-governance-checklist-uae.webp",
+  "ai-use-case-scorecard": "/insights/ai-use-case-scorecard.webp",
   "the-ai-meeting-nobody-admits-to": "/insights/the-ai-meeting-nobody-admits-to.webp",
   "ai-governance-framework-uae": "/insights/ai-governance-framework-uae.webp",
   "why-enterprise-ai-pilots-fail": "/insights/why-enterprise-ai-pilots-fail.webp",
