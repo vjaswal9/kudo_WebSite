@@ -103,7 +103,7 @@ export default function ServicesIndex() {
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Advisory Services UAE & Dubai | Kudo Advisory"
-        description="Six independent AI advisory services for UAE enterprise leaders, strategy, governance, operating model, use case prioritisation and delivery assurance."
+        description="Seven independent AI advisory services for UAE enterprise leaders, from a fast Quick-Start Assessment through strategy, governance and delivery."
         canonical="https://www.kudoadvisory.com/services"
         ogImage="https://www.kudoadvisory.com/og/services.jpg"
       />
@@ -121,12 +121,12 @@ export default function ServicesIndex() {
                 {isAr ? "خدمات استشارات الذكاء الاصطناعي · الإمارات والشرق الأوسط" : "AI Advisory Services · UAE & Middle East"}
               </p>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                {isAr ? "ستة مسارات لتحريك الذكاء الاصطناعي" : "Six ways we make AI move"}
+                {isAr ? "سبعة مسارات لتحريك الذكاء الاصطناعي" : "Seven ways we make AI move"}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
                 {isAr
-                  ? "كودو أدفيزوري تقدم ست خدمات استشارية مستقلة تغطي دورة الذكاء الاصطناعي الكاملة, من الاستراتيجية والحوكمة إلى ضمان التسليم. نخدم قادة المؤسسات في الإمارات ودبي وأبوظبي والمملكة العربية السعودية والشرق الأوسط."
-                  : "Kudo Advisory provides six independent AI advisory services covering the full AI lifecycle, from strategy and governance through to delivery assurance. Serving enterprise leaders across the UAE, Dubai, Abu Dhabi, Saudi Arabia and the Middle East."}
+                  ? "كودو أدفيزوري تقدم سبع خدمات استشارية مستقلة تغطي دورة الذكاء الاصطناعي الكاملة, من تقييم الانطلاقة السريعة إلى الاستراتيجية والحوكمة وضمان التسليم. نخدم قادة المؤسسات في الإمارات ودبي وأبوظبي والمملكة العربية السعودية والشرق الأوسط."
+                  : "Kudo Advisory provides seven independent AI advisory services covering the full AI lifecycle, from a fast Quick-Start Assessment through strategy and governance to delivery assurance. Serving enterprise leaders across the UAE, Dubai, Abu Dhabi, Saudi Arabia and the Middle East."}
               </p>
             </AnimatedSection>
           </div>
@@ -158,7 +158,7 @@ export default function ServicesIndex() {
         {/* Services grid */}
         <section className="section-warm py-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-6 max-w-7xl">{isAr ? "خدماتنا الاستشارية الست" : "Our six advisory services"}</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-primary font-medium mb-6 max-w-7xl">{isAr ? "الخدمات الاستشارية الست الأخرى" : "Our other six advisory services"}</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {SERVICES.map((s, i) => (
                 <AnimatedSection key={s.href} delay={i * 80}>
