@@ -5,7 +5,7 @@ export default function AIGovernance() {
   return (
     <ServicePageLayout
       metaTitle="AI Governance Advisory UAE & Dubai | Kudo Advisory"
-      metaDescription="Kudo Advisory is an independent AI governance advisory firm for enterprise organisations across the UAE and Middle East. TDRA, ADGM and DIFC-aligned frameworks. Independent AI policy, risk and compliance advisory for CIOs, CDOs and boards across Dubai, Abu Dhabi and the UAE."
+      metaDescription="Independent AI governance advisory for UAE enterprises. TDRA, ADGM and DIFC-aligned frameworks for CIOs, CDOs and boards across Dubai and Abu Dhabi."
       canonical="https://www.kudoadvisory.com/services/ai-governance"
       schemaServiceName="AI Governance Advisory UAE"
       schemaServiceDescription="AI governance framework design and AI policy advisory for enterprise organisations across the UAE, helping boards, regulators and risk teams deploy AI responsibly."

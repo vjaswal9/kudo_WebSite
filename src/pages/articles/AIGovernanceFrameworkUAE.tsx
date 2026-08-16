@@ -172,8 +172,8 @@ export default function AIGovernanceFrameworkUAE() {
   return (
     <>
       <PageMeta
-        title="Building an AI Governance Framework for UAE Enterprises: A Practical Guide | Kudo Advisory"
-        description="A practical, step-by-step guide to building an AI governance framework for a UAE enterprise: the regulatory anchors (TDRA, ADGM, DIFC, UAE PDPL, National AI Strategy 2031), the six components every framework needs, and the order to implement them."
+        title="Building an AI Governance Framework, UAE | Kudo Advisory"
+        description="A practical guide to building an AI governance framework for a UAE enterprise: the regulatory anchors, six core components, and the order to build them."
         canonical="https://www.kudoadvisory.com/insights/ai-governance-framework-uae"
         ogImage="https://www.kudoadvisory.com/og/ai-governance-framework-uae.jpg"
         articlePublishedTime="2026-06-10T00:00:00+04:00"

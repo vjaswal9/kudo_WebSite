@@ -4,8 +4,8 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function LeadershipEnablement() {
   return (
     <ServicePageLayout
-      metaTitle="AI Leadership Enablement UAE | C-Suite AI Advisory | Kudo Advisory"
-      metaDescription="Kudo Advisory equips C-suite and senior leadership teams across Dubai, Abu Dhabi and the UAE with practical AI literacy, strategic confidence and the capability to lead AI transformation, not just sponsor it."
+      metaTitle="AI Leadership Enablement UAE | Kudo Advisory"
+      metaDescription="Kudo Advisory equips UAE C-suite and senior leaders with practical AI literacy and the capability to lead AI transformation, not just sponsor it."
       canonical="https://www.kudoadvisory.com/services/leadership-enablement"
       schemaServiceName="AI Leadership Enablement UAE"
       schemaServiceDescription="AI leadership enablement for C-suite and senior leadership teams across the UAE, building practical AI literacy and strategic confidence to lead enterprise AI transformation."

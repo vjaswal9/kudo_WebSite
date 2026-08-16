@@ -210,7 +210,7 @@ export default function AIReadinessAssessment() {
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="Free AI Readiness Assessment UAE | Kudo Advisory"
-        description="Take Kudo Advisory's free AI Readiness Assessment. 10 questions, instant score and a tailored report for enterprise leaders across the UAE and Middle East. Discover how ready your organisation is to scale AI."
+        description="Take Kudo Advisory's free AI Readiness Assessment: 10 questions, an instant score, and a tailored report for UAE enterprise leaders."
         canonical="https://www.kudoadvisory.com/ai-readiness-assessment"
         ogImage="https://www.kudoadvisory.com/og/assessment.jpg"
       />

@@ -5,7 +5,7 @@ export default function AIUseCasePrioritisation() {
   return (
     <ServicePageLayout
       metaTitle="AI Use Case Prioritisation UAE | Kudo Advisory"
-      metaDescription="Kudo Advisory facilitates AI use case prioritisation workshops for enterprise leaders across Dubai, Abu Dhabi and the UAE, identifying and ranking high-impact AI opportunities by business value and feasibility."
+      metaDescription="AI use case prioritisation workshops for UAE enterprise leaders, identifying and ranking high-impact AI opportunities by business value and feasibility."
       canonical="https://www.kudoadvisory.com/services/ai-use-case-prioritisation"
       schemaServiceName="AI Use Case Prioritisation UAE"
       schemaServiceDescription="AI use case prioritisation advisory helping UAE and Middle East enterprises identify, score and sequence the highest-value AI opportunities for their business."

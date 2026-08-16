@@ -61,8 +61,8 @@ export default function GuideDownload() {
   return (
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
-        title="Free Guide: The 5 Reasons Enterprise AI Pilots Fail | Kudo Advisory"
-        description="Download Kudo Advisory's free guide: The 5 Reasons Enterprise AI Pilots Fail, and what the organisations that succeed do differently. Written by Vijay Jaswal for enterprise leaders across the UAE and Middle East."
+        title="Free Guide: Why Enterprise AI Pilots Fail | Kudo Advisory"
+        description="Download Kudo Advisory's free guide: The 5 Reasons Enterprise AI Pilots Fail, and what successful organisations do differently. By Vijay Jaswal."
         canonical="https://www.kudoadvisory.com/guides/ai-pilots-fail"
         ogImage="https://www.kudoadvisory.com/og/guide.jpg"
       />

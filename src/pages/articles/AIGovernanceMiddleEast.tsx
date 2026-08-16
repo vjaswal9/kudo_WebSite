@@ -152,8 +152,8 @@ export default function AIGovernanceMiddleEast() {
   return (
     <>
       <PageMeta
-        title="AI Governance in the Middle East: What Enterprise Leaders Need to Know in 2026 | Kudo Advisory"
-        description="A practical overview of the AI regulatory landscape in the UAE and Saudi Arabia, the governance gaps most enterprises have, and how to build AI governance that enables rather than obstructs."
+        title="AI Governance in the Middle East 2026 | Kudo Advisory"
+        description="A practical overview of AI regulation in the UAE and Saudi Arabia, common governance gaps, and building AI governance that enables, not obstructs."
         canonical="https://www.kudoadvisory.com/insights/ai-governance-middle-east"
         ogImage="https://www.kudoadvisory.com/og/ai-governance-middle-east.jpg"
         articlePublishedTime="2026-05-12T00:00:00+04:00"

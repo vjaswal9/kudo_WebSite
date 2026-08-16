@@ -45,7 +45,7 @@ export default function AIQuickStart() {
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Quick-Start Assessment | Kudo Advisory UAE"
-        description="A fast, fixed-scope AI Quick-Start Assessment from Kudo Advisory. Current state analysis, tool and spend audit, security and compliance gaps, priority recommendations and a phased roadmap. Know exactly where you stand before committing to a full AI transformation."
+        description="A fast, fixed-scope AI Quick-Start Assessment from Kudo Advisory: current state analysis, tool and spend audit, gap review and a phased roadmap."
         canonical="https://www.kudoadvisory.com/ai-quick-start"
         ogImage="https://www.kudoadvisory.com/og/quickstart.jpg"
       />

@@ -119,7 +119,7 @@ export default function AIUseCasePrioritisation() {
   return (
     <>
       <PageMeta
-        title="How to Prioritise AI Use Cases: A Framework for Enterprise Leaders | Kudo Advisory"
+        title="How to Prioritise AI Use Cases | Kudo Advisory"
         description="A five-dimension framework for prioritising AI use cases by strategic alignment, business value, feasibility, time to value, and governance complexity."
         canonical="https://www.kudoadvisory.com/insights/ai-use-case-prioritisation"
         ogImage="https://www.kudoadvisory.com/og/ai-use-case-prioritisation.jpg"

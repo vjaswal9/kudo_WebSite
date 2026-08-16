@@ -5,7 +5,7 @@ export default function AIStrategy() {
   return (
     <ServicePageLayout
       metaTitle="AI Strategy Consultancy Dubai & UAE | Kudo Advisory"
-      metaDescription="Kudo Advisory delivers independent AI strategy consultancy across Dubai, Abu Dhabi and the UAE. We help CIOs, CDOs and boards build a prioritised AI roadmap tied to measurable business outcomes. Vendor-independent AI strategy for UAE enterprise leaders."
+      metaDescription="Independent AI strategy consultancy for UAE enterprises. We help CIOs, CDOs and boards build a prioritised AI roadmap tied to measurable outcomes."
       canonical="https://www.kudoadvisory.com/services/ai-strategy"
       schemaServiceName="AI Strategy Consultancy UAE"
       schemaServiceDescription="Independent AI strategy consultancy helping enterprise organisations across the UAE and Middle East build prioritised AI roadmaps tied to measurable business outcomes."

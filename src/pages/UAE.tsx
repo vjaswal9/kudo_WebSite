@@ -41,8 +41,8 @@ export default function UAE() {
   return (
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
-        title="AI Advisory UAE | AI Consultancy United Arab Emirates | Kudo Advisory"
-        description="Kudo Advisory is the UAE's leading independent AI advisory firm. We help CIOs, CDOs and enterprise leaders across Dubai, Abu Dhabi and the UAE turn AI investment into measurable business outcomes. AI strategy, AI governance & delivery assurance across the UAE."
+        title="AI Advisory UAE | AI Consultancy | Kudo Advisory"
+        description="Kudo Advisory is an independent AI advisory firm helping CIOs and CDOs across Dubai and Abu Dhabi turn AI investment into governed, measurable outcomes."
         canonical="https://www.kudoadvisory.com/ai-advisory-uae"
         ogImage="https://www.kudoadvisory.com/og/uae.jpg"
       />

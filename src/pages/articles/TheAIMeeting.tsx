@@ -106,7 +106,7 @@ export default function TheAIMeeting() {
     <>
       <PageMeta
         title="The AI Meeting Every Leadership Team Has Had | Kudo Advisory"
-        description="Someone asks what the AI strategy is. Everyone nods. The meeting moves on. Vijay Jaswal on why this happens, and the three honest questions that separate real AI strategy from activity."
+        description="Someone asks what the AI strategy is. Everyone nods. Vijay Jaswal on why this happens, and the three questions that separate strategy from activity."
         canonical="https://www.kudoadvisory.com/insights/the-ai-meeting-nobody-admits-to"
         ogImage="https://www.kudoadvisory.com/og/the-ai-meeting-nobody-admits-to.jpg"
         articlePublishedTime="2026-08-09T00:00:00+04:00"

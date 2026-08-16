@@ -150,7 +150,7 @@ export default function FAQ() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Advisory FAQ | Kudo Advisory Dubai, UAE"
-        description="Common questions about Kudo Advisory's AI advisory services in the UAE, Dubai and Middle East. Answers on AI strategy, AI governance, enterprise AI delivery and working with enterprise clients across the UAE and Saudi Arabia."
+        description="Common questions about Kudo Advisory's AI advisory services in the UAE, answers on strategy, governance, delivery and working with enterprise clients."
         canonical="https://www.kudoadvisory.com/faq"
       />
 

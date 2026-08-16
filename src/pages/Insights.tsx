@@ -160,7 +160,7 @@ const Insights = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Insights & Thought Leadership | Kudo Advisory UAE"
-        description="Practical perspectives on AI strategy, governance, and delivery for enterprise leaders across the UAE, Dubai and Middle East. Written by Vijay Jaswal, founder of Kudo Advisory, for CIOs, CDOs and transformation leads."
+        description="Practical perspectives on AI strategy, governance and delivery for UAE enterprise leaders, written by Vijay Jaswal, founder of Kudo Advisory."
         canonical="https://www.kudoadvisory.com/insights"
         ogImage="https://www.kudoadvisory.com/og/insights.jpg"
       />

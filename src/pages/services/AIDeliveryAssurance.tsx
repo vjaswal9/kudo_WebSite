@@ -4,8 +4,8 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function AIDeliveryAssurance() {
   return (
     <ServicePageLayout
-      metaTitle="AI Delivery Assurance UAE | AI Programme Oversight | Kudo Advisory"
-      metaDescription="Kudo Advisory provides hands-on AI delivery assurance for enterprise organisations across Dubai, Abu Dhabi and the UAE, keeping AI programmes on track, on budget and delivering the board-level results that were promised."
+      metaTitle="AI Delivery Assurance UAE | Kudo Advisory"
+      metaDescription="Hands-on AI delivery assurance for UAE enterprises, keeping AI programmes on track and delivering the board-level results that were promised."
       canonical="https://www.kudoadvisory.com/services/ai-delivery-assurance"
       schemaServiceName="AI Delivery Assurance UAE"
       schemaServiceDescription="AI delivery assurance and programme oversight for enterprise organisations across the UAE, ensuring AI initiatives stay on track, on budget and deliver measurable business results."

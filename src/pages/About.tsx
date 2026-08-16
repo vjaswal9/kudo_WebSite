@@ -55,8 +55,8 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
-        title="About Kudo Advisory | AI Advisory Firm Dubai, UAE | Vijay Jaswal"
-        description="Kudo Advisory is an independent AI advisory firm founded in Dubai, UAE by Vijay Jaswal. We help CIOs, CDOs and enterprise leaders across the UAE, Saudi Arabia and Middle East turn AI investment into governed, measurable business outcomes. Learn about our mission, founder and approach."
+        title="About Vijay Jaswal | Kudo Advisory, Dubai UAE"
+        description="Independent AI advisory founded in Dubai by Vijay Jaswal. We help CIOs and CDOs turn AI investment into governed, measurable outcomes."
         canonical="https://www.kudoadvisory.com/about"
         ogImage="https://www.kudoadvisory.com/og/about.jpg"
       />

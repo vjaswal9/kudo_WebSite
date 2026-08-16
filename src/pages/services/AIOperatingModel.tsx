@@ -5,7 +5,7 @@ export default function AIOperatingModel() {
   return (
     <ServicePageLayout
       metaTitle="AI Operating Model Design UAE | Kudo Advisory"
-      metaDescription="Kudo Advisory designs AI operating models for enterprise organisations across Dubai, Abu Dhabi and the UAE, structuring teams, processes, governance and technology to scale AI responsibly across the enterprise."
+      metaDescription="Kudo Advisory designs AI operating models for UAE enterprises, structuring teams, processes, governance and technology to scale AI responsibly."
       canonical="https://www.kudoadvisory.com/services/ai-operating-model"
       schemaServiceName="AI Operating Model Design UAE"
       schemaServiceDescription="AI operating model design helping UAE and Middle East enterprises structure their people, processes, governance and technology to scale AI responsibly at enterprise level."

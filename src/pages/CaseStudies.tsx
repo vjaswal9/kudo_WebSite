@@ -130,8 +130,8 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
-        title="AI Advisory Case Studies UAE | Client Stories | Kudo Advisory"
-        description="Anonymised client stories from Kudo Advisory's AI advisory work across telecoms, utilities, healthcare and property development in the UAE and Middle East. How enterprises turned stalled AI into governed, measurable outcomes."
+        title="AI Advisory Case Studies, UAE | Kudo Advisory"
+        description="Anonymised UAE client stories: how enterprises in telecoms, utilities, healthcare and property turned stalled AI into governed, measurable outcomes."
         canonical="https://www.kudoadvisory.com/case-studies"
         ogImage="https://www.kudoadvisory.com/og/case-studies.jpg"
       />

@@ -103,7 +103,7 @@ export default function ServicesIndex() {
     <div className="min-h-screen bg-background text-foreground" dir={isRTL ? "rtl" : "ltr"}>
       <PageMeta
         title="AI Advisory Services UAE & Dubai | Kudo Advisory"
-        description="Six independent AI advisory services for enterprise leaders across the UAE, Dubai, Abu Dhabi and Middle East, AI strategy, AI governance, operating model design, use case prioritisation, leadership enablement and delivery assurance."
+        description="Six independent AI advisory services for UAE enterprise leaders, strategy, governance, operating model, use case prioritisation and delivery assurance."
         canonical="https://www.kudoadvisory.com/services"
         ogImage="https://www.kudoadvisory.com/og/services.jpg"
       />

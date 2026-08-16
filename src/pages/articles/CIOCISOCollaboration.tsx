@@ -125,8 +125,8 @@ export default function CIOCISOCollaboration() {
   return (
     <>
       <PageMeta
-        title="The CIO and CISO Conversation That Every AI Programme Needs | Kudo Advisory"
-        description="AI programmes create new friction between CIOs and CISOs. Here's how to align on risk, build shared frameworks, and prevent the CIO-CISO tension from derailing your AI programme."
+        title="The CIO-CISO AI Conversation | Kudo Advisory"
+        description="AI programmes create new friction between CIOs and CISOs. How to align on risk and build shared frameworks before it derails your AI programme."
         canonical="https://www.kudoadvisory.com/insights/ciso-cio-ai-collaboration"
         ogImage="https://www.kudoadvisory.com/og/ciso-cio-ai-collaboration.jpg"
         articlePublishedTime="2026-04-28T00:00:00+04:00"
