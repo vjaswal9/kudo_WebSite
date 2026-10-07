@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Prophecy</title>
+<style>
+  :root {
+    --bg: #fdf2f8;
+    --surface: #ffffff;
+    --ink: #1f1226;
+    --muted: #7a6b82;
+    --line: #2a1633;
+    --soft-line: #e6d3e0;
+    --accent: #db2777;
+    --accent-ink: #ffffff;
+    --pos: #15803d;
+    --neg: #b91c1c;
+    --hit: #f0fdf4;
+    --miss: #fef2f2;
+    --lead: #fef3c7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #170d1c;
+      --surface: #241230;
+      --ink: #f6e9f6;
+      --muted: #a893b3;
+      --line: #6b4a7a;
+      --soft-line: #3b2549;
+      --accent: #f472b6;
+      --accent-ink: #1f1226;
+      --pos: #4ade80;
+      --neg: #f87171;
+      --hit: #15291d;
+      --miss: #2e1517;
+      --lead: #3a2d10;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: env(safe-area-inset-top) 16px calc(24px + env(safe-area-inset-bottom));
+    -webkit-text-size-adjust: 100%;
+  }
+  h1 { font-size: 28px; letter-spacing: .04em; text-transform: uppercase; margin: 20px 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .card { background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: 20px; max-width: 460px; }
+  label.field { display: block; font-weight: 600; margin: 18px 0 8px; }
+  .counts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .counts button {
+    width: 44px; height: 44px; border-radius: 10px; border: 2px solid var(--line);
+    background: transparent; color: var(--ink); font: inherit; font-weight: 700; cursor: pointer;
+  }
+  .counts button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .names { display: grid; gap: 10px; }
+  .names input {
+    width: 100%; padding: 12px; font: inherit; border-radius: 10px;
+    border: 2px solid var(--soft-line); background: var(--bg); color: var(--ink);
+  }
+  .names input:focus, .cell input:focus { outline: 3px solid var(--accent); outline-offset: 1px; }
+  .primary {
+    margin-top: 22px; width: 100%; padding: 14px; border: 0; border-radius: 10px;
+    background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 700; cursor: pointer;
+  }
+  .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 12px 0 14px; }
+  .toolbar h1 { margin: 0; }
+  .ghost {
+    padding: 8px 14px; border-radius: 10px; border: 2px solid var(--line);
+    background: transparent; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .legend { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
+
+  .wrap { overflow-x: auto; border: 2px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; }
+  th, td { border-right: 1px solid var(--soft-line); border-bottom: 1px solid var(--soft-line); padding: 0; }
+  thead th {
+    background: var(--accent); color: var(--accent-ink); font-size: 20px; padding: 8px 0; text-align: center;
+    border-right: 1px solid rgba(255,255,255,.35); border-bottom: 2px solid var(--line);
+  }
+  thead th small { display: block; font-size: 10px; letter-spacing: .08em; opacity: .85; font-weight: 600; }
+  thead th.corner { position: sticky; left: 0; z-index: 3; text-align: left; padding-left: 12px; font-size: 13px; min-width: 96px; }
+  th.name {
+    position: sticky; left: 0; z-index: 2; background: var(--surface); text-align: left; font-weight: 700;
+    padding: 0 12px; border-right: 2px solid var(--line); min-width: 96px; max-width: 140px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  tr:last-child th.name, tr:last-child td { border-bottom: 0; }
+  td.cell { min-width: 96px; }
+  .cell { display: flex; height: 72px; }
+  .inputs { display: flex; flex-direction: column; width: 46px; border-right: 1px solid var(--soft-line); flex: none; }
+  .inputs input {
+    flex: 1; min-height: 0; width: 100%; border: 0; background: transparent; color: var(--ink);
+    text-align: center; font: inherit; font-size: 17px; font-weight: 700; padding: 0; border-radius: 0;
+    -moz-appearance: textfield; appearance: textfield;
+  }
+  .inputs input::-webkit-outer-spin-button, .inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .inputs input.p { border-bottom: 1px solid var(--soft-line); }
+  .inputs input.a { color: var(--accent); }
+  .inputs input::placeholder { color: var(--soft-line); font-weight: 400; font-size: 11px; }
+  .total { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .total small { display: block; font-size: 11px; font-weight: 600; text-align: center; opacity: .8; }
+  .total.pos { color: var(--pos); }
+  .total.neg { color: var(--neg); }
+  td.hit { background: var(--hit); }
+  td.miss { background: var(--miss); }
+  td.final { min-width: 78px; text-align: center; font-size: 20px; font-weight: 800; border-left: 2px solid var(--line); font-variant-numeric: tabular-nums; }
+  thead th.final { border-left: 2px solid var(--line); min-width: 78px; }
+  td.final.leader { background: var(--lead); }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<section id="setup" class="hidden">
+  <h1>Prophecy</h1>
+  <p class="sub">Set up the game</p>
+  <div class="card">
+    <label class="field" id="count-label">How many players?</label>
+    <div class="counts" id="counts" role="group" aria-labelledby="count-label"></div>
+    <label class="field">Names</label>
+    <div class="names" id="names"></div>
+    <button class="primary" id="start" type="button">Start game</button>
+  </div>
+</section>
+
+<section id="game" class="hidden">
+  <div class="toolbar">
+    <h1>Prophecy</h1>
+    <button class="ghost" id="reset" type="button">New game</button>
+  </div>
+  <p class="legend">Each box: prophecy on top, actual below, running total on the right.</p>
+  <div class="wrap"><table id="board"></table></div>
+</section>
+
+<script>
+(function () {
+  var STORE = 'prophecy-game-v1';
+  var ROUNDS = [8, 7, 6, 5, 4, 3, 2, 1];
+  var MAX_PLAYERS = 8, MIN_PLAYERS = 2;
+
+  var game = null;       // { names: [], p: [[...8]], a: [[...8]] }  null = not yet entered
+  var setupCount = 4;
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function save() { try { localStorage.setItem(STORE, JSON.stringify(game)); } catch (e) {} }
+  function load() {
+    try {
+      var g = JSON.parse(localStorage.getItem(STORE));
+      if (g && g.names && g.p && g.a) return g;
+    } catch (e) {}
+    return null;
+  }
+
+  // Exact hit: +10 x prophecy. Miss: -10 x |difference|.
+  function roundScore(p, a) { return p === a ? 10 * p : -10 * Math.abs(p - a); }
+
+  /* ---------- setup ---------- */
+  function renderSetup() {
+    var counts = $('counts');
+    counts.innerHTML = '';
+    for (var n = MIN_PLAYERS; n <= MAX_PLAYERS; n++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = n;
+      b.setAttribute('aria-pressed', n === setupCount);
+      b.addEventListener('click', (function (n) { return function () { setupCount = n; renderSetup(); }; })(n));
+      counts.appendChild(b);
+    }
+    var names = $('names');
+    var existing = Array.prototype.map.call(names.querySelectorAll('input'), function (i) { return i.value; });
+    names.innerHTML = '';
+    for (var i = 0; i < setupCount; i++) {
+      var inp = document.createElement('input');
+      inp.type = 'text';
+      inp.maxLength = 20;
+      inp.placeholder = 'Player ' + (i + 1);
+      inp.autocomplete = 'off';
+      inp.setAttribute('aria-label', 'Player ' + (i + 1) + ' name');
+      inp.value = existing[i] || '';
+      names.appendChild(inp);
+    }
+  }
+
+  function startGame() {
+    var inputs = $('names').querySelectorAll('input');
+    var names = Array.prototype.map.call(inputs, function (inp, i) { return inp.value.trim() || ('Player ' + (i + 1)); });
+    game = { names: names, p: [], a: [] };
+    names.forEach(function () { game.p.push(Array(8).fill(null)); game.a.push(Array(8).fill(null)); });
+    save();
+    show('game');
+    renderBoard();
+  }
+
+  /* ---------- board ---------- */
+  function totals(pi) {
+    // running totals across completed rounds, in play order (8 down to 1)
+    var run = 0, out = [];
+    for (var r = 0; r < 8; r++) {
+      var p = game.p[pi][r], a = game.a[pi][r];
+      if (p !== null && a !== null) { run += roundScore(p, a); out.push(run); }
+      else out.push(null);
+    }
+    return { cells: out, final: run };
+  }
+
+  function fmt(n) { return (n > 0 ? '+' : '') + n; }
+
+  function renderBoard() {
+    var t = $('board');
+    var html = '<thead><tr><th class="corner">Round</th>';
+    ROUNDS.forEach(function (c) { html += '<th scope="col">' + c + '<small>cards</small></th>'; });
+    html += '<th class="final" scope="col">Total</th></tr></thead><tbody>';
+    game.names.forEach(function (name, pi) {
+      html += '<tr data-pi="' + pi + '"><th class="name" scope="row"></th>';
+      ROUNDS.forEach(function (c, r) {
+        html += '<td class="cell-td" data-r="' + r + '"><div class="cell">' +
+          '<div class="inputs">' +
+          '<input class="p" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder="pro" aria-label="' + esc(name) + ' prophecy, ' + c + ' cards" data-pi="' + pi + '" data-r="' + r + '" data-k="p">' +
+          '<input class="a" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" placeholder="act" aria-label="' + esc(name) + ' actual, ' + c + ' cards" data-pi="' + pi + '" data-r="' + r + '" data-k="a">' +
+          '</div><div class="total"></div></div></td>';
+      });
+      html += '<td class="final"></td></tr>';
+    });
+    html += '</tbody>';
+    t.innerHTML = html;
+
+    // names via textContent (avoid injecting HTML)
+    t.querySelectorAll('tbody tr').forEach(function (tr) {
+      var pi = +tr.dataset.pi;
+      tr.querySelector('th.name').textContent = game.names[pi];
+      tr.querySelector('th.name').title = game.names[pi];
+      ROUNDS.forEach(function (c, r) {
+        var p = game.p[pi][r], a = game.a[pi][r];
+        tr.querySelector('input[data-r="' + r + '"][data-k="p"]').value = p === null ? '' : p;
+        tr.querySelector('input[data-r="' + r + '"][data-k="a"]').value = a === null ? '' : a;
+      });
+    });
+    refreshTotals();
+  }
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  function refreshTotals() {
+    var finals = [];
+    game.names.forEach(function (_, pi) {
+      var tr = $('board').querySelector('tr[data-pi="' + pi + '"]');
+      var tt = totals(pi);
+      finals.push(tt.final);
+      ROUNDS.forEach(function (c, r) {
+        var td = tr.querySelector('td[data-r="' + r + '"]');
+        var box = td.querySelector('.total');
+        var v = tt.cells[r];
+        td.classList.remove('hit', 'miss');
+        box.classList.remove('pos', 'neg');
+        if (v === null) { box.textContent = ''; return; }
+        box.textContent = v;
+        if (v > 0) box.classList.add('pos'); else if (v < 0) box.classList.add('neg');
+        td.classList.add(game.p[pi][r] === game.a[pi][r] ? 'hit' : 'miss');
+        td.title = 'Round score ' + fmt(roundScore(game.p[pi][r], game.a[pi][r]));
+      });
+      tr.querySelector('td.final').textContent = tt.final;
+    });
+    var best = Math.max.apply(null, finals);
+    var anyPlayed = game.p.some(function (row, pi) { return row.some(function (v, r) { return v !== null && game.a[pi][r] !== null; }); });
+    game.names.forEach(function (_, pi) {
+      var td = $('board').querySelector('tr[data-pi="' + pi + '"] td.final');
+      td.classList.toggle('leader', anyPlayed && finals[pi] === best);
+    });
+  }
+
+  $('board').addEventListener('input', function (e) {
+    var el = e.target;
+    if (!el.dataset || !el.dataset.k) return;
+    var pi = +el.dataset.pi, r = +el.dataset.r, k = el.dataset.k;
+    var digits = el.value.replace(/\D/g, '');
+    var val = digits === '' ? null : parseInt(digits, 10);
+    var max = ROUNDS[r];
+    if (val !== null && val > max) val = max;          // cannot exceed cards dealt this round
+    el.value = val === null ? '' : val;
+    game[k][pi][r] = val;
+    save();
+    refreshTotals();
+  });
+  $('board').addEventListener('focusin', function (e) { if (e.target.select) e.target.select(); });
+
+  /* ---------- view ---------- */
+  function show(which) {
+    $('setup').classList.toggle('hidden', which !== 'setup');
+    $('game').classList.toggle('hidden', which !== 'game');
+  }
+
+  $('start').addEventListener('click', startGame);
+  $('reset').addEventListener('click', function () {
+    if (!confirm('Start a new game? This clears the current scores.')) return;
+    try { localStorage.removeItem(STORE); } catch (e) {}
+    game = null;
+    $('names').innerHTML = '';
+    renderSetup();
+    show('setup');
+  });
+
+  game = load();
+  if (game) { show('game'); renderBoard(); }
+  else { renderSetup(); show('setup'); }
+})();
+</script>
+</body>
+</html>
