@@ -111,6 +111,14 @@
   td.final { min-width: 78px; text-align: center; font-size: 20px; font-weight: 800; border-left: 2px solid var(--line); font-variant-numeric: tabular-nums; }
   thead th.final { border-left: 2px solid var(--line); min-width: 78px; }
   td.final.leader { background: var(--lead); }
+  .inputs input[readonly] { cursor: default; }
+  .inputs input.a[readonly] { background: repeating-linear-gradient(135deg, transparent 0 6px, var(--soft-line) 6px 7px); opacity: .55; }
+  .inputs input.p[readonly] { background: var(--bg); }
+  .lockbtn {
+    display: block; margin: 3px auto 0; padding: 1px 8px; font: inherit; font-size: 10px; font-weight: 700;
+    letter-spacing: .04em; border-radius: 8px; border: 1px solid rgba(255,255,255,.7); background: transparent;
+    color: var(--accent-ink); cursor: pointer;
+  }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -214,7 +222,7 @@
   function renderBoard() {
     var t = $('board');
     var html = '<thead><tr><th class="corner">Round</th>';
-    ROUNDS.forEach(function (c) { html += '<th scope="col">' + c + '<small>cards</small></th>'; });
+    ROUNDS.forEach(function (c, r) { html += '<th scope="col">' + c + '<small>cards</small><button type="button" class="lockbtn hidden" data-r="' + r + '" title="Unlock prophecies to correct them">Locked, edit</button></th>'; });
     html += '<th class="final" scope="col">Total</th></tr></thead><tbody>';
     game.names.forEach(function (name, pi) {
       html += '<tr data-pi="' + pi + '"><th class="name" scope="row"></th>';
@@ -246,7 +254,27 @@
 
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 
+  function prophecyComplete(r) { return game.p.every(function (row) { return row[r] !== null; }); }
+
+  // Actuals stay read-only until every prophecy for the round is in; then the prophecies lock.
+  function refreshLocks() {
+    if (!game.unlocked) game.unlocked = Array(8).fill(false);
+    ROUNDS.forEach(function (c, r) {
+      var done = prophecyComplete(r);
+      if (!done) game.unlocked[r] = false;
+      var pLocked = done && !game.unlocked[r];
+      $('board').querySelectorAll('input[data-r="' + r + '"][data-k="p"]').forEach(function (el) { el.readOnly = pLocked; });
+      $('board').querySelectorAll('input[data-r="' + r + '"][data-k="a"]').forEach(function (el) {
+        el.readOnly = !done;
+        el.placeholder = done ? 'act' : '';
+      });
+      var btn = $('board').querySelector('.lockbtn[data-r="' + r + '"]');
+      btn.classList.toggle('hidden', !pLocked);
+    });
+  }
+
   function refreshTotals() {
+    refreshLocks();
     var finals = [];
     game.names.forEach(function (_, pi) {
       var tr = $('board').querySelector('tr[data-pi="' + pi + '"]');
@@ -284,6 +312,13 @@
     if (val !== null && val > max) val = max;          // cannot exceed cards dealt this round
     el.value = val === null ? '' : val;
     game[k][pi][r] = val;
+    save();
+    refreshTotals();
+  });
+  $('board').addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.lockbtn');
+    if (!btn) return;
+    game.unlocked[+btn.dataset.r] = true;
     save();
     refreshTotals();
   });
