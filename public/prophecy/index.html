@@ -588,6 +588,7 @@
       return;
     }
     el.value = val === null ? '' : val;
+    hideToast();
     game[k][pi][r] = val;
     save();
     refreshTotals();
@@ -611,10 +612,12 @@
     t.classList.remove('hidden');
     placeToast();
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { t.classList.add('hidden'); }, isError ? 4200 : 2200);
+    toastTimer = setTimeout(hideToast, isError ? 2000 : 1600);
   }
   // Keep the message inside the visible area, above any on-screen keyboard
   // (the visual viewport shifts when a phone keyboard opens or the page scrolls).
+  function hideToast() { clearTimeout(toastTimer); $('toast').classList.add('hidden'); }
+  $('toast').addEventListener('click', hideToast);
   function placeToast() {
     var t = $('toast'), vv = window.visualViewport;
     if (t.classList.contains('hidden')) return;
