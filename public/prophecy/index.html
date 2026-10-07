@@ -141,12 +141,14 @@
   .inputs input.holding { border-color: var(--gold); animation: hold .7s linear forwards; }
   @keyframes hold { from { box-shadow: inset 0 0 0 0 var(--gold); } to { box-shadow: inset 0 0 0 4px var(--gold); } }
   #toast {
-    position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 70;
+    position: fixed; left: 50%; top: calc(12px + env(safe-area-inset-top)); transform: translateX(-50%); z-index: 70;
+    animation: drop .22s ease-out;
     width: max-content; max-width: min(92vw, 420px); text-align: center;
     padding: 11px 18px; border-radius: 14px; background: var(--surface2); border: 1px solid var(--gold); color: var(--ink);
     font-size: 13px; font-weight: 600; letter-spacing: .02em; box-shadow: 0 10px 30px rgba(0,0,0,.5);
   }
-  #toast.error { border-color: var(--neg); }
+  @keyframes drop { from { opacity: 0; margin-top: -12px; } to { opacity: 1; margin-top: 0; } }
+  #toast.error { border-color: var(--neg); background: #2a1a1a; }
   #toast.error::before { content: "Not possible  "; color: var(--neg); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 2px; }
   .inputs input.shake { animation: shake .35s; border-color: var(--neg); }
   @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
@@ -607,8 +609,23 @@
     t.textContent = msg;
     t.classList.toggle('error', !!isError);
     t.classList.remove('hidden');
+    placeToast();
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { t.classList.add('hidden'); }, isError ? 4200 : 2200);
+  }
+  // Keep the message inside the visible area, above any on-screen keyboard
+  // (the visual viewport shifts when a phone keyboard opens or the page scrolls).
+  function placeToast() {
+    var t = $('toast'), vv = window.visualViewport;
+    if (t.classList.contains('hidden')) return;
+    if (vv) {
+      t.style.top = 'calc(' + (vv.offsetTop + 12) + 'px + env(safe-area-inset-top))';
+      t.style.left = (vv.offsetLeft + vv.width / 2) + 'px';
+    }
+  }
+  if (window.visualViewport) {
+    visualViewport.addEventListener('resize', placeToast);
+    visualViewport.addEventListener('scroll', placeToast);
   }
   function cancelHold() {
     clearTimeout(holdTimer);
