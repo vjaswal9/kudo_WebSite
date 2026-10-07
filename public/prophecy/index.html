@@ -4,218 +4,186 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<meta name="theme-color" content="#140a1f">
+<meta name="theme-color" content="#0f0e0d">
 <title>Prophecy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: dark;
-    --bg: #140a1f;
-    --surface: #20102f;
-    --surface2: #2b1740;
-    --ink: #fbeefb;
-    --muted: #b79ac9;
-    --line: #4a2a63;
-    --soft-line: #3a2150;
-    --pink: #ff4fa3;
-    --gold: #ffd166;
-    --green: #3ddc97;
-    --red: #ff6b6b;
-    --violet: #b79cff;
-    --on-pink: #2a0a1e;
+    --bg: #0f0e0d;
+    --surface: #171513;
+    --surface2: #1f1c19;
+    --ink: #f3ede2;
+    --muted: #9a9184;
+    --line: #3a352e;
+    --soft-line: #2a2622;
+    --gold: #c9a96a;
+    --gold-soft: rgba(201,169,106,.14);
+    --pos: #93b79f;
+    --neg: #c98a8a;
+    --on-gold: #1a1408;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
     min-height: 100vh;
     color: var(--ink);
-    background:
-      radial-gradient(900px 500px at 8% -10%, rgba(255,79,163,.28), transparent 60%),
-      radial-gradient(800px 500px at 100% 0%, rgba(124,92,255,.28), transparent 60%),
-      var(--bg);
+    background: radial-gradient(900px 480px at 50% -12%, rgba(201,169,106,.09), transparent 65%), var(--bg);
     background-attachment: fixed;
-    font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font: 16px/1.4 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     padding: env(safe-area-inset-top) 16px calc(28px + env(safe-area-inset-bottom));
     -webkit-text-size-adjust: 100%;
   }
 
   /* ---------- title ---------- */
-  .brand { display: flex; align-items: center; gap: 12px; margin: 22px 0 6px; }
-  h1 {
-    margin: 0; font-size: 34px; line-height: 1; letter-spacing: .08em; text-transform: uppercase; font-weight: 900;
-    background: linear-gradient(90deg, var(--pink), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .suits { font-size: 22px; letter-spacing: .15em; white-space: nowrap; }
-  .suits .r { color: var(--pink); }
-  .sub { color: var(--ink); font-size: 20px; font-weight: 700; margin: 4px 0 20px; }
-  .sub .wave { display: inline-block; animation: wobble 2.4s ease-in-out infinite; transform-origin: 70% 70%; }
-  @keyframes wobble { 0%,100% { transform: rotate(0); } 10%,30% { transform: rotate(-8deg); } 20%,40% { transform: rotate(8deg); } 50% { transform: rotate(0); } }
+  .brand { display: flex; align-items: baseline; gap: 14px; margin: 24px 0 6px; }
+  h1 { margin: 0; font-family: var(--serif); font-size: 34px; line-height: 1; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; color: var(--ink); }
+  .suits { font-size: 15px; letter-spacing: .3em; color: var(--gold); white-space: nowrap; }
+  .sub { font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 21px; font-weight: 500; margin: 6px 0 22px; }
 
   /* ---------- setup ---------- */
-  .card {
-    background: linear-gradient(180deg, var(--surface2), var(--surface)); border: 1px solid var(--line);
-    border-radius: 18px; padding: 22px; max-width: 480px; box-shadow: 0 18px 50px rgba(0,0,0,.45);
-  }
-  label.field { display: block; font-weight: 700; margin: 20px 0 8px; color: var(--violet); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; max-width: 480px; }
+  label.field { display: block; margin: 22px 0 8px; color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
   label.field:first-child { margin-top: 0; }
   .counts { display: flex; flex-wrap: wrap; gap: 8px; }
   .counts button {
-    width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg);
-    color: var(--ink); font: inherit; font-size: 18px; font-weight: 800; cursor: pointer; transition: transform .12s, background .12s;
+    width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: transparent;
+    color: var(--ink); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; transition: border-color .15s, background .15s;
   }
-  .counts button:hover { transform: translateY(-2px); }
-  .counts button[aria-pressed="true"] { background: linear-gradient(135deg, var(--pink), #ff7a59); border-color: transparent; color: var(--on-pink); box-shadow: 0 6px 18px rgba(255,79,163,.45); }
+  .counts button:hover { border-color: var(--gold); }
+  .counts button[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
   .names { display: grid; gap: 10px; }
-  .names .nrow { display: flex; align-items: center; gap: 10px; }
+  .names .nrow { display: flex; align-items: center; gap: 12px; }
   .names input, .pw {
-    width: 100%; padding: 13px 14px; font: inherit; border-radius: 12px;
+    width: 100%; padding: 13px 14px; font: inherit; border-radius: 10px;
     border: 1px solid var(--line); background: var(--bg); color: var(--ink);
   }
-  .names input::placeholder { color: #7d6591; }
-  .names input:focus, .pw:focus { outline: 2px solid var(--pink); outline-offset: 1px; }
+  .names input::placeholder { color: #6a6358; }
+  .names input:focus, .pw:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
   .primary {
-    margin-top: 24px; width: 100%; padding: 15px; border: 0; border-radius: 14px; font: inherit; font-size: 17px; font-weight: 800;
-    letter-spacing: .03em; color: var(--on-pink); cursor: pointer;
-    background: linear-gradient(135deg, var(--pink), var(--gold)); box-shadow: 0 10px 26px rgba(255,79,163,.4); transition: transform .12s;
+    margin-top: 26px; width: 100%; padding: 15px; border: 0; border-radius: 10px; font: inherit; font-size: 14px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--on-gold); cursor: pointer; background: var(--gold); transition: filter .15s;
   }
-  .primary:hover { transform: translateY(-2px); }
-  .primary:active { transform: translateY(0); }
+  .primary:hover { filter: brightness(1.08); }
   .hint { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
-  .err { color: var(--red); font-size: 14px; font-weight: 700; margin: 8px 0 0; }
+  .err { color: var(--neg); font-size: 14px; font-weight: 600; margin: 8px 0 0; }
   .ghost {
-    padding: 9px 16px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.04);
-    color: var(--ink); font: inherit; font-weight: 700; cursor: pointer;
+    padding: 9px 16px; border-radius: 10px; border: 1px solid var(--line); background: transparent; white-space: nowrap;
+    color: var(--ink); font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .04em; cursor: pointer; transition: border-color .15s;
   }
-  .ghost:hover { border-color: var(--pink); }
+  .ghost:hover { border-color: var(--gold); }
 
   /* ---------- game header ---------- */
-  .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0 12px; }
+  .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0 10px; }
   .toolbar .brand { margin: 0; }
-  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; font-size: 12px; font-weight: 700; }
-  .chip { padding: 4px 10px; border-radius: 99px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--muted); }
-  .chip.p { color: var(--violet); border-color: rgba(183,156,255,.4); }
-  .chip.a { color: var(--pink); border-color: rgba(255,79,163,.4); }
-  .chip.t { color: var(--gold); border-color: rgba(255,209,102,.4); }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 16px; font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+  .legend b { color: var(--ink); font-weight: 600; }
 
   /* ---------- standings ---------- */
   #standings { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 14px; margin: 0 -2px; scrollbar-width: none; }
   #standings::-webkit-scrollbar { display: none; }
-  .stand {
-    flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 16px;
-    background: var(--surface); border: 1px solid var(--line); transition: transform .3s, border-color .3s;
-  }
-  .stand .medal { font-size: 20px; width: 24px; text-align: center; }
-  .stand .nm { font-weight: 800; line-height: 1.1; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .stand .pts { font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .stand .pts.pos { color: var(--green); } .stand .pts.neg { color: var(--red); } .stand .pts.zero { color: var(--muted); }
-  .stand.first { border-color: var(--gold); box-shadow: 0 0 0 1px rgba(255,209,102,.4), 0 8px 24px rgba(255,209,102,.18); }
+  .stand { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+  .stand .medal { font-family: var(--serif); font-size: 15px; color: var(--muted); min-width: 16px; text-align: center; }
+  .stand .nm { font-weight: 600; line-height: 1.15; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .stand .pts { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .stand .pts.pos { color: var(--pos); } .stand .pts.neg { color: var(--neg); }
+  .stand.first { border-color: var(--gold); }
+  .stand.first .medal { color: var(--gold); }
   .avatar {
-    flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
-    font-weight: 900; font-size: 16px; color: #1b0f26; background: var(--pc, var(--pink)); box-shadow: inset 0 -3px 0 rgba(0,0,0,.18);
+    flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+    font-family: var(--serif); font-weight: 500; font-size: 15px; color: var(--gold); border: 1px solid var(--gold); background: transparent;
   }
 
   /* ---------- winner ---------- */
-  #winner {
-    text-align: center; margin: 0 0 16px; padding: 16px; border-radius: 18px; font-size: 20px; font-weight: 900;
-    background: linear-gradient(135deg, rgba(255,209,102,.25), rgba(255,79,163,.25)); border: 1px solid var(--gold);
-    animation: pop .5s ease-out;
-  }
-  #winner small { display: block; font-size: 14px; font-weight: 700; color: var(--muted); margin-top: 2px; }
-  #confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
-  #confetti i { position: absolute; top: -20px; width: 9px; height: 14px; border-radius: 2px; animation: fall linear forwards; }
-  @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: .9; } }
+  #winner { text-align: center; margin: 0 0 16px; padding: 18px 16px; border-radius: 14px; border: 1px solid var(--gold); background: var(--gold-soft); }
+  #winner .lbl { display: block; color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+  #winner .who2 { display: block; font-family: var(--serif); font-size: 26px; margin: 4px 0 2px; }
+  #winner small { color: var(--muted); font-size: 13px; }
 
   /* ---------- table ---------- */
-  .wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+  .wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
   table { border-collapse: separate; border-spacing: 0; width: 100%; }
   th, td { border-right: 1px solid var(--soft-line); border-bottom: 1px solid var(--soft-line); padding: 0; }
   thead th {
-    background: var(--surface2); color: var(--ink); padding: 10px 0 8px; text-align: center; position: relative;
-    font-size: 24px; font-weight: 900; line-height: 1; border-bottom: 2px solid var(--line);
+    background: var(--surface2); color: var(--ink); padding: 12px 0 9px; text-align: center; position: relative;
+    font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1; border-bottom: 1px solid var(--line);
   }
-  thead th .suit { position: absolute; top: 5px; left: 7px; font-size: 11px; opacity: .8; }
-  thead th .suit.r { color: var(--pink); }
-  thead th small { display: block; margin-top: 3px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
-  thead th.corner { position: sticky; left: 0; z-index: 3; text-align: left; padding-left: 14px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); min-width: 132px; }
-  thead th.now { background: linear-gradient(180deg, rgba(255,79,163,.55), rgba(255,79,163,.2)); }
-  thead th.now small { color: var(--gold); font-size: 11px; font-weight: 900; }
-  thead th.now small::before { content: "NOW \00b7  "; }
-  thead th.final { min-width: 86px; color: var(--gold); border-left: 2px solid var(--line); border-right: 0; }
-  th.name {
-    position: sticky; left: 0; z-index: 2; background: var(--surface); text-align: left;
-    padding: 0 12px; border-right: 2px solid var(--line); min-width: 132px; max-width: 170px;
-  }
-  .who { display: flex; align-items: center; gap: 9px; }
-  .who .nm { font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .who .rk { margin-left: auto; font-size: 15px; }
-  tbody tr { --pc: var(--pink); }
-  tbody th.name { box-shadow: inset 4px 0 0 var(--pc); }
+  thead th .suit { position: absolute; top: 6px; left: 8px; font-family: inherit; font-size: 10px; color: var(--gold); opacity: .7; }
+  thead th small { display: block; margin-top: 5px; font-family: Inter, sans-serif; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  thead th.corner { position: sticky; left: 0; z-index: 3; text-align: left; padding-left: 16px; font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); min-width: 132px; }
+  thead th.now { box-shadow: inset 0 2px 0 var(--gold); background: var(--gold-soft); }
+  thead th.now small { color: var(--gold); font-size: 0; }
+  thead th.now small::before { content: "Now"; font-size: 9px; }
+  thead th.final { min-width: 86px; color: var(--gold); border-left: 1px solid var(--line); border-right: 0; }
+  th.name { position: sticky; left: 0; z-index: 2; background: var(--surface); text-align: left; padding: 0 12px 0 16px; border-right: 1px solid var(--line); min-width: 132px; max-width: 170px; }
+  .who { display: flex; align-items: center; gap: 10px; }
+  .who .nm { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .who .rk { margin-left: auto; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .who .rk.first { color: var(--gold); }
   tr:last-child th.name, tr:last-child td { border-bottom: 0; }
   td.cell-td { min-width: 108px; transition: background .25s; }
-  td.now { background: rgba(255,79,163,.07); }
+  td.now { background: rgba(201,169,106,.04); }
   .cell { display: flex; height: 78px; position: relative; }
   .inputs { display: flex; flex-direction: column; width: 48px; flex: none; padding: 6px 0 6px 6px; gap: 4px; }
   .inputs input {
     flex: 1; min-height: 0; width: 100%; border: 1px solid var(--line); background: var(--bg); color: var(--ink);
-    text-align: center; font: inherit; font-size: 18px; font-weight: 900; padding: 0; border-radius: 9px;
+    text-align: center; font: inherit; font-size: 17px; font-weight: 600; padding: 0; border-radius: 8px;
     -moz-appearance: textfield; appearance: textfield; transition: border-color .15s, box-shadow .15s;
   }
   .inputs input::-webkit-outer-spin-button, .inputs input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  .inputs input.p { color: var(--violet); }
-  .inputs input.a { color: var(--pink); }
-  .inputs input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(255,209,102,.3); }
-  .inputs input::placeholder { color: #6d5681; font-weight: 700; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+  .inputs input.a { color: var(--gold); }
+  .inputs input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+  .inputs input::placeholder { color: #5f584d; font-weight: 600; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
   .inputs input[readonly] { cursor: pointer; }
-  .inputs input.p[readonly] { background: rgba(183,156,255,.12); border-color: rgba(183,156,255,.35); }
-  .inputs input.a[readonly] { background: repeating-linear-gradient(135deg, transparent 0 5px, rgba(255,255,255,.05) 5px 6px), var(--bg); opacity: .5; }
-  .total { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-variant-numeric: tabular-nums; }
-  .total .tv { font-size: 22px; font-weight: 900; line-height: 1; }
-  .total .delta { font-size: 11px; font-weight: 800; padding: 1px 7px; border-radius: 99px; background: rgba(255,255,255,.08); }
-  .total.pos .tv { color: var(--green); } .total.neg .tv { color: var(--red); }
-  .total.pos .delta { color: var(--green); background: rgba(61,220,151,.15); }
-  .total.neg .delta { color: var(--red); background: rgba(255,107,107,.15); }
-  .total.pop { animation: pop .45s ease-out; }
-  @keyframes pop { 0% { transform: scale(.7); opacity: .2; } 60% { transform: scale(1.18); } 100% { transform: scale(1); opacity: 1; } }
-  td.hit { background: linear-gradient(135deg, rgba(61,220,151,.22), rgba(61,220,151,.05)); }
-  td.miss { background: linear-gradient(135deg, rgba(255,107,107,.2), rgba(255,107,107,.04)); }
-  td.hit .cell::after { content: "\2713"; position: absolute; top: 3px; right: 6px; font-size: 11px; font-weight: 900; color: var(--green); }
-  td.final { min-width: 86px; text-align: center; font-size: 24px; font-weight: 900; border-left: 2px solid var(--line); border-right: 0; font-variant-numeric: tabular-nums; }
-  td.final.pos { color: var(--green); } td.final.neg { color: var(--red); }
-  td.final.leader { background: linear-gradient(180deg, rgba(255,209,102,.28), rgba(255,209,102,.08)); color: var(--gold); text-shadow: 0 0 18px rgba(255,209,102,.6); }
-  td.final .crown { display: block; font-size: 15px; line-height: 1; margin-bottom: 2px; }
+  .inputs input.p[readonly] { background: var(--surface2); }
+  .inputs input.a[readonly] { background: repeating-linear-gradient(135deg, transparent 0 5px, rgba(255,255,255,.04) 5px 6px), var(--bg); opacity: .5; }
+  .total { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-variant-numeric: tabular-nums; }
+  .total .tv { font-size: 20px; font-weight: 600; line-height: 1; }
+  .total .delta { font-size: 10px; font-weight: 600; letter-spacing: .04em; color: var(--muted); }
+  .total.pos .tv { color: var(--pos); } .total.neg .tv { color: var(--neg); }
+  .total.pop { animation: pop .35s ease-out; }
+  @keyframes pop { 0% { transform: scale(.85); opacity: .3; } 100% { transform: scale(1); opacity: 1; } }
+  td.hit { background: rgba(147,183,159,.07); }
+  td.miss { background: rgba(201,138,138,.07); }
+  td.hit .cell::after { content: "\2713"; position: absolute; top: 3px; right: 6px; font-size: 10px; font-weight: 700; color: var(--pos); }
+  td.final { min-width: 86px; text-align: center; font-size: 22px; font-weight: 600; border-left: 1px solid var(--line); border-right: 0; font-variant-numeric: tabular-nums; }
+  td.final.pos { color: var(--pos); } td.final.neg { color: var(--neg); }
+  td.final.leader { background: var(--gold-soft); color: var(--gold); }
+  td.final .crown { display: block; font-size: 14px; line-height: 1; margin-bottom: 3px; color: var(--gold); }
   .lockbtn {
-    display: block; margin: 5px auto 0; padding: 2px 9px; font: inherit; font-size: 10px; font-weight: 800; letter-spacing: .05em;
-    border-radius: 99px; border: 1px solid var(--violet); background: rgba(183,156,255,.15); color: var(--violet); cursor: pointer;
+    display: block; margin: 6px auto 0; padding: 2px 9px; font: inherit; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;
   }
-  .lockbtn.open { border-color: var(--gold); background: rgba(255,209,102,.15); color: var(--gold); }
+  .lockbtn:hover { border-color: var(--gold); color: var(--gold); }
+  .lockbtn.open { border-color: var(--gold); color: var(--gold); }
 
   /* ---------- dialog ---------- */
-  dialog {
-    border: 1px solid var(--line); border-radius: 18px; background: var(--surface); color: var(--ink);
-    padding: 22px; width: min(92vw, 380px);
-  }
-  dialog::backdrop { background: rgba(10, 4, 16, .7); backdrop-filter: blur(3px); }
-  dialog h2 { margin: 0 0 6px; font-size: 20px; }
+  dialog { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); padding: 24px; width: min(92vw, 380px); }
+  dialog::backdrop { background: rgba(8, 7, 6, .75); backdrop-filter: blur(3px); }
+  dialog h2 { margin: 0 0 6px; font-family: var(--serif); font-weight: 500; font-size: 22px; }
   dialog p { margin: 0 0 12px; color: var(--muted); }
   dialog .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
-  dialog .primary { margin: 0; width: auto; padding: 10px 20px; font-size: 15px; }
+  dialog .primary { margin: 0; width: auto; padding: 10px 20px; font-size: 12px; }
   .hidden { display: none !important; }
 
-  .ghost { white-space: nowrap; }
   @media (max-width: 480px) {
     h1 { font-size: 26px; } .suits { display: none; }
-    th.name, thead th.corner { min-width: 92px; max-width: 108px; padding-left: 8px; padding-right: 6px; }
-    .who { gap: 6px; } .who .avatar { width: 26px; height: 26px; font-size: 13px; } .who .nm { font-size: 14px; }
+    th.name, thead th.corner { min-width: 92px; max-width: 108px; padding-left: 10px; padding-right: 6px; }
+    .who { gap: 7px; } .who .avatar { width: 26px; height: 26px; font-size: 13px; } .who .nm { font-size: 14px; }
     .who .rk { display: none; }
     td.cell-td { min-width: 100px; }
   }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } #confetti { display: none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
 
 <section id="setup" class="hidden">
-  <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; <span class="r">&hearts;</span> &clubs; <span class="r">&diams;</span></span></div>
-  <p class="sub">Set up the game Gay Boyeeee! <span class="wave">&#128075;</span></p>
+  <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
+  <p class="sub">Set up the game Gay Boyeeee!</p>
   <div class="card">
     <label class="field" id="count-label">How many players?</label>
     <div class="counts" id="counts" role="group" aria-labelledby="count-label"></div>
@@ -231,18 +199,16 @@
 
 <section id="game" class="hidden">
   <div class="toolbar">
-    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; <span class="r">&hearts;</span> &clubs; <span class="r">&diams;</span></span></div>
+    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
     <button class="ghost" id="reset" type="button">New game</button>
   </div>
   <div class="legend" aria-label="How to read each box">
-    <span class="chip p">top: prophecy</span><span class="chip a">bottom: actual</span><span class="chip t">right: running total</span>
+    <span><b>Top</b> prophecy</span><span><b>Bottom</b> actual</span><span><b>Right</b> running total</span>
   </div>
   <div id="winner" class="hidden"></div>
   <div id="standings" aria-label="Standings"></div>
   <div class="wrap"><table id="board"></table></div>
 </section>
-
-<div id="confetti" aria-hidden="true"></div>
 
 <dialog id="admin-dlg">
   <form id="admin-form">
@@ -262,13 +228,11 @@
   var STORE = 'prophecy-game-v1';
   var ROUNDS = [8, 7, 6, 5, 4, 3, 2, 1];
   var MAX_PLAYERS = 8, MIN_PLAYERS = 2;
-  var COLORS = ['#ff4fa3', '#ffd166', '#3ddc97', '#4cc9f0', '#b79cff', '#ff8a4c', '#f15bb5', '#9ef01a'];
   var SUITS = ['♠', '♥', '♣', '♦'];   // spade, heart, club, diamond
 
   var game = null;       // { names: [], p: [[...8]], a: [[...8]], salt, pwHash, unlocked: [8] }  null = not yet entered
   var setupCount = 4;
   var firstPaint = true;
-  var lastWinnerKey = null;
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -308,7 +272,6 @@
       row.className = 'nrow';
       var av = document.createElement('span');
       av.className = 'avatar';
-      av.style.setProperty('--pc', COLORS[i]);
       av.textContent = i + 1;
       var inp = document.createElement('input');
       inp.type = 'text';
@@ -377,7 +340,7 @@
     });
     html += '<th class="final" scope="col">Total</th></tr></thead><tbody>';
     game.names.forEach(function (name, pi) {
-      html += '<tr data-pi="' + pi + '" style="--pc:' + COLORS[pi % COLORS.length] + '"><th class="name" scope="row"></th>';
+      html += '<tr data-pi="' + pi + '"><th class="name" scope="row"></th>';
       ROUNDS.forEach(function (c, r) {
         html += '<td class="cell-td" data-r="' + r + '"><div class="cell">' +
           '<div class="inputs">' +
@@ -430,7 +393,7 @@
       var btn = $('board').querySelector('.lockbtn[data-r="' + r + '"]');
       btn.classList.toggle('hidden', !(pLocked || un));
       btn.classList.toggle('open', un);
-      btn.textContent = un ? '\u{1F513} Re-lock' : '\u{1F512} Locked';
+      btn.textContent = un ? 'Re-lock' : 'Locked';
       btn.title = un ? 'Lock this round again' : 'Enter the admin password to edit prophecies';
     });
   }
@@ -470,16 +433,18 @@
     var order = game.names.map(function (_, i) { return i; }).sort(function (x, y) { return finals[y] - finals[x] || x - y; });
     var rankOf = {};
     order.forEach(function (pi, i) { rankOf[pi] = i > 0 && finals[pi] === finals[order[i - 1]] ? rankOf[order[i - 1]] : i; });
-    var MEDALS = ['\u{1F947}', '\u{1F948}', '\u{1F949}'];
+    var MEDALS = ['1st', '2nd', '3rd'];
 
     game.names.forEach(function (_, pi) {
       var tr = $('board').querySelector('tr[data-pi="' + pi + '"]');
       var td = tr.querySelector('td.final');
       var lead = anyPlayed && finals[pi] === best;
       td.classList.toggle('leader', lead);
-      if (lead) { if (!td.querySelector('.crown')) { var c = document.createElement('span'); c.className = 'crown'; c.textContent = '\u{1F451}'; td.insertBefore(c, td.firstChild); } }
+      if (lead) { if (!td.querySelector('.crown')) { var c = document.createElement('span'); c.className = 'crown'; c.textContent = '\u265B\uFE0E'; td.insertBefore(c, td.firstChild); } }
       else { var old = td.querySelector('.crown'); if (old) old.remove(); }
-      tr.querySelector('.rk').textContent = anyPlayed && rankOf[pi] < 3 ? MEDALS[rankOf[pi]] : '';
+      var rk = tr.querySelector('.rk');
+      rk.textContent = anyPlayed && rankOf[pi] < 3 ? MEDALS[rankOf[pi]] : '';
+      rk.classList.toggle('first', anyPlayed && rankOf[pi] === 0);
     });
 
     // current round: first one not fully entered
@@ -499,8 +464,7 @@
     order.forEach(function (pi) {
       var chip = document.createElement('div');
       chip.className = 'stand' + (rankOf[pi] === 0 ? ' first' : '');
-      chip.style.setProperty('--pc', COLORS[pi % COLORS.length]);
-      var medal = document.createElement('span'); medal.className = 'medal'; medal.textContent = rankOf[pi] < 3 ? MEDALS[rankOf[pi]] : (rankOf[pi] + 1);
+      var medal = document.createElement('span'); medal.className = 'medal'; medal.textContent = rankOf[pi] + 1;
       var av = document.createElement('span'); av.className = 'avatar'; av.textContent = initial(game.names[pi]);
       var txt = document.createElement('div');
       var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = game.names[pi];
@@ -513,29 +477,14 @@
 
   function renderWinner(finals, allDone) {
     var w = $('winner');
-    if (!allDone) { w.classList.add('hidden'); lastWinnerKey = null; return; }
+    if (!allDone) { w.classList.add('hidden'); return; }
     var best = Math.max.apply(null, finals);
     var winners = game.names.filter(function (_, i) { return finals[i] === best; });
-    var key = winners.join('|') + '|' + best;
     w.classList.remove('hidden');
-    w.textContent = '\u{1F3C6} ' + winners.join(' & ') + (winners.length > 1 ? ' tie! ' : ' wins! ');
-    var s = document.createElement('small'); s.textContent = best + ' points'; w.appendChild(s);
-    if (!firstPaint && key !== lastWinnerKey) confetti();
-    lastWinnerKey = key;
-  }
-
-  function confetti() {
-    var box = $('confetti');
-    for (var i = 0; i < 70; i++) {
-      var p = document.createElement('i');
-      p.style.left = Math.random() * 100 + '%';
-      p.style.background = COLORS[i % COLORS.length];
-      p.style.animationDuration = (2 + Math.random() * 2.2) + 's';
-      p.style.animationDelay = (Math.random() * .6) + 's';
-      p.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
-      box.appendChild(p);
-    }
-    setTimeout(function () { box.innerHTML = ''; }, 5200);
+    w.innerHTML = '<span class="lbl"></span><span class="who2"></span><small></small>';
+    w.querySelector('.lbl').textContent = winners.length > 1 ? 'Joint winners' : 'Winner';
+    w.querySelector('.who2').textContent = winners.join(' & ');
+    w.querySelector('small').textContent = best + ' points';
   }
 
   $('board').addEventListener('input', function (e) {
@@ -615,7 +564,6 @@
     if (!confirm('Start a new game? This clears the current scores.')) return;
     try { localStorage.removeItem(STORE); } catch (e) {}
     game = null;
-    lastWinnerKey = null;
     $('names').innerHTML = '';
     renderSetup();
     show('setup');
