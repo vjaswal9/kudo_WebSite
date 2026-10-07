@@ -111,7 +111,7 @@
   td.final { min-width: 78px; text-align: center; font-size: 20px; font-weight: 800; border-left: 2px solid var(--line); font-variant-numeric: tabular-nums; }
   thead th.final { border-left: 2px solid var(--line); min-width: 78px; }
   td.final.leader { background: var(--lead); }
-  .inputs input[readonly] { cursor: default; }
+  .inputs input[readonly] { cursor: pointer; }
   .inputs input.a[readonly] { background: repeating-linear-gradient(135deg, transparent 0 6px, var(--soft-line) 6px 7px); opacity: .55; }
   .inputs input.p[readonly] { background: var(--bg); }
   .lockbtn {
@@ -320,8 +320,8 @@
       var pLocked = done && !un;
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="p"]').forEach(function (el) { el.readOnly = pLocked; });
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="a"]').forEach(function (el) {
-        el.readOnly = !done;
-        el.placeholder = done ? 'act' : '';
+        el.readOnly = !(done || un);
+        el.placeholder = (done || un) ? 'act' : '';
       });
       var btn = $('board').querySelector('.lockbtn[data-r="' + r + '"]');
       btn.classList.toggle('hidden', !(pLocked || un));
@@ -381,17 +381,19 @@
       return;
     }
     var el = e.target;
-    if (el.matches && el.matches('input.p') && el.readOnly) askAdmin(+el.dataset.r);
+    if (el.matches && el.matches('input.p, input.a') && el.readOnly) askAdmin(+el.dataset.r, el.dataset.k);
   });
 
   /* ---------- admin override ---------- */
-  var pendingRound = null;
-  function askAdmin(r) {
+  var pendingRound = null, pendingKind = 'p';
+  function askAdmin(r, kind) {
     pendingRound = r;
+    pendingKind = kind || 'p';
+    var what = ROUNDS[r] + '-card ' + (pendingKind === 'a' ? 'actuals before all prophecies are in' : 'prophecies');
     $('admin-title').textContent = game.pwHash ? 'Admin override' : 'Set an admin password';
     $('admin-msg').textContent = game.pwHash
-      ? 'Enter the admin password to edit the ' + ROUNDS[r] + '-card prophecies.'
-      : 'This game has no admin password yet. Choose one to unlock the ' + ROUNDS[r] + '-card prophecies.';
+      ? 'Enter the admin password to edit the ' + what + '.'
+      : 'This game has no admin password yet. Choose one to unlock the ' + what + '.';
     $('admin-input').value = '';
     $('admin-err').classList.add('hidden');
     $('admin-dlg').showModal();
@@ -408,7 +410,7 @@
       save();
       $('admin-dlg').close();
       refreshTotals();
-      var first = $('board').querySelector('input[data-r="' + r + '"][data-k="p"]');
+      var first = $('board').querySelector('input[data-r="' + r + '"][data-k="' + pendingKind + '"]');
       if (first) first.focus();
     }
     if (!game.pwHash) {
