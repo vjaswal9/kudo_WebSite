@@ -119,6 +119,22 @@
     letter-spacing: .04em; border-radius: 8px; border: 1px solid rgba(255,255,255,.7); background: transparent;
     color: var(--accent-ink); cursor: pointer;
   }
+  .hint { color: var(--muted); font-size: 13px; margin: 6px 0 0; }
+  .err { color: var(--neg); font-size: 14px; font-weight: 600; margin: 8px 0 0; }
+  .pw {
+    width: 100%; padding: 12px; font: inherit; border-radius: 10px;
+    border: 2px solid var(--soft-line); background: var(--bg); color: var(--ink);
+  }
+  .pw:focus { outline: 3px solid var(--accent); outline-offset: 1px; }
+  dialog {
+    border: 2px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink);
+    padding: 20px; width: min(92vw, 380px);
+  }
+  dialog::backdrop { background: rgba(20, 8, 26, .55); }
+  dialog h2 { margin: 0 0 6px; font-size: 20px; }
+  dialog p { margin: 0 0 12px; color: var(--muted); }
+  dialog .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
+  dialog .primary { margin: 0; width: auto; padding: 8px 18px; }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -132,6 +148,10 @@
     <div class="counts" id="counts" role="group" aria-labelledby="count-label"></div>
     <label class="field">Names</label>
     <div class="names" id="names"></div>
+    <label class="field" for="admin-pw">Admin password</label>
+    <input class="pw" id="admin-pw" type="password" autocomplete="new-password" maxlength="64">
+    <p class="hint">Needed to change a prophecy after it locks. Only the scorekeeper should know it.</p>
+    <p class="err hidden" id="setup-err" role="alert"></p>
     <button class="primary" id="start" type="button">Start game</button>
   </div>
 </section>
@@ -144,6 +164,19 @@
   <p class="legend">Each box: prophecy on top, actual below, running total on the right.</p>
   <div class="wrap"><table id="board"></table></div>
 </section>
+
+<dialog id="admin-dlg">
+  <form id="admin-form">
+    <h2 id="admin-title">Admin override</h2>
+    <p id="admin-msg"></p>
+    <input class="pw" id="admin-input" type="password" autocomplete="off" maxlength="64" aria-label="Admin password">
+    <p class="err hidden" id="admin-err" role="alert">Wrong password</p>
+    <div class="row">
+      <button class="ghost" id="admin-cancel" type="button">Cancel</button>
+      <button class="primary" type="submit">Unlock</button>
+    </div>
+  </form>
+</dialog>
 
 <script>
 (function () {
@@ -195,14 +228,36 @@
     }
   }
 
+  // Salted SHA-256 of the admin password. The password itself is never stored.
+  function hashPw(pw, salt) {
+    var data = salt + ':' + pw;
+    if (window.crypto && crypto.subtle && window.TextEncoder) {
+      return crypto.subtle.digest('SHA-256', new TextEncoder().encode(data)).then(function (b) {
+        return Array.prototype.map.call(new Uint8Array(b), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+      });
+    }
+    var h = 5381;
+    for (var i = 0; i < data.length; i++) h = ((h << 5) + h + data.charCodeAt(i)) | 0;
+    return Promise.resolve('f' + h);
+  }
+  function newSalt() { return Math.random().toString(36).slice(2) + Date.now().toString(36); }
+
   function startGame() {
+    var pw = $('admin-pw').value;
+    var err = $('setup-err');
+    if (!pw) { err.textContent = 'Choose an admin password.'; err.classList.remove('hidden'); $('admin-pw').focus(); return; }
+    err.classList.add('hidden');
     var inputs = $('names').querySelectorAll('input');
     var names = Array.prototype.map.call(inputs, function (inp, i) { return inp.value.trim() || ('Player ' + (i + 1)); });
-    game = { names: names, p: [], a: [] };
-    names.forEach(function () { game.p.push(Array(8).fill(null)); game.a.push(Array(8).fill(null)); });
-    save();
-    show('game');
-    renderBoard();
+    var salt = newSalt();
+    hashPw(pw, salt).then(function (hash) {
+      game = { names: names, p: [], a: [], salt: salt, pwHash: hash, unlocked: Array(8).fill(false) };
+      names.forEach(function () { game.p.push(Array(8).fill(null)); game.a.push(Array(8).fill(null)); });
+      $('admin-pw').value = '';
+      save();
+      show('game');
+      renderBoard();
+    });
   }
 
   /* ---------- board ---------- */
@@ -222,7 +277,7 @@
   function renderBoard() {
     var t = $('board');
     var html = '<thead><tr><th class="corner">Round</th>';
-    ROUNDS.forEach(function (c, r) { html += '<th scope="col">' + c + '<small>cards</small><button type="button" class="lockbtn hidden" data-r="' + r + '" title="Unlock prophecies to correct them">Locked, edit</button></th>'; });
+    ROUNDS.forEach(function (c, r) { html += '<th scope="col">' + c + '<small>cards</small><button type="button" class="lockbtn hidden" data-r="' + r + '" ></button></th>'; });
     html += '<th class="final" scope="col">Total</th></tr></thead><tbody>';
     game.names.forEach(function (name, pi) {
       html += '<tr data-pi="' + pi + '"><th class="name" scope="row"></th>';
@@ -261,15 +316,17 @@
     if (!game.unlocked) game.unlocked = Array(8).fill(false);
     ROUNDS.forEach(function (c, r) {
       var done = prophecyComplete(r);
-      if (!done) game.unlocked[r] = false;
-      var pLocked = done && !game.unlocked[r];
+      var un = !!game.unlocked[r];
+      var pLocked = done && !un;
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="p"]').forEach(function (el) { el.readOnly = pLocked; });
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="a"]').forEach(function (el) {
         el.readOnly = !done;
         el.placeholder = done ? 'act' : '';
       });
       var btn = $('board').querySelector('.lockbtn[data-r="' + r + '"]');
-      btn.classList.toggle('hidden', !pLocked);
+      btn.classList.toggle('hidden', !(pLocked || un));
+      btn.textContent = un ? 'Re-lock' : 'Locked';
+      btn.title = un ? 'Lock this round again' : 'Enter the admin password to edit prophecies';
     });
   }
 
@@ -317,10 +374,52 @@
   });
   $('board').addEventListener('click', function (e) {
     var btn = e.target.closest && e.target.closest('.lockbtn');
-    if (!btn) return;
-    game.unlocked[+btn.dataset.r] = true;
-    save();
-    refreshTotals();
+    if (btn) {
+      var r = +btn.dataset.r;
+      if (game.unlocked[r]) { game.unlocked[r] = false; save(); refreshTotals(); }
+      else askAdmin(r);
+      return;
+    }
+    var el = e.target;
+    if (el.matches && el.matches('input.p') && el.readOnly) askAdmin(+el.dataset.r);
+  });
+
+  /* ---------- admin override ---------- */
+  var pendingRound = null;
+  function askAdmin(r) {
+    pendingRound = r;
+    $('admin-title').textContent = game.pwHash ? 'Admin override' : 'Set an admin password';
+    $('admin-msg').textContent = game.pwHash
+      ? 'Enter the admin password to edit the ' + ROUNDS[r] + '-card prophecies.'
+      : 'This game has no admin password yet. Choose one to unlock the ' + ROUNDS[r] + '-card prophecies.';
+    $('admin-input').value = '';
+    $('admin-err').classList.add('hidden');
+    $('admin-dlg').showModal();
+    $('admin-input').focus();
+  }
+  $('admin-cancel').addEventListener('click', function () { $('admin-dlg').close(); });
+  $('admin-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var pw = $('admin-input').value;
+    if (!pw || pendingRound === null) return;
+    var r = pendingRound;
+    function unlock() {
+      game.unlocked[r] = true;
+      save();
+      $('admin-dlg').close();
+      refreshTotals();
+      var first = $('board').querySelector('input[data-r="' + r + '"][data-k="p"]');
+      if (first) first.focus();
+    }
+    if (!game.pwHash) {
+      game.salt = newSalt();
+      hashPw(pw, game.salt).then(function (h) { game.pwHash = h; unlock(); });
+      return;
+    }
+    hashPw(pw, game.salt).then(function (h) {
+      if (h === game.pwHash) unlock();
+      else { $('admin-err').classList.remove('hidden'); $('admin-input').select(); }
+    });
   });
   $('board').addEventListener('focusin', function (e) { if (e.target.select) e.target.select(); });
 
