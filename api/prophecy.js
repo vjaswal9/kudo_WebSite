@@ -11,7 +11,7 @@
 // Hardening that remains:
 //  - same-origin only (rejects requests not from kudoadvisory.com)
 //  - the whole game is validated and the totals are recomputed here, nothing is trusted
-//  - payload size capped and the number of stored games capped
+//  - payload size capped and the number of stored games capped (30)
 //  - private store, so game files are never publicly readable by URL
 
 import { put, get, list, del } from "@vercel/blob";
@@ -27,7 +27,7 @@ const GAMES = "prophecy/games/";
 const CARDS = [8, 7, 6, 5, 4, 3, 2, 1];
 const MAX_BODY = 20000;
 const MAX_LIST = 200;
-const MAX_GAMES = 500;
+const MAX_GAMES = 30;
 
 function hostFrom(url) {
   try { return new URL(url).host.toLowerCase(); } catch { return ""; }
