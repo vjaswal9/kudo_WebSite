@@ -24,7 +24,7 @@ const ALLOWED_HOSTS = [
 ];
 
 const GAMES = "prophecy/games/";
-const CARDS = [8, 7, 6, 5, 4, 3, 2, 1];
+const MAX_ROUNDS = 17;           // 3 players: floor(52 / 3) rounds. Round r deals (rounds - r) cards.
 const MAX_BODY = 20000;
 const MAX_LIST = 200;
 const MAX_GAMES = 30;
@@ -82,7 +82,7 @@ function roundScore(p, a) { return p === a ? 10 * p : -10 * Math.abs(p - a); }
 
 function playerTotal(p, a) {
   let t = 0;
-  for (let r = 0; r < 8; r++) t += roundScore(p[r], a[r]);
+  for (let r = 0; r < p.length; r++) t += roundScore(p[r], a[r]);
   return t;
 }
 
@@ -94,10 +94,13 @@ function validGame(g) {
     typeof n === "string" ? n.replace(/[\u0000-\u001f\u007f]/g, "").trim().slice(0, 20) : ""
   );
   if (names.some((n) => !n)) return null;
+  // Number of rounds comes from the data: the first round deals `rounds` cards, the last deals 1.
+  const rounds = Array.isArray(g.p) && Array.isArray(g.p[0]) ? g.p[0].length : 0;
+  if (!Number.isInteger(rounds) || rounds < 1 || rounds > MAX_ROUNDS) return null;
   const grid = (m) =>
     Array.isArray(m) && m.length === names.length &&
-    m.every((row) => Array.isArray(row) && row.length === 8 &&
-      row.every((v, r) => Number.isInteger(v) && v >= 0 && v <= CARDS[r]));
+    m.every((row) => Array.isArray(row) && row.length === rounds &&
+      row.every((v, r) => Number.isInteger(v) && v >= 0 && v <= rounds - r));
   if (!grid(g.p) || !grid(g.a)) return null;
 
   const now = Date.now();
