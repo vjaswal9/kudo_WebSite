@@ -238,6 +238,8 @@
   .guide .ex div { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; font-variant-numeric: tabular-nums; }
   .guide .ex span:last-child { font-weight: 600; }
   .guide .gold { color: var(--gold); }
+  td.future .inputs input { opacity: .4; }
+  td.future .inputs input::placeholder { opacity: .6; }
   .hidden { display: none !important; }
 
   @media (max-width: 480px) {
@@ -308,6 +310,7 @@
     <h2>Playing a round</h2>
     <ol>
       <li>There are 8 rounds. Each player is dealt 8 cards in the first round, 7 in the second, and so on down to 1 card in the last round. The <b>cards</b> number above each column shows this, and <span class="gold">NOW</span> marks the round you are on.</li>
+      <li>Only the round being played is open. Every other round is locked, and the next round opens as soon as the current one is complete.</li>
       <li>Every player <b>prophesies</b> how many tricks they will win. Type it in the top box of their cell. A prophecy cannot be more than the cards dealt, and the page will tell you if it is.</li>
       <li>When everyone has prophesied, the prophecies <b>lock</b> and the <b>Bids</b> row shows the total of all the prophecies against the cards dealt: over, under or even.</li>
       <li>Play the round. Then type each player's <b>actual</b> tricks in the bottom box. The running total appears on the right of each cell, with that round's points beneath it.</li>
@@ -328,10 +331,10 @@
 
     <h2>Fixing a mistake</h2>
     <ul>
-      <li><b>A wrong actual</b> can simply be retyped. Actuals stay open once all the prophecies are in.</li>
-      <li><b>A wrong prophecy</b> is locked, so it needs the admin password. Press and hold the locked box for a second, or tap the small <b>Locked</b> button under the round's number, then enter the admin password. The round opens for editing.</li>
+      <li>While a round is being played, a wrong <b>actual</b> can simply be retyped. Once the round is complete it locks.</li>
+      <li>To change anything in a locked round, which includes a wrong prophecy once everyone has prophesied, you need the admin password. Press and hold a locked box for a second, or tap the small <b>Locked</b> button under the round's number, then enter the admin password. That round opens for editing.</li>
       <li>Tap <b>Re-lock</b> under the round's number when you have finished. The same hold-and-password works on the greyed-out actual boxes if you need to enter an actual before everyone has prophesied.</li>
-      <li>A quick tap on a locked box only shows a reminder, so you will not open the password box by accident.</li>
+      <li>A quick tap on a locked box only shows a reminder, so you will not open the password box by accident. Rounds that have not started yet cannot be unlocked at all.</li>
     </ul>
 
     <h2>The end of the game</h2>
@@ -561,20 +564,34 @@
   function prophecyComplete(r) { return game.p.every(function (row) { return row[r] !== null; }); }
   function roundComplete(r) { return prophecyComplete(r) && game.a.every(function (row) { return row[r] !== null; }); }
 
-  // Actuals stay read-only until every prophecy for the round is in; then the prophecies lock.
+  // The round being played is the first one not fully entered (8 once the game is over).
+  function currentRound() {
+    for (var r = 0; r < 8; r++) { if (!roundComplete(r)) return r; }
+    return 8;
+  }
+
+  // Only the round being played can be edited. In that round the actuals stay read-only until every
+  // prophecy is in, then the prophecies lock. Finished rounds are locked (admin password to change).
+  // Later rounds are locked and cannot be opened until the earlier ones are complete.
   function refreshLocks() {
     if (!game.unlocked) game.unlocked = Array(8).fill(false);
+    var now = currentRound();
     ROUNDS.forEach(function (c, r) {
       var done = prophecyComplete(r);
       var un = !!game.unlocked[r];
-      var pLocked = done && !un;
+      var future = r > now, past = r < now;
+      var pLocked, aLocked;
+      if (future) { pLocked = true; aLocked = true; }
+      else if (past) { pLocked = !un; aLocked = !un; }
+      else { pLocked = done && !un; aLocked = !(done || un); }
+      $('board').querySelectorAll('td[data-r="' + r + '"]').forEach(function (td) { td.classList.toggle('future', future); });
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="p"]').forEach(function (el) { el.readOnly = pLocked; });
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="a"]').forEach(function (el) {
-        el.readOnly = !(done || un);
-        el.placeholder = (done || un) ? 'act' : '';
+        el.readOnly = aLocked;
+        el.placeholder = aLocked ? '' : 'act';
       });
       var btn = $('board').querySelector('.lockbtn[data-r="' + r + '"]');
-      btn.classList.toggle('hidden', !(pLocked || un));
+      btn.classList.toggle('hidden', future || !(pLocked || un));
       btn.classList.toggle('open', un);
       btn.textContent = un ? 'Re-lock' : 'Locked';
       btn.title = un ? 'Lock this round again' : 'Enter the admin password to edit prophecies';
@@ -1209,6 +1226,10 @@
     var el = e.target;
     if (!(el.matches && el.matches('input.p, input.a') && el.readOnly)) return;
     cancelHold();
+    if (+el.dataset.r > currentRound()) {
+      toast('Round ' + ROUNDS[+el.dataset.r] + ' is not open yet. Finish the current round first.');
+      return;
+    }
     holdEl = el; holdStart = { x: e.clientX, y: e.clientY };
     el.classList.add('holding');
     holdTimer = setTimeout(function () {
@@ -1234,7 +1255,7 @@
   function askAdmin(r, kind) {
     pendingRound = r;
     pendingKind = kind || 'p';
-    var what = ROUNDS[r] + '-card ' + (pendingKind === 'a' ? 'actuals before all prophecies are in' : 'prophecies');
+    var what = ROUNDS[r] + '-card ' + (pendingKind === 'a' ? (prophecyComplete(r) ? 'actuals' : 'actuals before all prophecies are in') : 'prophecies');
     $('admin-title').textContent = game.pwHash ? 'Admin override' : 'Set an admin password';
     $('admin-msg').textContent = game.pwHash
       ? 'Enter the admin password to edit the ' + what + '.'
