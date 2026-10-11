@@ -3,20 +3,18 @@
 // Requires the store's read-write token in BLOB_READ_WRITE_TOKEN (set automatically when a
 // Blob store is connected to the project). Without it every call answers 503 "not_configured".
 //
-//   GET  /api/prophecy                              list saved games (newest first)
-//   POST /api/prophecy {action:"setkey", key}       set the save password (only works once)
-//   POST /api/prophecy {action:"save", key, game}   save or update a finished game
-//   POST /api/prophecy {action:"delete", key, id}   delete a saved game
+//   GET  /api/prophecy                    list saved games (newest first)
+//   POST /api/prophecy {action:"save",   game}   save or update a finished game
+//   POST /api/prophecy {action:"delete", id}      delete a saved game
 //
-// Hardening:
+// There is no password: anyone who can load the page can save or delete games.
+// Hardening that remains:
 //  - same-origin only (rejects requests not from kudoadvisory.com)
-//  - writes need the save password; only a salted scrypt hash of it is stored
 //  - the whole game is validated and the totals are recomputed here, nothing is trusted
-//  - payload size capped, failed password attempts are slowed down
+//  - payload size capped and the number of stored games capped
 //  - private store, so game files are never publicly readable by URL
 
 import { put, get, list, del } from "@vercel/blob";
-import { scryptSync, randomBytes, timingSafeEqual } from "node:crypto";
 
 const ALLOWED_HOSTS = [
   "kudoadvisory.com",
@@ -26,10 +24,10 @@ const ALLOWED_HOSTS = [
 ];
 
 const GAMES = "prophecy/games/";
-const CONFIG = "prophecy/config.json";
 const CARDS = [8, 7, 6, 5, 4, 3, 2, 1];
 const MAX_BODY = 20000;
 const MAX_LIST = 200;
+const MAX_GAMES = 500;
 
 function hostFrom(url) {
   try { return new URL(url).host.toLowerCase(); } catch { return ""; }
@@ -125,26 +123,9 @@ function buildRecord(v) {
   };
 }
 
-// ---------- password ----------
-
-function hashKey(key, saltHex) {
-  return scryptSync(key, Buffer.from(saltHex, "hex"), 32).toString("hex");
-}
-
-function keyMatches(key, cfg) {
-  if (typeof key !== "string" || !cfg) return false;
-  const a = Buffer.from(hashKey(key, cfg.salt), "hex");
-  const b = Buffer.from(cfg.hash, "hex");
-  return a.length === b.length && timingSafeEqual(a, b);
-}
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
 // ---------- handler ----------
 
-export function makeHandler(store, opts = {}) {
-  const failDelay = opts.failDelay ?? 700;
-
+export function makeHandler(store) {
   return async function handler(req, res) {
     res.setHeader("Cache-Control", "no-store");
     const reply = (code, body) => res.status(code).json(body);
@@ -155,8 +136,6 @@ export function makeHandler(store, opts = {}) {
     if (!store.configured()) return reply(503, { error: "not_configured" });
 
     try {
-      const cfg = await store.readJson(CONFIG);
-
       if (req.method === "GET") {
         const paths = (await store.listPaths(GAMES)).filter((p) => p.endsWith(".json"));
         const games = [];
@@ -165,41 +144,30 @@ export function makeHandler(store, opts = {}) {
           for (const g of chunk) if (g && g.id && Array.isArray(g.names)) games.push(g);
         }
         games.sort((x, y) => String(y.finishedAt).localeCompare(String(x.finishedAt)));
-        return reply(200, { ok: true, keySet: Boolean(cfg), games: games.slice(0, MAX_LIST) });
+        return reply(200, { ok: true, games: games.slice(0, MAX_LIST) });
       }
 
       // POST
       const body = req.body && typeof req.body === "object" ? req.body : null;
       if (!body || JSON.stringify(body).length > MAX_BODY) return reply(400, { error: "Bad request" });
-      const { action, key } = body;
 
-      if (action === "setkey") {
-        if (cfg) return reply(409, { error: "key_exists" });
-        if (typeof key !== "string" || key.length < 6 || key.length > 64) return reply(400, { error: "bad_key" });
-        const salt = randomBytes(16).toString("hex");
-        await store.writeJson(CONFIG, { salt, hash: hashKey(key, salt), createdAt: new Date().toISOString() });
+      if (body.action === "save") {
+        const v = validGame(body.game);
+        if (!v) return reply(400, { error: "invalid_game" });
+        const path = `${GAMES}${v.id}.json`;
+        const existing = await store.listPaths(GAMES);
+        if (!existing.includes(path) && existing.length >= MAX_GAMES) return reply(409, { error: "full" });
+        await store.writeJson(path, buildRecord(v));
+        return reply(200, { ok: true, id: v.id });
+      }
+
+      if (body.action === "delete") {
+        if (typeof body.id !== "string" || !/^[a-z0-9]{6,24}$/.test(body.id)) return reply(400, { error: "Bad request" });
+        await store.remove(`${GAMES}${body.id}.json`);
         return reply(200, { ok: true });
       }
 
-      if (action !== "save" && action !== "delete") return reply(400, { error: "Bad request" });
-      if (!cfg) return reply(409, { error: "no_key" });
-      if (!keyMatches(key, cfg)) {
-        await sleep(failDelay);
-        return reply(401, { error: "wrong_key" });
-      }
-
-      if (action === "save") {
-        const v = validGame(body.game);
-        if (!v) return reply(400, { error: "invalid_game" });
-        const rec = buildRecord(v);
-        await store.writeJson(`${GAMES}${rec.id}.json`, rec);
-        return reply(200, { ok: true, id: rec.id });
-      }
-
-      // delete
-      if (typeof body.id !== "string" || !/^[a-z0-9]{6,24}$/.test(body.id)) return reply(400, { error: "Bad request" });
-      await store.remove(`${GAMES}${body.id}.json`);
-      return reply(200, { ok: true });
+      return reply(400, { error: "Bad request" });
     } catch (e) {
       console.error("prophecy api error", e && e.message);
       return reply(500, { error: "Server error" });

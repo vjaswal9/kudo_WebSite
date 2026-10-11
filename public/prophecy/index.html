@@ -216,6 +216,28 @@
   .cell.st .pa { font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
   .cell.st .total { flex: none; }
   table.static td.final { padding: 0 6px; }
+  .wa { display: inline-flex; align-items: center; gap: 8px; }
+  .wa-ico { width: 17px; height: 17px; fill: #25d366; flex: none; }
+  dialog.sheet {
+    position: fixed; top: auto; bottom: calc(16px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); margin: 0;
+    z-index: 80; width: min(92vw, 420px); text-align: center; border-color: var(--gold); box-shadow: 0 24px 70px rgba(0,0,0,.65);
+  }
+  dialog.sheet h2 { font-size: 24px; }
+  dialog.sheet p { margin: 0 0 4px; color: var(--ink); }
+  dialog.sheet .row { justify-content: center; flex-wrap: wrap; }
+  .primary.wa-primary { background: #25d366; color: #062a14; margin: 0; width: auto; padding: 12px 20px; font-size: 12px; }
+  .primary.wa-primary .wa-ico { fill: #062a14; width: 20px; height: 20px; }
+  .guide { max-width: 640px; }
+  .guide h2 { font-family: var(--serif); font-weight: 500; font-size: 24px; margin: 28px 0 8px; color: var(--ink); }
+  .guide h2:first-child { margin-top: 4px; }
+  .guide p, .guide li { color: #d8d0c2; line-height: 1.55; }
+  .guide ol, .guide ul { padding-left: 22px; margin: 8px 0; }
+  .guide li { margin: 6px 0; }
+  .guide b { color: var(--ink); font-weight: 600; }
+  .guide .ex { margin: 10px 0; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  .guide .ex div { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; font-variant-numeric: tabular-nums; }
+  .guide .ex span:last-child { font-weight: 600; }
+  .guide .gold { color: var(--gold); }
   .hidden { display: none !important; }
 
   @media (max-width: 480px) {
@@ -233,9 +255,12 @@
 <section id="setup" class="hidden">
   <div class="toolbar">
     <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
-    <button class="ghost" id="open-history-setup" type="button">History</button>
   </div>
   <p class="sub">Set up the game Gay Boyeeee!</p>
+  <div class="actions">
+    <button class="ghost" id="open-help-setup" type="button">How to play</button>
+    <button class="ghost" id="open-history-setup" type="button">History</button>
+  </div>
   <div class="card">
     <label class="field" id="count-label">How many players?</label>
     <div class="counts" id="counts" role="group" aria-labelledby="count-label"></div>
@@ -258,12 +283,76 @@
     <span><b>Top</b> prophecy</span><span><b>Bottom</b> actual</span><span><b>Right</b> running total</span>
   </div>
   <div class="actions">
+    <button class="ghost" id="open-help" type="button">How to play</button>
     <button class="ghost" id="open-history" type="button">History</button>
-    <button class="ghost" id="share" type="button">Share results</button>
+    <button class="ghost wa" id="share" type="button"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Share results</button>
   </div>
   <div id="winner" class="hidden"></div>
   <div id="standings" aria-label="Standings"></div>
   <div class="wrap"><table id="board"></table></div>
+</section>
+
+<section id="help" class="hidden">
+  <div class="toolbar">
+    <div class="brand"><h1>How to play</h1></div>
+    <button class="ghost" id="help-back" type="button">Back</button>
+  </div>
+  <div class="guide">
+    <h2>Setting up</h2>
+    <ol>
+      <li>Choose how many players there are, from 2 to 8, and type their names.</li>
+      <li>Choose an <b>admin password</b>. Only the scorekeeper should know it. It is needed to correct a prophecy after it locks (see Fixing a mistake). Pick something you will remember, because it cannot be recovered.</li>
+      <li>Tap <b>Deal me in</b>. One person keeps score on their phone for the whole game.</li>
+    </ol>
+
+    <h2>Playing a round</h2>
+    <ol>
+      <li>There are 8 rounds. Each player is dealt 8 cards in the first round, 7 in the second, and so on down to 1 card in the last round. The <b>cards</b> number above each column shows this, and <span class="gold">NOW</span> marks the round you are on.</li>
+      <li>Every player <b>prophesies</b> how many tricks they will win. Type it in the top box of their cell. A prophecy cannot be more than the cards dealt, and the page will tell you if it is.</li>
+      <li>When everyone has prophesied, the prophecies <b>lock</b> and the <b>Bids</b> row shows the total of all the prophecies against the cards dealt: over, under or even.</li>
+      <li>Play the round. Then type each player's <b>actual</b> tricks in the bottom box. The running total appears on the right of each cell, with that round's points beneath it.</li>
+    </ol>
+
+    <h2>Scoring</h2>
+    <ul>
+      <li><b>Exact prophecy:</b> 10 points for every trick prophesied. Prophesy 3 and win 3 and you score +30. Prophesy 0 and win 0 and you score 0.</li>
+      <li><b>Wrong prophecy:</b> minus 10 points for every trick you were out by, whether too high or too low.</li>
+    </ul>
+    <div class="ex">
+      <div><span>Prophesied 3, won 3</span><span>+30</span></div>
+      <div><span>Prophesied 1, won 0</span><span>-10</span></div>
+      <div><span>Prophesied 3, won 4</span><span>-10</span></div>
+      <div><span>Prophesied 0, won 2</span><span>-20</span></div>
+    </div>
+    <p>Each box shows the prophecy on top, the actual below and the running total on the right. A tick marks an exact prophecy.</p>
+
+    <h2>Fixing a mistake</h2>
+    <ul>
+      <li><b>A wrong actual</b> can simply be retyped. Actuals stay open once all the prophecies are in.</li>
+      <li><b>A wrong prophecy</b> is locked, so it needs the admin password. Press and hold the locked box for a second, or tap the small <b>Locked</b> button under the round's number, then enter the admin password. The round opens for editing.</li>
+      <li>Tap <b>Re-lock</b> under the round's number when you have finished. The same hold-and-password works on the greyed-out actual boxes if you need to enter an actual before everyone has prophesied.</li>
+      <li>A quick tap on a locked box only shows a reminder, so you will not open the password box by accident.</li>
+    </ul>
+
+    <h2>The end of the game</h2>
+    <ul>
+      <li>When the last round is complete there are fireworks, the winner is announced, and the game is <b>saved to history</b> automatically with its date.</li>
+      <li>Tap <b>Share results</b> to send a picture of the scorecard to WhatsApp. On a phone it opens your share sheet, where you choose WhatsApp and the chat or group.</li>
+      <li>Tap <b>New game</b> to start again. It warns you first if the finished game has not been saved.</li>
+    </ul>
+
+    <h2>History</h2>
+    <ul>
+      <li>Tap <b>History</b> to see every saved game, newest first. Tap a game to open its full scorecard, share it or delete it.</li>
+      <li>History is shared. Anyone with this page's link sees the same list and can add or delete games, so keep the link among friends.</li>
+    </ul>
+
+    <h2>Good to know</h2>
+    <ul>
+      <li>The current game is remembered on your device, so you can close the page and carry on later.</li>
+      <li>Only one person needs to enter scores. Everyone else can watch over their shoulder or follow along from the shared results picture.</li>
+    </ul>
+  </div>
 </section>
 
 <section id="history" class="hidden">
@@ -276,6 +365,15 @@
 </section>
 
 <canvas id="fireworks" class="hidden" aria-hidden="true"></canvas>
+<dialog id="end-dlg" class="sheet">
+  <h2>Game over</h2>
+  <p id="end-msg"></p>
+  <div class="row">
+    <button class="primary wa-primary wa" id="end-share" type="button"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Share on WhatsApp</button>
+    <button class="ghost" id="end-close" type="button">Close</button>
+  </div>
+</dialog>
+
 <div id="toast" class="hidden" role="status"></div>
 
 <dialog id="admin-dlg">
@@ -287,20 +385,6 @@
     <div class="row">
       <button class="ghost" id="admin-cancel" type="button">Cancel</button>
       <button class="primary" type="submit">Unlock</button>
-    </div>
-  </form>
-</dialog>
-
-<dialog id="key-dlg">
-  <form id="key-form">
-    <h2 id="key-title">History password</h2>
-    <p id="key-msg"></p>
-    <input class="pw" id="key-input" type="password" autocomplete="off" maxlength="64" aria-label="History password">
-    <input class="pw hidden" id="key-confirm" type="password" autocomplete="off" maxlength="64" placeholder="Repeat the password" aria-label="Repeat the password" style="margin-top:10px">
-    <p class="err hidden" id="key-err" role="alert"></p>
-    <div class="row">
-      <button class="ghost" id="key-cancel" type="button">Cancel</button>
-      <button class="primary" id="key-ok" type="submit">Save</button>
     </div>
   </form>
 </dialog>
@@ -588,7 +672,7 @@
     if (isSaved()) { save.textContent = 'Saved to history \u2713'; save.disabled = true; }
     else save.textContent = game.savedSig ? 'Save changes' : 'Save to history';
     var share = document.createElement('button'); share.type = 'button'; share.className = 'ghost'; share.dataset.act = 'share';
-    share.textContent = 'Share results';
+    share.className = 'ghost wa'; share.innerHTML = WA_ICO + 'Share results';
     box.appendChild(save); box.appendChild(share);
     return box;
   }
@@ -600,7 +684,7 @@
   function renderWinner(finals, allDone) {
     var w = $('winner');
     if (!allDone) {
-      w.classList.add('hidden'); celebrated = false;
+      w.classList.add('hidden'); celebrated = false; hideEndSheet();
       if (game.finishedAt) { delete game.finishedAt; save(); }
       return;
     }
@@ -613,7 +697,13 @@
     w.querySelector('.who2').textContent = winners.join(' & ');
     w.querySelector('small').textContent = best + ' points';
     w.appendChild(winnerActions());
-    if (!celebrated) { celebrated = true; if (!firstPaint) { fireworks(); saveToHistory(true); } }
+    if (!celebrated) {
+      celebrated = true;
+      if (!firstPaint) {
+        if (document.activeElement && document.activeElement.blur) document.activeElement.blur();   // close the keyboard
+        fireworks(); saveToHistory(true); showEndSheet(winners, best);
+      }
+    }
   }
 
   /* ---------- fireworks ---------- */
@@ -679,11 +769,9 @@
   }
 
   /* ---------- save to history (server) ---------- */
-  var HKEY = 'prophecy-history-key';
-  var serverInfo = null, historyGames = [], historyFrom = 'setup', keyCtx = null;
-
-  function getKey() { try { return localStorage.getItem(HKEY) || ''; } catch (e) { return ''; } }
-  function setKey(k) { try { if (k) localStorage.setItem(HKEY, k); else localStorage.removeItem(HKEY); } catch (e) {} }
+  var historyGames = [], historyFrom = 'setup', helpFrom = 'setup';
+  var WA_ICO = '<svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
+  try { localStorage.removeItem('prophecy-history-key'); } catch (e) {}   // left over from the password version
 
   function api(method, body) {
     var opts = { method: method, cache: 'no-store', headers: {} };
@@ -706,81 +794,25 @@
     if (!game.gid) { game.gid = randomId(); save(); }
     return { id: game.gid, names: game.names, p: game.p, a: game.a, finishedAt: game.finishedAt };
   }
-  function runSave(key) { return api('POST', { action: 'save', key: key, game: payload() }); }
   function onSaved() {
     game.savedSig = gameSig(); game.savedAt = new Date().toISOString(); save();
     renderWinnerButtons();
     toast('Saved to history');
   }
   function failToast(res, label) {
-    toast(res.status === 503 ? 'History is not set up yet.' : 'Could not reach the server. Check your connection and try again.', true, label || 'Not saved');
+    var msg = res.status === 503 ? 'History is not set up yet.'
+      : res.status === 409 ? 'History is full. Delete an old game first.'
+      : 'Could not reach the server. Check your connection and try again.';
+    toast(msg, true, label || 'Not saved');
   }
 
   function saveToHistory(auto) {
     if (!game || !isComplete()) return;
-    var key = getKey();
-    if (!key) { if (!auto) askKey('save'); return; }
-    runSave(key).then(function (res) {
-      if (res.status === 200 && res.ok) { onSaved(); return; }
-      if (res.status === 401) {
-        setKey('');
-        if (!auto) askKey('save');
-        else toast('Your history password was not accepted. Tap Save to history.', true, 'Not saved');
-        return;
-      }
-      failToast(res);
+    api('POST', { action: 'save', game: payload() }).then(function (res) {
+      if (res.status === 200 && res.ok) onSaved();
+      else failToast(res);
     });
   }
-
-  function askKey(kind, id) {
-    keyCtx = { kind: kind, id: id };
-    function go() { configureKeyDialog(); $('key-dlg').showModal(); $('key-input').focus(); }
-    if (serverInfo) { go(); return; }
-    api('GET').then(function (j) {
-      if (j.status === 200) { serverInfo = { keySet: !!j.keySet }; go(); }
-      else failToast(j, 'Not available');
-    });
-  }
-  function keyErr(msg) { $('key-err').textContent = msg; $('key-err').classList.remove('hidden'); }
-  function configureKeyDialog() {
-    var creating = !serverInfo.keySet, verb = keyCtx.kind === 'delete' ? 'delete' : 'save';
-    $('key-title').textContent = creating ? 'Create a history password' : 'History password';
-    $('key-msg').textContent = creating
-      ? 'Choose a password for the saved games history. You need it to save or delete games, so keep it safe. Anyone you give it to can save games too.'
-      : 'Enter the history password to ' + verb + ' this game.';
-    $('key-confirm').classList.toggle('hidden', !creating);
-    $('key-input').value = ''; $('key-confirm').value = '';
-    $('key-err').classList.add('hidden');
-    $('key-ok').disabled = false;
-    $('key-ok').textContent = creating ? 'Create and ' + verb : verb.charAt(0).toUpperCase() + verb.slice(1);
-  }
-  $('key-cancel').addEventListener('click', function () { $('key-dlg').close(); });
-  $('key-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var pw = $('key-input').value, creating = !serverInfo.keySet;
-    if (!pw) return;
-    if (creating) {
-      if (pw.length < 6) { keyErr('Use at least 6 characters.'); return; }
-      if (pw !== $('key-confirm').value) { keyErr('The two passwords do not match.'); return; }
-    }
-    $('key-ok').disabled = true;
-    $('key-err').classList.add('hidden');
-    var first = creating ? api('POST', { action: 'setkey', key: pw }) : Promise.resolve({ status: 200 });
-    first.then(function (r) {
-      if (r.status === 409) { serverInfo.keySet = true; configureKeyDialog(); keyErr('A password already exists. Enter it instead.'); return null; }
-      if (r.status !== 200) { $('key-ok').disabled = false; keyErr('Could not set the password. Try again.'); return null; }
-      serverInfo.keySet = true;
-      var act = keyCtx.kind === 'delete' ? api('POST', { action: 'delete', key: pw, id: keyCtx.id }) : runSave(pw);
-      return act.then(function (res) {
-        $('key-ok').disabled = false;
-        if (res.status === 200 && res.ok) {
-          setKey(pw); $('key-dlg').close();
-          if (keyCtx.kind === 'delete') afterDelete(keyCtx.id); else onSaved();
-        } else if (res.status === 401) { keyErr('Wrong password.'); $('key-input').select(); }
-        else keyErr('Could not complete that. Try again.');
-      });
-    });
-  });
 
   /* ---------- history ---------- */
   function fmtDate(iso) {
@@ -796,7 +828,7 @@
     list.innerHTML = '<p class="empty">Loading saved games...</p>';
     $('history-sub').textContent = '';
     api('GET').then(function (j) {
-      if (j.status === 200) { serverInfo = { keySet: !!j.keySet }; historyGames = j.games || []; renderHistory(); return; }
+      if (j.status === 200) { historyGames = j.games || []; renderHistory(); return; }
       list.innerHTML = '';
       var p = document.createElement('p'); p.className = 'empty';
       p.textContent = j.status === 503 ? 'History is not set up yet.' : 'Could not load history. Check your connection.';
@@ -878,7 +910,7 @@
         body.appendChild(chips);
         var tbl = document.createElement('div'); tbl.innerHTML = staticTable(rec, cr); body.appendChild(tbl);
         var act = document.createElement('div'); act.className = 'hact';
-        var sh = document.createElement('button'); sh.type = 'button'; sh.className = 'ghost'; sh.textContent = 'Share results';
+        var sh = document.createElement('button'); sh.type = 'button'; sh.className = 'ghost wa'; sh.innerHTML = WA_ICO + 'Share results';
         sh.addEventListener('click', function () { shareRecord(rec); });
         var del = document.createElement('button'); del.type = 'button'; del.className = 'ghost danger'; del.textContent = 'Delete';
         del.addEventListener('click', function () { deleteGame(rec.id); });
@@ -893,11 +925,8 @@
 
   function deleteGame(id) {
     if (!confirm('Delete this game from history? This cannot be undone.')) return;
-    var key = getKey();
-    if (!key) { askKey('delete', id); return; }
-    api('POST', { action: 'delete', key: key, id: id }).then(function (res) {
+    api('POST', { action: 'delete', id: id }).then(function (res) {
       if (res.status === 200 && res.ok) afterDelete(id);
-      else if (res.status === 401) { setKey(''); askKey('delete', id); }
       else failToast(res, 'Not deleted');
     });
   }
@@ -1096,6 +1125,20 @@
   $('open-history').addEventListener('click', function () { openHistory('game'); });
   $('open-history-setup').addEventListener('click', function () { openHistory('setup'); });
   $('history-back').addEventListener('click', function () { show(historyFrom); });
+  function openHelp(from) { helpFrom = from; show('help'); window.scrollTo(0, 0); }
+  $('open-help').addEventListener('click', function () { openHelp('game'); });
+  $('open-help-setup').addEventListener('click', function () { openHelp('setup'); });
+  $('help-back').addEventListener('click', function () { show(helpFrom); });
+
+  // Bottom sheet shown when the game ends, so sharing is one tap away (fireworks stay visible behind it).
+  function showEndSheet(winners, best) {
+    $('end-msg').innerHTML = '<b></b> ' + (winners.length > 1 ? 'tie' : 'wins') + ' with ' + best + ' points';
+    $('end-msg').querySelector('b').textContent = winners.join(' & ');
+    if (!$('end-dlg').open) $('end-dlg').show();
+  }
+  function hideEndSheet() { if ($('end-dlg').open) $('end-dlg').close(); }
+  $('end-close').addEventListener('click', hideEndSheet);
+  $('end-share').addEventListener('click', function () { shareRecord(recFromGame()); });
 
   $('board').addEventListener('input', function (e) {
     var el = e.target;
@@ -1232,6 +1275,7 @@
     $('setup').classList.toggle('hidden', which !== 'setup');
     $('game').classList.toggle('hidden', which !== 'game');
     $('history').classList.toggle('hidden', which !== 'history');
+    $('help').classList.toggle('hidden', which !== 'help');
   }
 
   $('start').addEventListener('click', startGame);
@@ -1241,6 +1285,7 @@
     try { localStorage.removeItem(STORE); } catch (e) {}
     game = null;
     celebrated = false;
+    hideEndSheet();
     $('names').innerHTML = '';
     renderSetup();
     show('setup');
