@@ -8,7 +8,8 @@
 <title>Prophecy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+<script>try { if (localStorage.getItem('prophecy-theme') === 'felt') document.documentElement.setAttribute('data-theme', 'felt'); } catch (e) {}</script>
 <style>
   :root {
     color-scheme: dark;
@@ -155,7 +156,8 @@
   #fireworks { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
   #winner { cursor: pointer; }
   .inputs input.p[readonly] { background: var(--surface2); }
-  .inputs input.a[readonly] { background: repeating-linear-gradient(135deg, transparent 0 5px, rgba(255,255,255,.04) 5px 6px), var(--bg); opacity: .5; }
+  .inputs input.a[readonly].empty { background: repeating-linear-gradient(135deg, transparent 0 5px, rgba(255,255,255,.04) 5px 6px), var(--bg); opacity: .5; }
+  .inputs input[readonly]:not(.empty) { opacity: .9; }
   .total { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-variant-numeric: tabular-nums; }
   .total .tv { font-size: 20px; font-weight: 600; line-height: 1; }
   .total .delta { font-size: 10px; font-weight: 600; letter-spacing: .04em; color: var(--muted); }
@@ -242,6 +244,113 @@
   td.future .inputs input::placeholder { opacity: .6; }
   .tbtns { display: flex; align-items: center; gap: 8px; }
   .ghost.icon { width: 38px; height: 38px; padding: 0; border-radius: 50%; font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1; color: var(--gold); }
+  /* ---------- style picker ---------- */
+  .themes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .theme-opt { text-align: left; padding: 10px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font: inherit; transition: border-color .15s, box-shadow .15s; }
+  .theme-opt:hover { border-color: var(--gold); }
+  .theme-opt[aria-pressed="true"] { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .theme-opt .sw { display: flex; gap: 4px; margin-bottom: 8px; }
+  .theme-opt .sw i { flex: 1; height: 26px; border-radius: 6px; border: 1px solid rgba(255,255,255,.12); }
+  .theme-opt b { display: block; font-size: 14px; font-weight: 700; }
+  .theme-opt .d { display: block; font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+  /* ---------- theme: Card table (emerald felt, gold trim, playing cards) ---------- */
+  :root[data-theme="felt"] {
+    --bg: #0a2e22; --surface: #0f3b2c; --surface2: #145040; --ink: #fbf6e9; --muted: #a6c9b8;
+    --line: rgba(242,193,78,.45); --soft-line: rgba(255,255,255,.09);
+    --gold: #f2c14e; --gold-soft: rgba(242,193,78,.16); --pos: #8cf0b4; --neg: #ff9494; --on-gold: #241a02;
+  }
+  :root[data-theme="felt"] body {
+    background:
+      radial-gradient(1100px 620px at 50% -10%, #1b7a58 0%, rgba(27,122,88,0) 70%),
+      radial-gradient(700px 420px at 100% 100%, rgba(0,0,0,.4), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.014) 0 2px, transparent 2px 4px),
+      var(--bg);
+    background-attachment: fixed;
+  }
+  :root[data-theme="felt"] h1 {
+    font-weight: 900; letter-spacing: .1em;
+    background: linear-gradient(100deg, #f2c14e 0%, #fff3c4 35%, #f2c14e 55%, #c98f1c 100%); background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shine 6s linear infinite; filter: drop-shadow(0 2px 8px rgba(0,0,0,.45));
+  }
+  @keyframes shine { to { background-position: -220% 0; } }
+  :root[data-theme="felt"] .suits { color: var(--ink); font-size: 18px; }
+  :root[data-theme="felt"] .suits .rd { color: #ff6b6b; }
+  :root[data-theme="felt"] .sub { color: var(--gold); }
+  :root[data-theme="felt"] .card { background: rgba(0,0,0,.28); border: 2px solid var(--gold); box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+  :root[data-theme="felt"] label.field { color: var(--gold); }
+  :root[data-theme="felt"] .counts button { background: #fffdf6; color: #1b1b1b; border: 0; box-shadow: 0 3px 0 rgba(0,0,0,.4); font-weight: 800; }
+  :root[data-theme="felt"] .counts button[aria-pressed="true"] { background: var(--gold); color: var(--on-gold); box-shadow: 0 3px 0 #a97a14, 0 0 18px rgba(242,193,78,.55); }
+  :root[data-theme="felt"] .names input, :root[data-theme="felt"] .pw { background: rgba(0,0,0,.32); border-color: rgba(242,193,78,.4); }
+  :root[data-theme="felt"] .names input::placeholder { color: #6e9a86; }
+  :root[data-theme="felt"] .primary {
+    background: linear-gradient(180deg, #ffd978, #e0a92a); border-radius: 12px; font-weight: 800;
+    box-shadow: 0 4px 0 #a97a14, 0 12px 26px rgba(0,0,0,.4); transition: transform .08s, box-shadow .08s; filter: none;
+  }
+  :root[data-theme="felt"] .primary:hover { filter: brightness(1.05); }
+  :root[data-theme="felt"] .primary:active { transform: translateY(3px); box-shadow: 0 1px 0 #a97a14, 0 6px 14px rgba(0,0,0,.4); }
+  :root[data-theme="felt"] .primary.wa-primary { background: #25d366; box-shadow: 0 4px 0 #128a43, 0 12px 26px rgba(0,0,0,.4); }
+  :root[data-theme="felt"] .ghost { background: rgba(0,0,0,.22); border-color: rgba(242,193,78,.5); }
+  :root[data-theme="felt"] .ghost:hover { background: rgba(242,193,78,.14); }
+  :root[data-theme="felt"] .legend { color: var(--muted); }
+  :root[data-theme="felt"] .legend b { color: var(--gold); }
+  :root[data-theme="felt"] .avatar {
+    width: 34px; height: 34px; background: var(--pc, #d93a3a); color: #fff; font-family: Inter, sans-serif; font-weight: 800; font-size: 14px;
+    border: 3px dashed rgba(255,255,255,.88); box-shadow: 0 0 0 2px var(--pc, #d93a3a), 0 3px 7px rgba(0,0,0,.45);
+  }
+  :root[data-theme="felt"] .stand { background: rgba(0,0,0,.26); border-color: rgba(242,193,78,.35); }
+  :root[data-theme="felt"] .stand.first { border-color: var(--gold); box-shadow: 0 0 24px rgba(242,193,78,.35); }
+  :root[data-theme="felt"] .stand .nm { font-weight: 700; }
+  :root[data-theme="felt"] #winner {
+    background: radial-gradient(500px 160px at 50% 0%, rgba(242,193,78,.32), rgba(242,193,78,.08)); border: 2px solid var(--gold);
+    box-shadow: 0 0 40px rgba(242,193,78,.3);
+  }
+  :root[data-theme="felt"] #winner .who2 { font-weight: 900; font-size: 32px; color: #ffe08a; }
+  :root[data-theme="felt"] .wrap { border: 2px solid var(--gold); box-shadow: 0 0 0 4px rgba(0,0,0,.28), 0 22px 50px rgba(0,0,0,.5); background: rgba(0,0,0,.18); }
+  :root[data-theme="felt"] th.name { background: #0e3829; }
+  :root[data-theme="felt"] .who .nm { font-weight: 700; }
+  :root[data-theme="felt"] thead th { background: #fffdf6; color: #1b1b1b; font-weight: 900; border-bottom: 3px solid var(--gold); border-right: 1px solid #e7ddb9; }
+  :root[data-theme="felt"] thead th small { color: #6b6450; }
+  :root[data-theme="felt"] thead th .suit { color: #1b1b1b; opacity: 1; font-size: 13px; }
+  :root[data-theme="felt"] thead th .suit.r { color: #c8312b; }
+  :root[data-theme="felt"] thead th.corner { background: var(--surface2); color: var(--gold); }
+  :root[data-theme="felt"] thead th.now { background: #fff1bd; box-shadow: inset 0 4px 0 var(--gold), 0 0 26px rgba(242,193,78,.6); position: relative; z-index: 2; animation: nowglow 2.4s ease-in-out infinite; }
+  :root[data-theme="felt"] thead th.now small { color: #8a5a00; font-weight: 800; }
+  @keyframes nowglow { 0%,100% { box-shadow: inset 0 4px 0 var(--gold), 0 0 14px rgba(242,193,78,.4); } 50% { box-shadow: inset 0 4px 0 var(--gold), 0 0 30px rgba(242,193,78,.8); } }
+  :root[data-theme="felt"] thead th.final { background: linear-gradient(180deg, #ffd978, #e0a92a); color: var(--on-gold); border-left: 0; }
+  :root[data-theme="felt"] .lockbtn { border-color: #b7a258; color: #6b5a1f; background: rgba(0,0,0,.05); }
+  :root[data-theme="felt"] .lockbtn.open { border-color: #b7791f; color: #8a5a00; background: rgba(242,193,78,.35); }
+  :root[data-theme="felt"] td.now { background: rgba(242,193,78,.09); }
+  :root[data-theme="felt"] .inputs input { background: #fffdf6; color: #1b1b1b; border: 1px solid #d8cda6; box-shadow: 0 2px 0 rgba(0,0,0,.28); font-weight: 800; }
+  :root[data-theme="felt"] .inputs input.a { color: #c8312b; }
+  :root[data-theme="felt"] .inputs input::placeholder { color: #b3a984; }
+  :root[data-theme="felt"] .inputs input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(242,193,78,.55); }
+  :root[data-theme="felt"] .inputs input.p[readonly] { background: #e8dfc0; }
+  :root[data-theme="felt"] .inputs input.a[readonly].empty { background: repeating-linear-gradient(135deg, transparent 0 5px, rgba(0,0,0,.07) 5px 6px), #d6cfb4; opacity: .55; }
+  :root[data-theme="felt"] .inputs input.a[readonly]:not(.empty) { background: #e8dfc0; }
+  :root[data-theme="felt"] td.future .inputs input { opacity: .35; }
+  :root[data-theme="felt"] .total .tv { font-size: 23px; font-weight: 900; }
+  :root[data-theme="felt"] .total .delta { background: rgba(0,0,0,.3); padding: 1px 9px; border-radius: 99px; font-size: 10px; font-weight: 800; color: var(--ink); }
+  :root[data-theme="felt"] .total.pos .delta { color: #8cf0b4; } :root[data-theme="felt"] .total.neg .delta { color: #ff9494; }
+  :root[data-theme="felt"] td.hit { background: linear-gradient(135deg, rgba(60,220,140,.3), rgba(60,220,140,.06)); }
+  :root[data-theme="felt"] td.miss { background: linear-gradient(135deg, rgba(255,110,110,.28), rgba(255,110,110,.05)); }
+  :root[data-theme="felt"] td.hit .cell::after { font-size: 12px; }
+  :root[data-theme="felt"] td.final { font-weight: 900; font-size: 24px; }
+  :root[data-theme="felt"] td.final.leader { background: linear-gradient(180deg, rgba(242,193,78,.4), rgba(242,193,78,.1)); color: #ffe08a; text-shadow: 0 0 16px rgba(242,193,78,.75); }
+  :root[data-theme="felt"] tfoot th.name, :root[data-theme="felt"] tfoot td { background: #145040; }
+  :root[data-theme="felt"] .bid .n { font-weight: 900; font-size: 22px; }
+  :root[data-theme="felt"] .bid .s { color: var(--muted); }
+  :root[data-theme="felt"] .hcard { background: rgba(0,0,0,.25); border-color: rgba(242,193,78,.4); }
+  :root[data-theme="felt"] .hwin { font-weight: 700; }
+  :root[data-theme="felt"] .hchip { border-color: rgba(242,193,78,.35); }
+  :root[data-theme="felt"] dialog { border: 2px solid var(--gold); }
+  :root[data-theme="felt"] #toast { background: #0f3b2c; }
+  :root[data-theme="felt"] #toast.error { background: #3a1616; }
+  :root[data-theme="felt"] .guide h2 { color: var(--gold); font-weight: 700; }
+  :root[data-theme="felt"] .guide p, :root[data-theme="felt"] .guide li { color: #e4ecdf; }
+  :root[data-theme="felt"] .guide .ex { background: rgba(0,0,0,.25); border-color: rgba(242,193,78,.35); }
+  :root[data-theme="felt"] .ghost.icon { color: var(--gold); }
   .hidden { display: none !important; }
 
   @media (max-width: 480px) {
@@ -258,7 +367,7 @@
 
 <section id="setup" class="hidden">
   <div class="toolbar">
-    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
+    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; <span class="rd">&hearts;</span> &clubs; <span class="rd">&diams;</span></span></div>
   </div>
   <p class="sub">Set up the game Gay Boyeeee!</p>
   <div class="actions">
@@ -266,6 +375,17 @@
     <button class="ghost" id="open-history-setup" type="button">History</button>
   </div>
   <div class="card">
+    <label class="field" id="style-label">Style</label>
+    <div class="themes" id="themes" role="group" aria-labelledby="style-label">
+      <button type="button" class="theme-opt" data-theme="classic" aria-pressed="true">
+        <span class="sw"><i style="background:#0f0e0d"></i><i style="background:#c9a96a"></i><i style="background:#93b79f"></i></span>
+        <b>Classic</b><span class="d">Charcoal and gold</span>
+      </button>
+      <button type="button" class="theme-opt" data-theme="felt" aria-pressed="false">
+        <span class="sw"><i style="background:#0f3b2c"></i><i style="background:#f2c14e"></i><i style="background:#fffdf6"></i></span>
+        <b>Card table</b><span class="d">Emerald felt, playing cards</span>
+      </button>
+    </div>
     <label class="field" id="count-label">How many players?</label>
     <div class="counts" id="counts" role="group" aria-labelledby="count-label"></div>
     <label class="field">Names</label>
@@ -280,7 +400,7 @@
 
 <section id="game" class="hidden">
   <div class="toolbar">
-    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
+    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; <span class="rd">&hearts;</span> &clubs; <span class="rd">&diams;</span></span></div>
     <div class="tbtns">
       <button class="ghost icon" id="open-help" type="button" aria-label="How to play" title="How to play">?</button>
       <button class="ghost" id="reset" type="button">New game</button>
@@ -302,6 +422,7 @@
   <div class="guide">
     <h2>Setting up</h2>
     <ol>
+      <li>Pick a <b>style</b>: <b>Classic</b> is charcoal and gold, <b>Card table</b> is emerald felt with playing-card headers and poker-chip names. Your choice is remembered, and the shared results picture follows it. You can change it on this screen at any time.</li>
       <li>Choose how many players there are, from 2 to 8, and type their names.</li>
       <li>Choose an <b>admin password</b>. Only the scorekeeper should know it. It is needed to correct a prophecy after it locks (see Fixing a mistake). Pick something you will remember, because it cannot be recovered.</li>
       <li>Tap <b>Deal me in</b>. One person keeps score on their phone for the whole game.</li>
@@ -398,7 +519,9 @@
   var STORE = 'prophecy-game-v1';
   var ROUNDS = [8, 7, 6, 5, 4, 3, 2, 1];
   var MAX_PLAYERS = 8, MIN_PLAYERS = 2;
-  var SUITS = ['♠', '♥', '♣', '♦'];   // spade, heart, club, diamond
+  var SUITS = ['♠', '♥', '♣', '♦'];
+  var PCOLORS = ['#d93a3a', '#2f6fdb', '#1f9d6b', '#7a4bd1', '#e0902b', '#2aa3b8', '#c44a9a', '#6b7280'];   // poker-chip colours (Card table style)
+  function pcolor(i) { return PCOLORS[i % PCOLORS.length]; }   // spade, heart, club, diamond
 
   var game = null;       // { names: [], p: [[...8]], a: [[...8]], salt, pwHash, unlocked: [8] }  null = not yet entered
   var setupCount = 4;
@@ -443,6 +566,7 @@
       row.className = 'nrow';
       var av = document.createElement('span');
       av.className = 'avatar';
+      av.style.setProperty('--pc', pcolor(i));
       av.textContent = i + 1;
       var inp = document.createElement('input');
       inp.type = 'text';
@@ -546,7 +670,7 @@
       var th = tr.querySelector('th.name');
       th.title = game.names[pi];
       var who = document.createElement('div'); who.className = 'who';
-      var av = document.createElement('span'); av.className = 'avatar'; av.textContent = initial(game.names[pi]);
+      var av = document.createElement('span'); av.className = 'avatar'; av.style.setProperty('--pc', pcolor(pi)); av.textContent = initial(game.names[pi]);
       var nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = game.names[pi];
       var rk = document.createElement('span'); rk.className = 'rk';
       who.appendChild(av); who.appendChild(nm); who.appendChild(rk);
@@ -586,10 +710,13 @@
       else if (past) { pLocked = !un; aLocked = !un; }
       else { pLocked = done && !un; aLocked = !(done || un); }
       $('board').querySelectorAll('td[data-r="' + r + '"]').forEach(function (td) { td.classList.toggle('future', future); });
-      $('board').querySelectorAll('input[data-r="' + r + '"][data-k="p"]').forEach(function (el) { el.readOnly = pLocked; });
+      $('board').querySelectorAll('input[data-r="' + r + '"][data-k="p"]').forEach(function (el) {
+        el.readOnly = pLocked; el.classList.toggle('empty', el.value === '');
+      });
       $('board').querySelectorAll('input[data-r="' + r + '"][data-k="a"]').forEach(function (el) {
         el.readOnly = aLocked;
         el.placeholder = aLocked ? '' : 'act';
+        el.classList.toggle('empty', el.value === '');
       });
       var btn = $('board').querySelector('.lockbtn[data-r="' + r + '"]');
       btn.classList.toggle('hidden', future || !(pLocked || un));
@@ -674,7 +801,7 @@
       var chip = document.createElement('div');
       chip.className = 'stand' + (rankOf[pi] === 0 ? ' first' : '');
       var medal = document.createElement('span'); medal.className = 'medal'; medal.textContent = rankOf[pi] + 1;
-      var av = document.createElement('span'); av.className = 'avatar'; av.textContent = initial(game.names[pi]);
+      var av = document.createElement('span'); av.className = 'avatar'; av.style.setProperty('--pc', pcolor(pi)); av.textContent = initial(game.names[pi]);
       var txt = document.createElement('div');
       var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = game.names[pi];
       var pts = document.createElement('div'); pts.className = 'pts ' + (finals[pi] > 0 ? 'pos' : finals[pi] < 0 ? 'neg' : 'zero'); pts.textContent = finals[pi] + ' pts';
@@ -737,7 +864,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
     cv.classList.remove('hidden');
-    var COLS = ['#c9a96a', '#e3c98f', '#f3ede2', '#f3ede2', '#c98a8a', '#93b79f'];
+    var COLS = CV.fw;
     var k = Math.max(.7, Math.min(1.4, H / 720));
     var rockets = [], parts = [], DURATION = 8000, start = performance.now(), last = start, nextLaunch = 0;
 
@@ -879,7 +1006,7 @@
     h += '<th class="final" scope="col">Total</th></tr></thead><tbody>';
     cr.order.forEach(function (pi) {
       var tt = cr.res[pi];
-      h += '<tr><th class="name" scope="row"><div class="who"><span class="avatar">' + esc(initial(rec.names[pi])) + '</span><span class="nm">' + esc(rec.names[pi]) + '</span></div></th>';
+      h += '<tr><th class="name" scope="row"><div class="who"><span class="avatar" style="--pc:' + pcolor(pi) + '">' + esc(initial(rec.names[pi])) + '</span><span class="nm">' + esc(rec.names[pi]) + '</span></div></th>';
       ROUNDS.forEach(function (c, r) {
         var p = rec.p[pi][r], a = rec.a[pi][r], v = tt.cells[r];
         if (v === null) { h += '<td></td>'; return; }
@@ -957,7 +1084,17 @@
   }
 
   /* ---------- results image and sharing ---------- */
-  var CV = { bg: '#0f0e0d', surface2: '#1f1c19', ink: '#f3ede2', muted: '#9a9184', line: '#3a352e', gold: '#c9a96a', pos: '#93b79f', neg: '#c98a8a' };
+  var PALETTES = {
+    classic: { bg: '#0f0e0d', surface2: '#1f1c19', ink: '#f3ede2', muted: '#9a9184', line: '#3a352e', gold: '#c9a96a', pos: '#93b79f', neg: '#c98a8a',
+      fw: ['#c9a96a', '#e3c98f', '#f3ede2', '#f3ede2', '#c98a8a', '#93b79f'] },
+    felt: { bg: '#0a2e22', surface2: '#145040', ink: '#fbf6e9', muted: '#a6c9b8', line: '#1f6a50', gold: '#f2c14e', pos: '#8cf0b4', neg: '#ff9494',
+      fw: ['#f2c14e', '#ffe08a', '#fbf6e9', '#ff6b6b', '#8cf0b4', '#6cc3ff'] }
+  };
+  var CV = PALETTES.classic;
+  function alpha(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + (n >> 16 & 255) + ',' + (n >> 8 & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
   var SERIF = '"Playfair Display", Georgia, "Times New Roman", serif';
   var SANS = 'Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
 
@@ -1010,9 +1147,9 @@
 
       ctx.fillStyle = CV.bg; ctx.fillRect(0, 0, W, H);
       var glow = ctx.createRadialGradient(W / 2, 0, 0, W / 2, 0, 720);
-      glow.addColorStop(0, 'rgba(201,169,106,.16)'); glow.addColorStop(1, 'rgba(201,169,106,0)');
+      glow.addColorStop(0, alpha(CV.gold, .16)); glow.addColorStop(1, alpha(CV.gold, 0));
       ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
-      ctx.strokeStyle = 'rgba(201,169,106,.55)'; ctx.lineWidth = 2; ctx.strokeRect(20, 20, W - 40, H - 40);
+      ctx.strokeStyle = alpha(CV.gold, .55); ctx.lineWidth = 2; ctx.strokeRect(20, 20, W - 40, H - 40);
 
       // title and date
       ctx.fillStyle = CV.ink; ctx.font = '500 62px ' + SERIF; spaced(ctx, 'PROPHECY', W / 2, 120, 16);
@@ -1029,7 +1166,7 @@
       else if (cr.roundsDone > 0) { label = 'IN PROGRESS  ·  AFTER ' + cr.roundsDone + ' OF 8 ROUNDS'; main = leaders.join(' & ') + (leaders.length > 1 ? ' lead' : ' leads'); }
       else { label = 'IN PROGRESS'; main = 'Game under way'; }
       var px = M + 120, pw = inner - 240, py = 232, ph = 96;
-      rr(ctx, px, py, pw, ph, 18); ctx.fillStyle = 'rgba(201,169,106,.12)'; ctx.fill();
+      rr(ctx, px, py, pw, ph, 18); ctx.fillStyle = alpha(CV.gold, .12); ctx.fill();
       ctx.strokeStyle = CV.gold; ctx.lineWidth = 1.5; ctx.stroke();
       ctx.fillStyle = CV.gold; ctx.font = '600 16px ' + SANS; spaced(ctx, label, W / 2, py + 30, 4);
       var size = 42; ctx.font = '500 ' + size + 'px ' + SERIF;
@@ -1051,7 +1188,7 @@
       // player rows, best first
       cr.order.forEach(function (pi, idx) {
         var y = y0 + headH + idx * rowH, tt = cr.res[pi], lead = cr.rank[pi] === 0 && cr.roundsDone > 0;
-        if (lead) { ctx.fillStyle = 'rgba(201,169,106,.08)'; ctx.fillRect(M, y, inner, rowH); }
+        if (lead) { ctx.fillStyle = alpha(CV.gold, .09); ctx.fillRect(M, y, inner, rowH); }
         ctx.textAlign = 'center'; ctx.font = '500 32px ' + SERIF; ctx.fillStyle = lead ? CV.gold : CV.muted;
         ctx.fillText(String(cr.rank[pi] + 1), M + rankW / 2, y + rowH / 2 + 11);
         ctx.textAlign = 'left'; ctx.font = '600 26px ' + SANS; ctx.fillStyle = CV.ink;
@@ -1060,7 +1197,7 @@
           var x = xR(r), p = rec.p[pi][r], a = rec.a[pi][r], v = tt.cells[r], cx = x + cellW / 2;
           ctx.textAlign = 'center';
           if (v !== null) {
-            ctx.fillStyle = p === a ? 'rgba(147,183,159,.10)' : 'rgba(201,138,138,.10)'; ctx.fillRect(x + 1, y + 1, cellW - 1, rowH - 1);
+            ctx.fillStyle = p === a ? alpha(CV.pos, .12) : alpha(CV.neg, .12); ctx.fillRect(x + 1, y + 1, cellW - 1, rowH - 1);
             ctx.font = '600 17px ' + SANS; ctx.fillStyle = CV.muted; ctx.fillText(p + ' / ' + a, cx, y + 31);
             ctx.font = '700 33px ' + SANS; ctx.fillStyle = v > 0 ? CV.pos : v < 0 ? CV.neg : CV.ink; ctx.fillText(String(v), cx, y + 69);
           } else if (p !== null || a !== null) {
@@ -1085,7 +1222,7 @@
         ctx.textAlign = 'center'; ctx.font = '500 32px ' + SERIF; ctx.fillStyle = CV.ink; ctx.fillText(String(b.sum), cx, yb + 38);
         ctx.font = '600 14px ' + SANS; ctx.fillStyle = b.diff === 0 ? CV.gold : CV.muted; ctx.fillText(b.label, cx, yb + 62);
       });
-      ctx.strokeStyle = 'rgba(201,169,106,.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(M, yb); ctx.lineTo(M + inner, yb); ctx.stroke();
+      ctx.strokeStyle = alpha(CV.gold, .5); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(M, yb); ctx.lineTo(M + inner, yb); ctx.stroke();
 
       // column rules
       ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
@@ -1314,6 +1451,23 @@
     renderSetup();
     show('setup');
   });
+
+  /* ---------- style (theme) ---------- */
+  var THEME_KEY = 'prophecy-theme';
+  function applyTheme(t) {
+    t = t === 'felt' ? 'felt' : 'classic';
+    if (t === 'felt') document.documentElement.setAttribute('data-theme', 'felt'); else document.documentElement.removeAttribute('data-theme');
+    CV = PALETTES[t];
+    var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', CV.bg);
+    document.querySelectorAll('.theme-opt').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.theme === t); });
+    try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+  }
+  document.querySelectorAll('.theme-opt').forEach(function (b) {
+    b.addEventListener('click', function () { applyTheme(b.dataset.theme); });
+  });
+  var savedTheme = 'classic';
+  try { savedTheme = localStorage.getItem(THEME_KEY) === 'felt' ? 'felt' : 'classic'; } catch (e) {}
+  applyTheme(savedTheme);
 
   game = load();
   if (game) { show('game'); renderBoard(); }
