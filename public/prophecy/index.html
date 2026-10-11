@@ -149,7 +149,7 @@
   }
   @keyframes drop { from { opacity: 0; margin-top: -12px; } to { opacity: 1; margin-top: 0; } }
   #toast.error { border-color: var(--neg); background: #2a1a1a; }
-  #toast.error::before { content: "Not possible  "; color: var(--neg); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 2px; }
+  #toast.error::before { content: attr(data-label); color: var(--neg); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 2px; }
   .inputs input.shake { animation: shake .35s; border-color: var(--neg); }
   @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
   #fireworks { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
@@ -183,6 +183,39 @@
   dialog p { margin: 0 0 12px; color: var(--muted); }
   dialog .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
   dialog .primary { margin: 0; width: auto; padding: 10px 20px; font-size: 12px; }
+  /* ---------- actions, bids, history ---------- */
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+  .wactions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px; }
+  .ghost[disabled] { opacity: .55; cursor: default; border-color: var(--line); }
+  .ghost.danger:hover { border-color: var(--neg); color: var(--neg); }
+  tfoot th.name, tfoot td { background: var(--surface2); border-top: 1px solid var(--line); border-bottom: 0; }
+  tfoot td.now { background: var(--surface2); box-shadow: inset 0 -2px 0 var(--gold); }
+  tfoot .who .nm { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .bid { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 54px; font-variant-numeric: tabular-nums; }
+  .bid .n { font-family: var(--serif); font-size: 21px; line-height: 1; color: var(--ink); }
+  .bid .s { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .bid .s.even { color: var(--gold); }
+  .hcard { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); margin-bottom: 12px; overflow: hidden; }
+  .hhead { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 12px; text-align: left; padding: 14px 16px; background: transparent; border: 0; color: var(--ink); font: inherit; cursor: pointer; }
+  .hhead:hover { background: rgba(255,255,255,.02); }
+  .hdate { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .hwin { font-family: var(--serif); font-size: 22px; margin-top: 3px; }
+  .hwin .crown { color: var(--gold); font-size: 16px; margin-right: 4px; }
+  .hwin .hpts { font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); margin-left: 8px; }
+  .hmeta { color: var(--muted); font-size: 12px; white-space: nowrap; }
+  .hbody { padding: 0 14px 14px; border-top: 1px solid var(--soft-line); }
+  .hchips { display: flex; flex-wrap: wrap; gap: 6px 8px; padding: 12px 0; }
+  .hchip { font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+  .hchip b { color: var(--ink); font-weight: 600; margin: 0 4px; }
+  .hchip.first { border-color: var(--gold); color: var(--gold); }
+  .hact { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .empty { color: var(--muted); padding: 22px 4px; }
+  table.static td { min-width: 78px; }
+  table.static th.name, table.static thead th.corner { min-width: 120px; }
+  .cell.st { height: 66px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+  .cell.st .pa { font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--muted); }
+  .cell.st .total { flex: none; }
+  table.static td.final { padding: 0 6px; }
   .hidden { display: none !important; }
 
   @media (max-width: 480px) {
@@ -198,7 +231,10 @@
 <body>
 
 <section id="setup" class="hidden">
-  <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
+  <div class="toolbar">
+    <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
+    <button class="ghost" id="open-history-setup" type="button">History</button>
+  </div>
   <p class="sub">Set up the game Gay Boyeeee!</p>
   <div class="card">
     <label class="field" id="count-label">How many players?</label>
@@ -221,9 +257,22 @@
   <div class="legend" aria-label="How to read each box">
     <span><b>Top</b> prophecy</span><span><b>Bottom</b> actual</span><span><b>Right</b> running total</span>
   </div>
+  <div class="actions">
+    <button class="ghost" id="open-history" type="button">History</button>
+    <button class="ghost" id="share" type="button">Share results</button>
+  </div>
   <div id="winner" class="hidden"></div>
   <div id="standings" aria-label="Standings"></div>
   <div class="wrap"><table id="board"></table></div>
+</section>
+
+<section id="history" class="hidden">
+  <div class="toolbar">
+    <div class="brand"><h1>History</h1></div>
+    <button class="ghost" id="history-back" type="button">Back</button>
+  </div>
+  <p class="hint" id="history-sub"></p>
+  <div id="history-list"></div>
 </section>
 
 <canvas id="fireworks" class="hidden" aria-hidden="true"></canvas>
@@ -238,6 +287,20 @@
     <div class="row">
       <button class="ghost" id="admin-cancel" type="button">Cancel</button>
       <button class="primary" type="submit">Unlock</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="key-dlg">
+  <form id="key-form">
+    <h2 id="key-title">History password</h2>
+    <p id="key-msg"></p>
+    <input class="pw" id="key-input" type="password" autocomplete="off" maxlength="64" aria-label="History password">
+    <input class="pw hidden" id="key-confirm" type="password" autocomplete="off" maxlength="64" placeholder="Repeat the password" aria-label="Repeat the password" style="margin-top:10px">
+    <p class="err hidden" id="key-err" role="alert"></p>
+    <div class="row">
+      <button class="ghost" id="key-cancel" type="button">Cancel</button>
+      <button class="primary" id="key-ok" type="submit">Save</button>
     </div>
   </form>
 </dialog>
@@ -329,7 +392,7 @@
     var names = Array.prototype.map.call(inputs, function (inp, i) { return inp.value.trim() || ('Player ' + (i + 1)); });
     var salt = newSalt();
     hashPw(pw, salt).then(function (hash) {
-      game = { names: names, p: [], a: [], salt: salt, pwHash: hash, unlocked: Array(8).fill(false) };
+      game = { names: names, p: [], a: [], salt: salt, pwHash: hash, unlocked: Array(8).fill(false), gid: randomId() };
       names.forEach(function () { game.p.push(Array(8).fill(null)); game.a.push(Array(8).fill(null)); });
       $('admin-pw').value = '';
       save();
@@ -339,15 +402,29 @@
   }
 
   /* ---------- board ---------- */
-  function totals(pi) {
-    // running totals across completed rounds, in play order (8 down to 1)
-    var run = 0, out = [];
+  // Running totals across completed rounds, in play order (8 down to 1).
+  function calc(prow, arow) {
+    var run = 0, cells = [], scores = [];
     for (var r = 0; r < 8; r++) {
-      var p = game.p[pi][r], a = game.a[pi][r];
-      if (p !== null && a !== null) { run += roundScore(p, a); out.push(run); }
-      else out.push(null);
+      var p = prow[r], a = arow[r];
+      if (p !== null && p !== undefined && a !== null && a !== undefined) {
+        var d = roundScore(p, a); run += d; cells.push(run); scores.push(d);
+      } else { cells.push(null); scores.push(null); }
     }
-    return { cells: out, final: run };
+    return { cells: cells, scores: scores, final: run };
+  }
+  function totals(pi) { return calc(game.p[pi], game.a[pi]); }
+
+  // Total of everyone's prophecies for a round, once all of them are in.
+  function bidInfo(pm, r) {
+    for (var i = 0; i < pm.length; i++) if (pm[i][r] === null || pm[i][r] === undefined) return null;
+    var sum = 0; pm.forEach(function (row) { sum += row[r]; });
+    var diff = sum - ROUNDS[r];
+    return { sum: sum, diff: diff, label: diff === 0 ? 'even' : diff > 0 ? 'over by ' + diff : 'under by ' + (-diff) };
+  }
+  function bidHtml(pm, r) {
+    var b = bidInfo(pm, r);
+    return b ? '<div class="bid"><span class="n">' + b.sum + '</span><span class="s' + (b.diff === 0 ? ' even' : '') + '">' + b.label + '</span></div>' : '';
   }
 
   function renderBoard() {
@@ -370,7 +447,9 @@
       });
       html += '<td class="final"></td></tr>';
     });
-    html += '</tbody>';
+    html += '</tbody><tfoot><tr class="bids"><th class="name" scope="row"><div class="who"><span class="nm">Bids</span></div></th>';
+    ROUNDS.forEach(function (c, r) { html += '<td data-r="' + r + '"></td>'; });
+    html += '<td class="final"></td></tr></tfoot>';
     t.innerHTML = html;
 
     // names via textContent (avoid injecting HTML)
@@ -418,8 +497,16 @@
     });
   }
 
+  function refreshBids() {
+    ROUNDS.forEach(function (c, r) {
+      var td = $('board').querySelector('tfoot td[data-r="' + r + '"]');
+      if (td) td.innerHTML = bidHtml(game.p, r);
+    });
+  }
+
   function refreshTotals() {
     refreshLocks();
+    refreshBids();
     var finals = [];
     game.names.forEach(function (_, pi) {
       var tr = $('board').querySelector('tr[data-pi="' + pi + '"]');
@@ -495,9 +582,29 @@
     });
   }
 
+  function winnerActions() {
+    var box = document.createElement('div'); box.className = 'wactions';
+    var save = document.createElement('button'); save.type = 'button'; save.className = 'ghost'; save.dataset.act = 'save';
+    if (isSaved()) { save.textContent = 'Saved to history \u2713'; save.disabled = true; }
+    else save.textContent = game.savedSig ? 'Save changes' : 'Save to history';
+    var share = document.createElement('button'); share.type = 'button'; share.className = 'ghost'; share.dataset.act = 'share';
+    share.textContent = 'Share results';
+    box.appendChild(save); box.appendChild(share);
+    return box;
+  }
+  function renderWinnerButtons() {
+    var old = $('winner').querySelector('.wactions');
+    if (old && game) old.replaceWith(winnerActions());
+  }
+
   function renderWinner(finals, allDone) {
     var w = $('winner');
-    if (!allDone) { w.classList.add('hidden'); celebrated = false; return; }
+    if (!allDone) {
+      w.classList.add('hidden'); celebrated = false;
+      if (game.finishedAt) { delete game.finishedAt; save(); }
+      return;
+    }
+    if (!game.finishedAt) { game.finishedAt = new Date().toISOString(); save(); }
     var best = Math.max.apply(null, finals);
     var winners = game.names.filter(function (_, i) { return finals[i] === best; });
     w.classList.remove('hidden');
@@ -505,7 +612,8 @@
     w.querySelector('.lbl').textContent = winners.length > 1 ? 'Joint winners' : 'Winner';
     w.querySelector('.who2').textContent = winners.join(' & ');
     w.querySelector('small').textContent = best + ' points';
-    if (!celebrated) { celebrated = true; if (!firstPaint) fireworks(); }
+    w.appendChild(winnerActions());
+    if (!celebrated) { celebrated = true; if (!firstPaint) { fireworks(); saveToHistory(true); } }
   }
 
   /* ---------- fireworks ---------- */
@@ -569,7 +677,425 @@
     }
     fwRaf = requestAnimationFrame(frame);
   }
-  $('winner').addEventListener('click', fireworks);
+
+  /* ---------- save to history (server) ---------- */
+  var HKEY = 'prophecy-history-key';
+  var serverInfo = null, historyGames = [], historyFrom = 'setup', keyCtx = null;
+
+  function getKey() { try { return localStorage.getItem(HKEY) || ''; } catch (e) { return ''; } }
+  function setKey(k) { try { if (k) localStorage.setItem(HKEY, k); else localStorage.removeItem(HKEY); } catch (e) {} }
+
+  function api(method, body) {
+    var opts = { method: method, cache: 'no-store', headers: {} };
+    if (body) { opts.headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
+    return fetch('/api/prophecy', opts).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (j) { j.status = res.status; return j; });
+    }).catch(function () { return { status: 0, error: 'network' }; });
+  }
+
+  function randomId() {
+    var chars = 'abcdefghijklmnopqrstuvwxyz0123456789', out = '';
+    var bytes = window.crypto && crypto.getRandomValues ? crypto.getRandomValues(new Uint8Array(12)) : null;
+    for (var i = 0; i < 12; i++) out += chars[(bytes ? bytes[i] : Math.floor(Math.random() * 256)) % 36];
+    return out;
+  }
+  function isComplete() { return ROUNDS.every(function (c, r) { return roundComplete(r); }); }
+  function gameSig() { return JSON.stringify([game.p, game.a]); }
+  function isSaved() { return !!game.savedSig && game.savedSig === gameSig(); }
+  function payload() {
+    if (!game.gid) { game.gid = randomId(); save(); }
+    return { id: game.gid, names: game.names, p: game.p, a: game.a, finishedAt: game.finishedAt };
+  }
+  function runSave(key) { return api('POST', { action: 'save', key: key, game: payload() }); }
+  function onSaved() {
+    game.savedSig = gameSig(); game.savedAt = new Date().toISOString(); save();
+    renderWinnerButtons();
+    toast('Saved to history');
+  }
+  function failToast(res, label) {
+    toast(res.status === 503 ? 'History is not set up yet.' : 'Could not reach the server. Check your connection and try again.', true, label || 'Not saved');
+  }
+
+  function saveToHistory(auto) {
+    if (!game || !isComplete()) return;
+    var key = getKey();
+    if (!key) { if (!auto) askKey('save'); return; }
+    runSave(key).then(function (res) {
+      if (res.status === 200 && res.ok) { onSaved(); return; }
+      if (res.status === 401) {
+        setKey('');
+        if (!auto) askKey('save');
+        else toast('Your history password was not accepted. Tap Save to history.', true, 'Not saved');
+        return;
+      }
+      failToast(res);
+    });
+  }
+
+  function askKey(kind, id) {
+    keyCtx = { kind: kind, id: id };
+    function go() { configureKeyDialog(); $('key-dlg').showModal(); $('key-input').focus(); }
+    if (serverInfo) { go(); return; }
+    api('GET').then(function (j) {
+      if (j.status === 200) { serverInfo = { keySet: !!j.keySet }; go(); }
+      else failToast(j, 'Not available');
+    });
+  }
+  function keyErr(msg) { $('key-err').textContent = msg; $('key-err').classList.remove('hidden'); }
+  function configureKeyDialog() {
+    var creating = !serverInfo.keySet, verb = keyCtx.kind === 'delete' ? 'delete' : 'save';
+    $('key-title').textContent = creating ? 'Create a history password' : 'History password';
+    $('key-msg').textContent = creating
+      ? 'Choose a password for the saved games history. You need it to save or delete games, so keep it safe. Anyone you give it to can save games too.'
+      : 'Enter the history password to ' + verb + ' this game.';
+    $('key-confirm').classList.toggle('hidden', !creating);
+    $('key-input').value = ''; $('key-confirm').value = '';
+    $('key-err').classList.add('hidden');
+    $('key-ok').disabled = false;
+    $('key-ok').textContent = creating ? 'Create and ' + verb : verb.charAt(0).toUpperCase() + verb.slice(1);
+  }
+  $('key-cancel').addEventListener('click', function () { $('key-dlg').close(); });
+  $('key-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var pw = $('key-input').value, creating = !serverInfo.keySet;
+    if (!pw) return;
+    if (creating) {
+      if (pw.length < 6) { keyErr('Use at least 6 characters.'); return; }
+      if (pw !== $('key-confirm').value) { keyErr('The two passwords do not match.'); return; }
+    }
+    $('key-ok').disabled = true;
+    $('key-err').classList.add('hidden');
+    var first = creating ? api('POST', { action: 'setkey', key: pw }) : Promise.resolve({ status: 200 });
+    first.then(function (r) {
+      if (r.status === 409) { serverInfo.keySet = true; configureKeyDialog(); keyErr('A password already exists. Enter it instead.'); return null; }
+      if (r.status !== 200) { $('key-ok').disabled = false; keyErr('Could not set the password. Try again.'); return null; }
+      serverInfo.keySet = true;
+      var act = keyCtx.kind === 'delete' ? api('POST', { action: 'delete', key: pw, id: keyCtx.id }) : runSave(pw);
+      return act.then(function (res) {
+        $('key-ok').disabled = false;
+        if (res.status === 200 && res.ok) {
+          setKey(pw); $('key-dlg').close();
+          if (keyCtx.kind === 'delete') afterDelete(keyCtx.id); else onSaved();
+        } else if (res.status === 401) { keyErr('Wrong password.'); $('key-input').select(); }
+        else keyErr('Could not complete that. Try again.');
+      });
+    });
+  });
+
+  /* ---------- history ---------- */
+  function fmtDate(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) +
+      ' · ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function openHistory(from) { historyFrom = from; show('history'); window.scrollTo(0, 0); loadHistory(); }
+  function loadHistory() {
+    var list = $('history-list');
+    list.innerHTML = '<p class="empty">Loading saved games...</p>';
+    $('history-sub').textContent = '';
+    api('GET').then(function (j) {
+      if (j.status === 200) { serverInfo = { keySet: !!j.keySet }; historyGames = j.games || []; renderHistory(); return; }
+      list.innerHTML = '';
+      var p = document.createElement('p'); p.className = 'empty';
+      p.textContent = j.status === 503 ? 'History is not set up yet.' : 'Could not load history. Check your connection.';
+      list.appendChild(p);
+      if (j.status !== 503) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'ghost'; b.textContent = 'Try again';
+        b.addEventListener('click', loadHistory); list.appendChild(b);
+      }
+    });
+  }
+
+  function renderHistory() {
+    var list = $('history-list');
+    list.innerHTML = '';
+    var n = historyGames.length;
+    $('history-sub').textContent = n ? n + ' saved game' + (n === 1 ? '' : 's') + '. Tap one to open the full scorecard.' : '';
+    if (!n) {
+      var p = document.createElement('p'); p.className = 'empty';
+      p.textContent = 'No saved games yet. Finish a game and tap Save to history.';
+      list.appendChild(p); return;
+    }
+    historyGames.forEach(function (rec) { list.appendChild(historyCard(rec)); });
+  }
+
+  function staticTable(rec, cr) {
+    var h = '<div class="wrap"><table class="board static"><thead><tr><th class="corner">Players</th>';
+    ROUNDS.forEach(function (c) { h += '<th scope="col">' + c + '<small>cards</small></th>'; });
+    h += '<th class="final" scope="col">Total</th></tr></thead><tbody>';
+    cr.order.forEach(function (pi) {
+      var tt = cr.res[pi];
+      h += '<tr><th class="name" scope="row"><div class="who"><span class="avatar">' + esc(initial(rec.names[pi])) + '</span><span class="nm">' + esc(rec.names[pi]) + '</span></div></th>';
+      ROUNDS.forEach(function (c, r) {
+        var p = rec.p[pi][r], a = rec.a[pi][r], v = tt.cells[r];
+        if (v === null) { h += '<td></td>'; return; }
+        h += '<td class="' + (p === a ? 'hit' : 'miss') + '"><div class="cell st"><div class="pa">' + p + ' / ' + a + '</div>' +
+          '<div class="total ' + (v > 0 ? 'pos' : v < 0 ? 'neg' : '') + '"><span class="tv">' + v + '</span><span class="delta">' + fmt(tt.scores[r]) + '</span></div></div></td>';
+      });
+      h += '<td class="final ' + (tt.final > 0 ? 'pos' : tt.final < 0 ? 'neg' : '') + (cr.rank[pi] === 0 ? ' leader' : '') + '">' + tt.final + '</td></tr>';
+    });
+    h += '</tbody><tfoot><tr><th class="name" scope="row"><div class="who"><span class="nm">Bids</span></div></th>';
+    ROUNDS.forEach(function (c, r) { h += '<td>' + bidHtml(rec.p, r) + '</td>'; });
+    h += '<td class="final"></td></tr></tfoot></table></div>';
+    return h;
+  }
+
+  function historyCard(rec) {
+    var cr = computeRec(rec);
+    var best = Math.max.apply(null, cr.res.map(function (x) { return x.final; }));
+    var winners = rec.names.filter(function (_, i) { return cr.res[i].final === best; });
+    var card = document.createElement('article'); card.className = 'hcard';
+
+    var head = document.createElement('button'); head.type = 'button'; head.className = 'hhead'; head.setAttribute('aria-expanded', 'false');
+    var left = document.createElement('div');
+    var dt = document.createElement('div'); dt.className = 'hdate'; dt.textContent = fmtDate(rec.finishedAt);
+    var win = document.createElement('div'); win.className = 'hwin';
+    var crown = document.createElement('span'); crown.className = 'crown'; crown.textContent = '♛︎';
+    var wn = document.createElement('span'); wn.textContent = winners.join(' & ');
+    var pts = document.createElement('span'); pts.className = 'hpts'; pts.textContent = best + ' pts';
+    win.appendChild(crown); win.appendChild(wn); win.appendChild(pts);
+    left.appendChild(dt); left.appendChild(win);
+    var meta = document.createElement('div'); meta.className = 'hmeta'; meta.textContent = rec.names.length + ' players ▾';
+    head.appendChild(left); head.appendChild(meta);
+    card.appendChild(head);
+
+    var body = document.createElement('div'); body.className = 'hbody hidden';
+    var built = false;
+    head.addEventListener('click', function () {
+      var open = body.classList.contains('hidden');
+      if (open && !built) {
+        built = true;
+        var chips = document.createElement('div'); chips.className = 'hchips';
+        cr.order.forEach(function (pi) {
+          var c = document.createElement('span'); c.className = 'hchip' + (cr.rank[pi] === 0 ? ' first' : '');
+          var rk = document.createElement('span'); rk.textContent = cr.rank[pi] + 1 + '.';
+          var nm = document.createElement('b'); nm.textContent = rec.names[pi];
+          var sc = document.createElement('span'); sc.textContent = cr.res[pi].final;
+          c.appendChild(rk); c.appendChild(nm); c.appendChild(sc); chips.appendChild(c);
+        });
+        body.appendChild(chips);
+        var tbl = document.createElement('div'); tbl.innerHTML = staticTable(rec, cr); body.appendChild(tbl);
+        var act = document.createElement('div'); act.className = 'hact';
+        var sh = document.createElement('button'); sh.type = 'button'; sh.className = 'ghost'; sh.textContent = 'Share results';
+        sh.addEventListener('click', function () { shareRecord(rec); });
+        var del = document.createElement('button'); del.type = 'button'; del.className = 'ghost danger'; del.textContent = 'Delete';
+        del.addEventListener('click', function () { deleteGame(rec.id); });
+        act.appendChild(sh); act.appendChild(del); body.appendChild(act);
+      }
+      body.classList.toggle('hidden', !open);
+      head.setAttribute('aria-expanded', open);
+    });
+    card.appendChild(body);
+    return card;
+  }
+
+  function deleteGame(id) {
+    if (!confirm('Delete this game from history? This cannot be undone.')) return;
+    var key = getKey();
+    if (!key) { askKey('delete', id); return; }
+    api('POST', { action: 'delete', key: key, id: id }).then(function (res) {
+      if (res.status === 200 && res.ok) afterDelete(id);
+      else if (res.status === 401) { setKey(''); askKey('delete', id); }
+      else failToast(res, 'Not deleted');
+    });
+  }
+  function afterDelete(id) {
+    historyGames = historyGames.filter(function (g) { return g.id !== id; });
+    renderHistory();
+    toast('Deleted');
+  }
+
+  /* ---------- results image and sharing ---------- */
+  var CV = { bg: '#0f0e0d', surface2: '#1f1c19', ink: '#f3ede2', muted: '#9a9184', line: '#3a352e', gold: '#c9a96a', pos: '#93b79f', neg: '#c98a8a' };
+  var SERIF = '"Playfair Display", Georgia, "Times New Roman", serif';
+  var SANS = 'Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+
+  function computeRec(rec) {
+    var res = rec.names.map(function (_, i) { return calc(rec.p[i], rec.a[i]); });
+    var order = rec.names.map(function (_, i) { return i; }).sort(function (x, y) { return res[y].final - res[x].final || x - y; });
+    var rank = {};
+    order.forEach(function (pi, i) { rank[pi] = i > 0 && res[pi].final === res[order[i - 1]].final ? rank[order[i - 1]] : i; });
+    var done = 0;
+    for (var r = 0; r < 8; r++) {
+      if (rec.names.every(function (_, i) { return rec.p[i][r] !== null && rec.a[i][r] !== null; })) done++;
+    }
+    return { res: res, order: order, rank: rank, roundsDone: done, complete: done === 8 };
+  }
+
+  function recFromGame() {
+    return { names: game.names, p: game.p, a: game.a, finishedAt: game.finishedAt || new Date().toISOString() };
+  }
+
+  function rr(ctx, x, y, w, h, r) {
+    ctx.beginPath(); ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function fit(ctx, text, maxW) {
+    if (ctx.measureText(text).width <= maxW) return text;
+    while (text.length > 1 && ctx.measureText(text + '…').width > maxW) text = text.slice(0, -1);
+    return text + '…';
+  }
+  function spaced(ctx, text, cx, y, spacing) {
+    var chars = Array.from(text), widths = chars.map(function (ch) { return ctx.measureText(ch).width; });
+    var total = widths.reduce(function (s, w) { return s + w; }, 0) + spacing * (chars.length - 1);
+    var x = cx - total / 2; ctx.textAlign = 'left';
+    chars.forEach(function (ch, i) { ctx.fillText(ch, x, y); x += widths[i] + spacing; });
+  }
+
+  function drawResults(rec) {
+    var ready = Promise.resolve();
+    if (document.fonts && document.fonts.load) {
+      ready = Promise.all([document.fonts.load('500 40px "Playfair Display"'), document.fonts.load('600 20px Inter'), document.fonts.load('700 20px Inter')]).catch(function () {});
+    }
+    return ready.then(function () {
+      var cr = computeRec(rec), n = rec.names.length;
+      var W = 1200, M = 44, inner = W - M * 2, rankW = 64, nameW = 216, totW = 124, cellW = (inner - rankW - nameW - totW) / 8;
+      var topH = 340, headH = 96, rowH = 92, bidH = 80, footH = 100;
+      var H = topH + headH + n * rowH + bidH + footH;
+      var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+      var ctx = cv.getContext('2d');
+      ctx.textBaseline = 'alphabetic';
+
+      ctx.fillStyle = CV.bg; ctx.fillRect(0, 0, W, H);
+      var glow = ctx.createRadialGradient(W / 2, 0, 0, W / 2, 0, 720);
+      glow.addColorStop(0, 'rgba(201,169,106,.16)'); glow.addColorStop(1, 'rgba(201,169,106,0)');
+      ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = 'rgba(201,169,106,.55)'; ctx.lineWidth = 2; ctx.strokeRect(20, 20, W - 40, H - 40);
+
+      // title and date
+      ctx.fillStyle = CV.ink; ctx.font = '500 62px ' + SERIF; spaced(ctx, 'PROPHECY', W / 2, 120, 16);
+      ctx.fillStyle = CV.gold; ctx.font = '24px ' + SANS; spaced(ctx, '♠  ♥  ♣  ♦', W / 2, 162, 10);
+      var when = new Date(rec.finishedAt || Date.now());
+      ctx.fillStyle = CV.muted; ctx.font = '600 20px ' + SANS;
+      spaced(ctx, when.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase(), W / 2, 206, 3);
+
+      // status panel
+      var best = Math.max.apply(null, cr.res.map(function (x) { return x.final; }));
+      var leaders = rec.names.filter(function (_, i) { return cr.res[i].final === best; });
+      var label, main;
+      if (cr.complete) { label = (leaders.length > 1 ? 'JOINT WINNERS' : 'WINNER') + '  ·  ' + best + ' POINTS'; main = leaders.join(' & '); }
+      else if (cr.roundsDone > 0) { label = 'IN PROGRESS  ·  AFTER ' + cr.roundsDone + ' OF 8 ROUNDS'; main = leaders.join(' & ') + (leaders.length > 1 ? ' lead' : ' leads'); }
+      else { label = 'IN PROGRESS'; main = 'Game under way'; }
+      var px = M + 120, pw = inner - 240, py = 232, ph = 96;
+      rr(ctx, px, py, pw, ph, 18); ctx.fillStyle = 'rgba(201,169,106,.12)'; ctx.fill();
+      ctx.strokeStyle = CV.gold; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = CV.gold; ctx.font = '600 16px ' + SANS; spaced(ctx, label, W / 2, py + 30, 4);
+      var size = 42; ctx.font = '500 ' + size + 'px ' + SERIF;
+      while (ctx.measureText(main).width > pw - 40 && size > 22) { size -= 2; ctx.font = '500 ' + size + 'px ' + SERIF; }
+      ctx.fillStyle = CV.ink; ctx.textAlign = 'center'; ctx.fillText(main, W / 2, py + 76);
+
+      // table geometry
+      var y0 = topH, xName = M + rankW, xT = xName + nameW + 8 * cellW;
+      var xR = function (r) { return xName + nameW + r * cellW; };
+      ctx.fillStyle = CV.surface2; ctx.fillRect(M, y0, inner, headH);
+      ctx.fillStyle = CV.muted; ctx.font = '600 15px ' + SANS; ctx.textAlign = 'left'; ctx.fillText('PLAYER', xName + 8, y0 + 58);
+      ROUNDS.forEach(function (c, r) {
+        ctx.fillStyle = CV.ink; ctx.font = '500 40px ' + SERIF; ctx.textAlign = 'center'; ctx.fillText(String(c), xR(r) + cellW / 2, y0 + 56);
+        ctx.fillStyle = CV.muted; ctx.font = '600 12px ' + SANS; spaced(ctx, 'CARDS', xR(r) + cellW / 2, y0 + 80, 3);
+      });
+      ctx.fillStyle = CV.gold; ctx.font = '700 16px ' + SANS; spaced(ctx, 'TOTAL', xT + totW / 2, y0 + 58, 3);
+      ctx.strokeStyle = CV.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(M, y0 + headH); ctx.lineTo(M + inner, y0 + headH); ctx.stroke();
+
+      // player rows, best first
+      cr.order.forEach(function (pi, idx) {
+        var y = y0 + headH + idx * rowH, tt = cr.res[pi], lead = cr.rank[pi] === 0 && cr.roundsDone > 0;
+        if (lead) { ctx.fillStyle = 'rgba(201,169,106,.08)'; ctx.fillRect(M, y, inner, rowH); }
+        ctx.textAlign = 'center'; ctx.font = '500 32px ' + SERIF; ctx.fillStyle = lead ? CV.gold : CV.muted;
+        ctx.fillText(String(cr.rank[pi] + 1), M + rankW / 2, y + rowH / 2 + 11);
+        ctx.textAlign = 'left'; ctx.font = '600 26px ' + SANS; ctx.fillStyle = CV.ink;
+        ctx.fillText(fit(ctx, rec.names[pi], nameW - 16), xName + 8, y + rowH / 2 + 9);
+        ROUNDS.forEach(function (c, r) {
+          var x = xR(r), p = rec.p[pi][r], a = rec.a[pi][r], v = tt.cells[r], cx = x + cellW / 2;
+          ctx.textAlign = 'center';
+          if (v !== null) {
+            ctx.fillStyle = p === a ? 'rgba(147,183,159,.10)' : 'rgba(201,138,138,.10)'; ctx.fillRect(x + 1, y + 1, cellW - 1, rowH - 1);
+            ctx.font = '600 17px ' + SANS; ctx.fillStyle = CV.muted; ctx.fillText(p + ' / ' + a, cx, y + 31);
+            ctx.font = '700 33px ' + SANS; ctx.fillStyle = v > 0 ? CV.pos : v < 0 ? CV.neg : CV.ink; ctx.fillText(String(v), cx, y + 69);
+          } else if (p !== null || a !== null) {
+            ctx.font = '600 17px ' + SANS; ctx.fillStyle = CV.muted;
+            ctx.fillText((p === null ? '-' : p) + ' / ' + (a === null ? '-' : a), cx, y + 56);
+          }
+        });
+        ctx.textAlign = 'center'; ctx.font = '700 40px ' + SANS;
+        ctx.fillStyle = lead ? CV.gold : (tt.final > 0 ? CV.pos : tt.final < 0 ? CV.neg : CV.ink);
+        ctx.fillText(String(tt.final), xT + totW / 2, y + rowH / 2 + 14);
+        ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(M, y + rowH + .5); ctx.lineTo(M + inner, y + rowH + .5); ctx.stroke();
+      });
+
+      // bids row
+      var yb = y0 + headH + n * rowH;
+      ctx.fillStyle = CV.surface2; ctx.fillRect(M, yb, inner, bidH);
+      ctx.fillStyle = CV.gold; ctx.font = '600 15px ' + SANS; ctx.textAlign = 'left'; ctx.fillText('BIDS', xName + 8, yb + 46);
+      ROUNDS.forEach(function (c, r) {
+        var b = bidInfo(rec.p, r); if (!b) return;
+        var cx = xR(r) + cellW / 2;
+        ctx.textAlign = 'center'; ctx.font = '500 32px ' + SERIF; ctx.fillStyle = CV.ink; ctx.fillText(String(b.sum), cx, yb + 38);
+        ctx.font = '600 14px ' + SANS; ctx.fillStyle = b.diff === 0 ? CV.gold : CV.muted; ctx.fillText(b.label, cx, yb + 62);
+      });
+      ctx.strokeStyle = 'rgba(201,169,106,.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(M, yb); ctx.lineTo(M + inner, yb); ctx.stroke();
+
+      // column rules
+      ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+      [xName, xR(0)].concat(ROUNDS.map(function (c, r) { return xR(r + 1); })).forEach(function (x) {
+        ctx.beginPath(); ctx.moveTo(x + .5, y0); ctx.lineTo(x + .5, yb + bidH); ctx.stroke();
+      });
+
+      ctx.fillStyle = CV.gold; ctx.font = '22px ' + SANS; spaced(ctx, '♠  ♥  ♣  ♦', W / 2, H - 46, 10);
+      return cv;
+    });
+  }
+
+  function summaryText(rec) {
+    var cr = computeRec(rec), d = new Date(rec.finishedAt || Date.now());
+    var lines = ['Prophecy results, ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })];
+    cr.order.forEach(function (pi) { lines.push((cr.rank[pi] + 1) + '. ' + rec.names[pi] + ' ' + cr.res[pi].final); });
+    return lines.join('\n');
+  }
+
+  function fallbackShare(blob, name, text) {
+    var url = URL.createObjectURL(blob), a = document.createElement('a');
+    a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+    toast('Image saved. Attach it in WhatsApp.', false);
+    window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  }
+
+  // Opens the phone's share sheet with the results image (pick WhatsApp there).
+  // Where that is not available (most desktops) the image is downloaded and WhatsApp opens with the text.
+  function shareRecord(rec) {
+    return drawResults(rec).then(function (cv) {
+      return new Promise(function (resolve) { cv.toBlob(resolve, 'image/png'); });
+    }).then(function (blob) {
+      if (!blob) { toast('Could not create the image.', true, 'Share'); return; }
+      var d = new Date(rec.finishedAt || Date.now());
+      var name = 'prophecy-' + d.toISOString().slice(0, 10) + '.png', file = null, text = summaryText(rec);
+      try { file = new File([blob], name, { type: 'image/png' }); } catch (e) {}
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        return navigator.share({ files: [file], title: 'Prophecy results', text: text }).catch(function (e) {
+          if (e && e.name === 'AbortError') return;
+          fallbackShare(blob, name, text);
+        });
+      }
+      fallbackShare(blob, name, text);
+    });
+  }
+
+  $('winner').addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('button[data-act]');
+    if (b) {
+      if (b.dataset.act === 'save') saveToHistory(false); else shareRecord(recFromGame());
+      return;
+    }
+    fireworks();
+  });
+  $('share').addEventListener('click', function () { shareRecord(recFromGame()); });
+  $('open-history').addEventListener('click', function () { openHistory('game'); });
+  $('open-history-setup').addEventListener('click', function () { openHistory('setup'); });
+  $('history-back').addEventListener('click', function () { show(historyFrom); });
 
   $('board').addEventListener('input', function (e) {
     var el = e.target;
@@ -605,9 +1131,10 @@
 
   // Locked cells: a tap only shows a hint. Holding for HOLD_MS opens the admin prompt.
   var HOLD_MS = 700, holdTimer = null, holdEl = null, holdStart = null, toastTimer = null;
-  function toast(msg, isError) {
+  function toast(msg, isError, label) {
     var t = $('toast');
     t.textContent = msg;
+    t.dataset.label = label || 'Not possible';
     t.classList.toggle('error', !!isError);
     t.classList.remove('hidden');
     placeToast();
@@ -704,11 +1231,13 @@
   function show(which) {
     $('setup').classList.toggle('hidden', which !== 'setup');
     $('game').classList.toggle('hidden', which !== 'game');
+    $('history').classList.toggle('hidden', which !== 'history');
   }
 
   $('start').addEventListener('click', startGame);
   $('reset').addEventListener('click', function () {
-    if (!confirm('Start a new game? This clears the current scores.')) return;
+    var unsaved = isComplete() && !isSaved();
+    if (!confirm(unsaved ? 'This finished game has not been saved to history. Start a new game anyway?' : 'Start a new game? This clears the current scores.')) return;
     try { localStorage.removeItem(STORE); } catch (e) {}
     game = null;
     celebrated = false;
