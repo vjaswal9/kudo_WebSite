@@ -240,6 +240,8 @@
   .guide .gold { color: var(--gold); }
   td.future .inputs input { opacity: .4; }
   td.future .inputs input::placeholder { opacity: .6; }
+  .tbtns { display: flex; align-items: center; gap: 8px; }
+  .ghost.icon { width: 38px; height: 38px; padding: 0; border-radius: 50%; font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1; color: var(--gold); }
   .hidden { display: none !important; }
 
   @media (max-width: 480px) {
@@ -279,14 +281,13 @@
 <section id="game" class="hidden">
   <div class="toolbar">
     <div class="brand"><h1>Prophecy</h1><span class="suits" aria-hidden="true">&spades; &hearts; &clubs; &diams;</span></div>
-    <button class="ghost" id="reset" type="button">New game</button>
+    <div class="tbtns">
+      <button class="ghost icon" id="open-help" type="button" aria-label="How to play" title="How to play">?</button>
+      <button class="ghost" id="reset" type="button">New game</button>
+    </div>
   </div>
   <div class="legend" aria-label="How to read each box">
     <span><b>Top</b> prophecy</span><span><b>Bottom</b> actual</span><span><b>Right</b> running total</span>
-  </div>
-  <div class="actions">
-    <button class="ghost" id="open-help" type="button">How to play</button>
-    <button class="ghost" id="open-history" type="button">History</button>
   </div>
   <div id="winner" class="hidden"></div>
   <div id="standings" aria-label="Standings"></div>
@@ -345,7 +346,8 @@
 
     <h2>History</h2>
     <ul>
-      <li>Tap <b>History</b> to see every saved game, newest first. Tap a game to open its full scorecard, share it or delete it.</li>
+      <li>Tap <b>History</b> to see every saved game, newest first. You will find it on the setup screen, and on the winner card once a game has finished. Tap a game to open its full scorecard, share it or delete it.</li>
+      <li>During a game the only buttons at the top are <b>?</b>, which brings you back to this page, and <b>New game</b>.</li>
       <li>History is shared. Anyone with this page's link sees the same list and can add or delete games, so keep the link among friends.</li>
     </ul>
 
@@ -689,7 +691,9 @@
     else save.textContent = game.savedSig ? 'Save changes' : 'Save to history';
     var share = document.createElement('button'); share.type = 'button'; share.className = 'ghost'; share.dataset.act = 'share';
     share.className = 'ghost wa'; share.innerHTML = WA_ICO + 'Share results';
-    box.appendChild(save); box.appendChild(share);
+    var hist = document.createElement('button'); hist.type = 'button'; hist.className = 'ghost'; hist.dataset.act = 'history';
+    hist.textContent = 'History';
+    box.appendChild(save); box.appendChild(share); box.appendChild(hist);
     return box;
   }
   function renderWinnerButtons() {
@@ -1132,12 +1136,13 @@
   $('winner').addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('button[data-act]');
     if (b) {
-      if (b.dataset.act === 'save') saveToHistory(false); else shareRecord(recFromGame());
+      if (b.dataset.act === 'save') saveToHistory(false);
+      else if (b.dataset.act === 'history') openHistory('game');
+      else shareRecord(recFromGame());
       return;
     }
     fireworks();
   });
-  $('open-history').addEventListener('click', function () { openHistory('game'); });
   $('open-history-setup').addEventListener('click', function () { openHistory('setup'); });
   $('history-back').addEventListener('click', function () { show(historyFrom); });
   function openHelp(from) { helpFrom = from; show('help'); window.scrollTo(0, 0); }
