@@ -55,6 +55,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/faq" />
   </url>
 
+  <!-- ── Article: Open-Weight AI Models ── -->
+  <url>
+    <loc>https://www.kudoadvisory.com/insights/open-weight-ai-models-uae</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.kudoadvisory.com/insights/open-weight-ai-models-uae" />
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://www.kudoadvisory.com/insights/open-weight-ai-models-uae" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kudoadvisory.com/insights/open-weight-ai-models-uae" />
+  </url>
+
   <!-- ── Article: AI Governance Checklist UAE ── -->
   <url>
     <loc>https://www.kudoadvisory.com/insights/ai-governance-checklist-uae</loc>

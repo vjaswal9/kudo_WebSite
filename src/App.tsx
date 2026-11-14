@@ -43,6 +43,7 @@ export const routes: RouteRecord[] = [
       { path: "about", lazy: async () => ({ Component: (await import("./pages/About")).default }) },
       { path: "insights", lazy: async () => ({ Component: (await import("./pages/Insights")).default }) },
       { path: "faq", lazy: async () => ({ Component: (await import("./pages/FAQ")).default }) },
+      { path: "insights/open-weight-ai-models-uae", lazy: async () => ({ Component: (await import("./pages/articles/OpenWeightModels")).default }) },
       { path: "insights/ai-governance-checklist-uae", lazy: async () => ({ Component: (await import("./pages/articles/AIGovernanceChecklistUAE")).default }) },
       { path: "insights/ai-use-case-scorecard", lazy: async () => ({ Component: (await import("./pages/articles/AIUseCaseScorecard")).default }) },
       { path: "insights/the-ai-meeting-nobody-admits-to", lazy: async () => ({ Component: (await import("./pages/articles/TheAIMeeting")).default }) },

@@ -13,6 +13,15 @@ export interface ArticleEntry {
 
 export const ARTICLES: ArticleEntry[] = [
   {
+    slug: "open-weight-ai-models-uae",
+    title: "Open-Weight AI Models: A Practical Guide for UAE Enterprises",
+    titleAr: "نماذج الذكاء الاصطناعي مفتوحة الأوزان: دليل عملي لمؤسسات الإمارات",
+    category: "AI Strategy",
+    categoryAr: "استراتيجية الذكاء الاصطناعي",
+    readTime: "7 min read",
+    readTimeAr: "7 دقائق قراءة",
+  },
+  {
     slug: "ai-governance-checklist-uae",
     title: "The AI Governance Checklist for Evaluating Use Cases in the UAE",
     titleAr: "قائمة تحقق لحوكمة الذكاء الاصطناعي لتقييم حالات الاستخدام في الإمارات",

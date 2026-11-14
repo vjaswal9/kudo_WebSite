@@ -32,6 +32,7 @@ PAGES = [
     ("about", "Founder & CEO, Kudo Advisory", "Vijay Jaswal"),
     ("insights", "Insights · Kudo Advisory", "Practical AI thinking for enterprise leaders"),
     # Articles (most shared on LinkedIn)
+    ("open-weight-ai-models-uae", "Insights", "Open-weight AI models: a UAE enterprise guide"),
     ("the-ai-meeting-nobody-admits-to", "Insights", "The AI meeting every leadership team has had"),
     ("ai-governance-checklist-uae", "Insights", "The AI governance checklist for UAE use cases"),
     ("ai-use-case-scorecard", "Insights", "An AI use case scorecard, a worked example"),

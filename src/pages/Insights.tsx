@@ -47,6 +47,17 @@ function AnimatedSection({
 ──────────────────────────────────────────────────────── */
 const articles = [
   {
+    slug: "open-weight-ai-models-uae",
+    category: "AI Strategy",
+    title: "Open-Weight AI Models: A Practical Guide for UAE Enterprises",
+    excerpt:
+      "What open-weight models really are, when they beat closed APIs, what they truly cost to run, and the five checks to make before approving one.",
+    date: "2026-09-16",
+    readTime: "7 min read",
+    author: "Vijay Jaswal",
+    coming: false,
+  },
+  {
     slug: "ai-governance-checklist-uae",
     category: "AI Governance",
     title: "The AI Governance Checklist for Evaluating Use Cases in the UAE",
