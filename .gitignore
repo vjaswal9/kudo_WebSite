@@ -45,3 +45,8 @@ scripts/build_dove_brief.py
 
 # Leftover local source-image staging folder
 Documents/
+
+# Invoices (contain real client/bank details, never public)
+/invoices/
+/scripts/invoice_config_private.py
+/scripts/invoice_job_private.py
