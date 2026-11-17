@@ -250,8 +250,9 @@ export default function About() {
             </AnimatedSection>
 
             {/* Video thumbnails (open YouTube in a new tab) */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
+                { thumb: "/media/tbcy.jpg", title: isRTL ? "تحويل ما قبل البيع: رؤى من فيجاي جسوال" : "Transforming Pre-Sales: Insights from Vijay Jaswal", source: "The Brand Called You · Podcast", url: "https://www.youtube.com/watch?v=mef__2hw4Jg" },
                 { thumb: "/media/techdogs.jpg", title: isRTL ? "توسيع ذكاء الأصول والذكاء الاصطناعي ورشاقة الأعمال" : "Scaling Asset Intelligence, AI & Business Agility", source: "TechDogs · Discover Dialogues", url: "https://www.youtube.com/shorts/SfhDywUmd4g" },
                 { thumb: "/media/leap22.jpg", title: isRTL ? "مقابلة LEAP حول الذكاء الاصطناعي المؤسسي" : "Exhibitor interview on enterprise AI", source: "LEAP · Riyadh", url: "https://www.youtube.com/watch?v=98s-ZgwezHs" },
               ].map((v, i) => (
